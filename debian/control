@@ -10,8 +10,8 @@ Vcs-Browser: http://git.debian.org/?p=collab-maint/winetricks.git;a=summary
 
 Package: winetricks
 Architecture: all
-Depends: ${misc:Depends}, wine | wine-unstable, wget, cabextract, unzip, 
-Recommends: zenity |  kdebase-bin, xdg-utils, gksu
+Depends: ${misc:Depends}, wine | wine-unstable, wget, cabextract, unzip,
+Recommends: zenity | kdebase-bin, xdg-utils, gksu
 Description: package manager for WINE to install software easily
  A POSIX shell script 'package manager' for WINE to install some
  Windows software easily. The list of downloadable applications can be
