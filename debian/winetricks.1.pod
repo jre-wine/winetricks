@@ -170,7 +170,7 @@ Not applicaple.
 
 =head1 AVAILABILITY
 
-http://code.google.com/p/winetricks
+http://freshmeat.net/projects/winetricks
 
 =head1 SEE ALSO
 
