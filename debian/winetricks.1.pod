@@ -1,0 +1,188 @@
+#   Copyright
+#
+#	Copyright (C) 2011 Jari Aalto
+#
+#   License
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+#
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#       GNU General Public License for more details.
+#
+#       You should have received a copy of the GNU General Public License
+#       along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+#   Description
+#
+#	To learn what TOP LEVEL sections to use in manual pages,
+#	see POSIX/Susv standard and "Utility Description Defaults" at
+#	http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap01.html#tag_01_11
+#
+#	This is manual page in Perl POD format. Read more at
+#	http://perldoc.perl.org/perlpod.html or run command:
+#
+#	    perldoc perlpod | less
+#
+#	To check the syntax:
+#
+#	    podchecker *.pod
+#
+#	Create manual page with command:
+#
+#	    pod2man PAGE.N.pod > PAGE.N
+
+=pod
+
+=head1 NAME
+
+winetrick - WINE pacage manager to install software easily
+
+=head1 SYNOPSIS
+
+   winetrick [options] COMMAND
+
+=head1 DESCRIPTION
+
+A POSIX shell script 'package manager' for WINE to install some
+Windows software easily. The list of downloadable applications can be
+retrieved over the net. The list contains about 70 applications
+including 3dmark2001, corefonts, cygwin, directx9, dotnet35, droid,
+firefox, flash, ie8, mspaint, msxml6, python26, quicktime76, safari,
+spotify, utorrent, vb6run, vcrun2010, vlc and xvid.
+
+The command verbs recognized are listed in next section.
+
+=head1 COMMANDS
+
+=over 4
+
+=item B<apps>
+
+Select type I<apps>.
+
+=item B<games>
+
+Select type I<game>.'
+
+=item B<list>
+
+List verbs from selected category.  E.g. To see all games, run command
+C<games list>.
+
+=item B<list-cached>
+
+List cached and ready to install applications.
+
+=item B<list-download>
+
+List applications which can be downloaded automatically.
+
+=item B<list-manual-download>
+
+List applications which can be downloaded with some help from the user.
+
+=item B<list-installed>
+
+List already installed applications.
+
+=item B<prefix=VALUE>
+
+Select WINEPREFIX=/home/jaalto/.local/share/wineprefixes/VALUE
+
+=back
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-gui>
+
+Show gui diagnostics even when driven by commandline.
+
+=item B<-h, --help>
+
+Display this message and exit.
+
+=item B<--isolate-games>
+
+Install each game in its own bottle.
+
+=item B<-k, --keep_isos>
+
+Cache isos (allows later installation without disc).
+
+=item B<--noclean>
+
+Don't delete temp directories (useful during debugging).
+
+=item B<-q, --unattended>
+
+Don't ask any questions, just install automatically.
+
+=item B<-r, --ddrescue>
+
+Alternate method of disc access (helps with scratched discs)
+
+=item B<--showbroken>
+
+Even show verbs that are currently broken in wine.
+
+=item B<-v, --verbose>
+
+Echo all commands as they are executed.
+
+=item B<-V, --version>
+
+Display version and exit.
+
+Display version information.
+
+=back
+
+=head1 EXAMPLES
+
+To see list of available packages to install:
+
+    winetricks list-download
+
+To install a package:
+
+    winetricks 7zip
+
+=head1 ENVIRONMENT
+
+Vriable I<WINEPREFIX> indicates location of Wine installation.
+
+None.
+
+=head1 FILES
+
+Programs are installef under C<$HOME/.wine>.
+
+=head1 STANDARDS
+
+Not applicaple.
+
+=head1 AVAILABILITY
+
+http://code.google.com/p/winetricks
+
+=head1 SEE ALSO
+
+wine(1)
+
+=head1 AUTHORS
+
+Program was written by Dan Kegel <dank@kegel.com>.
+
+This manual page was written by Jari Aalto <jari.aalto@cante.net>.
+Released under license GNU GPL version 2 or (at your option) any
+later version. For more information about license, visit
+<http://www.gnu.org/copyleft/gpl.html>.
+
+=cut

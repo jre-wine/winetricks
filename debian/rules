@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+
+PACKAGE		= winetricks
+BIN		= $(PACKAGE)-alpha
+
+PKGDIR          = $(shell pwd)/debian/$(PACKAGE)
+BINDIR          = $(PKGDIR)/usr/bin
+
+CHANGELOG	= debian/upstream.changelog
+URL		= http://winetricks.googlecode.com/svn/trunk
+
+include debian/pod2man.mk
+
+# Run manually when package is updated
+get-changelog:
+	svn log $(URL) > $(CHANGELOG)
+
+man:
+	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
+
+override_dh_installchangelogs:
+	dh_installchangelogs $(CHANGELOG)
+
+override_dh_auto_install: man
+	install -m 755 -D $(BIN) $(BINDIR)/$(PACKAGE)
+
+%:
+	dh $@
+
+# End of file

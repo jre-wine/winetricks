@@ -1,0 +1,24 @@
+Source: winetricks
+Section: otherosfs
+Priority: optional
+Maintainer: Jari Aalto <jari.aalto@cante.net>
+Build-Depends: debhelper (>= 8)
+Standards-Version: 3.9.1
+Homepage: http://code.google.com/p/winetricks
+Vcs-Git: git://git.debian.org/collab-maint/winetricks.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/winetricks.git;a=summary
+
+Package: winetricks
+Architecture: all
+Depends: ${misc:Depends}, wine | wine-unstable, wget, cabextract, unzip, 
+Recommends: zenity |  kdebase-bin, xdg-utils, gksu
+Description: package manager for WINE to install software easily
+ A POSIX shell script 'package manager' for WINE to install some
+ Windows software easily. The list of downloadable applications can be
+ retrieved over the net. The list contains about 70 applications
+ including 3dmark2001, corefonts, cygwin, directx9, dotnet35, droid,
+ firefox, flash, ie8, mspaint, msxml6, python26, quicktime76, safari,
+ spotify, utorrent, vb6run, vcrun2010, vlc and xvid.
+ .
+ To use GUI progress bar, install package "zenity". To read manuals,
+ install package "xdg-utils".
