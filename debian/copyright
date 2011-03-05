@@ -1,7 +1,8 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Name: winetricks
 Upstream-Contact: Dan Kegel <dank@kegel.com>
-Source: http://code.google.com/p/winetricks/
+Source: http://freshmeat.net/projects/winetricks
+X-Upstream-Devel: http://code.google.com/p/winetricks
 X-Upstream-Vcs: svn checkout http://winetricks.googlecode.com/svn/trunk/ winetricks
 X-Upstream-Bugs: http://code.google.com/p/winetricks/issues/list
 Comment: The program depends on multiple optional utilities
