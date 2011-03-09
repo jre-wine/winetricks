@@ -1,5 +1,5 @@
 winetricks (0.0~20110305+svn220-1) unstable; urgency=low
 
-  * Initial release (Closes: #616539).
+  * Initial release (Closes: #595427).
 
- -- Jari Aalto <jari.aalto@cante.net>  Sat, 05 Mar 2011 13:42:37 +0200
+ -- Jari Aalto <jari.aalto@cante.net>  Wed, 09 Mar 2011 09:28:55 +0200
