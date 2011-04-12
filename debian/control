@@ -1,5 +1,5 @@
 Source: winetricks
-Section: otherosfs
+Section: contrib/otherosfs
 Priority: optional
 Maintainer: Jari Aalto <jari.aalto@cante.net>
 Build-Depends: debhelper (>= 8)
