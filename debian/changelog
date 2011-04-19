@@ -1,3 +1,15 @@
+winetricks (0.0~20110305+svn220-2) unstable; urgency=low
+
+  * NOT RELEASED
+  * debian/control
+    - (Description): Explain better what other packages may be needed.
+    - (Depends): Add p7zip.
+    - (Recommends): Add sudo.
+  * debian/copyright
+    - Update word "Lesser" to "Library" (see #595427).
+
+ -- Jari Aalto <jari.aalto@cante.net>  Tue, 19 Apr 2011 10:46:25 +0300
+
 winetricks (0.0~20110305+svn220-1) unstable; urgency=low
 
   * Initial release (Closes: #595427).
