@@ -15,13 +15,14 @@ include debian/pod2man.mk
 get-changelog:
 	svn log $(URL) > $(CHANGELOG)
 
-man:
+# See debian/manpages
+man-old:
 	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
 
 override_dh_installchangelogs:
 	dh_installchangelogs $(CHANGELOG)
 
-override_dh_auto_install: man
+override_dh_auto_install:
 	install -m 755 -D $(BIN) $(BINDIR)/$(PACKAGE)
 
 %:
