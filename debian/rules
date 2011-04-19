@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 PACKAGE		= winetricks
-BIN		= $(PACKAGE)-alpha
+BIN		= $(PACKAGE)
 
 PKGDIR          = $(shell pwd)/debian/$(PACKAGE)
 BINDIR          = $(PKGDIR)/usr/bin
