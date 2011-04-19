@@ -1,2 +1,3 @@
 version=3
-# No watch. Packaged from SVN.
+# NOTE: Due to rapid changes, best packaged from SVN.
+http://winetricks.org/download/releases .*winetricks-([\d.]+).tgz
