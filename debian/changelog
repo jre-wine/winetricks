@@ -15,8 +15,10 @@ winetricks (0.0~20110419+svn493-1) unstable; urgency=low
     - (man): No longer needed. Upstream contains manual page.
   * "debian/upstream.changelog
     - Update to current release.
+  * debian/watch
+    - Add URL.
 
- -- Jari Aalto <jari.aalto@cante.net>  Tue, 19 Apr 2011 13:51:51 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Tue, 19 Apr 2011 19:32:33 +0300
 
 winetricks (0.0~20110305+svn220-1) unstable; urgency=low
 
