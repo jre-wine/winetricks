@@ -1,4 +1,897 @@
 ------------------------------------------------------------------------
+r492 | austinenglish@gmail.com | 2011-04-19 06:58:00 +0300 (Tue, 19 Apr 2011) | 2 lines
+
+winetricks: avoid using Send() in load_amnesia_tdd_demo()
+
+------------------------------------------------------------------------
+r490 | daniel.r.kegel@gmail.com | 2011-04-19 02:19:32 +0300 (Tue, 19 Apr 2011) | 1 line
+
+amnesia_tdd_demo: fix install script hang
+------------------------------------------------------------------------
+r489 | daniel.r.kegel@gmail.com | 2011-04-18 07:56:25 +0300 (Mon, 18 Apr 2011) | 1 line
+
+Bump version to 20110417
+------------------------------------------------------------------------
+r488 | daniel.r.kegel@gmail.com | 2011-04-18 07:49:48 +0300 (Mon, 18 Apr 2011) | 1 line
+
+vjrun20: fix install check
+------------------------------------------------------------------------
+r487 | daniel.r.kegel@gmail.com | 2011-04-18 07:44:52 +0300 (Mon, 18 Apr 2011) | 1 line
+
+utorrent3: updated sha1sum
+------------------------------------------------------------------------
+r486 | daniel.r.kegel@gmail.com | 2011-04-18 07:42:22 +0300 (Mon, 18 Apr 2011) | 1 line
+
+utorrent: updated sha1sum
+------------------------------------------------------------------------
+r485 | daniel.r.kegel@gmail.com | 2011-04-18 07:36:15 +0300 (Mon, 18 Apr 2011) | 1 line
+
+msi2: work around wine bug 26816 introduced by new fake mspatcha.dll
+------------------------------------------------------------------------
+r484 | daniel.r.kegel@gmail.com | 2011-04-18 06:27:32 +0300 (Mon, 18 Apr 2011) | 1 line
+
+masseffect2_demo: fix install check.  Ditto for masseffect2.
+------------------------------------------------------------------------
+r483 | daniel.r.kegel@gmail.com | 2011-04-18 05:14:41 +0300 (Mon, 18 Apr 2011) | 1 line
+
+sc2_demo: tweak wait a bit, added FIXME.
+------------------------------------------------------------------------
+r481 | daniel.r.kegel | 2011-04-18 00:22:13 +0300 (Mon, 18 Apr 2011) | 1 line
+
+ie6: this version always installs to c:/Program Files, even if LANG is nonenglish
+------------------------------------------------------------------------
+r480 | daniel.r.kegel | 2011-04-17 20:45:03 +0300 (Sun, 17 Apr 2011) | 1 line
+
+dotnet20: zip a file to get it past strange web proxies.  Fixes issue 25.
+------------------------------------------------------------------------
+r479 | daniel.r.kegel | 2011-04-17 20:01:06 +0300 (Sun, 17 Apr 2011) | 1 line
+
+Fix english help message harder.  Align with whitespace rather than colons.
+------------------------------------------------------------------------
+r478 | daniel.r.kegel | 2011-04-17 19:31:08 +0300 (Sun, 17 Apr 2011) | 1 line
+
+Improve output of --help a bit
+------------------------------------------------------------------------
+r477 | daniel.r.kegel | 2011-04-17 03:56:33 +0300 (Sun, 17 Apr 2011) | 1 line
+
+dotnet20sp2: brought back old verb, updated workarounds now that wine supports it better.  Still not quite sure I trust it, and it doesn't support -q for now.
+------------------------------------------------------------------------
+r476 | daniel.r.kegel | 2011-04-16 22:27:29 +0300 (Sat, 16 Apr 2011) | 1 line
+
+Remove one bashism: export can't be on same line as setting a variable
+------------------------------------------------------------------------
+r475 | daniel.r.kegel | 2011-04-16 22:26:32 +0300 (Sat, 16 Apr 2011) | 1 line
+
+dragonage_ue: new verb.  w_mount: support mulitple discs with same volume name in one title.
+------------------------------------------------------------------------
+r474 | daniel.r.kegel | 2011-04-16 06:33:34 +0300 (Sat, 16 Apr 2011) | 1 line
+
+hon: removed; it was out of date, and there's a linux client
+------------------------------------------------------------------------
+r473 | daniel.r.kegel | 2011-04-16 06:19:18 +0300 (Sat, 16 Apr 2011) | 1 line
+
+cim_demo: updated url
+------------------------------------------------------------------------
+r472 | daniel.r.kegel@gmail.com | 2011-04-16 00:34:43 +0300 (Sat, 16 Apr 2011) | 1 line
+
+darkspore_beta_demo: quickie, non automated draft
+------------------------------------------------------------------------
+r471 | austinenglish@gmail.com | 2011-04-16 00:21:44 +0300 (Sat, 16 Apr 2011) | 2 lines
+
+port splitsecond_demo from wisotool
+
+------------------------------------------------------------------------
+r470 | austinenglish@gmail.com | 2011-04-16 00:15:41 +0300 (Sat, 16 Apr 2011) | 2 lines
+
+port Spore from wisotool
+
+------------------------------------------------------------------------
+r469 | austinenglish@gmail.com | 2011-04-15 23:48:35 +0300 (Fri, 15 Apr 2011) | 2 lines
+
+winetricks: port mise/popfs from wisotool
+
+------------------------------------------------------------------------
+r468 | austinenglish@gmail.com | 2011-04-15 02:03:22 +0300 (Fri, 15 Apr 2011) | 2 lines
+
+winetricks: port deadspace from wisotool
+
+------------------------------------------------------------------------
+r467 | austinenglish@gmail.com | 2011-04-15 00:23:34 +0300 (Fri, 15 Apr 2011) | 2 lines
+
+port cod5_waw from wisotool
+
+------------------------------------------------------------------------
+r466 | austinenglish@gmail.com | 2011-04-14 00:49:03 +0300 (Thu, 14 Apr 2011) | 2 lines
+
+winetricks: port braid/braid_demo from wisotool
+
+------------------------------------------------------------------------
+r465 | daniel.r.kegel | 2011-04-13 16:44:07 +0300 (Wed, 13 Apr 2011) | 1 line
+
+Expanded copyright holder list.  Fixes issue 26.
+------------------------------------------------------------------------
+r464 | daniel.r.kegel | 2011-04-13 03:27:11 +0300 (Wed, 13 Apr 2011) | 1 line
+
+mono210: fix verb to work on windows
+------------------------------------------------------------------------
+r463 | daniel.r.kegel | 2011-04-10 08:00:26 +0300 (Sun, 10 Apr 2011) | 1 line
+
+mdac27: brought back from grave, point to manual cnet download.  Still needs internationalization.
+------------------------------------------------------------------------
+r462 | daniel.r.kegel | 2011-04-10 03:54:59 +0300 (Sun, 10 Apr 2011) | 1 line
+
+Use perl instead of sed -u, since bsd sed doesn't have a line-buffered option
+------------------------------------------------------------------------
+r461 | daniel.r.kegel | 2011-04-10 03:34:00 +0300 (Sun, 10 Apr 2011) | 1 line
+
+w_download: move cryptic sed line into its own function
+------------------------------------------------------------------------
+r460 | daniel.r.kegel@gmail.com | 2011-04-09 18:51:43 +0300 (Sat, 09 Apr 2011) | 1 line
+
+Fix bad encoding in uTorrent name, add utf8 test comments at top.  Fixes issue 21.
+------------------------------------------------------------------------
+r454 | daniel.r.kegel | 2011-04-08 03:24:18 +0300 (Fri, 08 Apr 2011) | 1 line
+
+3dmark0[356]: one download site gone, switch to a different one
+------------------------------------------------------------------------
+r453 | daniel.r.kegel | 2011-04-07 13:38:25 +0300 (Thu, 07 Apr 2011) | 1 line
+
+tmnationsforever: update checksum.  Reported by JonoAllman on twitter.
+------------------------------------------------------------------------
+r452 | daniel.r.kegel@gmail.com | 2011-04-07 12:56:02 +0300 (Thu, 07 Apr 2011) | 1 line
+
+ut3: use SetWinDelay; also wait for right window (avoids hang when system busy)
+------------------------------------------------------------------------
+r451 | daniel.r.kegel@gmail.com | 2011-04-06 01:50:24 +0300 (Wed, 06 Apr 2011) | 1 line
+
+splitsecond: fix metadata
+------------------------------------------------------------------------
+r450 | daniel.r.kegel@gmail.com | 2011-04-06 01:37:22 +0300 (Wed, 06 Apr 2011) | 1 line
+
+simsmed: make the .net error windows optional
+------------------------------------------------------------------------
+r449 | daniel.r.kegel@gmail.com | 2011-04-05 22:17:16 +0300 (Tue, 05 Apr 2011) | 1 line
+
+simsmed: click Complete explicitly; this is the default, but Matt says it was going into Custom sometimes.
+------------------------------------------------------------------------
+r448 | daniel.r.kegel@gmail.com | 2011-04-05 21:57:45 +0300 (Tue, 05 Apr 2011) | 1 line
+
+simsmed: avoid using don't in autohotkey script, it gives syntax highlighters headaches
+------------------------------------------------------------------------
+r447 | austinenglish@gmail.com | 2011-04-05 08:28:05 +0300 (Tue, 05 Apr 2011) | 2 lines
+
+winetricks: port splitsecond from wisotool
+
+------------------------------------------------------------------------
+r441 | daniel.r.kegel | 2011-04-05 06:07:38 +0300 (Tue, 05 Apr 2011) | 1 line
+
+osmos_demo: simplified
+------------------------------------------------------------------------
+r439 | daniel.r.kegel | 2011-04-05 01:38:42 +0300 (Tue, 05 Apr 2011) | 1 line
+
+steam_install_game: fixed window title, should make more robust
+------------------------------------------------------------------------
+r436 | daniel.r.kegel | 2011-04-04 06:55:04 +0300 (Mon, 04 Apr 2011) | 1 line
+
+wormsreloaded_demo_steam: added workarounds; sound works now for me.  (Sorry I missed that before.)
+------------------------------------------------------------------------
+r435 | daniel.r.kegel | 2011-04-04 06:53:07 +0300 (Mon, 04 Apr 2011) | 1 line
+
+w_steam_install_game: fixed race condition.  Also complain if window title wrong.
+------------------------------------------------------------------------
+r434 | daniel.r.kegel | 2011-04-04 06:06:15 +0300 (Mon, 04 Apr 2011) | 1 line
+
+w_steam_install_game: add quick and dirty steam credential ui and cache
+------------------------------------------------------------------------
+r433 | daniel.r.kegel | 2011-04-03 21:43:51 +0300 (Sun, 03 Apr 2011) | 1 line
+
+fix typo in page title
+------------------------------------------------------------------------
+r432 | daniel.r.kegel | 2011-04-03 21:43:08 +0300 (Sun, 03 Apr 2011) | 1 line
+
+Initial manpage
+------------------------------------------------------------------------
+r427 | daniel.r.kegel | 2011-04-02 18:48:25 +0300 (Sat, 02 Apr 2011) | 1 line
+
+Bump version to 20110402
+------------------------------------------------------------------------
+r426 | daniel.r.kegel | 2011-04-02 18:46:20 +0300 (Sat, 02 Apr 2011) | 1 line
+
+hordesoforcs2_demo: fix download type metadata
+------------------------------------------------------------------------
+r425 | daniel.r.kegel | 2011-04-02 18:36:53 +0300 (Sat, 02 Apr 2011) | 1 line
+
+expand tabs
+------------------------------------------------------------------------
+r424 | daniel.r.kegel | 2011-04-02 08:34:41 +0300 (Sat, 02 Apr 2011) | 1 line
+
+crysis2_demo_mp: warn that download currently disabled
+------------------------------------------------------------------------
+r423 | daniel.r.kegel | 2011-04-02 08:30:50 +0300 (Sat, 02 Apr 2011) | 1 line
+
+w_download: abort if can't create cache directory
+------------------------------------------------------------------------
+r422 | daniel.r.kegel | 2011-04-02 07:16:33 +0300 (Sat, 02 Apr 2011) | 1 line
+
+trainztcc_2004: new verb.  Also introduces W_RAW_KEY, for games that *want* the dashes.
+------------------------------------------------------------------------
+r421 | daniel.r.kegel | 2011-04-02 02:20:34 +0300 (Sat, 02 Apr 2011) | 1 line
+
+crysis2: get -q working on windows
+------------------------------------------------------------------------
+r420 | daniel.r.kegel | 2011-04-02 00:32:09 +0300 (Sat, 02 Apr 2011) | 1 line
+
+cim_demo: make it install on Windows, too.
+------------------------------------------------------------------------
+r419 | daniel.r.kegel@gmail.com | 2011-04-02 00:16:27 +0300 (Sat, 02 Apr 2011) | 1 line
+
+fix thinko in comment introduced in last change
+------------------------------------------------------------------------
+r418 | daniel.r.kegel@gmail.com | 2011-04-02 00:15:04 +0300 (Sat, 02 Apr 2011) | 1 line
+
+cim_demo: new verb, based on a patch by Frnco Junio
+------------------------------------------------------------------------
+r417 | daniel.r.kegel@gmail.com | 2011-04-01 17:09:02 +0300 (Fri, 01 Apr 2011) | 1 line
+
+Some shells crash on test ! $foo if foo is empty; adding quotes works around it
+------------------------------------------------------------------------
+r416 | daniel.r.kegel | 2011-04-01 17:05:18 +0300 (Fri, 01 Apr 2011) | 1 line
+
+eve: updated.
+------------------------------------------------------------------------
+r415 | austinenglish@gmail.com | 2011-04-01 03:59:42 +0300 (Fri, 01 Apr 2011) | 2 lines
+
+acreedbro needs native d3dx9_36 to workaround bug 26583
+
+------------------------------------------------------------------------
+r414 | daniel.r.kegel | 2011-04-01 02:22:53 +0300 (Fri, 01 Apr 2011) | 1 line
+
+quicktime72: update url
+------------------------------------------------------------------------
+r413 | daniel.r.kegel | 2011-03-31 09:41:11 +0300 (Thu, 31 Mar 2011) | 1 line
+
+utorrent3: new verb (thanks to Phil)
+------------------------------------------------------------------------
+r412 | daniel.r.kegel | 2011-03-31 09:28:58 +0300 (Thu, 31 Mar 2011) | 1 line
+
+utorrent: updated.  (Need to create a Start menu item for it sometime.)
+------------------------------------------------------------------------
+r411 | daniel.r.kegel | 2011-03-31 09:23:07 +0300 (Thu, 31 Mar 2011) | 1 line
+
+linkcheck.sh: don't quit at first failed fetch
+------------------------------------------------------------------------
+r410 | daniel.r.kegel | 2011-03-31 09:22:32 +0300 (Thu, 31 Mar 2011) | 1 line
+
+release.sh: kegel.com/wine/winetricks is now a symlink to winetricks.org/winetricks
+------------------------------------------------------------------------
+r409 | daniel.r.kegel | 2011-03-31 07:24:02 +0300 (Thu, 31 Mar 2011) | 1 line
+
+Rename firefox to firefox3 and update to latest; rename firefox4 to firefox; add backwards compatibility hack so firefox4 still works
+------------------------------------------------------------------------
+r408 | austinenglish@gmail.com | 2011-03-31 03:48:25 +0300 (Thu, 31 Mar 2011) | 2 lines
+
+add oblivion
+
+------------------------------------------------------------------------
+r407 | daniel.r.kegel@gmail.com | 2011-03-31 01:03:23 +0300 (Thu, 31 Mar 2011) | 1 line
+
+acreedbro: kludge to let patch install
+------------------------------------------------------------------------
+r406 | daniel.r.kegel@gmail.com | 2011-03-30 23:08:31 +0300 (Wed, 30 Mar 2011) | 1 line
+
+xact_jun2010: updated version of xact for games that need e.g. xapofx1_4
+------------------------------------------------------------------------
+r405 | daniel.r.kegel@gmail.com | 2011-03-30 20:35:11 +0300 (Wed, 30 Mar 2011) | 1 line
+
+To make life easier for rpm packagers, fool autodependency generator by invoking zenity and kdialog indirectly.  (2nd time, maybe we'll remember from now on.)
+------------------------------------------------------------------------
+r404 | daniel.r.kegel@gmail.com | 2011-03-30 20:32:15 +0300 (Wed, 30 Mar 2011) | 1 line
+
+Don't use zenity in kde when caching iso
+------------------------------------------------------------------------
+r403 | daniel.r.kegel@gmail.com | 2011-03-30 20:31:23 +0300 (Wed, 30 Mar 2011) | 1 line
+
+Whitespace changes and removing redundant case
+------------------------------------------------------------------------
+r402 | daniel.r.kegel@gmail.com | 2011-03-30 20:30:16 +0300 (Wed, 30 Mar 2011) | 1 line
+
+w_warn: output to stderr, otherwise some errors vanish inside internal files
+------------------------------------------------------------------------
+r401 | daniel.r.kegel@gmail.com | 2011-03-30 20:29:29 +0300 (Wed, 30 Mar 2011) | 1 line
+
+Fix top level menu for kde
+------------------------------------------------------------------------
+r400 | daniel.r.kegel@gmail.com | 2011-03-30 20:28:50 +0300 (Wed, 30 Mar 2011) | 1 line
+
+Handle single quotes in prefix names
+------------------------------------------------------------------------
+r399 | austinenglish@gmail.com | 2011-03-30 01:56:40 +0300 (Wed, 30 Mar 2011) | 2 lines
+
+remove homefront, its Steam DRM doesn't like wine yet
+
+------------------------------------------------------------------------
+r398 | daniel.r.kegel | 2011-03-29 21:00:52 +0300 (Tue, 29 Mar 2011) | 1 line
+
+dsoundhw: typo fix
+------------------------------------------------------------------------
+r397 | daniel.r.kegel@gmail.com | 2011-03-29 20:26:18 +0300 (Tue, 29 Mar 2011) | 1 line
+
+avatar_demo: ported.
+------------------------------------------------------------------------
+r396 | daniel.r.kegel@gmail.com | 2011-03-29 19:39:33 +0300 (Tue, 29 Mar 2011) | 1 line
+
+dsoundhw: accept abbreviations.  fontsmooth: do something.  d3d settings: fix abbreviations.
+------------------------------------------------------------------------
+r395 | daniel.r.kegel@gmail.com | 2011-03-29 16:39:35 +0300 (Tue, 29 Mar 2011) | 1 line
+
+dsoundhw: accept lowercase on commandline at least
+------------------------------------------------------------------------
+r394 | daniel.r.kegel@gmail.com | 2011-03-29 16:30:10 +0300 (Tue, 29 Mar 2011) | 1 line
+
+Fix horrible breakage in settings gui introduced in the printf change.
+------------------------------------------------------------------------
+r393 | daniel.r.kegel@gmail.com | 2011-03-29 16:06:13 +0300 (Tue, 29 Mar 2011) | 1 line
+
+winetricks-test: update blacklist, fix hang from notepad
+------------------------------------------------------------------------
+r392 | daniel.r.kegel@gmail.com | 2011-03-29 16:05:11 +0300 (Tue, 29 Mar 2011) | 1 line
+
+release.sh: tarballs, baby
+------------------------------------------------------------------------
+r391 | austinenglish@gmail.com | 2011-03-29 09:21:30 +0300 (Tue, 29 Mar 2011) | 2 lines
+
+dsoundhw=*: the registry keys are case sensitive
+
+------------------------------------------------------------------------
+r390 | austinenglish@gmail.com | 2011-03-29 08:08:18 +0300 (Tue, 29 Mar 2011) | 2 lines
+
+xact: also exrtract xapofx1_?.dll
+
+------------------------------------------------------------------------
+r389 | daniel.r.kegel@gmail.com | 2011-03-29 03:37:18 +0300 (Tue, 29 Mar 2011) | 1 line
+
+trine/trine_demo_steam: new verb by Matt Bozarth (typos by me)
+------------------------------------------------------------------------
+r384 | daniel.r.kegel@gmail.com | 2011-03-28 23:50:59 +0300 (Mon, 28 Mar 2011) | 1 line
+
+Bring over install-gecko.sh from winezeug to make it easier to find.
+------------------------------------------------------------------------
+r382 | austinenglish@gmail.com | 2011-03-28 20:27:28 +0300 (Mon, 28 Mar 2011) | 2 lines
+
+add initial support for Steam dvd installs, use it for HOMEFRONT
+
+------------------------------------------------------------------------
+r381 | daniel.r.kegel | 2011-03-28 07:50:30 +0300 (Mon, 28 Mar 2011) | 1 line
+
+acreedbro: work around depth of field and mouse problems.  Not tested as such.
+------------------------------------------------------------------------
+r380 | daniel.r.kegel | 2011-03-28 06:36:47 +0300 (Mon, 28 Mar 2011) | 1 line
+
+w_mount: add just enough support for mounting real discs in Windows to let acreedbro install
+------------------------------------------------------------------------
+r379 | daniel.r.kegel | 2011-03-28 03:50:18 +0300 (Mon, 28 Mar 2011) | 1 line
+
+Fix bug that caused glsl=diabled etc. to be misrecognized as a request to disable glsl.dll
+------------------------------------------------------------------------
+r378 | daniel.r.kegel | 2011-03-28 00:25:04 +0300 (Mon, 28 Mar 2011) | 1 line
+
+crysis2: new verb (mostly identical to the demo's verb)
+------------------------------------------------------------------------
+r376 | daniel.r.kegel | 2011-03-27 16:38:54 +0300 (Sun, 27 Mar 2011) | 1 line
+
+W_OPT_UNATTENDED is now empty rather than zero when false.
+------------------------------------------------------------------------
+r375 | daniel.r.kegel | 2011-03-27 16:26:41 +0300 (Sun, 27 Mar 2011) | 1 line
+
+w_ahk_do: predefine w_opt_unattended so verbs no longer have to set u
+------------------------------------------------------------------------
+r374 | austinenglish@gmail.com | 2011-03-27 13:22:44 +0300 (Sun, 27 Mar 2011) | 2 lines
+
+winetricks: add d3dx11_42 verb
+
+------------------------------------------------------------------------
+r373 | daniel.r.kegel | 2011-03-27 02:38:56 +0200 (Sun, 27 Mar 2011) | 1 line
+
+simsmed: also fix desktop icon (untested)
+------------------------------------------------------------------------
+r372 | daniel.r.kegel | 2011-03-27 02:35:36 +0200 (Sun, 27 Mar 2011) | 1 line
+
+acreedbro: new verb
+------------------------------------------------------------------------
+r371 | daniel.r.kegel | 2011-03-26 20:07:08 +0200 (Sat, 26 Mar 2011) | 1 line
+
+Fix two quoting problems.  Fix suggested by doh123.
+------------------------------------------------------------------------
+r370 | daniel.r.kegel | 2011-03-26 20:04:38 +0200 (Sat, 26 Mar 2011) | 1 line
+
+simsmed: first draft of Sims Medieval support.  Works here, but still need to modify desktop icon.
+------------------------------------------------------------------------
+r368 | daniel.r.kegel | 2011-03-26 05:55:19 +0200 (Sat, 26 Mar 2011) | 1 line
+
+winetricks_wintounix: add missing quotes around WINEPREFIX
+------------------------------------------------------------------------
+r362 | daniel.r.kegel | 2011-03-25 06:22:44 +0200 (Fri, 25 Mar 2011) | 1 line
+
+mfc42: don't install msvcrt, only mfc42 and mfc42u
+------------------------------------------------------------------------
+r360 | daniel.r.kegel | 2011-03-25 03:57:56 +0200 (Fri, 25 Mar 2011) | 1 line
+
+bttf101: new verb.
+------------------------------------------------------------------------
+r359 | daniel.r.kegel | 2011-03-24 23:59:27 +0200 (Thu, 24 Mar 2011) | 1 line
+
+Another attempt at getting optin reporting escaped right.
+------------------------------------------------------------------------
+r358 | daniel.r.kegel@gmail.com | 2011-03-24 16:02:56 +0200 (Thu, 24 Mar 2011) | 1 line
+
+automate new version upload
+------------------------------------------------------------------------
+r357 | daniel.r.kegel@gmail.com | 2011-03-24 15:46:11 +0200 (Thu, 24 Mar 2011) | 1 line
+
+Bump version to 20110324, document checkbashism requirement
+------------------------------------------------------------------------
+r356 | daniel.r.kegel@gmail.com | 2011-03-24 15:39:59 +0200 (Thu, 24 Mar 2011) | 1 line
+
+alienswarm_steam, borderlands_steam, supermeatboy_steam: fixed typo that disabled install check
+------------------------------------------------------------------------
+r355 | daniel.r.kegel | 2011-03-24 05:56:32 +0200 (Thu, 24 Mar 2011) | 1 line
+
+Avoid test -a, use symbolic signal names with trap.  Fixes last bit of bug 3.
+------------------------------------------------------------------------
+r354 | daniel.r.kegel | 2011-03-24 05:05:13 +0200 (Thu, 24 Mar 2011) | 1 line
+
+Don't explode if user creates a wineprefix in ~/.local/share/wineprefixes with a space in the directory name
+------------------------------------------------------------------------
+r353 | daniel.r.kegel | 2011-03-24 04:17:34 +0200 (Thu, 24 Mar 2011) | 1 line
+
+hordesoforcs2_demo: ported, made it work here, simplified.
+------------------------------------------------------------------------
+r352 | daniel.r.kegel | 2011-03-24 03:27:49 +0200 (Thu, 24 Mar 2011) | 1 line
+
+dc2ba_demo: updated sha1sum
+------------------------------------------------------------------------
+r350 | daniel.r.kegel | 2011-03-23 03:50:11 +0200 (Wed, 23 Mar 2011) | 1 line
+
+Fix a few places W_PREFIXES_ROOT wasn't quoted.
+------------------------------------------------------------------------
+r349 | austinenglish@gmail.com | 2011-03-23 03:21:08 +0200 (Wed, 23 Mar 2011) | 2 lines
+
+winetricks: also extract x3daudio*dll in xact
+
+------------------------------------------------------------------------
+r348 | daniel.r.kegel@gmail.com | 2011-03-23 02:13:02 +0200 (Wed, 23 Mar 2011) | 1 line
+
+Replace echo -n with printf %s to partially address issue 3.  Should get script working on macosx again.
+------------------------------------------------------------------------
+r347 | daniel.r.kegel@gmail.com | 2011-03-23 01:56:07 +0200 (Wed, 23 Mar 2011) | 1 line
+
+Update a few URLs to avoid redirects.  Also remove spurious mkdir from masseffect2_demo.
+------------------------------------------------------------------------
+r346 | daniel.r.kegel | 2011-03-23 00:54:05 +0200 (Wed, 23 Mar 2011) | 1 line
+
+wglgears: new verb
+------------------------------------------------------------------------
+r345 | daniel.r.kegel | 2011-03-22 23:02:42 +0200 (Tue, 22 Mar 2011) | 1 line
+
+Added assertions to verify that installed_{file,exe}1 in metadata are windows paths with forward slashes, not unix paths
+------------------------------------------------------------------------
+r343 | daniel.r.kegel@gmail.com | 2011-03-22 21:56:43 +0200 (Tue, 22 Mar 2011) | 1 line
+
+wm9codecs: used without w_call from wmp9, so have to download to explicit location
+------------------------------------------------------------------------
+r342 | daniel.r.kegel | 2011-03-22 21:06:03 +0200 (Tue, 22 Mar 2011) | 1 line
+
+fontxplorer: updated url to avoid redirection
+------------------------------------------------------------------------
+r341 | daniel.r.kegel | 2011-03-22 21:02:00 +0200 (Tue, 22 Mar 2011) | 1 line
+
+nfsshift_demo: updated url.  Patch by Phil.
+------------------------------------------------------------------------
+r340 | daniel.r.kegel | 2011-03-22 20:35:26 +0200 (Tue, 22 Mar 2011) | 1 line
+
+7zip: use modern sf.net url
+------------------------------------------------------------------------
+r339 | daniel.r.kegel | 2011-03-22 20:04:37 +0200 (Tue, 22 Mar 2011) | 1 line
+
+firefox4: identical to rc2
+------------------------------------------------------------------------
+r338 | daniel.r.kegel | 2011-03-22 19:29:00 +0200 (Tue, 22 Mar 2011) | 1 line
+
+ruse_demo_steam: work around bug 22016 by turning off HDR
+------------------------------------------------------------------------
+r337 | daniel.r.kegel | 2011-03-22 19:27:59 +0200 (Tue, 22 Mar 2011) | 1 line
+
+w_steam_safemode: added.  w_steam_install_game: call w_steam_safemode.  This disables more notifications (and spam).
+------------------------------------------------------------------------
+r336 | daniel.r.kegel | 2011-03-22 19:24:01 +0200 (Tue, 22 Mar 2011) | 1 line
+
+w_steam_install_game: streamline dialog for bug 22751, add workaround for bug 22053
+------------------------------------------------------------------------
+r335 | daniel.r.kegel | 2011-03-22 19:20:38 +0200 (Tue, 22 Mar 2011) | 1 line
+
+w_steam_install_game: remove commented out code
+------------------------------------------------------------------------
+r334 | daniel.r.kegel | 2011-03-22 19:17:41 +0200 (Tue, 22 Mar 2011) | 1 line
+
+wmp9, wmp10: reset windows version back to default when done
+------------------------------------------------------------------------
+r333 | daniel.r.kegel | 2011-03-22 05:52:37 +0200 (Tue, 22 Mar 2011) | 1 line
+
+mspaint: fixed install check
+------------------------------------------------------------------------
+r332 | daniel.r.kegel | 2011-03-22 01:17:07 +0200 (Tue, 22 Mar 2011) | 1 line
+
+firefox4: update to rc2
+------------------------------------------------------------------------
+r331 | daniel.r.kegel | 2011-03-22 01:15:31 +0200 (Tue, 22 Mar 2011) | 1 line
+
+flash: monthly update
+------------------------------------------------------------------------
+r330 | daniel.r.kegel | 2011-03-21 20:51:12 +0200 (Mon, 21 Mar 2011) | 2 lines
+
+Give more detail about the bad links
+
+------------------------------------------------------------------------
+r329 | daniel.r.kegel | 2011-03-21 04:28:53 +0200 (Mon, 21 Mar 2011) | 1 line
+
+ruse_demo_steam: needs wmp9, not xact?
+------------------------------------------------------------------------
+r327 | daniel.r.kegel | 2011-03-21 01:10:21 +0200 (Mon, 21 Mar 2011) | 1 line
+
+flash: update version.  (We have to get better at checking this; didn't notice this until a user reported a bug.)
+------------------------------------------------------------------------
+r325 | daniel.r.kegel | 2011-03-20 12:56:08 +0200 (Sun, 20 Mar 2011) | 1 line
+
+Add --force option
+------------------------------------------------------------------------
+r324 | daniel.r.kegel | 2011-03-20 05:46:09 +0200 (Sun, 20 Mar 2011) | 1 line
+
+Added a steam function and four verbs that use it.  Still a work in progress, but the two free games install and work for me.
+------------------------------------------------------------------------
+r323 | daniel.r.kegel | 2011-03-20 02:40:06 +0200 (Sun, 20 Mar 2011) | 1 line
+
+hon: update version.  guildwars: correct url slightly to avoid redirection.
+------------------------------------------------------------------------
+r321 | daniel.r.kegel | 2011-03-18 19:20:59 +0200 (Fri, 18 Mar 2011) | 1 line
+
+bump version to 20110318
+------------------------------------------------------------------------
+r320 | daniel.r.kegel | 2011-03-18 19:20:32 +0200 (Fri, 18 Mar 2011) | 1 line
+
+gecko120: new verb by Maarten.  Of limited use.
+------------------------------------------------------------------------
+r319 | daniel.r.kegel | 2011-03-18 19:11:58 +0200 (Fri, 18 Mar 2011) | 1 line
+
+gecko110: update list of supported wine versions.  Patch by Maarten.
+------------------------------------------------------------------------
+r318 | daniel.r.kegel | 2011-03-18 19:02:05 +0200 (Fri, 18 Mar 2011) | 1 line
+
+masseffect2_demo: add timeout in hotfix case.  Installer seems to have regressed?
+------------------------------------------------------------------------
+r316 | daniel.r.kegel | 2011-03-18 15:37:38 +0200 (Fri, 18 Mar 2011) | 1 line
+
+add check for gecko-1.2.0
+------------------------------------------------------------------------
+r315 | daniel.r.kegel | 2011-03-18 15:25:42 +0200 (Fri, 18 Mar 2011) | 1 line
+
+dotnet11sp1: new verb.  Thanks to Hans and Maarten for getting this working\!
+------------------------------------------------------------------------
+r314 | daniel.r.kegel | 2011-03-18 15:24:33 +0200 (Fri, 18 Mar 2011) | 1 line
+
+dotnet20: delete wine's fake fusion so native one will be installed.  Fixes dotnet30 install.
+------------------------------------------------------------------------
+r313 | daniel.r.kegel@gmail.com | 2011-03-18 07:14:33 +0200 (Fri, 18 Mar 2011) | 1 line
+
+Bump version to 20110317
+------------------------------------------------------------------------
+r312 | daniel.r.kegel@gmail.com | 2011-03-18 06:42:27 +0200 (Fri, 18 Mar 2011) | 1 line
+
+logging: use file instead of WINETRICKS_STATS_BREADCRUMBS, since we need it to escape the subshell
+------------------------------------------------------------------------
+r311 | daniel.r.kegel | 2011-03-18 01:22:11 +0200 (Fri, 18 Mar 2011) | 1 line
+
+dragonage: warn user about need to kill launcher after each run.
+------------------------------------------------------------------------
+r310 | daniel.r.kegel | 2011-03-18 00:23:19 +0200 (Fri, 18 Mar 2011) | 1 line
+
+dragonage: tell user much more about bug 26459.
+------------------------------------------------------------------------
+r309 | daniel.r.kegel | 2011-03-17 23:36:00 +0200 (Thu, 17 Mar 2011) | 1 line
+
+w_mount: fix cleanup if user cancels iso caching.  Add progress indicator (zenity only).
+------------------------------------------------------------------------
+r308 | daniel.r.kegel | 2011-03-17 23:34:20 +0200 (Thu, 17 Mar 2011) | 1 line
+
+dragonage: Fixed non-silent install, added workaround for bug 26459, which only affects non-cached case
+------------------------------------------------------------------------
+r307 | daniel.r.kegel | 2011-03-17 07:04:21 +0200 (Thu, 17 Mar 2011) | 1 line
+
+First draft of link checker.  Hangs too much still, --connect-timeout doesn't seem to do anything.
+------------------------------------------------------------------------
+r305 | daniel.r.kegel | 2011-03-16 05:24:14 +0200 (Wed, 16 Mar 2011) | 1 line
+
+luxor_ar: new verb
+------------------------------------------------------------------------
+r304 | daniel.r.kegel | 2011-03-16 01:54:33 +0200 (Wed, 16 Mar 2011) | 1 line
+
+When reporting stats, don't mush the verbs together.
+------------------------------------------------------------------------
+r303 | daniel.r.kegel | 2011-03-16 00:28:09 +0200 (Wed, 16 Mar 2011) | 1 line
+
+Don't update winetricks.log in wrong wineprefix.  Also, add info about worked around bugs to log.
+------------------------------------------------------------------------
+r302 | daniel.r.kegel | 2011-03-16 00:27:08 +0200 (Wed, 16 Mar 2011) | 1 line
+
+dragonage: update workarounds to actually change DragonAge.ini for user, remove two questionable ones for now
+------------------------------------------------------------------------
+r298 | daniel.r.kegel | 2011-03-15 06:58:05 +0200 (Tue, 15 Mar 2011) | 1 line
+
+cojbib_demo: new verb by Phil
+------------------------------------------------------------------------
+r297 | daniel.r.kegel | 2011-03-15 06:57:34 +0200 (Tue, 15 Mar 2011) | 1 line
+
+w_download: abort nicly if neither curl nor wget are installed
+------------------------------------------------------------------------
+r296 | daniel.r.kegel | 2011-03-15 06:56:58 +0200 (Tue, 15 Mar 2011) | 1 line
+
+Fix two places we tried to use a wineprefix on windows
+------------------------------------------------------------------------
+r295 | daniel.r.kegel | 2011-03-14 17:13:13 +0200 (Mon, 14 Mar 2011) | 1 line
+
+bioshock_demo: warn user it will take about 30 seconds to unzip.
+------------------------------------------------------------------------
+r292 | daniel.r.kegel | 2011-03-14 06:13:26 +0200 (Mon, 14 Mar 2011) | 1 line
+
+mfsxde, mfsx_demo: ported, updated, marked as broken, since those apps hang now for me.
+------------------------------------------------------------------------
+r291 | daniel.r.kegel | 2011-03-13 08:02:10 +0200 (Sun, 13 Mar 2011) | 1 line
+
+rct3deluxe: new verb.  No music or videos yet.
+------------------------------------------------------------------------
+r290 | daniel.r.kegel | 2011-03-12 15:31:19 +0200 (Sat, 12 Mar 2011) | 1 line
+
+Bump version to 20110312
+------------------------------------------------------------------------
+r289 | daniel.r.kegel | 2011-03-12 14:40:55 +0200 (Sat, 12 Mar 2011) | 1 line
+
+dotnet20: Fix crash.  This was winehq bug 26349, and was fixed a few days ago by Austin in winezeug r2414, but had not yet been fixed in winetricks.org.
+------------------------------------------------------------------------
+r288 | daniel.r.kegel@gmail.com | 2011-03-12 03:06:41 +0200 (Sat, 12 Mar 2011) | 1 line
+
+csi6_demo: -q hung on one box, so switch first action to ControlClick, increase windelay
+------------------------------------------------------------------------
+r287 | daniel.r.kegel | 2011-03-11 16:54:13 +0200 (Fri, 11 Mar 2011) | 1 line
+
+mdac25, mdac27: remove, as downloads no longer available.  mdac28: update to sp1.
+------------------------------------------------------------------------
+r286 | daniel.r.kegel@gmail.com | 2011-03-11 16:25:14 +0200 (Fri, 11 Mar 2011) | 1 line
+
+winetricks-test: sandbox doesn't need to be verbose
+------------------------------------------------------------------------
+r285 | daniel.r.kegel | 2011-03-11 16:23:17 +0200 (Fri, 11 Mar 2011) | 1 line
+
+Rename winetricks-alpha to winetricks
+------------------------------------------------------------------------
+r284 | daniel.r.kegel | 2011-03-11 16:22:16 +0200 (Fri, 11 Mar 2011) | 1 line
+
+Remove -alpha from inside files
+------------------------------------------------------------------------
+r283 | daniel.r.kegel | 2011-03-11 16:16:41 +0200 (Fri, 11 Mar 2011) | 1 line
+
+Add size and time measurements from a clean empty cache run on an e8400.  Probably want to get these with a full cache to avoid including download time.
+------------------------------------------------------------------------
+r279 | daniel.r.kegel@gmail.com | 2011-03-10 20:08:53 +0200 (Thu, 10 Mar 2011) | 1 line
+
+Bump version to 20110310-alpha
+------------------------------------------------------------------------
+r278 | daniel.r.kegel@gmail.com | 2011-03-10 19:54:37 +0200 (Thu, 10 Mar 2011) | 1 line
+
+vbrun5, vbrun6: fix install check.  vc2005trial: fix regression caused by 7zip installing into its own wineprefix.
+------------------------------------------------------------------------
+r277 | daniel.r.kegel@gmail.com | 2011-03-10 18:27:20 +0200 (Thu, 10 Mar 2011) | 1 line
+
+richtx32: fix install check
+------------------------------------------------------------------------
+r276 | daniel.r.kegel@gmail.com | 2011-03-10 18:26:59 +0200 (Thu, 10 Mar 2011) | 1 line
+
+Print unix file rather than windows file when install check fails, it's much less mysterious.
+------------------------------------------------------------------------
+r275 | daniel.r.kegel@gmail.com | 2011-03-10 18:19:39 +0200 (Thu, 10 Mar 2011) | 1 line
+
+farmsim2011_demo: fix media type
+------------------------------------------------------------------------
+r274 | daniel.r.kegel@gmail.com | 2011-03-10 18:18:45 +0200 (Thu, 10 Mar 2011) | 1 line
+
+Avoid syntax error if which returns empty string
+------------------------------------------------------------------------
+r273 | daniel.r.kegel@gmail.com | 2011-03-10 18:15:06 +0200 (Thu, 10 Mar 2011) | 1 line
+
+list-installed: no longer need kludge.  Also sort the inputs rather than the outputs so output shows up faster.
+------------------------------------------------------------------------
+r272 | daniel.r.kegel@gmail.com | 2011-03-10 16:26:12 +0200 (Thu, 10 Mar 2011) | 1 line
+
+firefox4: update to rc1
+------------------------------------------------------------------------
+r271 | daniel.r.kegel@gmail.com | 2011-03-10 15:54:43 +0200 (Thu, 10 Mar 2011) | 1 line
+
+mono210: new verb
+------------------------------------------------------------------------
+r270 | daniel.r.kegel | 2011-03-10 05:33:18 +0200 (Thu, 10 Mar 2011) | 1 line
+
+w_download: fix penpenxmas and autohotkey right this time
+------------------------------------------------------------------------
+r269 | daniel.r.kegel | 2011-03-10 05:22:17 +0200 (Thu, 10 Mar 2011) | 1 line
+
+w_download: don't set user-agent, it breaks sourceforge download
+------------------------------------------------------------------------
+r268 | daniel.r.kegel | 2011-03-10 02:34:24 +0200 (Thu, 10 Mar 2011) | 1 line
+
+csi6_demo: new verb
+------------------------------------------------------------------------
+r266 | daniel.r.kegel | 2011-03-09 07:38:45 +0200 (Wed, 09 Mar 2011) | 1 line
+
+farmsim2011_demo: new verb.
+------------------------------------------------------------------------
+r265 | daniel.r.kegel | 2011-03-09 07:09:38 +0200 (Wed, 09 Mar 2011) | 1 line
+
+sammax301_demo: fix typo (it's not 304)
+------------------------------------------------------------------------
+r264 | daniel.r.kegel | 2011-03-09 02:48:49 +0200 (Wed, 09 Mar 2011) | 1 line
+
+Add gui option for showing broken apps.  Not great, but it'll do for now.
+------------------------------------------------------------------------
+r263 | daniel.r.kegel | 2011-03-09 02:35:09 +0200 (Wed, 09 Mar 2011) | 1 line
+
+Main menu is called 'main', so call prefix menu 'prefix'...
+------------------------------------------------------------------------
+r260 | daniel.r.kegel | 2011-03-09 01:41:25 +0200 (Wed, 09 Mar 2011) | 1 line
+
+masseffect2_demo: use wine-hotfix-6971 if present.  Also fix -q support.
+------------------------------------------------------------------------
+r259 | daniel.r.kegel | 2011-03-08 21:43:06 +0200 (Tue, 08 Mar 2011) | 1 line
+
+tahoma: fix install check
+------------------------------------------------------------------------
+r258 | daniel.r.kegel | 2011-03-08 21:41:49 +0200 (Tue, 08 Mar 2011) | 1 line
+
+grr.  really fix navigation, I hope.
+------------------------------------------------------------------------
+r257 | daniel.r.kegel | 2011-03-08 21:23:01 +0200 (Tue, 08 Mar 2011) | 1 line
+
+help: new verb, just opens winetricks.org/help in a browser.  This is the very first entry on the first menu of the gui.
+------------------------------------------------------------------------
+r256 | daniel.r.kegel | 2011-03-08 20:25:41 +0200 (Tue, 08 Mar 2011) | 1 line
+
+fix breakage in zenity menus
+------------------------------------------------------------------------
+r255 | daniel.r.kegel | 2011-03-08 19:52:36 +0200 (Tue, 08 Mar 2011) | 1 line
+
+remove dead code
+------------------------------------------------------------------------
+r254 | daniel.r.kegel | 2011-03-08 19:51:39 +0200 (Tue, 08 Mar 2011) | 1 line
+
+dxdiag: list under 'dlls' rather than 'apps', since it's usually used in the context of some other app.
+------------------------------------------------------------------------
+r253 | daniel.r.kegel | 2011-03-08 06:47:02 +0200 (Tue, 08 Mar 2011) | 1 line
+
+Make directx9 warning more obvious.
+------------------------------------------------------------------------
+r252 | daniel.r.kegel | 2011-03-08 06:03:12 +0200 (Tue, 08 Mar 2011) | 1 line
+
+OS reporting didn't work well, so put wine version in that slot
+------------------------------------------------------------------------
+r251 | daniel.r.kegel@gmail.com | 2011-03-07 21:22:05 +0200 (Mon, 07 Mar 2011) | 1 line
+
+Fix navigation when returning back from apps
+------------------------------------------------------------------------
+r250 | daniel.r.kegel@gmail.com | 2011-03-07 21:12:29 +0200 (Mon, 07 Mar 2011) | 1 line
+
+Fix KDE support in top menu.  Fix time/space columns in German and (kind of) Danish.
+------------------------------------------------------------------------
+r249 | daniel.r.kegel@gmail.com | 2011-03-07 20:57:30 +0200 (Mon, 07 Mar 2011) | 1 line
+
+d3dcompiler_43: new verb by Rico; marked as broken to hide it from casual users until wine can handle more d3d10
+------------------------------------------------------------------------
+r248 | daniel.r.kegel@gmail.com | 2011-03-07 19:39:14 +0200 (Mon, 07 Mar 2011) | 1 line
+
+dinput: add scary warning
+------------------------------------------------------------------------
+r246 | daniel.r.kegel | 2011-03-07 06:30:12 +0200 (Mon, 07 Mar 2011) | 1 line
+
+Bump version to 20110306
+------------------------------------------------------------------------
+r245 | daniel.r.kegel | 2011-03-07 06:28:50 +0200 (Mon, 07 Mar 2011) | 1 line
+
+Remove two bogus size&time data points
+------------------------------------------------------------------------
+r244 | daniel.r.kegel | 2011-03-07 06:26:15 +0200 (Mon, 07 Mar 2011) | 1 line
+
+Update disk space & time install requirements
+------------------------------------------------------------------------
+r243 | daniel.r.kegel | 2011-03-07 06:17:19 +0200 (Mon, 07 Mar 2011) | 1 line
+
+winetricks-alpha-test: set WINE_PREFIXES, save time/space measurements to measurements/FOO.dat, don't check for empty install or cache lists until after installing.
+------------------------------------------------------------------------
+r242 | daniel.r.kegel | 2011-03-07 03:01:53 +0200 (Mon, 07 Mar 2011) | 1 line
+
+diablo2: waiting for updater window isn't enough, you have to wait for it to say it's finished!  Also cope with empty USERNAME, which happens when using startx.
+------------------------------------------------------------------------
+r241 | daniel.r.kegel | 2011-03-07 02:04:05 +0200 (Mon, 07 Mar 2011) | 1 line
+
+hegemony_gold: updated sha1sum
+------------------------------------------------------------------------
+r240 | daniel.r.kegel | 2011-03-07 01:44:36 +0200 (Mon, 07 Mar 2011) | 1 line
+
+Watch all disks for space, not just one
+------------------------------------------------------------------------
+r239 | daniel.r.kegel | 2011-03-06 20:57:24 +0200 (Sun, 06 Mar 2011) | 1 line
+
+Added 'folder' verb to open current wineprefix with xdg-open
+------------------------------------------------------------------------
+r238 | daniel.r.kegel | 2011-03-06 20:46:26 +0200 (Sun, 06 Mar 2011) | 1 line
+
+Show title of installed app rather than absolute path
+------------------------------------------------------------------------
+r237 | daniel.r.kegel | 2011-03-06 20:06:42 +0200 (Sun, 06 Mar 2011) | 1 line
+
+in comment at top, give example of how to install all prereqs
+------------------------------------------------------------------------
+r234 | daniel.r.kegel | 2011-03-06 17:12:59 +0200 (Sun, 06 Mar 2011) | 1 line
+
+firefox: update to 3.6.15, fix system menu.
+------------------------------------------------------------------------
+r233 | daniel.r.kegel | 2011-03-06 16:50:53 +0200 (Sun, 06 Mar 2011) | 1 line
+
+corefonts: Trebuc filenames have mixed case.  Fixes bug winezeug-203.
+------------------------------------------------------------------------
+r232 | daniel.r.kegel | 2011-03-06 09:04:37 +0200 (Sun, 06 Mar 2011) | 1 line
+
+Install apps and benchmarks into their own prefixes, too.  Show prefix name uniformly in window title.  Move ie to dlls, call dlls 'Windows dlls or components'.
+------------------------------------------------------------------------
+r231 | daniel.r.kegel | 2011-03-06 08:44:51 +0200 (Sun, 06 Mar 2011) | 1 line
+
+Add option --no-isolate-games, make --isolate-games the default
+------------------------------------------------------------------------
+r230 | daniel.r.kegel | 2011-03-06 03:23:58 +0200 (Sun, 06 Mar 2011) | 1 line
+
+annihilate: actually ask permission before annihilating the wineprefix.
+------------------------------------------------------------------------
+r229 | daniel.r.kegel | 2011-03-06 02:59:09 +0200 (Sun, 06 Mar 2011) | 1 line
+
+gta_vc: ported, updated.
+------------------------------------------------------------------------
+r228 | daniel.r.kegel | 2011-03-05 21:09:42 +0200 (Sat, 05 Mar 2011) | 1 line
+
+Better fix for bug winezeug-25, should fix new bug winezeug-229
+------------------------------------------------------------------------
+r227 | daniel.r.kegel | 2011-03-05 19:47:06 +0200 (Sat, 05 Mar 2011) | 1 line
+
+w_download: fix progress indicator gui for locales that use , as a decimal separator.  Pointed out by kmiksi.  Fixes bug winezeug-232.
+------------------------------------------------------------------------
+r226 | daniel.r.kegel | 2011-03-05 18:18:48 +0200 (Sat, 05 Mar 2011) | 1 line
+
+Add text of LGPL
+------------------------------------------------------------------------
+r225 | daniel.r.kegel | 2011-03-05 18:16:50 +0200 (Sat, 05 Mar 2011) | 1 line
+
+Add a paragraph at the top about what tools this script uses.
+------------------------------------------------------------------------
+r224 | daniel.r.kegel | 2011-03-05 17:37:05 +0200 (Sat, 05 Mar 2011) | 1 line
+
+Cleaned up comments at top.  Moved version ID to very top.
+------------------------------------------------------------------------
+r223 | daniel.r.kegel | 2011-03-05 17:18:02 +0200 (Sat, 05 Mar 2011) | 1 line
+
+vc2005trial: update workarounds for wine-1.3.15
+------------------------------------------------------------------------
+r222 | daniel.r.kegel | 2011-03-05 08:33:50 +0200 (Sat, 05 Mar 2011) | 1 line
+
+Last changeset was missing wildcards on two patterns
+------------------------------------------------------------------------
+r221 | daniel.r.kegel | 2011-03-05 08:05:58 +0200 (Sat, 05 Mar 2011) | 1 line
+
+Speed up common case of w_pathconv -u 3x by writing it in shell.  Suggestion by Christian Storgaard.
+------------------------------------------------------------------------
 r220 | daniel.r.kegel | 2011-03-04 22:55:59 +0200 (Fri, 04 Mar 2011) | 1 line
 
 rayman2_demo: new verb.  Based on a patch by Shannon.
