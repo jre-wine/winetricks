@@ -5,6 +5,7 @@ winetricks (0.0~20110419+svn493-1) unstable; urgency=low
     - (Description): Explain better what other packages may be needed.
     - (Depends): Add p7zip.
     - (Recommends): Add sudo.
+    - (Standards): Update to 3.9.2.
   * debian/copyright
     - Update word "Lesser" to "Library" (see #595427).
   * debian/rules
@@ -12,7 +13,7 @@ winetricks (0.0~20110419+svn493-1) unstable; urgency=low
   * "debian/upstream.changelog
     - Update to current release.
 
- -- Jari Aalto <jari.aalto@cante.net>  Tue, 19 Apr 2011 10:52:41 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Tue, 19 Apr 2011 10:57:59 +0300
 
 winetricks (0.0~20110305+svn220-1) unstable; urgency=low
 
