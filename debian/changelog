@@ -4,7 +4,7 @@ winetricks (0.0~20110419+svn493-1) unstable; urgency=low
   * debian/control
     - (Description): Explain better what other packages may be needed.
     - (Depends): Add p7zip.
-    - (Recommends): Add sudo.
+    - (Recommends): Add sudo. Move "wine | wine-unstable" here from 'Depends:'.
     - (Standards): Update to 3.9.2.
   * debian/copyright
     - Update word "Lesser" to "Library" (see #595427).
@@ -18,7 +18,7 @@ winetricks (0.0~20110419+svn493-1) unstable; urgency=low
   * debian/watch
     - Add URL.
 
- -- Jari Aalto <jari.aalto@cante.net>  Tue, 19 Apr 2011 19:32:33 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Wed, 20 Apr 2011 09:31:00 +0300
 
 winetricks (0.0~20110305+svn220-1) unstable; urgency=low
 
