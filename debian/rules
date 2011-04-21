@@ -5,6 +5,7 @@ BIN		= src/$(PACKAGE)
 
 PKGDIR          = $(shell pwd)/debian/$(PACKAGE)
 BINDIR          = $(PKGDIR)/usr/bin
+SHAREDIR	= $(PKGDIR)/usr/share
 
 CHANGELOG	= debian/upstream.changelog
 URL		= http://winetricks.googlecode.com/svn/trunk
@@ -15,7 +16,7 @@ include debian/pod2man.mk
 get-changelog:
 	svn log $(URL) > $(CHANGELOG)
 
-# See debian/manpages
+# See debian/manpages instead
 man-old:
 	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
 
@@ -24,6 +25,8 @@ override_dh_installchangelogs:
 
 override_dh_auto_install:
 	install -m 755 -D $(BIN) $(BINDIR)/$(PACKAGE)
+        install -m 644 -D debian/$(PACKAGE).desktop $(SHAREDIR)/applications
+        install -m 644 -D debian/$(PACKAGE).svg $(SHAREDIR)/icons/hicolor/scalable/apps
 
 %:
 	dh $@
