@@ -8,9 +8,9 @@ winetricks (0.0~20110419+svn493-3) unstable; urgency=low
     - New files (thanks to Ubuntu maintainer Scott Ritchie
       <scott@open-vote.org>).
 
- -- Jari Aalto <jari.aalto@cante.net>  Thu, 21 Apr 2011 16:29:21 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Thu, 21 Apr 2011 16:50:01 +0300
 
-winetricks (0.0~20110419+svn493-2) unstable; urgency=low 
+winetricks (0.0~20110419+svn493-2) unstable; urgency=low
 
   * debian/control
     - Remove wine from (Depends); add wine to (Recommends) for users who
