@@ -17,6 +17,7 @@ License: LGPL-2.0+
 Files: debian/*
 Copyright:
  2011 Jari Aalto <jari.aalto@cante.net>
+ 2011 Tony Mancill <tmancill@debian.org>
 License: LGPL-2.0+
 
 Files: debian/winetricks.svg
