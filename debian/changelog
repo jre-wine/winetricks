@@ -1,11 +1,31 @@
+winetricks (0.0~20110419+svn493-3) unstable; urgency=low
+
+  * debian/copyright
+    - (winetricks.svg): New.
+  * debian/rules
+    - (override_dh_auto_install): Add *.desktop and *.svg install.
+  * debian/winetricks.{desktop,svg}
+    - New files (thanks to Ubuntu maintainer Scott Ritchie
+      <scott@open-vote.org>).
+
+ -- Jari Aalto <jari.aalto@cante.net>  Thu, 21 Apr 2011 16:29:21 +0300
+
+winetricks (0.0~20110419+svn493-2) unstable; urgency=low 
+
+  * debian/control
+    - Remove wine from (Depends); add wine to (Recommends) for users who
+      prefer to build wine from source (see #595427).
+    - Add tmancill@debian.org to Uploaders.
+
+ -- tony mancill <tmancill@debian.org>  Wed, 20 Apr 2011 07:39:43 -0700
+
 winetricks (0.0~20110419+svn493-1) unstable; urgency=low
 
   * New upstream release.
   * debian/control
     - (Description): Explain better what other packages may be needed.
     - (Depends): Add p7zip.
-    - (Recommends): Add sudo. Move "wine | wine-unstable" here from 'Depends:'
-      (see #595427).
+    - (Recommends): Add sudo.
     - (Standards): Update to 3.9.2.
   * debian/copyright
     - Update word "Lesser" to "Library" (see #595427).
@@ -19,7 +39,7 @@ winetricks (0.0~20110419+svn493-1) unstable; urgency=low
   * debian/watch
     - Add URL.
 
- -- Jari Aalto <jari.aalto@cante.net>  Wed, 20 Apr 2011 09:38:13 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Tue, 19 Apr 2011 19:32:33 +0300
 
 winetricks (0.0~20110305+svn220-1) unstable; urgency=low
 
