@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Name of this version of winetricks (YYYYMMDD)
-WINETRICKS_VERSION=20110417
+WINETRICKS_VERSION=20110429
 
 # This is a utf-8 file
 # You should see an o with two dots over it here [ö]
@@ -34,19 +34,24 @@ WINETRICKS_VERSION=20110417
 #    sudo apt-get update
 #    sudo apt-get install wine1.3 cabextract unzip p7zip wget zenity
 #
-# See http://winetricks.org for documentation and tutorials.
+# See http://winetricks.org for documentation and tutorials, including
+# how to contribute changes to winetricks.
 #
 #--------------------------------------------------------------------
 #
 # Copyright
-#   Copyright (C) 2007-2011 Dan Kegel <dank@kegel.com>
-#   Copyright (C) 2008-2011 Austin English <austinenglish@gmail.com>
-#   Copyright (C) 2010-2011 Phil Blankenship <phillip.e.blankenship@gmail.com>
-#   Copyright (C) 2010-2011 Shannon VanWagner <shannon.vanwagner@gmail.com>
-#   Copyright (C) 2010 Belhorma Bendebiche <amro256@gmail.com>
-#   Copyright (C) 2010 Eleazar Galano <eg.galano@gmail.com>
-#   Copyright (C) 2010 Travis Athougies <iammisc@gmail.com>
-#   Copyright (C) 2011 Scott Jackson <sjackson2@gmx.com>
+#   Copyright (C) 2007-2011 Dan Kegel <dank!kegel.com>
+#   Copyright (C) 2008-2011 Austin English <austinenglish!gmail.com>
+#   Copyright (C) 2010-2011 Phil Blankenship <phillip.e.blankenship!gmail.com>
+#   Copyright (C) 2010-2011 Shannon VanWagner <shannon.vanwagner!gmail.com>
+#   Copyright (C) 2010 Belhorma Bendebiche <amro256!gmail.com>
+#   Copyright (C) 2010 Eleazar Galano <eg.galano!gmail.com>
+#   Copyright (C) 2010 Travis Athougies <iammisc!gmail.com>
+#   Copyright (C) 2011 Scott Jackson <sjackson2!gmx.com>
+#   Copyright (C) 2011 Trevor Johnson
+#   Copyright (C) 2011 Franco Junio
+#   Copyright (C) 2011 Craig Sanders
+#   Copyright (C) 2011 Matthew Bauer <mjbauer95>
 #
 # License
 #   This program is free software; you can redistribute it and/or
@@ -191,6 +196,30 @@ w_warn()
     esac
 
     unset _W_timeout
+}
+
+# Display warning message to stderr (since it is called inside redirected code)
+# And give gui user option to cancel (for when used in a loop)
+# If user cancels, exit status is 1
+w_warn_cancel()
+{
+    echo "------------------------------------------------------" >&2
+    echo "$@" >&2
+    echo "------------------------------------------------------" >&2
+
+    if test $W_OPT_UNATTENDED
+    then
+        _W_timeout="--timeout 5"
+    fi
+
+    # Zenity has no cancel button, but will set status to 1 if you click the go-away X
+    case $WINETRICKS_GUI in
+    zenity) $WINETRICKS_GUI $_W_timeout --error --title=winetricks --text="`echo $@ | sed 's,\\\\,\\\\\\\\,g'`";;
+    kdialog) $WINETRICKS_GUI --title winetricks --warningcontinuecancel "$@" ;;
+    none) ;;
+    esac
+
+    # can't unset, it clears status
 }
 
 # Display fatal error message and terminate script
@@ -546,6 +575,22 @@ w_download_to()
     fi
 }
 
+# Open a web browser for the user to the give page
+# Usage: w_open_webpage url
+w_open_webpage()
+{
+    # See http://www.dwheeler.com/essays/open-files-urls.html
+    for _W_cmd in xdg-open sdtwebclient cygstart open firefox true
+    do
+        if test -n `which $_W_cmd`
+        then
+            break
+        fi
+    done
+    $_W_cmd "$1" &
+    unset _W_cmd
+}
+
 # Download a file
 # Usage: w_download url [sha1sum [filename [cookie jar]]]
 # Caches downloads in winetrickscache/$W_PACKAGE
@@ -627,6 +672,11 @@ w_download_manual_to()
     _W_file="$3"
     _W_sha1sum="$4"
 
+    if test media="download"
+    then
+        w_info "FAIL: bug: media type is download, but w_download_manual was called.  Programmer, please change verb's media type to manual_download."
+    fi
+
     case $LANG in
     da*) _W_dlmsg="Hent venligst filen $_W_file fra $_W_url og placér den i $W_CACHE/$_W_packagename, kør derefter dette skript.";;
     de*) _W_dlmsg="Bitte laden Sie $_W_file von $_W_url runter, stellen Sie's in $W_CACHE/$_W_packagename, dann wiederholen Sie diesen Kommando.";;
@@ -638,12 +688,11 @@ w_download_manual_to()
         mkdir -p "$W_CACHE/$_W_packagename"
         case "$OS" in
         "Windows_NT")
-            cygstart "$W_CACHE/$_W_packagename"
-            cygstart "$_W_url" ;;
+            cygstart "$W_CACHE/$_W_packagename" ;;
         *)
-            xdg-open "$W_CACHE/$_W_packagename"
-            xdg-open "$_W_url" ;;
+            xdg-open "$W_CACHE/$_W_packagename" ;;
         esac
+        w_open_webpage "$_W_url"
         sleep 3   # give some time for browser to open
         w_die "$_W_dlmsg"
         # FIXME: wait in loop until file is finished?
@@ -757,8 +806,8 @@ done
 w_question()
 {
     case $WINETRICKS_GUI in
-    *zenity) zenity --entry --text "$1" ;;
-    *kdialog) kdialog --inputbox "$1" ;;
+    *zenity) $WINETRICKS_GUI --entry --text "$1" ;;
+    *kdialog) $WINETRICKS_GUI --inputbox "$1" ;;
     *xmessage) w_die "sorry, can't ask question with xmessage" ;;
     none) echo -n "$1" >&2 ; read W_ANSWER ; echo $W_ANSWER; unset W_ANSWER;;
     esac
@@ -780,6 +829,7 @@ w_steam_getid()
         else
             W_STEAM_ID=`w_question "$_W_steamidmsg"`
             echo "$W_STEAM_ID" > "$W_CACHE"/steam_userid.txt
+            chmod 600 "$W_CACHE"/steam_userid.txt
         fi
     fi
     if test ! "$W_STEAM_PASSWORD"
@@ -790,6 +840,7 @@ w_steam_getid()
         else
             W_STEAM_PASSWORD=`w_question "$_W_steampasswordmsg"`
             echo "$W_STEAM_PASSWORD" > "$W_CACHE"/steam_password.txt
+            chmod 600 "$W_CACHE"/steam_password.txt
         fi
     fi
 }
@@ -869,7 +920,11 @@ fi
                     winclose
                     continue
                 }
-                send {enter}      ; next (for 3rd of 3 pages of install dialog)
+                ifwinexist Install - $_W_steamtitle
+                {
+                    winactivate
+                    send {enter}      ; next (for 3rd of 3 pages of install dialog)
+                }
                 ifwinnotexist Install - $_W_steamtitle
                 {
                     sleep 1000
@@ -943,7 +998,7 @@ w_mount()
             while true
             do
                 winetricks_mount_real_volume "$1"
-                if test -f "$W_ISO_MOUNT_ROOT/$2"
+                if test "$2" = "" || test -f "$W_ISO_MOUNT_ROOT/$2"
                 then
                     break
                 else
@@ -1173,6 +1228,7 @@ w_set_winver()
     $WINE reg delete "HKLM\System\CurrentControlSet\Control\ServiceCurrent" /v OS /f || true
     $WINE reg delete "HKLM\System\CurrentControlSet\Control\Windows" /v CSDVersion /f || true
     $WINE reg delete "HKCU\Software\Wine" /v Version /f || true
+    $WINE reg delete "HKLM\\System\\CurrentControlSet\\Control\\ProductOptions" /v ProductType /f || true
     ) > /dev/null 2>&1
 
     case $1 in
@@ -1252,6 +1308,7 @@ _EOF_
         currentbuildnumber="7601"
         currentversion="6.1"
         csdversion_hex=dword:00000100
+        $WINE reg add "HKLM\\System\\CurrentControlSet\\Control\\ProductOptions" /v ProductType /d "WinNT" /f
         ;;
     *)
         die "Invalid Windows version given."
@@ -1491,7 +1548,7 @@ w_declare_exe()
     cat > "$W_DRIVE_C/run-$_W_name.bat" <<__EOF__
 ${W_PROGRAMS_DRIVE}:
 cd "$_W_dir"
-$_W_exe
+$_W_exe %*
 __EOF__
     unset _W_dir _W_exe _W_name
 }
@@ -2754,9 +2811,9 @@ winetricks_mount_real_volume()
     # Wait for user to insert disc.
 
     case $LANG in
-    da*)_W_mountmsg="Indsæt og montér venligst disken '$_W_expected_volname' (krævet af pakken '$_PACKAGE')" ;;
-    de*)_W_mountmsg="Disc '$_W_expected_volname' bitte einlegen und montieren (für Pakete '$W_PACKAGE')" ;;
-    *)  _W_mountmsg="Please insert and mount volume '$_W_expected_volname' (needed for package '$W_PACKAGE')" ;;
+    da*)_W_mountmsg="Indsæt venligst disken '$_W_expected_volname' (krævet af pakken '$_PACKAGE')" ;;
+    de*)_W_mountmsg="Disc '$_W_expected_volname' bitte einlegen (für Pakete '$W_PACKAGE')" ;;
+    *)  _W_mountmsg="Please insert volume '$_W_expected_volname' (needed for package '$W_PACKAGE')" ;;
     esac
 
     if test "$WINE" = ""
@@ -2767,7 +2824,7 @@ winetricks_mount_real_volume()
     else
         while ! winetricks_is_mounted "$_W_expected_volname"
         do
-            w_warn "$_W_mountmsg"
+            w_try w_warn_cancel "$_W_mountmsg"
             # In non-gui case, give user two seconds to futz with disc drive before spamming him again
             sleep 2
         done
@@ -2898,6 +2955,9 @@ winetricks_set_wineprefix()
         W_CACHE_WIN="${letter}:"
         ;;
     esac
+
+    # FIXME wrong on 64 bit windows for now
+    W_COMMONFILES_X86_WIN="`$WINE cmd.exe /c echo "%CommonProgramFiles%" | tr -d '\015'`"
 
     W_WINDIR_UNIX="$W_DRIVE_C/windows"
 
@@ -3141,18 +3201,17 @@ Usage: $0 [options] [command|verb|path-to-verb] ...
 Executes given verbs.  Each verb installs an application or changes a setting.
 
 Options:
--k|--keep_isos        Cache isos (allows later installation without disc)
--q|--unattended       Don't ask any questions, just install automatically
--r|--ddrescue         Use only when caching scratched discs
--v|--verbose          Echo all commands as they are executed
--V|--version          Display version and exit
--h|--help             Display this message and exit
---isolate             Install each app or game in its own bottle (default)
---no-isolate          Don't install each app or game in its own bottle
---noclean             Don't delete temp directories (useful during debugging)
---force               Don't check whether packages were already installed
---gui                 Show gui diagnostics even when driven by commandline
---showbroken          Even show verbs that are currently broken in wine
+    --force           Don't check whether packages were already installed
+    --gui             Show gui diagnostics even when driven by commandline
+-k, --keep_isos       Cache isos (allows later installation without disc)
+    --no-clean        Don't delete temp directories (useful during debugging)
+    --no-isolate      Don't install each app or game in its own bottle
+-q, --unattended      Don't ask any questions, just install automatically
+-r, --ddrescue        Retry hard when caching scratched discs
+    --showbroken      Even show verbs that are currently broken in wine
+-v, --verbose         Echo all commands as they are executed
+-h, --help            Display this message and exit
+-V, --version         Display version and exit
 
 Commands:
 list                  list categories
@@ -3182,7 +3241,7 @@ winetricks_handle_option()
     -h|--help) winetricks_usage ; exit 0 ;;
     --isolate) WINETRICKS_OPT_SHAREDPREFIX=0 ;;
     --no-isolate) WINETRICKS_OPT_SHAREDPREFIX=1 ;;
-    --noclean) W_OPT_NOCLEAN=1 ;;
+    --no-clean) W_OPT_NOCLEAN=1 ;;
     --force) WINETRICKS_FORCE=1;;
     --gui) winetricks_detect_gui;;
     --showbroken) W_OPT_SHOWBROKEN=1 ;;
@@ -3279,7 +3338,7 @@ w_metadata  adobeair dlls \
    year="2010" \
    media="download" \
    file1="AdobeAIRInstaller.exe" \
-   installed_file1="$W_PROGRAMS_X86_WIN/Common Files/Adobe AIR/Versions/1.0/Adobe AIR.dll"
+   installed_file1="$W_COMMONFILES_X86_WIN/Adobe AIR/Versions/1.0/Adobe AIR.dll"
 
 load_adobeair()
 {
@@ -3322,7 +3381,7 @@ w_metadata  art2kmin dlls \
    year="2007" \
    media="download" \
    file1="AccessRuntime.exe" \
-   installed_file1="$W_PROGRAMS_X86_WIN/Common Files/Microsoft Shared/OFFICE12/ACEES.DLL"
+   installed_file1="$W_COMMONFILES_X86_WIN/Microsoft Shared/OFFICE12/ACEES.DLL"
 
 load_art2kmin()
 {
@@ -4145,19 +4204,18 @@ load_dsound()
 
 # FIXME: update winetricks_is_installed to look at installed_file2
 w_metadata flash dlls \
-   title="Flash Player" \
+   title="Flash Player 10" \
    publisher="Adobe" \
-   year="2010" \
+   year="2011" \
    media="download" \
    file1="install_flash_player.exe" \
    file2="install_flash_player_ax.exe" \
-   installed_file1="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10o_Plugin.exe" \
-   installed_file2="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10o_ActiveX.exe"
+   installed_file1="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10p_Plugin.exe" \
+   installed_file2="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10p_ActiveX.exe" \
+   homepage="http://www.adobe.com/products/flashplayer/"
 
 load_flash()
 {
-    # www.adobe.com/products/flashplayer/
-
     # Active X plugin
     # http://blogs.adobe.com/psirt/2008/03/preparing_for_april_flash_play.html
     # http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_active_x.msi
@@ -4165,28 +4223,23 @@ load_flash()
     # 2011-02-12: sha1sum 944c1f2055cd85af37ef44629773c2cf1d02a21c
     # 2011-02-24: sha1sum f2e6a3f486423d6c1be48ad80fb3b7d4cdafd29d
     # 2011-03-15: sha1sum 07908231028f68098902d5aa52812b7e27f8497a
-    w_download http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player_ax.exe 07908231028f68098902d5aa52812b7e27f8497a
+    # 2011-04-12: sha1sum 80b547dde20c0e80f739c3ba66be1065a94e4244
+    w_download http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player_ax.exe \
+        80b547dde20c0e80f739c3ba66be1065a94e4244
     cd "$W_CACHE"/flash
 
-    if [ $W_UNATTENDED_SLASH_Q ]
-    then
-        w_try $WINE install_flash_player_ax.exe /install
-    else
-        w_try $WINE install_flash_player_ax.exe
-    fi
+    w_try $WINE install_flash_player_ax.exe ${W_OPT_UNATTENDED:+ /install}
 
     # Mozilla / Firefox plugin
     # 2010-11-04: sha1sum 09f2491c5bec7286155234f4e6e1af70c7cef78f
     # 2011-02-12: sha1sum 4a650caf62d8841d14b9d7888ab9b69d5d6f617a
     # 2011-02-24: sha1sum 009c908cdb73fba18b34e798b1f601ed964102a1
     # 2011-03-15: sha1sum 487b7003386ba80da00fa56cfd1d33241b8a0e41
-    w_download http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player.exe 487b7003386ba80da00fa56cfd1d33241b8a0e41
-    if [ $W_UNATTENDED_SLASH_Q ]
-    then
-        w_try $WINE install_flash_player.exe /install
-    else
-        w_try $WINE install_flash_player.exe
-    fi
+    # 2011-04-12: sha1sum 706523aa1af2e77f9ae7727202ebe0f0f5e71a39
+    w_download http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player.exe \
+        706523aa1af2e77f9ae7727202ebe0f0f5e71a39
+
+    w_try $WINE install_flash_player.exe ${W_OPT_UNATTENDED:+ /install}
 }
 
 #----------------------------------------------------------------
@@ -4468,7 +4521,7 @@ w_metadata jet40 dlls \
    year="2003" \
    media="download" \
    file1="jet40sp8_9xnt.exe" \
-   installed_file1="$W_PROGRAMS_X86_WIN/Common Files/Microsoft shared/dao/dao360.dll"
+   installed_file1="$W_COMMONFILES_X86_WIN/Microsoft shared/dao/dao360.dll"
 
 load_jet40()
 {
@@ -4506,6 +4559,25 @@ load_kde()
 
 #----------------------------------------------------------------
 
+w_metadata kindle apps \
+    title="Amazon Kindle" \
+    publisher="Amazon" \
+    year="2011" \
+    media="download" \
+    file1="KindleForPC-installer.exe" \
+    installed_exe1="$W_PROGRAMS_WIN/Amazon/Kindle For PC/Kindle.exe" \
+    homepage="http://www.amazon.com/gp/feature.html/?docId=1000426311"
+
+load_kindle()
+{
+    w_download http://kindleforpc.amazon.com/32337/KindleForPC-installer.exe \
+        2ad916877f418ceb8bdc4ae13b0c5e9099ffb8d7
+    w_try $WINE $W_CACHE/kindle/$file1 ${W_OPT_UNATTENDED:+ /S}
+    w_declare_exe "$W_PROGRAMS_WIN\\Amazon\\Kindle For PC" Kindle.exe
+}
+
+#----------------------------------------------------------------
+
 w_metadata l3codecx dlls \
    title="MPEG Layer-3 Audio Codec for Microsoft DirectShow" \
    publisher="Microsoft" \
@@ -4536,7 +4608,7 @@ w_metadata  mdac27 dlls \
    year="2006" \
    media="download" \
    file1="mdac_typ.exe" \
-   installed_file1="$W_PROGRAMS_X86_WIN/Common Files/System/ADO/msado26.tlb"
+   installed_file1="$W_COMMONFILES_X86_WIN/System/ADO/msado26.tlb"
 
 load_mdac27()
 {
@@ -4556,7 +4628,7 @@ w_metadata  mdac28 dlls \
    year="2005" \
    media="download" \
    file1="MDAC_TYP.EXE" \
-   installed_file1="$W_PROGRAMS_X86_WIN/Common Files/System/ADO/msado27.tlb"
+   installed_file1="$W_COMMONFILES_X86_WIN/System/ADO/msado27.tlb"
 
 load_mdac28()
 {
@@ -5014,7 +5086,7 @@ w_metadata quicktime72 dlls \
    publisher="Apple" \
    year="2010" \
    media="download" \
-   file1="QuickTimeInstaller.exe" \
+   file1="quicktimeplayer72.exe" \
    installed_file1="c:/windows/Installer/{95A890AA-B3B1-44B6-9C18-A8F7AB3EE7FC}/QTPlayer.ico"
 
 load_quicktime72()
@@ -5042,7 +5114,7 @@ load_quicktime72()
     fi
 
     cd "$W_CACHE"/quicktime72
-    w_try $WINE QuickTimeInstaller.exe ALLUSERS=1 DESKTOP_SHORTCUTS=0 QTTaskRunFlags=0 QTINFO.BISQTPRO=1 SCHEDULE_ASUW=0 REBOOT_REQUIRED=No $QUICKTIME_QUIET > /dev/null 2>&1
+    w_try $WINE quicktimeplayer72.exe ALLUSERS=1 DESKTOP_SHORTCUTS=0 QTTaskRunFlags=0 QTINFO.BISQTPRO=1 SCHEDULE_ASUW=0 REBOOT_REQUIRED=No $QUICKTIME_QUIET > /dev/null 2>&1
 
     if w_workaround_wine_bug 11681
     then
@@ -5062,6 +5134,7 @@ load_quicktime72()
         fi
     fi
 }
+
 #----------------------------------------------------------------
 
 w_metadata quicktime76 dlls \
@@ -5241,7 +5314,7 @@ load_usp10()
 {
     # http://en.wikipedia.org/wiki/Uniscribe
     # http://www.microsoft.com/downloads/details.aspx?familyid=cebbacd8-c094-4255-b702-de3bb768148f
-    w_download http://download.microsoft.com/download/WindowsInstaller/Install/2.0/W9XMe/EN-US/InstMsiA.exe e739c40d747e7c27aacdb07b50925b1635ee7366
+    w_download_to msi2 http://download.microsoft.com/download/WindowsInstaller/Install/2.0/W9XMe/EN-US/InstMsiA.exe e739c40d747e7c27aacdb07b50925b1635ee7366
     w_try_cabextract --directory="$W_TMP" "$W_CACHE"/msi2/InstMsiA.exe
     w_try cp -f "$W_TMP"/usp10.dll "$W_SYSTEM32_DLLS"
     w_override_dlls native,builtin usp10
@@ -5498,16 +5571,17 @@ load_vcrun2003()
 w_metadata vcrun2005 dlls \
    title="Visual C++ 2005 libraries (mfc80,msvcp80,msvcr80)" \
    publisher="Microsoft" \
-   year="2005" \
+   year="2011" \
    media="download" \
    file1="vcredist_x86.exe" \
-   installed_file1="c:/windows/winsxs/x86_Microsoft.VC80.MFC_1fc8b3b9a1e18e3b_8.0.50727.4053_x-ww_b77cec8e/mfc80.dll"
+   installed_file1="c:/windows/winsxs/x86_Microsoft.VC80.MFC_1fc8b3b9a1e18e3b_8.0.50727.5592_x-ww_e87e0bcd/mfc80.dll"
 
 load_vcrun2005()
 {
-    # SP1 + ATL security fix build 4053 (MS09-035)
-    # See http://www.microsoft.com/downloads/details.aspx?familyid=766A6AF7-EC73-40FF-B072-9112BAB119C2
-    w_download http://download.microsoft.com/download/6/B/B/6BB661D6-A8AE-4819-B79F-236472F6070C/vcredist_x86.exe e052789ebad7dc8d6f8505a9295b0576babd125e
+    # build 5592, April 2011 security update, see 
+    # http://www.microsoft.com/technet/security/bulletin/MS11-025.mspx and 
+    # http://support.microsoft.com/kb/2467175
+    w_download http://download.microsoft.com/download/3/0/5/305BF178-5F7C-489E-8F39-C3257429E832/vcredist_x86.exe 3badcd6e356c9511ad2e71010fa4684954091e09
     cd "$W_CACHE"/vcrun2005
     w_override_dlls native,builtin msvcr80
     w_try $WINE vcredist_x86.exe $W_UNATTENDED_SLASH_Q
@@ -5518,16 +5592,17 @@ load_vcrun2005()
 w_metadata vcrun2008 dlls \
    title="Visual C++ 2008 libraries (mfc90,msvcp90,msvcr90)" \
    publisher="Microsoft" \
-   year="2008" \
+   year="2011" \
    media="download" \
    file1="vcredist_x86.exe" \
-   installed_file1="C:/windows/winsxs/x86_Microsoft.VC90.MFC_1fc8b3b9a1e18e3b_9.0.30729.4148_x-ww_a57c1f53/mfc90.dll"
+   installed_file1="C:/windows/winsxs/x86_Microsoft.VC90.MFC_1fc8b3b9a1e18e3b_9.0.30729.5570_x-ww_d5fe2ecb/mfc90.dll"
 
 load_vcrun2008()
 {
-    # SP1 + ATL security fix build 4148 (MS09-035)
-    # See http://www.microsoft.com/downloads/details.aspx?familyid=2051a0c1-c9b5-4b0a-a8f5-770a549fd78c
-    w_download http://download.microsoft.com/download/9/7/7/977B481A-7BA6-4E30-AC40-ED51EB2028F2/vcredist_x86.exe bd18409cfe75b88c2a9432d36d96f4bf125a3237
+    # build 5570, April 2011 security update, see 
+    # http://www.microsoft.com/technet/security/bulletin/MS11-025.mspx and 
+    # http://support.microsoft.com/kb/2467174
+    w_download http://download.microsoft.com/download/7/E/D/7ED72B8A-D457-4DF0-B455-42A85FA157FF/vcredist_x86.exe 0361fcefc78b0ab4896ca1837551aeda5175f6fd
     w_override_dlls native,builtin msvcr90
     cd "$W_CACHE"/vcrun2008
     w_try $WINE vcredist_x86.exe $W_UNATTENDED_SLASH_Q
@@ -6055,15 +6130,15 @@ load_droid()
     # See http://en.wikipedia.org/wiki/Droid_(font)
     DROID_URL='http://android.git.kernel.org/?p=platform/frameworks/base.git;a=blob_plain;f=data/fonts/'
 
-    do_droid DroidSans-Bold.ttf        "Droid Sans Bold"         ada4e79c592f3c54546b7587b48f2b232d95ce2f
-    do_droid DroidSansFallback.ttf     "Droid Sans Fallback"     5065cce92e8420232db95ab3ba421e462b09b965
+    do_droid DroidSans-Bold.ttf        "Droid Sans Bold"         560e4bcafdebaf29645fbf92633a2ae0d2f9801f
+    do_droid DroidSansFallback.ttf     "Droid Sans Fallback"     64de2fde75868ab8d4c6714add08c8f08b3fae1e
     do_droid DroidSansJapanese.ttf     "Droid Sans Japanese"     b3a248c11692aa88a30eb25df425b8910fe05dc5
-    do_droid DroidSansMono.ttf         "Droid Sans Mono"         f0815c6f36c72be1d0f2f5e2b82fa85c8bf95655
-    do_droid DroidSans.ttf             "Droid Sans"              da5b3c7758a2c8fbc4775beb69d7150493c7d312
-    do_droid DroidSerif-BoldItalic.ttf "Droid Serif Bold Italic" c1602dc11bf0f7131aec21c7c3888195ad78e486
-    do_droid DroidSerif-Bold.ttf       "Droid Serif Bold"        d7896b9c0723299553e95a00d27cbe52f7515c8c
-    do_droid DroidSerif-Italic.ttf     "Droid Serif Italic"      117941be102c8f38a86a70ebccaecb8078f7027e
-    do_droid DroidSerif-Regular.ttf    "Droid Serif"             7f243858e496ed1bb1faca9f3a7bbe52defcbb5d
+    do_droid DroidSansMono.ttf         "Droid Sans Mono"         133fb6cf26ea073b456fb557b94ce8c46143b117
+    do_droid DroidSans.ttf             "Droid Sans"              62f2841f61e4be66a0303cd1567ed2d300b4e31c
+    do_droid DroidSerif-BoldItalic.ttf "Droid Serif Bold Italic" b7f2d37c3a062be671774ff52f4fd95cbef813ce
+    do_droid DroidSerif-Bold.ttf       "Droid Serif Bold"        294fa99ceaf6077ab633b5a7c7db761e2f76cf8c
+    do_droid DroidSerif-Italic.ttf     "Droid Serif Italic"      bdd8aad5e6ac546d11e7378bdfabeac7ccbdadfc
+    do_droid DroidSerif-Regular.ttf    "Droid Serif"             805c5f975e02f488fa1dd1dd0d44ed4f93b0fab4
 }
 
 #----------------------------------------------------------------
@@ -6451,7 +6526,7 @@ load_allfonts()
 
 w_metadata 7zip apps \
    title="7-Zip" \
-   publisher="Igor Pavolv" \
+   publisher="Igor Pavlov" \
    year="1999" \
    media="download" \
    file1="7z465.exe" \
@@ -6463,7 +6538,7 @@ load_7zip()
     w_download http://downloads.sourceforge.net/project/sevenzip/7-Zip/4.65/7z465.exe c36012e960fa3932cd23f30ac5b0fe722740243a
     cd "$W_CACHE"/7zip
     w_try $WINE 7z465.exe $W_UNATTENDED_SLASH_S
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\7-Zip" "7z.exe %1 %2 %3 %4 %5"
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\7-Zip" "7z.exe"
 }
 
 #----------------------------------------------------------------
@@ -6500,6 +6575,25 @@ load_autohotkey()
     w_download http://www.autohotkey.net/programs/AutoHotkey104805_Install.exe 13e5a9ca6d5b7705f1cd02560c3af4d38b1904fc
     cd "$W_CACHE"/autohotkey
     w_try $WINE AutoHotkey104805_Install.exe $W_UNATTENDED_SLASH_S
+}
+
+#----------------------------------------------------------------
+
+w_metadata borders apps \
+   title="Borders Desktop (Kobo e-book reader)" \
+   publisher="Kobo" \
+   year="2011" \
+   media="download" \
+   file1="KoboSetup.exe" \
+   installed_exe1="$W_PROGRAMS_X86_WIN/Borders Desktop/Borders Desktop.exe" \
+   homepage="http://www.borders.com/online/store/MediaView_ereaderapps"
+
+load_borders()
+{
+    w_download http://download.kobobooks.com/desktop/1/KoboSetup.exe
+    cd "$W_CACHE"/borders
+    w_try $WINE $file1 ${W_OPT_UNATTENDED:+ /S}
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\Borders Desktop" "Borders Desktop.exe"
 }
 
 #----------------------------------------------------------------
@@ -6648,23 +6742,18 @@ load_dxdiag()
 #----------------------------------------------------------------
 
 w_metadata firefox3 apps \
-   title="Firefox 3.6.16" \
+   title="Firefox 3.6.17" \
    publisher="Mozilla" \
    year="2011" \
    media="download" \
-   file1="Firefox Setup 3.6.16.exe" \
+   file1="Firefox Setup 3.6.17.exe" \
    installed_exe1="$W_PROGRAMS_X86_WIN/Mozilla Firefox/firefox.exe"
 
 load_firefox3()
 {
-    w_download "http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.6.16/win32/en-US/Firefox%20Setup%203.6.16.exe" e5d943353556970fca7df08c6b81ec7015f54d7a "Firefox Setup 3.6.16.exe"
+    w_download "http://download.mozilla.org/?product=firefox-3.6.17&os=win&lang=en-US" 193ea12732e52d8195e96ba22289e83afbed09f4 "Firefox Setup 3.6.17.exe"
     cd "$W_CACHE"/firefox3
-    if test $W_OPT_UNATTENDED
-    then
-       w_try $WINE "Firefox Setup 3.6.16.exe" -ms
-    else
-       w_try $WINE "Firefox Setup 3.6.16.exe"
-    fi
+    w_try $WINE "Firefox Setup 3.6.17.exe" ${W_OPT_UNATTENDED:+ -ms}
 
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Mozilla Firefox" firefox.exe
 
@@ -6680,11 +6769,11 @@ load_firefox3()
 #----------------------------------------------------------------
 
 w_metadata firefox apps \
-   title="Firefox 4.0" \
+   title="Firefox 4.0.1" \
    publisher="Mozilla" \
    year="2011" \
    media="download" \
-   file1="Firefox Setup 4.0.exe" \
+   file1="Firefox Setup 4.0.1.exe" \
    installed_exe1="$W_PROGRAMS_X86_WIN/Mozilla Firefox/firefox.exe"
 
 load_firefox()
@@ -6694,14 +6783,9 @@ load_firefox()
         w_die  "Requires wine-1.3.0 or later to install"
     fi
 
-    w_download "http://mirror.metrocast.net/mozilla/firefox/releases/4.0/win32/en-US/Firefox%20Setup%204.0.exe" e76f9ae709f6e4fe1d046cf74ea69bc8380e7c55 "Firefox Setup 4.0.exe"
+    w_download "http://download.mozilla.org/?product=firefox-4.0.1&os=win&lang=en-US" 54a5d25ae3a4e342268fbc91d240770e9b17fbaf "Firefox Setup 4.0.1.exe"
     cd "$W_CACHE"/firefox
-    if test $W_OPT_UNATTENDED
-    then
-       w_try $WINE "Firefox Setup 4.0.exe" -ms
-    else
-       w_try $WINE "Firefox Setup 4.0.exe"
-    fi
+    w_try $WINE "Firefox Setup 4.0.1.exe" ${W_OPT_UNATTENDED:+ -ms}
 
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Mozilla Firefox" firefox.exe
 }
@@ -7106,6 +7190,29 @@ load_mspaint()
 
 #----------------------------------------------------------------
 
+w_metadata nook apps \
+   title="Nook for PC (e-book reader)" \
+   publisher="Barnes & Noble" \
+   year="2011" \
+   media="download" \
+   file1="bndr2_setup_latest.exe" \
+   installed_exe1="$W_PROGRAMS_X86_WIN/Barnes & Noble/BNDesktopReader/BNDReader.exe" \
+   homepage="http://www.barnesandnoble.com/u/free-nook-apps/379002321/"
+
+load_nook()
+{
+    # dates from curl --head
+    # 10 Feb 2011 sha1sum 4a06a529b93ed33c3518326d874b40d8d7b70e7a
+    w_download \
+        http://images.barnesandnoble.com/PResources/download/eReader2/bndr2_setup_latest.exe \
+        4a06a529b93ed33c3518326d874b40d8d7b70e7a
+    $WINE $W_CACHE/nook/$file1 ${W_OPT_UNATTENDED:+ /S}
+    # normally has exit status 199?
+    w_declare_exe "$W_PROGRAMS_WIN\\Barnes & Noble\\BNDesktopReader" "BNDReader.exe"
+}
+
+#----------------------------------------------------------------
+
 w_metadata office2003pro apps \
    title="Microsoft Office 2003 Professional" \
    publisher="Microsoft" \
@@ -7224,6 +7331,24 @@ $W_CACHE/$W_PACKAGE/key.txt and rerun."
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Microsoft Office\\Office12" OUTLOOK.EXE  outlook2007
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Microsoft Office\\Office12" MSPUB.EXE  publisher2007
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Microsoft Office\\Office12" INFOPATH.EXE  infopath2007
+}
+
+#----------------------------------------------------------------
+
+w_metadata opera apps \
+   title="Opera 11" \
+   publisher="Opera Software" \
+   year="2011" \
+   media="download" \
+   file1="Opera_1110_en_Setup.exe" \
+   installed_exe1="$W_PROGRAMS_X86_WIN/Opera/opera.exe"
+
+load_opera()
+{
+    w_download "ftp://ftp.opera.com/pub/opera/win/1110/en/Opera_1110_en_Setup.exe" e0aa457b0fbe3d2caca1eb1d9a311dcd85ba7e14
+    cd "$W_CACHE"/$W_PACKAGE
+    w_try $WINE $file1 ${W_OPT_UNATTENDED:+ /silent /launchopera 0 /allusers}
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\Opera" opera.exe
 }
 
 #----------------------------------------------------------------
@@ -7371,20 +7496,22 @@ w_metadata spotify apps \
 
 load_spotify()
 {
-    w_download http://www.spotify.com/download/Spotify%20Installer.exe f26712b576baa1c78112a05474293deef39f7f62 SpotifyInstaller.exe
+    #             0.4.9  f26712b576baa1c78112a05474293deef39f7f62 
+    # 29 Apr 2011 0.4.10 4becb04f8ad08a3ff59d6830bf1d998fcca1815b
+    w_download http://www.spotify.com/download/Spotify%20Installer.exe 4becb04f8ad08a3ff59d6830bf1d998fcca1815b SpotifyInstaller.exe
 
     cd "$W_CACHE"/spotify
 
     w_ahk_do "
         SetTitleMatchMode, 2
         run SpotifyInstaller.exe
-        WinWait, Spotify 0.4.9 Setup, Location
+        WinWait, Spotify, Location
         if ( w_opt_unattended > 0 ) {
             Sleep 500
             ControlClick Button7 ; Start after install
             Sleep 500
             ControlClick Button2 ; Install
-            WinWait, Spotify 0.4.9 Setup, Complete
+            WinWait, Spotify, Complete
             Sleep 500
             ControlClick Button2 ; Close
         }
@@ -7496,6 +7623,27 @@ _EOF_
 
 #----------------------------------------------------------------
 
+w_metadata songbird apps \
+    title="Songbird" \
+    publisher="POTI" \
+    year="2010" \
+    media="download" \
+    file1="Songbird_1.9.3-1959_windows-i686-msvc8.exe" \
+    installed_exe1="$W_PROGRAMS_X86_WIN/Songbird/songbird.exe" \
+    homepage="http://getsongbird.com"
+
+load_songbird()
+{
+    w_download \
+        http://download.songbirdnest.com/installer/windows/i686-msvc8/Songbird_1.9.3-1959_windows-i686-msvc8.exe \
+        1e6bdc9d5681f44320987cc73cde66f85b3e8032
+    cd "$W_CACHE/songbird"
+    w_try $WINE $file1 ${W_OPT_UNATTENDED:+ /S}
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\Songbird" songbird.exe
+}
+
+#----------------------------------------------------------------
+
 w_metadata steam apps \
    title="Steam" \
    publisher="Valve" \
@@ -7563,7 +7711,8 @@ w_metadata utorrent3 apps \
 load_utorrent3()
 {
     # 15 Apr 2011: sha1sum a5f198207919e8f2091a9b4459d7d6fc8a63e874
-    w_download http://download.utorrent.com/beta/utorrent-3.0-latest.exe a5f198207919e8f2091a9b4459d7d6fc8a63e874
+    # 27 Apr 2011: sha1sum d969f0c61cf2b2afaea4121f097ef690dffbf771
+    w_download http://download.utorrent.com/beta/utorrent-3.0-latest.exe d969f0c61cf2b2afaea4121f097ef690dffbf771
 
     case "$W_OPT_UNATTENDED" in
     0) _W_opt="" ;;
@@ -7706,20 +7855,20 @@ load_vc2005trial()
 #----------------------------------------------------------------
 
 w_metadata vlc apps \
-   title="VLC media player 1.1.5" \
+   title="VLC media player" \
    publisher="videolan.org" \
    year="2010" \
    media="download" \
-   file1="vlc-1.1.5-win32.exe" \
+   file1="vlc-1.1.9-win32.exe" \
    installed_file1="$W_PROGRAMS_X86_WIN/VideoLAN/VLC/vlc.exe" \
    homepage="http://www.videolan.org/vlc/"
 
 load_vlc()
 {
-    w_download $WINETRICKS_SOURCEFORGE/vlc/vlc-1.1.5-win32.exe 11a14856e07b28d5c637c38f5191915f787fb85e
+    w_download $WINETRICKS_SOURCEFORGE/vlc/vlc-1.1.9-win32.exe 7128f6e43d6550fcc2574b9c82c5153ff47efcf6
     cd "$W_CACHE"/vlc
-    w_try $WINE vlc-1.1.5-win32.exe $W_UNATTENDED_SLASH_S
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\VideoLAN\\VLC" "vlc.exe"
+    w_try $WINE $file1 ${W_OPT_UNATTENDED:+ /S}
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\VideoLAN\\VLC" vlc.exe
 }
 
 #----------------------------------------------------------------
@@ -7900,7 +8049,7 @@ load_3dmark2000()
 c:
 cd "$W_PROGRAMS_X86_WIN\MadOnion.com\3DMark2000"
 REM possible wine cmd bug: "3dmark2000" aborts, but ".\3dmark2000" works
-.\3DMark2000
+.\3DMark2000 %*
 __EOF__
 
 }
@@ -8553,6 +8702,7 @@ load_avatar_demo()
         winwait, Language
         u = $W_OPT_UNATTENDED
         if ( u > 0 ) {
+            WinActivate
             controlclick, Button1
             winwait, AVATAR, Welcome
             controlclick, Button1
@@ -8947,9 +9097,49 @@ load_braid()
         send {Raw}$W_RAW_KEY
         controlclick, Button1
         sleep 5000
-        ; FIXME: Desktop resolution isn't reset after exit
         process, close, braid.exe
     "
+
+    # Fix resolution for user:
+    if [ -x "`which xrandr`" ]
+    then
+        xrandr -s 0
+    else
+        w_warn "Xrandr is not available, not sure how to fix resolution, sorry!"
+    fi
+
+}
+
+#----------------------------------------------------------------
+
+w_metadata cnc_tiberian_sun games \
+    title="Command and Conquer: Tiberian Sun (2010 edition)" \
+    publisher="EA" \
+    year="1999" \
+    media="download" \
+    file1="OfficialCnCTiberianSun.rar" \
+    installed_exe1="$W_PROGRAMS_X86_WIN\\EA Games\\Command & Conquer The First Decade\\Command & Conquer(tm) Tiberian Sun(tm)\\SUN\\Game.exe"
+
+load_cnc_tiberian_sun()
+{
+    w_download \
+        http://na.llnet.cnc3tv.ea.com/u/f/eagames/cnc3/cnc3tv/Classic/$file1 \
+        591aabd639fb9f2d2476a2150f3c00b1162674f5
+
+    cd "$W_PROGRAMS_X86_UNIX"
+    # FIXME: we need a progress indicator when unpacking large archives
+    w_info "Unpacking rar file.  This will take a minute."
+    w_try unrar x "$W_CACHE/$W_PACKAGE/$file1"
+
+    if w_workaround_wine_bug 26911 \
+        "Setting dsoundhw=Emulation so sound works in skirmish mode"
+    then
+        w_call dsoundhw=Emulation
+    fi
+
+    w_declare_exe \
+        "$W_PROGRAMS_X86_WIN\\EA Games\\Command & Conquer The First Decade\\Command & Conquer(tm) Tiberian Sun(tm)\\SUN" \
+        Game.exe
 }
 
 #----------------------------------------------------------------
@@ -9004,6 +9194,53 @@ load_cnc3_demo()
 
 #----------------------------------------------------------------
 
+w_metadata cnc_redalert3_demo games \
+    title="Command & Conquer Red Alert 3 Demo" \
+    publisher="EA" \
+    year="2008" \
+    media="download" \
+    file1="RedAlert3Demo.exe" \
+    installed_exe1="$W_PROGRAMS_X86_WIN/Electronic Arts/Red Alert 3 Demo/RA3Demo.exe"
+
+load_cnc_redalert3_demo()
+{
+    w_download http://gamedaily.newaol.com/pub/RedAlert3Demo.exe f909b87cc12e386a51be51ede708634348c8af48
+
+    if test ! "$W_OPT_UNATTENDED"
+    then
+        w_try "$WINE" "$W_CACHE/$W_PACKAGE/$file1"
+    else
+        w_ahk_do "
+            SetWinDelay 1000
+            SetTitleMatchMode, 2
+            run $W_CACHE/$W_PACKAGE/$file1
+            winwait, Demo, readme
+            send {enter}                           ; Install button
+            winwait, Demo, Agreement
+            ControlFocus, TNewCheckListBox1, accept
+            send {space}                           ; accept license
+            sleep 1000
+            send N                                 ; Next
+            winwait, Demo, Agreement ; DirectX
+            ControlFocus, TNewCheckListBox1, accept
+            send {space}                           ; accept license
+            sleep 1000
+            send N                                 ; Next
+            winwait, Demo, Next
+            send N                                 ; Next
+            winwait, Demo, Install
+            send {enter}                           ; Really install
+            winwait, Demo, Finish
+            send F                                 ; finish
+            WinWaitClose
+        "
+    fi
+
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\Electronic Arts\\Red Alert 3 Demo" RA3Demo.exe
+}
+
+#----------------------------------------------------------------
+
 # http://appdb.winehq.org/objectManager.php?sClass=version&iId=9320
 w_metadata  blobby_volley games \
    title="Blobby Volley" \
@@ -9034,7 +9271,7 @@ w_metadata cim_demo games \
     title="Cities In Motion Demo" \
     publisher="Paradox Interactive" \
     year="2010" \
-    media="download" \
+    media="manual_download" \
     file1="cim-demo-1-0-8.exe" \
     installed_exe1="$W_PROGRAMS_X86_WIN/Cities In Motion Demo/Cities In Motion.exe"
 
@@ -9109,7 +9346,7 @@ load_cod_demo()
 $setvar
 c:
 cd "$W_PROGRAMS_X86_WIN\\Call of Duty Single Player Demo"
-CoDSP.exe
+CoDSP.exe %*
 __EOF__
 
 }
@@ -9202,7 +9439,7 @@ load_cod1()
 $setvar
 c:
 cd "$W_PROGRAMS_X86_WIN\\Call of Duty"
-CoDSP.exe
+CoDSP.exe %*
 __EOF__
 
     w_warn "This game is copy-protected, and requires the real disc in a real drive to run."
@@ -9438,6 +9675,27 @@ load_civ4_demo()
 
 #----------------------------------------------------------------
 
+w_metadata crayonphysics_demo games \
+    title="Crayon Physics Deluxe demo" \
+    publisher="Kloonigames" \
+    year="2011" \
+    media="download" \
+    file1="crayon_release52demo.exe" \
+    installed_exe1="$W_PROGRAMS_WIN/Crayon Physics Deluxe Demo/crayon.exe" \
+    homepage="http://crayonphysics.com"
+
+load_crayonphysics_demo()
+{
+    w_download \
+        http://crayonphysicsdeluxe.s3.amazonaws.com/$file1 \
+        4ffd64c630f69e7cf024ef946c2c64c8c4ce4eac
+    # Inno Setup installer
+    w_try $WINE "$W_CACHE/$W_PACKAGE/$file1" ${W_OPT_UNATTENDED:+ /sp- /silent /norestart}
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\Crayon Physics Deluxe Demo" crayon.exe
+}
+
+#----------------------------------------------------------------
+
 w_metadata crysis2 games \
    title="Crysis 2" \
    publisher="EA" \
@@ -9496,61 +9754,6 @@ load_crysis2()
             controlclick, Button1     ; Finish
         }
         winwaitclose
-    "
-    
-    if w_workaround_wine_bug 26283
-    then
-        w_warn "The game has some nasty flickering, see http://bugs.winehq.org/show_bug.cgi?id=26283"
-    fi
-}
-
-#----------------------------------------------------------------
-
-w_metadata crysis2_demo_mp games \
-   title="Crysis 2: Multiplayer Demo" \
-   publisher="EA" \
-   year="2011" \
-   media="download" \
-   file1="Crysis_2_Multiplayer_Demo.exe" \
-   installed_file1="$W_PROGRAMS_X86_WIN/Electronic Arts/Crytek/Crysis 2 Demo/bin32/Crysis2Demo.exe"
-
-load_crysis2_demo_mp()
-{
-    w_info "The demo was not downloadable as of 31 Mar 2010"
-
-    w_download "http://static.cdn.ea.com/crytek/u/f/crysis2/Crysis_2_Multiplayer_Demo.exe" 58b135f7fe74dfa367edafd2f2bcc0af094be77e
-
-    cd "$W_CACHE/$W_PACKAGE"
-    # FIXME: ahk_do doesn't seem to like the '®' character? (Full window title is 'Crysis® 2 Demo Setup', so use 'Demo Setup' instead) 
-    w_ahk_do "
-        SetTitleMatchMode, 2
-        SetWinDelay, 500
-        run, Crysis_2_Multiplayer_Demo.exe
-        winwait, Microsoft Visual C++ 2008 Redistributable Setup
-        if ( w_opt_unattended > 0 ) {
-            controlclick, Button12 ; Next
-            winwait, Visual C++, License
-            controlclick, Button11 ; Agree
-            controlclick, Button8 ; Install
-            winwait, Setup, configuring
-            winwaitclose
-            winwait, Visual C++, Complete
-            controlclick, Button2 ; Finish
-            winwait, Demo Setup, Please read the End User
-            controlclick, Button1, Demo Setup, Please read the End User
-            controlclick, Button3, Demo Setup, Please read the End User
-            ; Again for DirectX
-            winwait, Demo Setup, Please read the following End
-            controlclick, Button1, Demo Setup, Please read the following End
-            controlclick, Button3, Demo Setup, Please read the following End
-            winwait,Demo Setup, Ready to install
-            controlclick, Button1, Demo Setup, Ready to install
-        }
-        winwait, Demo Setup, Click the Finish button
-        if ( w_opt_unattended > 0 ) 
-            controlclick, Button1, Demo Setup, Click the Finish button
-
-        winwaitclose, Demo Setup, Click the Finish button
     "
     
     if w_workaround_wine_bug 26283
@@ -9657,24 +9860,52 @@ load_darknesswithin2_demo()
 
 #----------------------------------------------------------------
 
-w_metadata darkspore_beta_demo games \
-    title="Darkspore Beta Demo" \
-    publisher="Electronic Arts" \
+w_metadata darkspore games \
+    title="Darkspore" \
+    publisher="EA" \
     year="2011" \
-    media="download" \
-    file1="DarksporeBetaFull.zip" \
-    installed_exe1="$W_PROGRAMS_X86_WIN/Electronic Arts/Darkspore/DarksporeBin/Darkspore.exe"
+    media="dvd" \
+    file1="DARKSPORE.iso" \
+    installed_exe1="$W_PROGRAMS_X86_WIN/Electronic Arts/Darkspore/DarksporeBin/Darkspore.exe" \
+    homepage="http://darkspore.com/"
 
-load_darkspore_beta_demo()
+load_darkspore()
 {
-    # 13 Apr 2011 1278e50e021b9ca6265f93da5455796cfa34c979
-    w_download http://static.cdn.ea.com/darkspore/u/f/base/temp/DarksporeBetaFull.zip 1278e50e021b9ca6265f93da5455796cfa34c979
-    cd "$W_CACHE/$W_PACKAGE"
-    w_try_unzip DarksporeBetaFull.zip -d "$W_TMP"
-    cd "$W_TMP/Darkspore"
-    chmod +x setup.exe
-    w_try $WINE setup.exe
-    # TODO: implement unattended mode
+    # Mount disc, verify that expected file is present
+    w_mount DARKSPORE Darkspore.ico
+    w_ahk_do "
+        SetWinDelay 1000
+        SetTitleMatchMode, 2
+        run ${W_ISO_MOUNT_LETTER}:setup.exe
+        if ( w_opt_unattended > 0 ) {
+            winwait, Choose Setup Language
+            controlclick, Button1    ; ok (accept default, English)
+            winwait, InstallShield Wizard, Welcome
+            controlclick, Button1    ; Next
+            winwait, InstallShield Wizard, License Agreement
+            controlclick, Button3    ; Accept
+            sleep 1000
+            controlclick, Button1    ; Next
+            winwait, InstallShield Wizard, Select Features
+            controlclick, Button5    ; Next
+            winwait, InstallShield Wizard, Ready to Install the Program
+            controlclick, Button1    ; Install
+            winwait, DirectX
+            controlclick, Button1    ; Accept       
+            sleep 1000
+            controlclick, Button4    ; Next
+            winwait, DirectX, DirectX setup
+            controlclick, Button4
+            winwait, DirectX, components installed
+            controlclick, Button5    ; Finish
+        }
+        winwait, InstallShield Wizard, You are now ready
+        if ( w_opt_unattended > 0 ) {
+            controlclick, Button1    ; Uncheck View Readme.txt
+            controlclick, Button4    ; Finish
+        }
+        WinWaitClose, InstallShield Wizard    
+    "
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Electronic Arts\\Darkspore\\DarksporeBin" "Darkspore.exe"
 }
 
@@ -9774,7 +10005,7 @@ load_deadspace2()
     # You'll need to comment out the five "rm -rf"'s, too.
     if test ! -f easetup.exe      
     then
-        w_try cp -r "$W_ISO_MOUNT_ROOT"/* .
+        w_try cp -R "$W_ISO_MOUNT_ROOT"/* .
         # Make the directories writable, else 2nd disc copy will fail.
         w_try chmod -R +w .
         w_mount Disc2
@@ -9996,6 +10227,28 @@ load_diablo2()
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Diablo II" "Diablo II.exe -d3d9 -w"
 }
 
+w_metadata digitanks_demo games \
+    title="Digitanks Demo" \
+    publisher="Lunar Workshop" \
+    year="2011" \
+    media="download" \
+    file1="digitanks.exe" \
+    installed_exe1="$W_PROGRAMS_X86_WIN/Digitanks/digitanks.exe" \
+    homepage="http://www.digitanks.com"
+
+load_digitanks_demo()
+{
+    w_download "http://static.digitanks.com/files/digitanks.exe" \
+        4c5c956473e46c7d82765ae97e3218dd751097e5
+    cd "$W_CACHE/$W_PACKAGE"
+    w_try "$WINE" $file1 ${W_OPT_UNATTENDED:+ /S}
+    if w_workaround_wine_bug 26915 "installing corefonts"
+    then
+        w_call corefonts
+    fi
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\Digitanks" digitanks.exe
+}
+
 w_metadata dirt2_demo games \
     title="Dirt 2 Demo" \
     publisher="Codemasters" \
@@ -10154,7 +10407,8 @@ load_dc2ba_demo()
     # b90fcca3837faafbd7ad0cd8f776976fbd146787 16 Sept 2010
     # 5517302b63871ed86761c64ef28f3eb0123b4f89 7 Jan 2011
     # 2c4906a0c472032369ac82747a721ca0064d81b5 23 mar 2011
-    w_download http://downloadcdn.shockwave.com/pub/doras-carnival-2-boardwalk-adventure/InstallDorasCarnival2BoardwalkAdventure.exe 2c4906a0c472032369ac82747a721ca0064d81b5
+    # c6fef578083a9fc4c4cb1996554a058287adc838 28 apr 2011
+    w_download http://downloadcdn.shockwave.com/pub/doras-carnival-2-boardwalk-adventure/InstallDorasCarnival2BoardwalkAdventure.exe c6fef578083a9fc4c4cb1996554a058287adc838
 
     if w_workaround_wine_bug 23749
     then
@@ -10289,6 +10543,7 @@ load_dragonage()
         SetTitleMatchMode, 2
         winwait, Installer Language
         if ( w_opt_unattended > 0 ) {
+            WinActivate
             send {Enter}
             winwait, Dragon Age: Origins Setup
             ControlClick Next, Dragon Age: Origins Setup
@@ -10843,7 +11098,7 @@ load_mfsxde()
         then
             mkdir bothdiscs
             cd bothdiscs
-            w_try cp -r "$W_ISO_MOUNT_ROOT"/* .
+            w_try cp -R "$W_ISO_MOUNT_ROOT"/* .
 
             # A few files are on both DVDs. Remove them manually so cp doesn't complain.
             rm -f DVDCheck.exe autorun.inf fsx.ico vcredist_x86.exe
@@ -11156,33 +11411,29 @@ load_hegemonygold_demo()
     fi
 
     # 6 Mar 2011: 8c4d8aa8f997b106c78b065a4b200e5e1ab846a8
-    w_download "http://www.longbowgames.com/downloads/Hegemony%20Gold%20Installer.exe" 8c4d8aa8f997b106c78b065a4b200e5e1ab846a8 HegemonyGoldInstaller.exe
+    # 28 Apr 2011: 93677013fc17f014b1640bed070e8bb1b2a17445
+    w_download "http://www.longbowgames.com/downloads/Hegemony%20Gold%20Installer.exe" 93677013fc17f014b1640bed070e8bb1b2a17445 HegemonyGoldInstaller.exe
 
     cd "$W_CACHE/$W_PACKAGE"
 
     w_ahk_do "
+        SetWinDelay 500
         SetTitleMatchMode, 2
         Run, HegemonyGoldInstaller.exe
         WinWait,Hegemony
         if ( w_opt_unattended > 0 ) {
-            Sleep 500
             ControlClick Button2 ; Next
             WinWait,Hegemony, License
-            Sleep 500
             ControlClick Button2 ; Agree
             WinWait,Hegemony, Components
-            Sleep 500
             Click, Left, 187, 185
             Sleep 500
             ControlClick Button2 ; Next
             WinWait,Hegemony, Location
-            Sleep 500
             ControlClick Button2 ; Next
             WinWait,Hegemony, shortcuts
-            Sleep 500
             ControlClick Button2 ; Install
             WinWait,Hegemony, Completing
-            Sleep 500
             ControlFocus,Button4,launch
             Sleep 500
             Send {Space}
@@ -12233,6 +12484,45 @@ load_mise()
 
 #----------------------------------------------------------------
 
+w_metadata myth2_demo games \
+    title="Myth II: Soulblighter demo" \
+    publisher="Bungie Studios" \
+    year="1998" \
+    media="download" \
+    file1="Myth2_Demo_171.exe" \
+    installed_exe1="$W_PROGRAMS_X86_WIN/Myth II Demo/Myth II Demo.exe" \
+    homepage="http://www.bungie.net/Projects/Myth/"
+
+load_myth2_demo()
+{
+    w_download http://tain.totalcodex.net/items/download/myth-ii-demo-windows \
+        598621565e2bb82473579e3a1f9533f131ba8ad7 $file1
+    cd "$W_CACHE/$W_PACKAGE"
+
+    w_ahk_do "
+        SetTitleMatchMode, 2
+        SetWinDelay 500
+        run, $file1
+        winwait, Setup, Welcome
+        if ( w_opt_unattended > 0 ) {
+            send {Enter} ; next
+            winwait, Setup, Components
+            send {Enter} ; next
+            winwait, Setup, Location
+            send {Enter} ; install
+        }
+        winwait, Setup, Complete
+        if ( w_opt_unattended > 0 ) {
+            controlclick, Button4   ; Don't run
+            controlclick, Button2   ; Finish
+        }
+        winwaitclose
+    "
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\Myth II Demo" "Myth II Demo.exe"
+}
+
+#----------------------------------------------------------------
+
 w_metadata nfsshift_demo games \
     title="Need For Speed: SHIFT Demo" \
     publisher="EA" \
@@ -13022,7 +13312,7 @@ w_metadata splitsecond_demo games \
     title="Split Second Demo" \
     publisher="Disney" \
     year="2010" \
-    media="download" \
+    media="manual_download" \
     file1="SplitSecondDemo_FilePlanet.exe" \
     installed_exe1="$W_PROGRAMS_X86_WIN/Disney Interactive Studios/Split Second/SplitSecondDEMO.exe"
 
@@ -13145,7 +13435,7 @@ w_metadata starcraft2_demo games \
 
 load_starcraft2_demo()
 {
-    w_download_manual http://www.bigdownload.com/games/starcraft-ii-wings-of-liberty/pc/starcraft-2-wings-of-liberty-demo SC2-WingsOfLiberty-enUS-Demo-Installer.zip 4c06ad755fbde73f135a7359bf6bfdbd2c6eb00e
+    w_download http://gamedaily.newaol.com/pub/SC2-WingsOfLiberty-enUS-Demo-Installer.zip 4c06ad755fbde73f135a7359bf6bfdbd2c6eb00e
 
     cd "$W_TMP"
     w_try_unzip "$W_CACHE/$W_PACKAGE"/SC2-WingsOfLiberty-enUS-Demo-Installer.zip
@@ -13193,14 +13483,93 @@ load_starcraft2_demo()
             ControlClick, x800 y500   ; Finish
             winwaitclose
             ; no way to tell game to not start?
+            process, wait, SC2.exe
+            sleep 2000
+            process, close, SC2.exe
         }
         "
-    # Wait untill game is launched, then kill it
-    # FIXME: do this in autohotkey, and actually wait for process to start
-    sleep 5
-    killall SC2.exe
+
     w_declare_exe "$W_PROGRAMS_X86_WIN\\StarCraft II Demo" "StarCraft II.exe"
 }
+
+#----------------------------------------------------------------
+
+w_metadata smbx games \
+    title="Super Mario Bros. X 1.2.2" \
+    publisher="SuperMarioBrothers.org" \
+    year="2010" \
+    media="download" \
+    file1="smbx122.exe" \
+    installed_exe1="c:/SMBX/smbx.exe"
+
+load_smbx()
+{
+    w_download http://www.tehgamez.com/a/smbx122.exe 269eb60d502e57fdfae9c3601ad9ee22801cb5d1
+
+    w_call vb6run
+
+    if w_workaround_wine_bug 23821 "Installing native quartz and devenum to avoid hang"
+    then
+        w_call quartz
+        w_call devenum
+    fi
+
+    cd "$W_CACHE"/smbx
+
+    w_ahk_do "
+        SetTitleMatchMode, 2
+        run $file1
+
+        WinWait, Setup - Super Mario Bros. X, Welcome
+        u = $W_OPT_UNATTENDED
+        if ( u > 0 ) {
+            Send {Enter}
+            WinWait, Setup - Super Mario Bros. X, Information
+            Send {Enter}
+            WinWait, Setup - Super Mario Bros. X, Select Destination Location
+            Send {Enter}
+            WinWait, Setup - Super Mario Bros. X, Select Start Menu Folder
+            Send {Enter}
+            WinWait, Setup - Super Mario Bros. X, Additional Tasks
+            Send {Enter}
+            ; Do not install bloatware
+            WinWait, Setup - Super Mario Bros. X, Recommended by
+            IfWinExist, Setup - Super Mario Bros. X, AVG
+            {
+                MouseMove, 30,280
+                Click
+                Send {Enter}
+            }
+            IfWinExist, Setup - Super Mario Bros. X, RealPlayer
+            {
+                MouseMove, 35,245
+                Click
+                Send {Enter}
+            }
+            SetTitleMatchMode RegEx
+            ; the darn thing alternates between ARO and Advanced Registry Optimizer
+            IfWinExist, Setup - Super Mario Bros. X, A.*R.*O.*2011
+            {
+                MouseMove, 31,277
+                Click
+                Send {Enter}
+            }
+            WinWait, Setup - Super Mario Bros. X, Ready to Install
+            Send {Enter}
+            WinWait, Setup - Super Mario Bros. X, Information
+            Send {Enter}
+        }
+        WinWait, Setup - Super Mario Bros. X, Completing
+        if ( u > 0 ) {
+            Send {Space}   ; Don't run game
+            Send {Enter}
+        }
+        WinWaitClose
+    "
+
+    w_declare_exe c:\\SMBX smbx.exe
+}
+
 
 #----------------------------------------------------------------
 
@@ -13511,12 +13880,65 @@ load_sammax304_demo()
         WinWaitClose
     "
 
-    if w_workaround_wine_bug 24250
+    if w_workaround_wine_bug 24250 "Installing visual C++ runtimes" 1.3.15,
     then
         w_call vcrun2005
     fi
 
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Telltale Games\\Sam and Max - The Devil's Playhouse\\Beyond the Alley of the Dolls" "SamMax304.exe"
+}
+
+#----------------------------------------------------------------
+
+w_metadata tropico3_demo games \
+    title="Tropico 3 Demo" \
+    publisher="Kalypso Media GmbH" \
+    year="2009" \
+    media="manual_download" \
+    file1="Tropico3Demo.exe" \
+    installed_exe1="$W_PROGRAMS_X86_WIN/Kalypso/Tropico 3 Demo/Tropico3 Demo.exe"
+
+load_tropico3_demo()
+{
+    w_download_manual "http://www.tropico3.com/?p=downloads" Tropico3Demo.exe e031749db346ac3a87a675787c81eb1ca8cb5909
+
+    if w_workaround_wine_bug 24819 "Disabling gameux"
+    then
+        w_override_dlls disabled gameux
+    fi
+
+    cd "$W_CACHE/$W_PACKAGE"
+
+    w_ahk_do "
+        SetWinDelay 1000
+        SetTitleMatchMode, 2
+        Run, Tropico3Demo.exe
+        WinWait,Installer
+        if ( w_opt_unattended > 0 ) {
+            ControlClick Button1 ; OK
+            WinWait,Tropico,Welcome
+            ControlClick Button2 ; Next
+            WinWait,Tropico,License
+            ControlClick Button2 ; Agree
+            WinWait,Tropico,Typical
+            ControlClick Button2 ; Next
+        }
+        WinWait,Tropico,Completing
+        if ( w_opt_unattended > 0 ) {
+            ControlClick Button4 ; Uncheck Run Now
+            ControlClick Button2 ; Finish
+        }
+        WinWaitClose
+    "
+
+    w_workaround_wine_bug 16328 "seawater is invisible in this wine, please update to 1.3.9 or later" 1.3.9,
+
+    if w_workaround_wine_bug 24845 "disabling mmdevapi to fix sound"
+    then
+        w_override_dlls disabled mmdevapi
+    fi
+
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\Kalypso\\Tropico 3 Demo" "Tropico3 Demo.exe"
 }
 
 #----------------------------------------------------------------
@@ -15075,11 +15497,12 @@ winetricks_os_description()
 
 winetricks_stats_report()
 {
-    # If and only if user has opted in to usage tracking, report the usage.
+    # If user has opted in to usage tracking, report what he used (if anything)
     case "$WINETRICKS_STATS_REPORT" in
     1) ;;
     *) return;;
     esac
+    test -f "$WINETRICKS_WORKDIR"/breadcrumbs || return
 
     WINETRICKS_STATS_BREADCRUMBS=`cat "$WINETRICKS_WORKDIR"/breadcrumbs | tr '\012' ' '`
     echo "You opted in, so reporting '$WINETRICKS_STATS_BREADCRUMBS' to the winetricks maintainer so he knows which winetricks verbs get used and which don't.  Use --optout to disable future reports."
@@ -15166,7 +15589,7 @@ execute_command()
 
     # Hard-coded verbs
     main) WINETRICKS_CURMENU=main ;;
-    help) w_try xdg-open http://winetricks.org/help ;;
+    help) w_open_webpage http://winetricks.org/help ;;
     list) winetricks_list_all ;;
     list-cached) winetricks_list_cached ;;
     list-download) winetricks_list_download ;;
