@@ -1,8 +1,10 @@
 winetricks (0.0+20110429-1) unstable; urgency=low
 
   * New upstream release
+  * debian/rules
+    - (BIN): Update path to sources.
 
- -- Jari Aalto <jari.aalto@cante.net>  Sat, 30 Apr 2011 11:11:17 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 30 Apr 2011 11:13:29 +0300
 
 winetricks (0.0~20110419+svn493-3) unstable; urgency=low
 
