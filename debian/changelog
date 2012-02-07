@@ -2,12 +2,16 @@ winetricks (0.0+20120207+svn767) unstable; urgency=low
 
   * New upstream release
     - Spotify fix (Closes: #638895).
+  * debian/compat
+    - Update to 9.
+  * debian/control
+    - Update to debhelper 9.
   * debian/manpages
     - Update path.
   * debian/rules
     - (override_dh_auto_install): Adjust path location.
 
- -- Jari Aalto <jari.aalto@cante.net>  Tue, 07 Feb 2012 06:53:59 +0200
+ -- Jari Aalto <jari.aalto@cante.net>  Tue, 07 Feb 2012 06:54:54 +0200
 
 winetricks (0.0+20110629-1) unstable; urgency=low
 
