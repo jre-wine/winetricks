@@ -1,3 +1,14 @@
+winetricks (0.0+20120313+svn798-1) unstable; urgency=low
+
+  * New upstream release.
+    - Fix "die" message (Closes: #667486).
+  * debian/control
+    - (Standards): Update to 3.9.3.1
+  * debian/copyright
+    - Update to format 1.0
+
+ -- Jari Aalto <jari.aalto@cante.net>  Wed, 04 Apr 2012 16:17:54 +0300
+
 winetricks (0.0+20120207+svn767-1) unstable; urgency=low
 
   * New upstream release
