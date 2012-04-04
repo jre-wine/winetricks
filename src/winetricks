@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Name of this version of winetricks (YYYYMMDD)
-WINETRICKS_VERSION=20111115
+WINETRICKS_VERSION=20120308
 
 # This is a utf-8 file
 # You should see an o with two dots over it here [ö]
@@ -1586,6 +1586,9 @@ w_wine_version()
     1.2) _W_minor=2; _W_micro=0;;
     1.2.*) _W_minor=2; _W_micro=`echo $2 | sed 's/.*\.//'`;;
     1.3.*) _W_minor=3; _W_micro=`echo $2 | sed 's/.*\.//'`;;
+    1.4) _W_minor=4; _W_micro=0;;
+    1.4.*) _W_minor=4; _W_micro=`echo $2 | sed 's/.*\.//'`;;
+    1.5.*) _W_minor=5; _W_micro=`echo $2 | sed 's/.*\.//'`;;
     *) w_die "bug: unrecognized version $2";;
     esac
 
@@ -2078,10 +2081,10 @@ winetricks_prefixmenu()
                     _W_msg_name="$p"
                 fi
                 printf %s " FALSE prefix='$p' 'Select $_W_msg_name' "
-            done >> $WINETRICKS_WORKDIR/zenity.sh
+            done >> "$WINETRICKS_WORKDIR"/zenity.sh
         fi
-        printf %s " FALSE $_W_cmd_unattended '$_W_msg_unattended'" >> $WINETRICKS_WORKDIR/zenity.sh
-        printf %s " FALSE $_W_cmd_showbroken '$_W_msg_showbroken'" >> $WINETRICKS_WORKDIR/zenity.sh
+        printf %s " FALSE $_W_cmd_unattended '$_W_msg_unattended'" >> "$WINETRICKS_WORKDIR"/zenity.sh
+        printf %s " FALSE $_W_cmd_showbroken '$_W_msg_showbroken'" >> "$WINETRICKS_WORKDIR"/zenity.sh
 
         sh "$WINETRICKS_WORKDIR"/zenity.sh | tr '|' ' '
         ;;
@@ -2287,16 +2290,16 @@ winetricks_settings_menu()
 
         for metadatafile in "$WINETRICKS_METADATA"/$WINETRICKS_CURMENU/*.vars
         do
-            code=`winetricks_metadata_basename $metadatafile`
+            code=`winetricks_metadata_basename "$metadatafile"`
             (
             title='?'
             author='?'
-            . $metadatafile
+            . "$metadatafile"
             printf "%s %s %s %s" " " FALSE \
                     $code \
                     "\"$title\""
             )
-        done >> $WINETRICKS_WORKDIR/zenity.sh
+        done >> "$WINETRICKS_WORKDIR"/zenity.sh
 
         sh "$WINETRICKS_WORKDIR"/zenity.sh | tr '|' ' '
         ;;
@@ -2413,14 +2416,14 @@ winetricks_showmenu()
              ;;
         esac > "$WINETRICKS_WORKDIR"/zenity.sh
 
-        > $WINETRICKS_WORKDIR/installed.txt
+        > "$WINETRICKS_WORKDIR"/installed.txt
         for metadatafile in "$WINETRICKS_METADATA"/$WINETRICKS_CURMENU/*.vars
         do
-            code=`winetricks_metadata_basename $metadatafile`
+            code=`winetricks_metadata_basename "$metadatafile"`
             (
             title='?'
             author='?'
-            . $metadatafile
+            . "$metadatafile"
             if test "$W_OPT_SHOWBROKEN" = 1 || test "$wine_showstoppers" = ""
             then
                 # Compute cached and downloadable flags
@@ -2430,7 +2433,7 @@ winetricks_showmenu()
                 if winetricks_is_installed $code
                 then
                     installed=TRUE
-                    echo $code >> $WINETRICKS_WORKDIR/installed.txt
+                    echo $code >> "$WINETRICKS_WORKDIR"/installed.txt
                 fi
                 printf %s " $installed \
                     $code \
@@ -2444,7 +2447,7 @@ winetricks_showmenu()
                 " 
             fi
             )
-        done >> $WINETRICKS_WORKDIR/zenity.sh
+        done >> "$WINETRICKS_WORKDIR"/zenity.sh
 
         # Filter out any verb that's already installed
         sh "$WINETRICKS_WORKDIR"/zenity.sh |
@@ -2564,8 +2567,8 @@ winetricks_list_cached()
         # Use a subshell to avoid putting metadata in global space
         # If this is too slow, we can unset known metadata by hand
         (
-        code=`winetricks_metadata_basename $_W_metadatafile`
-        . $_W_metadatafile
+        code=`winetricks_metadata_basename "$_W_metadatafile"`
+        . "$_W_metadatafile"
         if winetricks_is_cached $code
         then
             echo $code
@@ -2600,8 +2603,8 @@ winetricks_list_installed()
         # Use a subshell to avoid putting metadata in global space
         # If this is too slow, we can unset known metadata by hand
         (
-        code=`winetricks_metadata_basename $_W_metadatafile`
-        . $_W_metadatafile
+        code=`winetricks_metadata_basename "$_W_metadatafile"`
+        . "$_W_metadatafile"
         if winetricks_is_installed $code
         then
             echo $code
@@ -2643,8 +2646,8 @@ winetricks_list_all()
         # Use a subshell to avoid putting metadata in global space
         # If this is too slow, we can unset known metadata by hand
         (
-        code=`winetricks_metadata_basename $_W_metadatafile`
-        . $_W_metadatafile
+        code=`winetricks_metadata_basename "$_W_metadatafile"`
+        . "$_W_metadatafile"
 
         # Compute cached and downloadable flags
         flags=""
@@ -2896,7 +2899,7 @@ winetricks_cache_iso()
       WINETRICKS_DD_PID=$!
       ;;
     esac
-    echo $WINETRICKS_DD_PID > $WINETRICKS_WORKDIR/dd-pid
+    echo $WINETRICKS_DD_PID > "$WINETRICKS_WORKDIR"/dd-pid
 
     # Note: if user presses ^C, winetricks_cleanup will call winetricks_iso_cleanup
     # FIXME: add progress bar for kde, too
@@ -2916,7 +2919,7 @@ winetricks_cache_iso()
         done | $WINETRICKS_GUI --title "Copying to $_W_expected_volname.iso" --progress --pulsate --auto-kill
         ;;
     esac
-    rm $WINETRICKS_WORKDIR/dd-pid
+    rm "$WINETRICKS_WORKDIR"/dd-pid
 
     mv "$W_CACHE"/temp.iso "$WINETRICKS_IMG"
 
@@ -3047,7 +3050,7 @@ winetricks_is_mounted()
 
     # If that fails, read volume name the hard way for each volume
     # Have to use file to return results from implicit subshell
-    rm -f /tmp/_W_tmp.$LOGNAME
+    rm -f "/tmp/_W_tmp.$USERNAME"
     winetricks_list_mounts . | while true
     do
         IFS= read _W_tmp
@@ -3059,17 +3062,17 @@ winetricks_is_mounted()
         if test "$1" = "$_W_volname"
         then
             # Volume found!  Want to return from function here, but can't
-            echo "$_W_tmp" > /tmp/_W_tmp.$LOGNAME
+            echo "$_W_tmp" > "/tmp/_W_tmp.$USERNAME"
             break
         fi
     done
 
-    if test -f /tmp/_W_tmp.$LOGNAME
+    if test -f "/tmp/_W_tmp.$USERNAME"
     then
         # Volume found!  Return from function.
-        _W_dev=`cat /tmp/_W_tmp.$LOGNAME | sed 's/ .*//'`
-        _W_mountpoint="`cat /tmp/_W_tmp.$LOGNAME | sed 's/^[^ ]* //'`"
-        rm -f /tmp/_W_tmp.$LOGNAME
+        _W_dev=`cat "/tmp/_W_tmp.$USERNAME" | sed 's/ .*//'`
+        _W_mountpoint="`cat "/tmp/_W_tmp.$USERNAME" | sed 's/^[^ ]* //'`"
+        rm -f "/tmp/_W_tmp.$USERNAME"
         return 0
     fi
 
@@ -3120,20 +3123,13 @@ winetricks_mount_real_volume()
 
 winetricks_cleanup()
 {
-    test "$WINETRICKS_CACHE_SYMLINK" && rm -f "$WINETRICKS_CACHE_SYMLINK"
-    test "$W_OPT_NOCLEAN" = 1 || rm -rf "$WINETRICKS_WORKDIR"
-}
-
-winetricks_kill_handler()
-{
-    #echo "Caught signal, cleaning up."
+    set +e
     if test -f "$WINETRICKS_WORKDIR/dd-pid"
     then
         kill `cat "$WINETRICKS_WORKDIR/dd-pid"`
     fi
-    winetricks_cleanup
-    #echo "Done cleanup, quitting."
-    exit
+    test "$WINETRICKS_CACHE_SYMLINK" && rm -f "$WINETRICKS_CACHE_SYMLINK"
+    test "$W_OPT_NOCLEAN" = 1 || rm -rf "$WINETRICKS_WORKDIR"
 }
 
 winetricks_set_unattended()
@@ -3311,8 +3307,17 @@ winetricks_init()
 {
     #---- Private Variables ----
 
+    if ! test "$USERNAME"
+    then
+        # Posix only requires LOGNAME to be defined, and sure enough, when
+        # logging in via console and startx in ubuntu, USERNAME is not set!
+        # I tried using only LOGNAME in this script, but it's so easy to slip
+        # and use USERNAME, so define it here if needed.
+        USERNAME="$LOGNAME"
+    fi
+
     # Ephemeral files for this run
-    WINETRICKS_WORKDIR=/tmp/w.$LOGNAME.$$
+    WINETRICKS_WORKDIR="/tmp/w.$USERNAME.$$"
     test "$W_OPT_NOCLEAN" = 1 || rm -rf "$WINETRICKS_WORKDIR"
 
     # Registering a verb creates a file in WINETRICKS_METADATA
@@ -3329,7 +3334,7 @@ winetricks_init()
     WINETRICKS_CURMENU=prefix
 
     # Delete work directory after each run, on exit either graceful or abrupt
-    trap winetricks_kill_handler EXIT HUP INT QUIT ABRT
+    trap winetricks_cleanup EXIT HUP INT QUIT ABRT
 
     # Whether to always cache cached iso's (1) or only use cache if present (0)
     # Can be inherited from environment or set via -k, defaults to off
@@ -3359,15 +3364,6 @@ winetricks_init()
     *[3])  WINETRICKS_SOURCEFORGE=http://surfnet.dl.sourceforge.net/sourceforge ;;
     *)     WINETRICKS_SOURCEFORGE=http://downloads.sourceforge.net;;
     esac
-
-    if ! test "$USERNAME"
-    then
-        # Posix only requires LOGNAME to be defined, and sure enough, when
-        # logging in via console and startx in ubuntu, USERNAME is not set!
-        # I tried using only LOGNAME in this script, but it's so easy to slip
-        # and use USERNAME, so define it here if needed.
-        USERNAME="$LOGNAME"
-    fi
 
     #---- Public Variables ----
 
@@ -3412,16 +3408,16 @@ winetricks_init()
         then
             WINESERVER="`which wineserver`"
         else
-            die "wineserver not found!"
+            w_die "wineserver not found!"
         fi
 
         if test "$WINEPREFIX"
         then
             WINETRICKS_ORIGINAL_WINEPREFIX="$WINEPREFIX"
-            if test WINETRICKS_OPT_SHAREDPREFIX=0
-            then
-                w_info "To install apps into $WINEPREFIX, give the --no-isolate option"
-            fi
+            #if test WINETRICKS_OPT_SHAREDPREFIX=0
+            #then
+            #    w_info "To install apps into $WINEPREFIX, give the --no-isolate option"
+            #fi
         else
             WINETRICKS_ORIGINAL_WINEPREFIX="$HOME/.wine"
         fi
@@ -3450,8 +3446,13 @@ winetricks_init()
     # Overridden for windows
     W_ISO_MOUNT_ROOT=/mnt/winetricks
     W_ISO_MOUNT_LETTER=i
-
+    
     WINETRICKS_WINE_VERSION=`winetricks_early_wine --version | sed 's/.*wine/wine/'`
+    # A small hack...
+    case "$WINETRICKS_WINE_VERSION" in
+        wine-1.4-*) WINETRICKS_WINE_VERSION="wine-1.4.40"; export WINETRICKS_WINE_VERSION;;
+        wine-1.4) WINETRICKS_WINE_VERSION="wine-1.4.0"; export WINETRICKS_WINE_VERSION;;
+    esac
     WINETRICKS_WINE_MINOR=`echo $WINETRICKS_WINE_VERSION | sed 's/wine-1\.\([0-9]*\)\..*/\1/'`
     WINETRICKS_WINE_MICRO=`echo $WINETRICKS_WINE_VERSION | sed 's/wine-1.[0-9][0-9]*\.\([0-9]*\).*/\1/'`
 }
@@ -3719,6 +3720,27 @@ load_atmlib()
     cd "$W_TMP"
     w_try_cabextract "$W_CACHE"/atmlib/W2KSP4_EN.EXE i386/atmlib.dl_
     w_try cp atmlib.dll "$W_SYSTEM32_DLLS"
+}
+
+#----------------------------------------------------------------
+
+w_metadata cmd dlls \
+    title="MS cmd.exe" \
+    publisher="Microsoft" \
+    year="2000" \
+    media="download" \
+    file1="Q259622_W2K_SP1_x86_en.EXE" \
+    installed_file1="$W_SYSTEM32_DLLS_WIN/cmd.exe"
+
+load_cmd()
+{
+    # http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=7541
+    w_download http://download.microsoft.com/download/win2000platform/Patch/Q259622/NT5/EN-US/Q259622_W2K_SP1_x86_en.EXE ab545df50287c26aea7705039cf00471bfeb043c
+
+    w_try_cabextract --directory="$W_TMP" "$W_CACHE"/cmd/$file1
+    w_try cp "$W_TMP"/cmd.exe "$W_SYSTEM32_DLLS"/cmd.exe
+
+    w_override_dlls native,builtin cmd.exe
 }
 
 #----------------------------------------------------------------
@@ -4417,6 +4439,9 @@ load_dotnet20sp1()
         export WINEDLLOVERRIDES
     fi
 
+    # Workaround Wine/Mono integration:
+    $WINE reg add "HKLM\\Software\\Microsoft\\NET Framework Setup\\NDP\\v2.0.50727" /v Version /t REG_SZ /d "2.0.50727" /f
+
     w_download http://download.microsoft.com/download/0/8/c/08c19fa4-4c4f-4ffb-9d6c-150906578c9e/NetFx20SP1_x86.exe eef5a36924cdf0c02598ccf96aa4f60887a49840
     cd "$W_CACHE"/dotnet20sp1
     $WINE NetFx20SP1_x86.exe ${W_OPT_UNATTENDED:+/q} 
@@ -4534,7 +4559,8 @@ load_dotnet30()
     w_set_winver winxp
 
     # Delete FontCache 3.0 service, it's in Wine for Mono, breaks native .NET
-    w_try $WINE sc delete "FontCache3.0.0.0"
+    # OK if this fails, that just means you have an older wine.
+    $WINE sc delete "FontCache3.0.0.0"
     cd "$W_CACHE"/dotnet30
     w_try $WINE $file1 ${W_OPT_UNATTENDED:+ /q /c:"install.exe /q"}
 }
@@ -4560,6 +4586,9 @@ load_dotnet30sp1()
 
     w_download http://download.microsoft.com/download/8/F/E/8FEEE89D-9E4F-4BA3-993E-0FFEA8E21E1B/NetFx30SP1_x86.exe 8d779e337920b097aa0c01859912950606e9fc12
     cd "$W_CACHE/$W_PACKAGE"
+
+    $WINE reg add "HKLM\\Software\\Microsoft\\Net Framework Setup\\NDP\\v3.0" /v Version /t REG_SZ /d "3.0" /f
+    $WINE reg add "HKLM\\Software\\Microsoft-\\Net Framework Setup\\NDP\\v3.0" /v SP /t REG_DWORD /d 0001 /f
 
     # Recipe from http://bugs.winehq.org/show_bug.cgi?id=25060#c10
     w_download http://download.microsoft.com/download/2/5/2/2526f55d-32bc-410f-be18-164ba67ae07d/"XPSEP XP and Server 2003 32 bit.msi" 5d332ebd1025e294adafe72030fe33db707b2c82
@@ -4588,11 +4617,15 @@ load_dotnet35()
     *) w_warn "dotnet35 does not yet fully work or install on wine.  Caveat emptor." ;;
     esac
 
-    # According to AF's recipe, installing dotnet30 first works around msi bugs
-    w_call dotnet30
+    w_call dotnet20sp1
+    $WINESERVER -w
+    w_call dotnet30sp1
+    $WINESERVER -w
 
     # http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6
     w_download http://download.microsoft.com/download/6/0/f/60fc5854-3cb8-4892-b6db-bd4f42510f28/dotnetfx35.exe 0a271bb44531aadef902829f98dfad66e4a57586
+
+    $WINE reg delete "HKLM\\Software\\Microsoft\\NET Framework Setup\\NDP\\v3.5"
 
     # See also http://blogs.msdn.com/astebner/archive/2008/07/17/8745415.aspx
     cd "$W_TMP"
@@ -4600,25 +4633,7 @@ load_dotnet35()
     cd wcu/dotNetFramework
     $WINE dotNetFx35setup.exe /lang:ENU $W_UNATTENDED_SLASH_Q
 
-    # FIXME: Do this only if the above commmand failed (not sure how to detect it... look for some file, I s'pose)
-    if w_workaround_wine_bug 25060
-    then
-        # Thanks to Louis for this partial recipe
-        #w_try $WINE reg add 'HKLM\Software\Microsoft\NET Framework Setup\NDP\v2.0.50727' /v SP /t REG_DWORD /d 0001
-        cat > "$W_TMP"/sp1.reg <<_EOF_
-REGEDIT4
-
-[HKEY_LOCAL_MACHINE\Software\Microsoft\NET Framework Setup\NDP\v2.0.50727]
-"SP"=dword:00000001
-
-_EOF_
-        w_try $WINE regedit "$W_TMP"/sp1.reg
-        cd "$W_TMP"/wcu/dotNetFramework/dotNetFX35/x86
-        w_try_cabextract netfx35_x86.exe
-        w_try $WINE msiexec /i vs_setup.msi ADDEPLOY=1
-    fi
 }
-
 #----------------------------------------------------------------
 
 w_metadata dotnet40 dlls \
@@ -4639,6 +4654,8 @@ load_dotnet40()
     # http://www.microsoft.com/download/en/details.aspx?id=17718
     w_download http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe 58da3d74db353aad03588cbb5cea8234166d8b99
 
+    w_download_manual http://www.mediafire.com/?v8rw5h1ra7maod4 gacutil-net40.tar.bz2 d40cc1249ea051338c064aff5ba0f1a5f24b59a5
+
     # Remove Mono registry entry:
     $WINE reg delete "HKLM\Software\Microsoft\NET Framework Setup\NDP\v4" /f
     
@@ -4647,38 +4664,27 @@ load_dotnet40()
         *) w_warn "The installer will fail after the first try, don't freak out." ;;
     esac
 
+    w_try rm "$W_WINDIR_UNIX/system32/mscoree.dll"
+
     cd "$W_CACHE/$W_PACKAGE"
-    $WINE dotNetFx40_Full_x86_x64.exe $W_UNATTENDED_SLASH_Q || true
 
-    # http://appdb.winehq.org/objectManager.php?sClass=version&iId=17886
-    load_dotnet11
-
-    $WINE reg add "HKLM\\Software\\Microsoft\\.NETFramework" /v InstallRoot /d "C:\\windows\\Microsoft.NET\\Framework\\" /f
+    $WINE dotNetFx40_Full_x86_x64.exe ${W_OPT_UNATTENDED:+/q /c:"install.exe /q"} || true
 
     w_override_dlls native mscoree
 
-    # Avoid a race:
-    $WINESERVER -w
-    
-    $WINE dotNetFx40_Full_x86_x64.exe $W_UNATTENDED_SLASH_Q || true
-
     $WINE reg add "HKLM\\Software\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full" /v Install /t REG_DWORD /d 0001 /f
-    
-    w_download_manual http://www.mediafire.com/?v8rw5h1ra7maod4 gacutil-net40.tar.bz2 d40cc1249ea051338c064aff5ba0f1a5f24b59a5
+    $WINE reg add "HKLM\\Software\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full" /v Version /t REG_SZ /d "4.0.30319" /f
 
     cd "$W_TMP"
     tar -xvjf "$W_CACHE/$W_PACKAGE/gacutil-net40.tar.bz2"
 
-    for assembly in "$W_WINDIR_UNIX"/Microsoft.NET/Framework/v4.0.30319/*.dll
+    for assembly in $W_WINDIR_UNIX/Microsoft.NET/Framework/v4.0.30319/*.[dD]ll
     do
         $WINE "$W_TMP/gacutil.exe" /i "$(w_pathconv -w $assembly)" /f
     done
-    
-    # One of them is named differently...:
-    $WINE "$W_TMP/gacutil.exe" /i "$(w_pathconv -w "$W_WINDIR_UNIX"/Microsoft.NET/Framework/v4.0.30319/Microsoft.VisualC.Dll)" /f
 
-    for assembly in "$W_WINDIR_UNIX"/Microsoft.NET/Framework/v4.0.30319/WPF/*.dll
-    do 
+    for assembly in $W_WINDIR_UNIX/Microsoft.NET/Framework/v4.0.30319/WPF/*.[dD]ll
+    do
         # Some of the dlls aren't assemblies. FIXME: Should filter them based on that..
         $WINE "$W_TMP/gacutil.exe" /i "$(w_pathconv -w $assembly)" /f || true
     done
@@ -4740,8 +4746,8 @@ w_metadata flash dlls \
     media="download" \
     file1="install_flash_player_10.exe" \
     file2="install_flash_player_10_active_x.exe" \
-    installed_file1="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10y_Plugin.exe" \
-    installed_file2="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10y_ActiveX.exe" \
+    installed_file1="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10zb_Plugin.exe" \
+    installed_file2="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10zb_ActiveX.exe" \
     homepage="http://www.adobe.com/products/flashplayer/"
 
 load_flash()
@@ -4759,7 +4765,9 @@ load_flash()
     # 2011-06-23: sha1sum da3f4b28f77a44b25cfb1453278683b888904714
     # 2011-10-26: sha1sum 964199abcbaa9f42273ed5030d039ead03407b76
     # 2011-11-12: sha1sum 1b84a14b4325a6ae17c590b7c9de749daeca7b6f
-    w_download http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_10_active_x.exe 1b84a14b4325a6ae17c590b7c9de749daeca7b6f
+    # 2012-02-23: sha1sum 3e9a3d8d7e5fef87ad449c93fa72d4799306ff07
+    # 2012-03-08: sha1sum ccbf24ab0dfa3635fb12d895eb55c5e888879c5d
+    w_download http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_10_active_x.exe ccbf24ab0dfa3635fb12d895eb55c5e888879c5d
     cd "$W_CACHE"/flash
 
     w_try $WINE install_flash_player_10_active_x.exe ${W_OPT_UNATTENDED:+ /install}
@@ -4776,7 +4784,9 @@ load_flash()
     # 2011-06-23: sha1sum 8c14f60fa625d26698afceb1e234eaae4637389e
     # 2011-10-26: sha1sum a04d5ecc27dbc439d9ca0c994ac7db39a0d3d081
     # 2011-11-12: sha1sum 2e834f95880fd0b96a9db93ff48f1e4178ee0913
-    w_download http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_10.exe 2e834f95880fd0b96a9db93ff48f1e4178ee0913
+    # 2012-02-23: sha1sum 49ee6230f2ba47bcb5f978cf7a97721fb0f3db78
+    # 2012-03-08: sha1sum aeddca4eddb0ad91c1b8bc32f8c543069b519325
+    w_download http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_10.exe aeddca4eddb0ad91c1b8bc32f8c543069b519325
 
     w_try $WINE install_flash_player_10.exe ${W_OPT_UNATTENDED:+ /install}
 }
@@ -5428,6 +5438,27 @@ load_msi2()
 
 #----------------------------------------------------------------
 
+w_metadata mspatcha dlls \
+    title="MS mspatcha" \
+    publisher="Microsoft" \
+    year="2001" \
+    media="download" \
+    file1="InstMsiA.exe" \
+    installed_exe1="$W_SYSTEM32_DLLS_WIN/mspatcha.dll"
+
+load_mspatcha()
+{
+    # http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=CEBBACD8-C094-4255-B702-DE3BB768148F
+    w_download http://download.microsoft.com/download/WindowsInstaller/Install/2.0/W9XMe/EN-US/InstMsiA.exe e739c40d747e7c27aacdb07b50925b1635ee7366
+
+    w_try_cabextract --directory="$W_TMP" "$W_CACHE"/mspatcha/InstMsiA.exe
+    w_try cp -f "$W_TMP"/mspatcha.dll "$W_SYSTEM32_DLLS"
+
+    w_override_dlls native,builtin mspatcha
+}
+
+#----------------------------------------------------------------
+
 w_metadata msscript dlls \
     title="MS Windows Script Control" \
     publisher="Microsoft" \
@@ -5924,8 +5955,9 @@ load_shockwave() {
     # 2011-02-03 sha1sum: e71ddc4fa42662208b2f52c1bd34a40e7775ad75
     # 2011-06-13 sha1sum: 7fd6cc61bb20d0bef654a44f4501a5a65b55b0c9
     # 2011-11-10 sha1sum: b55974b471c516f13fb032424247c07390baf380
+    # 2012-03-07 sha1sum: 3b10f645ba1a6815fa97924a6bde4eda3177ff68
 
-    w_download http://fpdownload.macromedia.com/get/shockwave/default/english/win95nt/latest/sw_lic_full_installer.msi b55974b471c516f13fb032424247c07390baf380
+    w_download http://fpdownload.macromedia.com/get/shockwave/default/english/win95nt/latest/sw_lic_full_installer.msi 3b10f645ba1a6815fa97924a6bde4eda3177ff68
     cd "$W_CACHE"/shockwave
     w_try $WINE msiexec /i sw_lic_full_installer.msi $W_UNATTENDED_SLASH_Q
 }
@@ -6347,8 +6379,9 @@ load_windowscodecs()
     w_download http://download.microsoft.com/download/f/f/1/ff178bb1-da91-48ed-89e5-478a99387d4f/wic_x86_enu.exe 53c18652ac2f8a51303deb48a1b7abbdb1db427f
 
     # Avoid a file existence check.
-    w_try rm -f "$W_SYSTEM32_DLLS"/windowscodecs.dll
-    w_override_dlls native,builtin windowscodecs
+    rm -f "$W_SYSTEM32_DLLS"/windowscodecs.dll "$W_SYSTEM32_DLLS"/photometadatahandler.dll
+    # AF says in appdb entry for .net 3.0 that windowscodecs has to be native only
+    w_override_dlls native windowscodecs
 
     # Always run the WIC installer in passive mode.
     # See http://bugs.winehq.org/show_bug.cgi?id=16876 and
@@ -6835,7 +6868,7 @@ load_droid()
     DROID_URL='https://github.com/android/platform_frameworks_base/blob/master/data/fonts/'
 
     do_droid DroidSans-Bold.ttf        "Droid Sans Bold"         560e4bcafdebaf29645fbf92633a2ae0d2f9801f
-    do_droid DroidSansFallback.ttf     "Droid Sans Fallback"     64de2fde75868ab8d4c6714add08c8f08b3fae1e
+    do_droid DroidSansFallback.ttf     "Droid Sans Fallback"     2cbe4cc389294d1c43e662c4d98c64dab28fb9cb
     do_droid DroidSansJapanese.ttf     "Droid Sans Japanese"     b3a248c11692aa88a30eb25df425b8910fe05dc5
     do_droid DroidSansMono.ttf         "Droid Sans Mono"         133fb6cf26ea073b456fb557b94ce8c46143b117
     do_droid DroidSans.ttf             "Droid Sans"              62f2841f61e4be66a0303cd1567ed2d300b4e31c
@@ -7064,7 +7097,7 @@ w_metadata opensymbol fonts \
     publisher="OpenOffice.org" \
     year="2010" \
     media="download" \
-    file1="ttf-opensymbol_3.2.1-11+squeeze2_all.deb" \
+    file1="ttf-opensymbol_3.2.1-11+squeeze4_all.deb" \
     installed_file1="$W_FONTSDIR_WIN/opens___.ttf"
 
 load_opensymbol()
@@ -7072,10 +7105,10 @@ load_opensymbol()
     # The OpenSymbol fonts are a replacement for the Windows Wingdings font from OpenOffice.org.
     # Need to w_download Debian since I can't find a standalone download from OpenOffice
     # Note: The source download package on debian is for _all_ of OpenOffice, which is 266 MB.
-    w_download http://ftp.us.debian.org/debian/pool/main/o/openoffice.org/ttf-opensymbol_3.2.1-11+squeeze2_all.deb dfcfc10a3e9b0be43520c7fd26cef6df0e713697
+    w_download http://ftp.us.debian.org/debian/pool/main/o/openoffice.org/ttf-opensymbol_3.2.1-11+squeeze4_all.deb 7950540f404daf1af7f279a67cd1164a6d599fc1
 
     cd "$W_TMP"
-    w_try ar x "$W_CACHE/opensymbol/ttf-opensymbol_3.2.1-11+squeeze2_all.deb" data.tar.bz2
+    w_try ar x "$W_CACHE/opensymbol/$file1" data.tar.bz2
     w_try tar jvxf data.tar.bz2 ./usr/share/fonts/truetype/openoffice/opens___.ttf
     w_try mv "$W_TMP/usr/share/fonts/truetype/openoffice/opens___.ttf" "$W_FONTSDIR_UNIX"
     w_register_font opens___.ttf "OpenSymbol"
@@ -7563,12 +7596,12 @@ w_metadata firefox36 apps \
     publisher="Mozilla" \
     year="2011" \
     media="download" \
-    file1="Firefox Setup 3.6.24.exe" \
+    file1="Firefox Setup 3.6.27.exe" \
     installed_exe1="$W_PROGRAMS_X86_WIN/Mozilla Firefox/firefox.exe"
 
 load_firefox36()
 {
-    w_download "http://download.mozilla.org/?product=firefox-3.6.24&os=win&lang=en-US" 7d149a9a45fd7cdd9b31b1a966650466b7111f1f "$file1"
+    w_download "http://www.idg.pl/mirrors/mozilla/firefox/releases/3.6.27/win32/en-US/Firefox%20Setup%203.6.27.exe" 40aae31bcf23e159abebbd175eb27f2cb7226504 "$file1"
     cd "$W_CACHE"/firefox36
     w_try $WINE "$file1" ${W_OPT_UNATTENDED:+ -ms}
 
@@ -7610,7 +7643,7 @@ load_firefox5()
         w_warn "Visit about:config, search for dom.ipc, and set those booleans false if you want to use flash."
     fi
 
-    w_download "http://download.mozilla.org/?product=firefox-5.0&os=win&lang=en-US" 288895db0a58b91801c5c1dfc0017131300dba00 "$file1"
+    w_download "ftp://ftp.mozilla.org/pub/firefox/releases/5.0/win32/en-US/Firefox%20Setup%205.0.exe" 288895db0a58b91801c5c1dfc0017131300dba00 "$file1"
     cd "$W_CACHE"/firefox5
     w_try $WINE "$file1" ${W_OPT_UNATTENDED:+ -ms}
 
@@ -7620,11 +7653,11 @@ load_firefox5()
 #----------------------------------------------------------------
 
 w_metadata firefox apps \
-    title="Firefox 8" \
+    title="Firefox 10" \
     publisher="Mozilla" \
     year="2011" \
     media="download" \
-    file1="Firefox Setup 8.0.exe" \
+    file1="Firefox Setup 10.0.2.exe" \
     installed_exe1="$W_PROGRAMS_X86_WIN/Mozilla Firefox/firefox.exe"
 
 load_firefox()
@@ -7639,7 +7672,7 @@ load_firefox()
         w_warn "Visit about:config, search for dom.ipc, and set those booleans false if you want to use flash."
     fi
 
-    w_download "http://download.mozilla.org/?product=firefox-8.0&os=win&lang=en-US" dbbc497e639cae401dd9e6db6b61018ea0d2b689 "$file1"
+    w_download "http://download.mozilla.org/?product=firefox-10.0&os=win&lang=en-US" fa47ff26b14ec94fd6e5c3369d80b11fe153fae3 "$file1"
     cd "$W_CACHE"/firefox
     w_try $WINE "$file1" ${W_OPT_UNATTENDED:+ -ms}
 
@@ -8173,7 +8206,8 @@ load_nook()
     # dates from curl --head
     # 10 Feb 2011 sha1sum 4a06a529b93ed33c3518326d874b40d8d7b70e7a
     # 7 Oct 2011 sha1sum 3b0301bd55471cc47cced44501547411fac9fcea
-    w_download http://images.barnesandnoble.com/PResources/download/eReader2/bndr2_setup_latest.exe 3b0301bd55471cc47cced44501547411fac9fcea
+    # 7 Mar 2012 sha1sum e7060a63b9b303ddd820de762d9df254e1c931bc
+    w_download http://images.barnesandnoble.com/PResources/download/eReader2/bndr2_setup_latest.exe e7060a63b9b303ddd820de762d9df254e1c931bc
     cd "$W_CACHE"/nook
     $WINE $file1 ${W_OPT_UNATTENDED:+ /S}
     # normally has exit status 199?
@@ -8461,7 +8495,7 @@ w_metadata spotify apps \
     year="2011" \
     media="download" \
     file1="SpotifyInstaller.exe" \
-    installed_exe1="c:/users/$LOGNAME/Application Data/Spotify/spotify.exe"
+    installed_exe1="c:/users/$USERNAME/Application Data/Spotify/spotify.exe"
 
 load_spotify()
 {
@@ -8496,7 +8530,7 @@ load_spotify()
         w_call winhttp
     fi
 
-    w_declare_exe "c:\\users\\$LOGNAME\\Application Data\\Spotify" spotify.exe
+    w_declare_exe "c:\\users\\$USERNAME\\Application Data\\Spotify" spotify.exe
 }
 
 #----------------------------------------------------------------
@@ -8661,8 +8695,8 @@ w_metadata utorrent apps \
     title="µTorrent 2.2.1" \
     publisher="BitTorrent" \
     year="2011" \
-    media="download" \
-    file1="utorrent.exe" \
+    media="manual_download" \
+    file1="utorrent_2.2.1.exe" \
     installed_exe1="c:/windows/utorrent.exe"
 
 load_utorrent()
@@ -8676,9 +8710,10 @@ load_utorrent()
     # Apr 14 2011 2.2.1 sha1sum b1378d7cbe5d1e1b168ce44def8f59facdc046d5
     # 7 May 2011        sha1sum 2932c9ed1c1225e485f7e3dd2ed267aa7d568c80
     # 14 May 2011 removed checksum, updates too quickly to track :-(
-    w_download http://download.utorrent.com/2.2.1/utorrent.exe
+    # 7 Mar 2012 sha1sum c6d9a80c02898139b17194d10293f17ecef054cb
+    w_download_manual "http://www.oldapps.com/utorrent.php?old_utorrent=38" utorrent_2.2.1.exe c6d9a80c02898139b17194d10293f17ecef054cb
 
-    w_try cp -f "$W_CACHE/utorrent/utorrent.exe" "$W_WINDIR_UNIX"/utorrent.exe
+    w_try cp -f "$W_CACHE/utorrent/$file1" "$W_WINDIR_UNIX"/utorrent.exe
 
     w_declare_exe "c:\\windows" "utorrent.exe"
 }
@@ -8686,11 +8721,11 @@ load_utorrent()
 #----------------------------------------------------------------
 
 w_metadata utorrent3 apps \
-    title="µTorrent 3.0" \
+    title="µTorrent 3.1" \
     publisher="BitTorrent" \
     year="2011" \
     media="download" \
-    file1="utorrent-3.0-latest.exe" \
+    file1="uTorrent.exe" \
     installed_exe1="$W_PROGRAMS_X86_WIN/uTorrent/uTorrent.exe"
 
 load_utorrent3()
@@ -8699,14 +8734,15 @@ load_utorrent3()
     # 27 Apr 2011: sha1sum d969f0c61cf2b2afaea4121f097ef690dffbf771
     # 7 May 2011: sha1sum 1793a7b15d905a9fa82f9a969a96fa53abaac04c
     # 14 May: removed checksum, changes too often to track
-    w_download http://download.utorrent.com/beta/utorrent-3.0-latest.exe
+    # 7 Mar 2012: sha1sum 73ba69b5d0004239a709af5db57c88c9d9c8f7b2
+    w_download http://download.utorrent.com/3.1.2/uTorrent.exe 73ba69b5d0004239a709af5db57c88c9d9c8f7b2
 
     case "$W_OPT_UNATTENDED" in
     0) _W_opt="" ;;
     *) _W_opt="/PERFORMINSTALL /NORUN" ;;
     esac
     cd "$W_CACHE/$W_PACKAGE"
-    $WINE utorrent-3.0-latest.exe $_W_opt
+    $WINE $file1 $_W_opt
 
     # dang installer exits with status 1 on success
     status=$?
@@ -10174,7 +10210,7 @@ load_braid_demo()
 {
     if ! test -f "$W_CACHE/$W_PACKAGE/braid_windows_r3.exe"
     then
-        w_download http://download.instantaction.com/games/pgh_legacy/braid_windows_r3.exe 7ea08ddbf5f2fb2f38057d930389b5af7d737e2c
+        w_download http://mirror.3fl.net.au/games/arcade/braid/client/braid_windows_r3.exe 7ea08ddbf5f2fb2f38057d930389b5af7d737e2c
     fi
 
     cd "$W_CACHE/$W_PACKAGE"
@@ -10224,7 +10260,7 @@ load_braid()
 {
     if ! test -f "$W_CACHE/$W_PACKAGE/braid_windows_r3.exe"
     then
-        w_download http://download.instantaction.com/games/pgh_legacy/braid_windows_r3.exe 7ea08ddbf5f2fb2f38057d930389b5af7d737e2c
+        w_download http://mirror.3fl.net.au/games/arcade/braid/client/braid_windows_r3.exe 7ea08ddbf5f2fb2f38057d930389b5af7d737e2c
     fi
 
     cd "$W_CACHE/$W_PACKAGE"
@@ -12659,8 +12695,9 @@ load_hegemonygold_demo()
     # 28 Apr 2011: 93677013fc17f014b1640bed070e8bb1b2a17445
     # 25 Jun 2011: 4069656ea3c3760b67d1c5adff37de7472955f72
     # 5 Nov 2011: 723c575ff5fff77941a1c786e28f46c094b8159c
+    # 8 Mar 2012: 36634314f571e345d082bdefe1150c76ef5610a7
 
-    w_download "http://www.longbowgames.com/downloads/Hegemony%20Gold%20Installer.exe" 723c575ff5fff77941a1c786e28f46c094b8159c HegemonyGoldInstaller.exe
+    w_download "http://www.longbowgames.com/downloads/Hegemony%20Gold%20Installer.exe" 36634314f571e345d082bdefe1150c76ef5610a7 HegemonyGoldInstaller.exe
 
     cd "$W_CACHE/$W_PACKAGE"
 
@@ -12821,7 +12858,7 @@ w_metadata imvu games \
     year="2004" \
     media="download" \
     file1="InstallIMVU_465.0_st_c.exe" \
-    installed_exe1="c:/users/$LOGNAME/Application Data/IMVUClient/IMVUClient.exe"
+    installed_exe1="c:/users/$USERNAME/Application Data/IMVUClient/IMVUClient.exe"
 
 load_imvu()
 {
@@ -12854,7 +12891,7 @@ load_imvu()
         winwaitclose
     "
 
-    w_declare_exe "c:\\users\\$LOGNAME\\Application Data\\IMVUClient" "IMVUClient.exe"
+    w_declare_exe "c:\\users\\$USERNAME\\Application Data\\IMVUClient" "IMVUClient.exe"
 }
 
 #----------------------------------------------------------------
@@ -14681,18 +14718,18 @@ w_metadata secondlife games \
     publisher="Linden Labs" \
     year="2003-2011" \
     media="download" \
-    file1="Second_Life_2-5-0-220251_Setup.exe" \
-    installed_exe1="$W_PROGRAMS_X86_WIN/SecondLifeViewer2/SecondLife.exe"
+    file1="Second_Life_3-2-8-248931_Setup.exe" \
+    installed_exe1="$W_PROGRAMS_X86_WIN/SecondLifeViewer/SecondLife.exe"
 
 load_secondlife()
 {
-    w_download http://download.cloud.secondlife.com/Viewer-2-5/Second_Life_2-5-0-220251_Setup.exe 841b089eb8b7b782718538c697cba5fd714f5eac
+    w_download http://download.cloud.secondlife.com/Viewer-3/Second_Life_3-2-8-248931_Setup.exe e08c16edc4d2fb68bb6275bed11a259a74918da5
 
     cd "$W_CACHE/$W_PACKAGE"
     w_ahk_do "
         SetTitleMatchMode, 2
         SetWinDelay 500
-        run, Second_Life_2-5-0-220251_Setup.exe
+        run, $file1
         if ( w_opt_unattended > 0 ) {
             winwait, Installer Language
             send {Enter}
@@ -14706,7 +14743,7 @@ load_secondlife()
         winwaitclose
     "
 
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\SecondLifeViewer2" "SecondLife.exe"
+    w_declare_exe "$W_PROGRAMS_X86_WIN\\SecondLifeViewer" "SecondLife.exe"
 }
 
 #----------------------------------------------------------------
@@ -16074,7 +16111,7 @@ load_wot()
         w_open_webpage https://gist.github.com/895204#gistcomment-41069
         w_warn "You need to apply rawinput-hack.patch from vincas for this game to work"
     fi
-    if w_workaround_wine_bug 25370 "installing msxml3 to avoid startup crash"
+    if w_workaround_wine_bug 25730 "installing msxml3 to avoid startup crash" 1.3.33,
     then
         w_call msxml3
     fi
@@ -17480,7 +17517,7 @@ winetricks_stats_report()
 winetricks_stats_log_command()
 {
     # log what we execute for possible later statistics reporting
-    echo "$*" >> "$WINETRICKS_WORKDIR/breadcrumbs"
+    echo "$*" >> "$WINETRICKS_WORKDIR"/breadcrumbs
 
     # and for the user's own reference later, when figuring out what he did
     case "$OS" in
@@ -17644,6 +17681,7 @@ then
     fi
 
     case "$1" in
+    die) w_die "we who are about to die salute you." ;;
     volnameof=*)
         # Debug code.  Remove later?
         # Since linux's volname command can't handle dvds, winetricks has its own,
