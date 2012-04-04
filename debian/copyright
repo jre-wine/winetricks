@@ -1,10 +1,11 @@
-Format: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?revision=174
-X-Format: http://dep.debian.net/deps/dep5
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
 Upstream-Name: winetricks
 Upstream-Contact: Dan Kegel <dank@kegel.com>
 Source: http://freshmeat.net/projects/winetricks
-X-Upstream-Devel: http://code.google.com/p/winetricks
-X-Upstream-Vcs: svn checkout http://winetricks.googlecode.com/svn/trunk/ winetricks
+X-Upstream-Devel:
+  http://code.google.com/p/winetricks
+X-Upstream-Vcs:
+  svn checkout http://winetricks.googlecode.com/svn/trunk/ winetricks
 X-Upstream-Bugs: http://code.google.com/p/winetricks/issues/list
 Comment: The program depends on multiple optional utilities
   - winetricks_detect_gui(): zenity, kdialog (kdebase-bin)
@@ -12,13 +13,13 @@ Comment: The program depends on multiple optional utilities
 
 Files: *
 Copyright:
- 2010-2011 Dan Kegel <dank@kegel.com>
+  2010-2012 Dan Kegel <dank@kegel.com>
 License: LGPL-2.0+
 
 Files: debian/*
 Copyright:
- 2011-2012 Jari Aalto <jari.aalto@cante.net>
- 2011      Tony Mancill <tmancill@debian.org>
+  2011-2012 Jari Aalto <jari.aalto@cante.net>
+  2011      Tony Mancill <tmancill@debian.org>
 License: LGPL-2.0+
 
 Files: debian/winetricks.svg
