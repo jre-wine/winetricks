@@ -3,11 +3,11 @@ winetricks (0.0+20120313+svn798-2) unstable; urgency=low
   * debian/control
     - (winetricks::Depends): Add wine and libwine.
   * debian/patches
-    - (10): New. Define wineserver in PATH.
+    - (10): New. Define wineserver path (Closes: #667597).
       See http://code.google.com/p/winetricks/issues/detail?id=191
       and http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=667486
 
- -- Jari Aalto <jari.aalto@cante.net>  Thu, 05 Apr 2012 08:24:42 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Thu, 05 Apr 2012 13:40:59 +0300
 
 winetricks (0.0+20120313+svn798-1) unstable; urgency=low
 
