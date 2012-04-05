@@ -1,0 +1,22 @@
+From: Jari Aalto <jari.aalto@cante.net>
+Subject: Define PATH for wineserver
+
+---
+ src/winetricks |    6 ++++++
+ 1 file changed, 6 insertions(+)
+
+--- a/src/winetricks
++++ b/src/winetricks
+@@ -3401,6 +3401,12 @@
+         if test -x "${WINE}server"
+         then
+             WINESERVER="${WINE}server"
++        elif test -x /usr/lib32/wine-unstable/wineserver	# Debian
++	then
++	    WINESERVER=/usr/lib32/wine-unstable/wineserver
++        elif test -x /usr/lib/wine/wineserver			# Debian
++	then
++	    WINESERVER=/usr/lib/wine/wineserver
+         elif test -x "`dirname $WINE`/server/wineserver"
+         then
+             WINESERVER="`dirname $WINE`/server/wineserver"
