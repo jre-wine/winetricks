@@ -1,11 +1,10 @@
 winetricks (0.0+20120313+svn798-4) unstable; urgency=low
 
   * debian/control
-    - (Depends): Add wine-dummy
-    - (Description): Add instructions how to get wine-dummy for users
+    - (winetricks-wine): New dummy package to satisfy depends for users
       that compile wine themselves (Closes: #668367).
 
- -- Jari Aalto <jari.aalto@cante.net>  Thu, 10 May 2012 12:03:45 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Thu, 10 May 2012 13:23:18 +0300
 
 winetricks (0.0+20120313+svn798-3) unstable; urgency=low
 
