@@ -1,3 +1,15 @@
+winetricks (0.0+20120313+svn798-5) unstable; urgency=low
+
+  * debian/control
+    - (Description): Add paragraph explainig how to install winetricks
+      for user who install wine from sources; out of packaging system
+      control.Ssuggest using tools from equivs package.
+    - (package::winetricks-wine): Remove. See above,
+  * README.winetricks-wine
+    - Delete; no longer used.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 12 May 2012 10:40:03 +0300
+
 winetricks (0.0+20120313+svn798-4) unstable; urgency=low
 
   * debian/control
