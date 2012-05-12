@@ -10,12 +10,14 @@ winetricks (0.0+20120512+svn814-1) unstable; urgency=low
     - (package::winetricks-wine): Remove. See above,
   * debian/install
     - New file.
+  * debian/patches
+    - (10): Improve wineserver detection (Closes: #672681),
   * debian/README.winetricks-wine
     - Delete; no longer used.
   * debian/rules
     - (override_dh_auto_install): Simplify. Move items to debian/install.
 
- -- Jari Aalto <jari.aalto@cante.net>  Sat, 12 May 2012 11:50:55 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 12 May 2012 23:20:07 +0300
 
 winetricks (0.0+20120313+svn798-4) unstable; urgency=low
 

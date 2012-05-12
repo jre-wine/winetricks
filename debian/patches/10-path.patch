@@ -2,21 +2,42 @@ From: Jari Aalto <jari.aalto@cante.net>
 Subject: Define PATH for wineserver
 
 ---
- src/winetricks |    6 ++++++
- 1 file changed, 6 insertions(+)
+ src/winetricks |   17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
 --- a/src/winetricks
 +++ b/src/winetricks
-@@ -3401,6 +3401,12 @@
+@@ -3448,9 +3448,24 @@
+         ;;
+      *)
+         WINE="${WINE:-wine}"
++
++	path=""
++
++	for tmp in /usr/lib/wine/wineserver \
++	           /usr/*/wine-unstable/wineserver
++	do
++	    if [ -x $tmp ]; then
++		path=$tmp
++		break;
++	    fi
++	done
++
          if test -x "${WINE}server"
          then
              WINESERVER="${WINE}server"
-+        elif test -x /usr/lib32/wine-unstable/wineserver	# Debian
++        elif [ "$path" ]
 +	then
-+	    WINESERVER=/usr/lib32/wine-unstable/wineserver
-+        elif test -x /usr/lib/wine/wineserver			# Debian
-+	then
-+	    WINESERVER=/usr/lib/wine/wineserver
++	    WINESERVER=$path					# Debian
          elif test -x "`dirname $WINE`/server/wineserver"
          then
              WINESERVER="`dirname $WINE`/server/wineserver"
+@@ -3461,6 +3476,8 @@
+             w_die "wineserver not found!"
+         fi
+ 
++	unset tmp path
++
+         if test "$WINEPREFIX"
+         then
+             WINETRICKS_ORIGINAL_WINEPREFIX="$WINEPREFIX"
