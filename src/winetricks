@@ -770,8 +770,8 @@ use warnings;
 sub read_into_container{
     my( $pcontainer ) = @_;
 
-    $_ = <FILE> || die "Can't read first line of container";
-    /{/ || die "First line of container was not {";
+    $_ = <FILE> || w_die "Can't read first line of container";
+    /{/ || w_die "First line of container was not {";
     while (<FILE>) {
        chomp;
        if (/"([^"]*)"\s*"([^"]*)"$/) {
@@ -784,7 +784,7 @@ sub read_into_container{
         } elsif (/}/) {
            return;
         } else {
-           die "huh?";
+           w_die "huh?";
         }
     }
 }
@@ -821,10 +821,10 @@ sub disable_notifications{
 
 # Read the file
 my(%top);
-open FILE, $ARGV[0] || die "can't open ".$ARGV[0];
+open FILE, $ARGV[0] || w_die "can't open ".$ARGV[0];
 my($line);
-$line = <FILE> || die "Could not read first line from ".$ARGV[0];
-$line =~ /"UserLocalConfigStore"/ || die "this is not a localconfig.vdf file";
+$line = <FILE> || w_die "Could not read first line from ".$ARGV[0];
+$line =~ /"UserLocalConfigStore"/ || w_die "this is not a localconfig.vdf file";
 read_into_container(\%top);
 
 # Modify it
@@ -1015,7 +1015,7 @@ fi
 
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Steam" "steam.exe -login $W_STEAM_ID $W_STEAM_PASSWORD -applaunch $_W_steamid"
 
-    myexec="Exec=env WINEPREFIX=\"$HOME/.local/share/wineprefixes/$W_PACKAGE\" wine cmd /c 'C:\\\\\\Run-$W_PACKAGE.bat'"
+    myexec="Exec=env WINEPREFIX=\"$WINEPREFIX\" wine cmd /c 'C:\\\\\\\\Run-$W_PACKAGE.bat'"
     mymenu="$HOME/.local/share/applications/wine/Programs/Steam/$_W_steamtitle.desktop"
     if test -f "$mymenu" && w_workaround_wine_bug 26487 "Fixing system menu"
     then
@@ -1317,52 +1317,102 @@ w_override_no_dlls()
 w_override_all_dlls()
 {
     # Disable all known native Microsoft DLLs in favor of Wine's builtin ones
+    # Generated with
+    # ls ~/wine-git/dlls | fmt -50 | sed 's/$/ \\/'
     w_override_dlls builtin \
-        acledit aclui activeds actxprxy advapi32 advpack amstream atl authz avicap32 \
-        avifil32 avifilebavrt bcrypt browseui cabinet capi2032 cards cfgmgr32 clusapi \
-        comcat comctl32 comdlg32 commdlg compobj compstui credui crtdll crypt32 cryptdlg \
-        cryptdll cryptnet cryptui ctapi32 ctl3d ctl3d32 ctl3dv2 \
-        d3d10 d3d10core d3d8 d3d9 \
-        d3dcompiler_33 d3dcompiler_34 d3dcompiler_35 d3dcompiler_36 \
-        d3dcompiler_37 d3dcompiler_38 d3dcompiler_39 d3dcompiler_40 \
+        acledit aclui activeds actxprxy adsiid advapi32 \
+        advpack amstream apphelp appwiz.cpl atl atl80 \
+        authz avicap32 avifil32 avifile.dll16 avrt \
+        bcrypt browseui cabinet capi2032 cards cfgmgr32 \
+        clusapi comcat comctl32 comdlg32 commdlg.dll16 \
+        comm.drv16 compobj.dll16 compstui credui crtdll \
+        crypt32 cryptdlg cryptdll cryptnet cryptui \
+        ctapi32 ctl3d32 ctl3d.dll16 ctl3dv2.dll16 d3d10 \
+        d3d10core d3d8 d3d9 d3dcompiler_33 d3dcompiler_34 \
+        d3dcompiler_35 d3dcompiler_36 d3dcompiler_37 \
+        d3dcompiler_38 d3dcompiler_39 d3dcompiler_40 \
         d3dcompiler_41 d3dcompiler_42 d3dcompiler_43 \
-        d3dim d3drm \
-        d3dx10_33 d3dx10_34 d3dx10_35 d3dx10_36 d3dx10_37 d3dx10_38 \
-        d3dx10_39 d3dx10_40 d3dx10_41 d3dx10_42 d3dx10_43 \
-        d3dx9_24 d3dx9_25 d3dx9_26 d3dx9_27 d3dx9_28 d3dx9_29 \
-        d3dx9_30 d3dx9_31 d3dx9_32 d3dx9_33 d3dx9_34 d3dx9_35 \
-        d3dx9_36 d3dx9_37 d3dx9_38 d3dx9_39 d3dx9_40 d3dx9_41 \
-        d3dx9_42 d3dx9_43 \
-        d3dxof \
-        dbghelp dciman32 ddeml ddraw ddrawex \
-        devenum dinput dinput8 dispdib dispex dmband dmcompos dmime dmloader dmscript \
-        dmstyle dmsynth dmusic dmusic32 dnsapi dplay dplayx dpnaddr dpnet dpnhpast \
-        dpnlobby dpwsockx drmclien dsound dssenh dswave dwmapi dxdiagn dxgi faultrep \
-        fltlib fusion fwpuclnt gdi32 gdiplus glu32 gpkcsp hal hid hlink \
-        hnetcfg httpapi iccvid icmp imagehlp imm imm32 inetcomm inetmib1 infosoft \
-        initpki inkobj inseng iphlpapi itircl itss jscript kernel32 loadperf localspl \
-        localui lz32 lzexpand mapi32 mapistub mciavi32 mcicda mciqtz32 mciseq mciwave \
-        midimap mlang mmdevapi mmsystem mpr mprapi msacm msacm32 mscat32 mscms \
-        mscoree msctf msdaps msdmo msftedit mshtml msi msimg32 msimtf msisip \
-        msnet32 msrle32 mssign32 mssip32 mstask msvcirt \
-        msvcr70 msvcr71 msvcr80 msvcr90 msvcr100 \
-        msvcp70 msvcp71 msvcp80 msvcp90 msvcp100 \
-        msvcrt msvcrt20 msvcrt40 msvcrtd \
-        msvfw32 msvidc32 msvideo mswsock msxml3 \
-        msxml4 nddeapi netapi32 newdev ntdll ntdsapi ntprint objsel odbc32 odbccp32 \
-        ole2 ole2conv ole2disp ole2nls ole2prox ole2thk ole32 oleacc oleaut32 olecli \
-        olecli32 oledb32 oledlg olepro32 olesvr olesvr32 olethk32 openal32 opengl32 pdh \
-        pidgen powrprof printui propsys psapi pstorec qcap qedit qmgr qmgrprxy \
-        quartz query rasapi16 rasapi32 rasdlg resutils riched20 riched32 rpcrt4 rsabase \
-        rsaenh rtutils sccbase schannel secur32 security sensapi serialui setupapi setupx \
-        sfc sfc_os shdoclc shdocvw shell shell32 shfolder shlwapi slbcsp slc \
-        snmpapi softpub spoolss sti storage stress svrapi sxs t2embed tapi32 \
-        toolhelp traffic twain twain_32 typelib unicows updspapi url urlmon user32 \
-        userenv usp10 uxtheme vdmdbg ver version w32skrnl w32sys wbemprox wiaservc \
-        win32s16 win87em winaspi windebug windowscodecs wined3d winedos winemapi wing wing32 \
-        winhttp wininet winmm winnls winnls32 winscard winsock wintab wintab32 wintrust \
-        wldap32 wmi wmiutils wnaspi32 wow32 ws2_32 wsock32 wtsapi32 wuapi wuaueng \
-        xinput1_1 xinput1_2 xinput1_3 xinput9_1_0 xmllite
+        d3dim d3drm d3dx10_33 d3dx10_34 d3dx10_35 \
+        d3dx10_36 d3dx10_37 d3dx10_38 d3dx10_39 d3dx10_40 \
+        d3dx10_41 d3dx10_42 d3dx10_43 d3dx9_24 d3dx9_25 \
+        d3dx9_26 d3dx9_27 d3dx9_28 d3dx9_29 d3dx9_30 \
+        d3dx9_31 d3dx9_32 d3dx9_33 d3dx9_34 d3dx9_35 \
+        d3dx9_36 d3dx9_37 d3dx9_38 d3dx9_39 d3dx9_40 \
+        d3dx9_41 d3dx9_42 d3dx9_43 d3dxof dbgeng dbghelp \
+        dciman32 ddeml.dll16 ddraw ddrawex devenum \
+        dhcpcsvc dinput dinput8 dispdib.dll16 dispex \
+        display.drv16 dmband dmcompos dmime dmloader \
+        dmscript dmstyle dmsynth dmusic dmusic32 dnsapi \
+        dplay dplayx dpnaddr dpnet dpnhpast dpnlobby \
+        dpwsockx drmclien dsound dssenh dswave dwmapi \
+        dxdiagn dxerr8 dxerr9 dxgi dxguid explorerframe \
+        faultrep fltlib fusion fwpuclnt gameux gdi32 \
+        gdi.exe16 gdiplus glu32 gphoto2.ds gpkcsp hal \
+        hhctrl.ocx hid hlink hnetcfg httpapi iccvid icmp \
+        ieframe ifsmgr.vxd imaadp32.acm imagehlp imm32 \
+        imm.dll16 inetcomm inetcpl.cpl inetmib1 infosoft \
+        initpki inkobj inseng iphlpapi itircl itss \
+        jscript kernel32 keyboard.drv16 krnl386.exe16 \
+        ktmw32 libd3dcompiler.cross.a libd3dcompiler.def \
+        libd3dx9.cross.a libd3dx9.def libkernel.cross.a \
+        libkernel.def libwinspool.cross.a libwinspool.def \
+        libxinput.cross.a libxinput.def loadperf \
+        localspl localui lz32 lzexpand.dll16 \
+        Makedll.rules Makedll.rules.in Makeimplib.rules \
+        Makeimplib.rules.in mapi32 mapistub mciavi32 \
+        mcicda mciqtz32 mciseq mciwave mgmtapi \
+        midimap mlang mmcndmgr mmdevapi mmdevldr.vxd \
+        mmsystem.dll16 monodebg.vxd mountmgr.sys \
+        mouse.drv16 mpr mprapi msacm32 msacm32.drv \
+        msacm.dll16 msadp32.acm mscat32 mscms \
+        mscoree msctf msdaps msdmo msftedit msg711.acm \
+        msgsm32.acm mshtml mshtml.tlb msi msident msimg32 \
+        msimsg msimtf msisip msisys.ocx msnet32 mspatcha \
+        msrle32 mssign32 mssip32 mstask msvcirt msvcm80 \
+        msvcm90 msvcp100 msvcp60 msvcp70 msvcp71 msvcp80 \
+        msvcp90 msvcr100 msvcr70 msvcr71 msvcr80 msvcr90 \
+        msvcrt msvcrt20 msvcrt40 msvcrtd msvfw32 msvidc32 \
+        msvideo.dll16 mswsock msxml msxml2 msxml3 msxml4 \
+        msxml6 nddeapi netapi32 newdev normaliz npmshtml \
+        ntdll ntdsapi ntoskrnl.exe ntprint objsel \
+        odbc32 odbccp32 ole2conv.dll16 ole2disp.dll16 \
+        ole2.dll16 ole2nls.dll16 ole2prox.dll16 \
+        ole2thk.dll16 ole32 oleacc oleaut32 olecli32 \
+        olecli.dll16 oledb32 oledlg olepro32 olesvr32 \
+        olesvr.dll16 olethk32 openal32 opencl opengl32 \
+        pdh photometadatahandler pidgen powrprof printui \
+        propsys psapi pstorec qcap qedit qmgr qmgrprxy \
+        quartz query rasapi16.dll16 rasapi32 rasdlg \
+        regapi resutils riched20 riched32 rpcrt4 rsabase \
+        rsaenh rstrtmgr rtutils samlib sane.ds scarddlg \
+        sccbase schannel scrrun secur32 security sensapi \
+        serialui setupapi setupx.dll16 sfc sfc_os shdoclc \
+        shdocvw shell32 shell.dll16 shfolder shlwapi \
+        slbcsp slc snmpapi softpub sound.drv16 spoolss \
+        stdole2.tlb stdole32.tlb sti storage.dll16 \
+        stress.dll16 strmbase strmiids svrapi sxs \
+        system.drv16 t2embed tapi32 toolhelp.dll16 \
+        traffic twain_32 twain.dll16 typelib.dll16 \
+        unicows updspapi url urlmon usbd.sys user32 \
+        userenv user.exe16 usp10 uuid uxtheme vbscript \
+        vcomp vcomp100 vdhcp.vxd vdmdbg ver.dll16 \
+        version vmm.vxd vnbt.vxd vnetbios.vxd vtdapi.vxd \
+        vwin32.vxd w32skrnl w32sys.dll16 wbemprox wer \
+        wevtapi wiaservc win32s16.dll16 win87em.dll16 \
+        winaspi.dll16 windebug.dll16 windowscodecs \
+        winealsa.drv winecoreaudio.drv winecrt0 \
+        wined3d winegstreamer winejoystick.drv winemapi \
+        winemp3.acm wineoss.drv wineps16.drv16 wineps.drv \
+        wineqtdecoder winequartz.drv winex11.drv wing32 \
+        wing.dll16 winhttp wininet winmm winnls32 \
+        winnls.dll16 winscard winsock.dll16 winspool.drv \
+        winsta wintab32 wintab.dll16 wintrust wlanapi \
+        wldap32 wmi wmiutils wmvcore wnaspi32 wow32 \
+        ws2_32 wshom.ocx wsnmp32 wsock32 wtsapi32 wuapi \
+        wuaueng xapofx1_1 xinput1_1 xinput1_2 xinput1_3 \
+        xinput9_1_0 xmllite xolehlp xpsprint \
+
+        # blank line so you don't have to remove the extra trailing \
 }
 
 w_override_app_dlls()
@@ -1525,7 +1575,7 @@ _EOF_
         $WINE reg add "HKLM\\System\\CurrentControlSet\\Control\\ProductOptions" /v ProductType /d "WinNT" /f
         ;;
     *)
-        die "Invalid Windows version given."
+        w_die "Invalid Windows version given."
         ;;
     esac
 
@@ -1631,7 +1681,7 @@ w_wine_version_in()
    return 1
 }
 
-# Built-in self teest for w_wine_version_in
+# Built-in self test for w_wine_version_in
 #w_wine_version_in_test()
 #{
 #    WINETRICKS_WINE_MINOR=$1 WINETRICKS_WINE_MICRO=$2 w_wine_version_in $3 $4 $5 $6 || w_die "fail test case wine-1.$1.$2 in $3 $4 $5 $6"
@@ -3773,6 +3823,28 @@ load_comctl32()
 
 #----------------------------------------------------------------
 
+w_metadata comctl32ocx dlls \
+    title="MS comctl32.ocx and mscomctl.ocx, comctl32 wrappers for VB6" \
+    publisher="Microsoft" \
+    year="2009" \
+    media="download" \
+    file1="VisualBasic6-KB896559-v1-ENU.exe" \
+    installed_file1="$W_SYSTEM32_DLLS_WIN/comctl32.ocx"
+
+load_comctl32ocx()
+{
+    # http://www.microsoft.com/downloads/details.aspx?FamilyID=25437D98-51D0-41C1-BB14-64662F5F62FE
+    w_download http://download.microsoft.com/download/3/a/5/3a5925ac-e779-4b1c-bb01-af67dc2f96fc/VisualBasic6-KB896559-v1-ENU.exe f52cf2034488235b37a1da837d1c40eb2a1bad84
+
+    w_try_cabextract --directory="$W_TMP" "$W_CACHE"/comctl32ocx/VisualBasic6-KB896559-v1-ENU.exe
+    w_try cp "$W_TMP"/mscomctl.ocx "$W_SYSTEM32_DLLS"/mscomctl.ocx
+    w_try cp "$W_TMP"/comctl32.ocx "$W_SYSTEM32_DLLS"/comctl32.ocx
+    w_try_regsvr comctl32.ocx
+    w_try_regsvr mscomctl.ocx
+}
+
+#----------------------------------------------------------------
+
 w_metadata comdlg32ocx dlls \
     title="Common Dialog ActiveX Control for VB6" \
     publisher="Microsoft" \
@@ -4163,6 +4235,9 @@ w_metadata directmusic dlls \
 load_directmusic()
 {
 # Untested. Based off http://bugs.winehq.org/show_bug.cgi?id=4805 and http://bugs.winehq.org/show_bug.cgi?id=24911
+
+    w_call dsound
+
     helper_directx_dl
 
     w_try_cabextract -d "$W_TMP" -L -F dxnt.cab "$W_CACHE"/directx9/$DIRECTX_NAME
@@ -4592,7 +4667,7 @@ load_dotnet30sp1()
 
     # Recipe from http://bugs.winehq.org/show_bug.cgi?id=25060#c10
     w_download http://download.microsoft.com/download/2/5/2/2526f55d-32bc-410f-be18-164ba67ae07d/"XPSEP XP and Server 2003 32 bit.msi" 5d332ebd1025e294adafe72030fe33db707b2c82
-    w_try $WINE msiexec /i "XPSEP XP and Server 2003 32 bit.msi" # ${W_OPT_UNATTENDED:+/q} broken?
+    w_try $WINE msiexec /i "XPSEP XP and Server 2003 32 bit.msi" ${W_OPT_UNATTENDED:+/qb}
     $WINE sc delete FontCache3.0.0.0
 
     $WINE $file1 ${W_OPT_UNATTENDED:+/q}
@@ -4632,8 +4707,37 @@ load_dotnet35()
     w_try_cabextract $W_UNATTENDED_DASH_Q "$W_CACHE"/dotnet35/dotnetfx35.exe
     cd wcu/dotNetFramework
     $WINE dotNetFx35setup.exe /lang:ENU $W_UNATTENDED_SLASH_Q
-
 }
+
+#----------------------------------------------------------------
+
+w_metadata dotnet35sp1 dlls \
+    title="MS .NET 3.5 SP1" \
+    publisher="Microsoft" \
+    year="2008" \
+    media="download" \
+    file1="dotnetfx35.exe" \
+    installed_file1="c:/windows/Microsoft.NET/Framework/v3.5/Microsoft .NET Framework 3.5 SP1/logo.bmp"
+
+load_dotnet35sp1()
+{
+    case "$OS" in
+    "Windows_NT") ;;
+    *) w_warn "dotnet35sp1 does not yet fully work or install on wine.  Caveat emptor." ;;
+    esac
+
+    w_call dotnet35
+    $WINESERVER -w
+    w_call dotnet20sp2
+    $WINESERVER -w
+
+    # http://www.microsoft.com/download/en/details.aspx?id=25150
+    w_download http://download.microsoft.com/download/2/0/e/20e90413-712f-438c-988e-fdaa79a8ac3d/dotnetfx35.exe 3dce66bae0dd71284ac7a971baed07030a186918
+
+    cd "$W_CACHE"/dotnet35sp1
+    $WINE dotnetfx35.exe /lang:ENU $W_UNATTENDED_SLASH_Q
+}
+
 #----------------------------------------------------------------
 
 w_metadata dotnet40 dlls \
@@ -7579,14 +7683,6 @@ load_firefox35()
     w_try $WINE "$file1" ${W_OPT_UNATTENDED:+ -ms}
 
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Mozilla Firefox" firefox.exe
-
-    myexec="Exec=env WINEPREFIX=\"$HOME/.local/share/wineprefixes/firefox\" wine cmd /c 'C:\\\\\\Run-firefox.bat'"
-    mymenu="$HOME/.local/share/applications/wine/Programs/Mozilla Firefox/Mozilla Firefox.desktop"
-    if test -f "$mymenu" && w_workaround_wine_bug 26304 "Fixing system menu"
-    then
-        # this is a hack, hopefully the wine bug will be fixed soon
-        sed -i "s,Exec=.*,$myexec," "$mymenu"
-    fi
 }
 
 #----------------------------------------------------------------
@@ -7594,14 +7690,14 @@ load_firefox35()
 w_metadata firefox36 apps \
     title="Firefox 3.6" \
     publisher="Mozilla" \
-    year="2011" \
+    year="2012" \
     media="download" \
-    file1="Firefox Setup 3.6.27.exe" \
+    file1="Firefox Setup 3.6.28.exe" \
     installed_exe1="$W_PROGRAMS_X86_WIN/Mozilla Firefox/firefox.exe"
 
 load_firefox36()
 {
-    w_download "http://www.idg.pl/mirrors/mozilla/firefox/releases/3.6.27/win32/en-US/Firefox%20Setup%203.6.27.exe" 40aae31bcf23e159abebbd175eb27f2cb7226504 "$file1"
+    w_download "http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.6.28/win32/en-US/Firefox%20Setup%203.6.28.exe" 3657287c2cff34f5edc237de954a9cc6f2ca465a "$file1"
     cd "$W_CACHE"/firefox36
     w_try $WINE "$file1" ${W_OPT_UNATTENDED:+ -ms}
 
@@ -7611,14 +7707,6 @@ load_firefox36()
     fi
 
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Mozilla Firefox" firefox.exe
-
-    myexec="Exec=env WINEPREFIX=\"$HOME/.local/share/wineprefixes/firefox\" wine cmd /c 'C:\\\\\\Run-firefox.bat'"
-    mymenu="$HOME/.local/share/applications/wine/Programs/Mozilla Firefox/Mozilla Firefox.desktop"
-    if test -f "$mymenu" && w_workaround_wine_bug 26304 "Fixing system menu"
-    then
-        # this is a hack, hopefully the wine bug will be fixed soon
-        sed -i "s,Exec=.*,$myexec," "$mymenu"
-    fi
 }
 
 #----------------------------------------------------------------
@@ -7653,11 +7741,11 @@ load_firefox5()
 #----------------------------------------------------------------
 
 w_metadata firefox apps \
-    title="Firefox 10" \
+    title="Firefox 11" \
     publisher="Mozilla" \
-    year="2011" \
+    year="2012" \
     media="download" \
-    file1="Firefox Setup 10.0.2.exe" \
+    file1="Firefox Setup 11.0.exe" \
     installed_exe1="$W_PROGRAMS_X86_WIN/Mozilla Firefox/firefox.exe"
 
 load_firefox()
@@ -7672,7 +7760,7 @@ load_firefox()
         w_warn "Visit about:config, search for dom.ipc, and set those booleans false if you want to use flash."
     fi
 
-    w_download "http://download.mozilla.org/?product=firefox-10.0&os=win&lang=en-US" fa47ff26b14ec94fd6e5c3369d80b11fe153fae3 "$file1"
+    w_download "http://download.mozilla.org/?product=firefox-11.0&os=win&lang=en-US" f6b5d4dfa6f9f16758c6aee0dcb0a20ba0bb27e9 "$file1"
     cd "$W_CACHE"/firefox
     w_try $WINE "$file1" ${W_OPT_UNATTENDED:+ -ms}
 
@@ -8617,9 +8705,8 @@ load_sketchup()
         WinWaitClose
     "
 
-    if w_workaround_wine_bug 14045
+    if w_workaround_wine_bug 14045 "Setting GLConfig Display HW_OK to 1" 1.3.18,
     then
-        echo "Setting GLConfig Display HW_OK to 1"
         cat > "$W_TMP"/glconfigdisplay.reg <<_EOF_
 REGEDIT4
 
@@ -9774,7 +9861,7 @@ load_acreedbro()
     then
         if w_workaround_wine_bug 6971 "Pointing menu and icon at wine-hotfix-6971 to fix mouse problems"
         then
-            myexec="Exec=env WINEPREFIX=\"$HOME/.local/share/wineprefixes/$W_PACKAGE\" wine-hotfix-6971 cmd /c 'C:\\\\\\Run-$W_PACKAGE.bat'"
+            myexec="Exec=env WINEPREFIX=\"$WINEPREFIX\" wine-hotfix-6971 cmd /c 'C:\\\\\\\\Run-$W_PACKAGE.bat'"
 
             mymenu="$HOME/Desktop/Assassin's Creed Brotherhood.desktop"
             if test -f "$mymenu"
@@ -9902,7 +9989,6 @@ load_avatar_demo()
     "
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Ubisoft\\Demo\\James Cameron's AVATAR - THE GAME (Demo)\\bin" "AvatarDemo.exe"
 
-    w_workaround_wine_bug 24639 "If game is silent, try winetricks dsoundhw=Emulation"
     w_workaround_wine_bug 26590 "If game seems slow, try winetricks glsl=disabled"
 }
 
@@ -10339,12 +10425,6 @@ load_cnc_tiberian_sun()
     # FIXME: we need a progress indicator when unpacking large archives
     w_info "Unpacking rar file.  This will take a minute."
     w_try unrar x "$W_CACHE/$W_PACKAGE/$file1"
-
-    if w_workaround_wine_bug 26911 \
-        "Setting dsoundhw=Emulation so sound works in skirmish mode"
-    then
-        w_call dsoundhw=Emulation
-    fi
 
     w_declare_exe \
         "$W_PROGRAMS_X86_WIN\\EA Games\\Command & Conquer The First Decade\\Command & Conquer(tm) Tiberian Sun(tm)\\SUN" \
@@ -10822,11 +10902,6 @@ load_cojbib_demo()
 
         winwaitclose Call of Juarez
     "
-
-    if w_workaround_wine_bug 9612 "setting maxshadowsize=0"
-    then
-        w_call dsoundbug9612
-    fi
 
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Ubisoft\\Demo\\Techland\\Call of Juarez - Bound in Blood SP Demo" "CoJBiBDemo_x86.exe"
 }
@@ -12628,7 +12703,7 @@ load_gta_vc()
 
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Rockstar Games\\Grand Theft Auto Vice City" gta-vc.exe
 
-    myexec="Exec=env WINEPREFIX=\"$HOME/.local/share/wineprefixes/gta_vc\" wine cmd /c 'C:\\\\\\Run-gta_vc.bat'"
+    myexec="Exec=env WINEPREFIX=\"$WINEPREFIX\" wine cmd /c 'C:\\\\\\\\Run-gta_vc.bat'"
     mymenu="$HOME/.local/share/applications/wine/Programs/Rockstar Games/Grand Theft Auto Vice City/Play GTA Vice City.desktop"
     if test -f "$mymenu" && w_workaround_wine_bug 26304 "Fixing system menu"
     then
@@ -14432,11 +14507,6 @@ load_popfs()
         }
     "
 
-if w_workaround_wine_bug 24346
-then
-    w_call dsoundbug9612
-fi
-
     w_declare_exe "$W_PROGRAMS_X86_WIN\\Ubisoft\\Prince of Persia The Forgotten Sands" "Prince of Persia.exe"
 }
 
@@ -14656,7 +14726,7 @@ load_rayman2_demo()
         WinWaitClose
     "
 
-    myexec="Exec=env WINEPREFIX=\"$HOME/.local/share/wineprefixes/rayman2_demo\" wine "'C:\\\\\\windows\\\\\\UbiSoft\\\\\\SetupUbi.exe -play Rayman2'
+    myexec="Exec=env WINEPREFIX=\"$WINEPREFIX\" wine "'C:\\\\\\\\windows\\\\\\\\UbiSoft\\\\\\\\SetupUbi.exe -play Rayman2'
     mymenu="$HOME/Desktop/To Play Rayman 2 Demo.desktop"
     if test -f "$mymenu" && w_workaround_wine_bug 26303 "Fixing desktop entry"
     then
@@ -14929,7 +14999,7 @@ load_simsmed()
 
     if w_workaround_wine_bug 25535 ".net 4 doesn't install on Wine, fixing menu to run game directly"
     then
-        myexec="Exec=env WINEPREFIX=\"$HOME/.local/share/wineprefixes/$W_PACKAGE\" wine cmd /c 'C:\\\\\\Run-$W_PACKAGE.bat'"
+        myexec="Exec=env WINEPREFIX=\"$WINEPREFIX\" wine cmd /c 'C:\\\\\\\\Run-$W_PACKAGE.bat'"
         mymenu="$HOME/.local/share/applications/wine/Programs/Electronic Arts/The Sims Medieval/The Sims™ Medieval.desktop"
         if test -f "$mymenu"
         then
@@ -14960,7 +15030,7 @@ load_sims3_gen()
 {
     if [ ! -f "$W_PROGRAMS_X86_WIN/Electronic Arts/The Sims 3/Game/Bin/TS3.exe" ]
     then
-        die "You must have sims3 installed to install sims3_gen!"
+        w_die "You must have sims3 installed to install sims3_gen!"
     fi
 
     w_read_key
@@ -16519,64 +16589,11 @@ load_wormsreloaded_demo_steam()
     then
         w_call xact
     fi
-    if w_workaround_wine_bug 26646 "Setting dsoundhw=Emulation to fix choppy sound"
-    then
-        w_call dsoundhw=Emulation
-    fi
     w_steam_install_game 22690 "Worms Reloaded Demo"
 }
 
 #----------------------------------------------------------------
 # Settings
-#----------------------------------------------------------------
-# DirectSound settings
-
-winetricks_set_dsound_var()
-{
-    arg=$2
-    case $2 in
-    [Ff]*) arg=Full;;
-    [Ss]*) arg=Standard;;
-    [Bb]*) arg=Basic;;
-    [Ee]*) arg=Emulation;;
-    esac
-
-    echo "Setting DirectSound $1 to $arg"
-    cat > "$W_TMP"/set-dsound.reg <<_EOF_
-REGEDIT4
-
-[HKEY_CURRENT_USER\Software\Wine\DirectSound]
-"$1"="$arg"
-
-_EOF_
-    w_try_regedit "$W_TMP_WIN"\\set-dsound.reg
-}
-
-w_metadata dsoundbug9612 settings \
-    title="Use DirectSound MaxShadowSize=0 workaround for wine bug 9612"
-
-load_dsoundbug9612()
-{
-    if w_workaround_wine_bug 9612
-    then
-        winetricks_set_dsound_var MaxShadowSize 0
-    fi
-}
-
-w_metadata dsoundhw=Full settings \
-    title="Set DirectSound hardware acceleration to Full (default)"
-w_metadata dsoundhw=Standard settings \
-    title="Set DirectSound hardware acceleration to Standard"
-w_metadata dsoundhw=Basic settings \
-    title="Set DirectSound hardware acceleration to Basic"
-w_metadata dsoundhw=Emulation settings \
-    title="Set DirectSound hardware acceleration to Emulation"
-
-load_dsoundhw()
-{
-    winetricks_set_dsound_var HardwareAcceleration $1
-}
-
 #----------------------------------------------------------------
 # Direct3D settings
 
@@ -16982,12 +16999,6 @@ w_metadata sound=coreaudio settings \
     title="Set sound driver to Mac CoreAudio"
 w_metadata sound=disabled settings \
     title="Set sound driver to disabled"
-w_metadata sound=esd settings \
-    title="Set sound driver to esound"
-w_metadata sound=jack settings \
-    title="Set sound driver to Jack"
-w_metadata sound=nas settings \
-    title="Set sound driver to NAS"
 w_metadata sound=oss settings \
     title="Set sound driver to OSS"
 
@@ -17611,13 +17622,6 @@ execute_command()
     sound=disable*) w_call sound=disabled ;;
     ao=disable*) w_call ao=disabled ;;
     strictdrawordering=disable*) w_call strictdrawordering=disabled ;;
-
-    # For convenience, allow users to use lower case and abbreviate.
-    # FIXME: expand this?
-    dsoundhw=f*) w_call dsoundhw=Full ;;
-    dsoundhw=s*) w_call dsoundhw=Standard ;;
-    dsoundhw=b*) w_call dsoundhw=Basic ;;
-    dsoundhw=e*) w_call dsoundhw=Emulation ;;
 
     # Use winecfg if you want a gui for plain old dll overrides
     alldlls=*) w_call $1 ;;
