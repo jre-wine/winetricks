@@ -1,13 +1,6 @@
 #!/usr/bin/make -f
 
 PACKAGE		= winetricks
-BIN		= $(PACKAGE)
-
-PKGDIR          = $(shell pwd)/debian/$(PACKAGE)
-BINDIR          = $(PKGDIR)/usr/bin
-SHAREROOTDIR	= $(PKGDIR)/usr/share
-SHAREDIR        = $(SHAREROOTDIR)/$(PACKAGE)
-
 CHANGELOG	= debian/upstream.changelog
 URL		= http://winetricks.googlecode.com/svn/trunk
 
@@ -25,14 +18,8 @@ override_dh_installchangelogs:
 	dh_installchangelogs $(CHANGELOG)
 
 override_dh_auto_install:
-	install -m 755 -D src/$(BIN) $(BINDIR)/$(PACKAGE)
-
-	install -m 644 -D debian/$(PACKAGE).desktop \
-		$(SHAREDIR)/applications/$(PACKAGE).desktop
-
-	install -m 644 -D debian/$(PACKAGE).svg \
-		$(SHAREDIR)/icons/hicolor/scalable/apps/$(PACKAGE).svg
-
+	# For use in debian/install
+	install -m 755 src/install-gecko.sh src/winetricks-install-gecko
 %:
 	dh $@
 

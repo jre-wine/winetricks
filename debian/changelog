@@ -1,14 +1,22 @@
-winetricks (0.0+20120313+svn798-5) unstable; urgency=low
+winetricks (0.0+20120512+svn814-1) unstable; urgency=low
 
+  * New upstream release.
+    - New program: winetricks-install-gecko.
   * debian/control
     - (Description): Add paragraph explainig how to install winetricks
-      for user who install wine from sources; out of packaging system
-      control.Ssuggest using tools from equivs package.
+      for users who install wine from sources; out of packaging system's
+      control. Suggest using equivs package and its tools. Thanks
+      to Gergely Nagy <algernon@debian.org>.
     - (package::winetricks-wine): Remove. See above,
-  * README.winetricks-wine
+  * debian/install
+    - New file. New script install-gecko.sh can be found in
+      /usr/share/doc/winetricks/contrib directory.
+  * debian/README.winetricks-wine
     - Delete; no longer used.
+  * debian/rules
+    - (override_dh_auto_install): Simplify. Move items to debian/install.
 
- -- Jari Aalto <jari.aalto@cante.net>  Sat, 12 May 2012 10:40:03 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 12 May 2012 11:41:23 +0300
 
 winetricks (0.0+20120313+svn798-4) unstable; urgency=low
 

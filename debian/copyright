@@ -6,10 +6,11 @@ X-Upstream-Devel:
   http://code.google.com/p/winetricks
 X-Upstream-Vcs:
   svn checkout http://winetricks.googlecode.com/svn/trunk/ winetricks
-X-Upstream-Bugs: http://code.google.com/p/winetricks/issues/list
+X-Upstream-Bugs:
+  http://code.google.com/p/winetricks/issues/list
 Comment: The program depends on multiple optional utilities
-  - winetricks_detect_gui(): zenity, kdialog (kdebase-bin)
-  - winetricks_detect_sudo(): gksudo (gksu), kdesudo
+   - winetricks_detect_gui(): zenity, kdialog (kdebase-bin)
+   - winetricks_detect_sudo(): gksudo (gksu), kdesudo
 
 Files: *
 Copyright:

@@ -25,6 +25,9 @@ Description: package manager for WINE to install software easily
  install package "xdg-utils". If you need to cache *.iso files with
  -k option, install packages "sudo" (or sudo GUI "gksu").
  .
+ An additional program winetricks-install-gecko can be used to install
+ Mozilla Gecko.
+ .
  NOTE: In case you have compiled wine from sources and installed it
  out of dpkg's control, winetricks' depends wouldn't know about it. In
  that case create a "dummy wine" package to satisfy depends by using
