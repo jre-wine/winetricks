@@ -24,19 +24,14 @@ Description: package manager for WINE to install software easily
  To use GUI progress bar, install package "zenity". To read manuals,
  install package "xdg-utils". If you need to cache *.iso files with
  -k option, install packages "sudo" (or sudo GUI "gksu").
-
-Package: winetricks-wine
-Architecture: all
-Depends: ${misc:Depends}
-Description: pure virtual pakage to provide feature for winetricks
- A dummy package to satisfy users who install wine from sources, but
- who would like to use winetricks. In those cases wine is manually
- installed out of dpkg's control, it woudn't know about it. Dpkg would
- try to install "wine" from official repositories; effectively causing
- problems to existing manually installed wine.
  .
- However, winetricks also depends on "winetricks-wine" and this
- package will satisfy depends.
+ NOTE: In case you have compiled wine from sources and installed it
+ out of dpkg's control, winetricks' depends wouldn't know about it. In
+ that case create a "dummy wine" package to satisfy depends by using
+ tools in "equivs" package before installing winetricks. An example:
  .
- Warning: if you do not have wine installed, do NOT install this
- package as some of the winetricks' commands depend on live wine.
+   git clone git@github.com:jaalto/project--debian-wine-dummy.git
+   cd project--debian-wine-dummy
+   make
+   dpkg -i wine*.deb
+   apt-get install winetricks
