@@ -1,3 +1,12 @@
+winetricks (0.0+20120606+svn831-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches
+    - Remove directory. Multiarch PATH patch accepted upstream
+      (Closes: #676294).
+
+ -- Jari Aalto <jari.aalto@cante.net>  Wed, 06 Jun 2012 07:57:39 +0300
+
 winetricks (0.0+20120512+svn814-1) unstable; urgency=low
 
   * New upstream release.
