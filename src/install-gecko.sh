@@ -1,6 +1,14 @@
 #!/bin/sh
-# Install the Gecko needed by modern wines
+# Install the Gecko and Mono needed by modern wines
 set -ex
+
+# Wine installs to /usr/local by default:
+if test -d /usr/local/share/wine
+then
+    WINE_SHARE_PREFIX=/usr/local/share/wine
+else
+    WINE_SHARE_PREFIX=/usr/share/wine
+fi
 
 install_gecko()
 {
@@ -46,7 +54,7 @@ install_gecko()
         ;;
     esac
 
-    if test ! -f /usr/share/wine/gecko/wine_gecko-$GECKO_VERSION-$myarch$GECKO_SUFFIX
+    if test ! -f $WINE_SHARE_PREFIX/gecko/wine_gecko-$GECKO_VERSION-$myarch$GECKO_SUFFIX
     then
         rm -f wine_gecko-$GECKO_VERSION-$myarch$GECKO_SUFFIX
         wget http://downloads.sourceforge.net/wine/wine_gecko-$GECKO_VERSION-$myarch$GECKO_SUFFIX
@@ -58,8 +66,32 @@ install_gecko()
            exit 1
         fi
 
-        sudo mkdir -p /usr/share/wine/gecko
-        sudo mv wine_gecko-$GECKO_VERSION-$myarch$GECKO_SUFFIX /usr/share/wine/gecko/
+        sudo mkdir -p $WINE_SHARE_PREFIX/gecko
+        sudo mv wine_gecko-$GECKO_VERSION-$myarch$GECKO_SUFFIX $WINE_SHARE_PREFIX/gecko/
+    fi
+}
+
+install_mono()
+{
+    case $1 in
+    0.0.4) MONO_SHA1SUM=7d827f7d28a88ae0da95a136573783124ffce4b1;;
+    *) return;;
+    esac
+
+    if test ! -f $WINE_SHARE_PREFIX/mono/wine-mono-$1.msi
+    then
+        rm -f wine-mono-$1.msi
+        wget http://downloads.sourceforge.net/wine/wine-mono-$1.msi
+
+        gotsum=`sha1sum < wine-mono-$1.msi | sed 's/(stdin)= //;s/ .*//'`
+        if [ "$gotsum"x != "$MONO_SHA1SUM"x ]
+        then
+           echo "sha1sum mismatch!  Please try again."
+           exit 1
+        fi
+
+        sudo mkdir -p $WINE_SHARE_PREFIX/mono
+        sudo mv wine-mono-$1.msi $WINE_SHARE_PREFIX/mono
     fi
 }
 
@@ -79,3 +111,6 @@ amd64|x86_64)
     install_gecko gecko-1.3
     ;;
 esac
+
+# And mono, too
+install_mono 0.0.4
