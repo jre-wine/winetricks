@@ -2,11 +2,11 @@ winetricks (0.0+20120606+svn831-2) unstable; urgency=low
 
   * debian/control
     - (Depends): Downgrade depends from full wine metapackage to wine-bin.
-      Likewise for win-unstable. Patch thanks to Michael Gilbert
+      Likewise for wine-unstable. Patch thanks to Michael Gilbert
       <mgilbert@debian.org> (Closes: #678296).
     - (Suggests): New; add wine | wine-unsable.
 
- -- Jari Aalto <jari.aalto@cante.net>  Wed, 20 Jun 2012 20:51:27 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Wed, 20 Jun 2012 20:53:26 +0300
 
 winetricks (0.0+20120606+svn831-1) unstable; urgency=low
 
