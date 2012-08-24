@@ -3,7 +3,15 @@ winetricks (0.0+20120821+svn905-1) unstable; urgency=high
   * New upstream release
     - All download links to e.g. pointing to Microsoft site were updated.
 
- -- Jari Aalto <jari.aalto@cante.net>  Fri, 24 Aug 2012 20:45:26 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Fri, 24 Aug 2012 20:47:13 +0300
+
+winetricks (0.0+20120606+svn831-3) unstable; urgency=low
+
+  * debian/control
+    - (Depends): Add wine64-bin for x64 systems. Patch thanks to
+      Tobias Hansen <tobias.han@gmx.de> (Closes: #678840, #682321, #680955).
+
+ -- Jari Aalto <jari.aalto@cante.net>  Wed, 01 Aug 2012 20:11:17 +0300
 
 winetricks (0.0+20120606+svn831-2) unstable; urgency=low
 
