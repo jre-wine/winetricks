@@ -2,8 +2,10 @@ winetricks (0.0+20120821+svn905-1) unstable; urgency=high
 
   * New upstream release
     - All download links to e.g. pointing to Microsoft site were updated.
+  * debian/README.Debian
+    - New file.
 
- -- Jari Aalto <jari.aalto@cante.net>  Fri, 24 Aug 2012 20:47:13 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 25 Aug 2012 17:27:14 +0300
 
 winetricks (0.0+20120606+svn831-3) unstable; urgency=low
 
