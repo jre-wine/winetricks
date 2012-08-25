@@ -1,0 +1,15 @@
+Wine setup / before using winetricks
+
+	Most of the software is 32bit only, so if you have 64bit OS,
+	consider setting:
+
+	    export WINEARCH=win32
+
+	before initializing wine; before ~/.wine is created. This
+	prevents wine being structured as a 64-bit installation and
+	allows winetricks to work. Refer to LP#1006909 for more
+	information:
+
+	https://bugs.launchpad.net/ubuntu/+source/winetricks/+bug/1006909
+
+ -- Jari Aalto <jari.aalto@cante.net>, Sat, 25 Aug 2012 17:41:13 +0300
