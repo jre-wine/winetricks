@@ -11,10 +11,10 @@ Subject: Start GUI only when --gui option is used. Handle empty args.
          shift
      fi
  
-+    if [ ! "$1" ] && [ "$WINETRICKS_GUI" == "none" ] ; then
++    if [ ! "$1" ] && [ "$WINETRICKS_GUI" = "none" ] ; then
 +       echo "Nothing to do. See --help. Graphical UI can be started with --gui"
 +       exit 0
-+    if [ ! "$1" ] && [ "$WINETRICKS_GUI" != "none" ] ; then
++    elif [ ! "$1" ] && [ "$WINETRICKS_GUI" != "none" ] ; then
 +       # no arguments, but gui asked.
 +       set -- gui
 +    fi
