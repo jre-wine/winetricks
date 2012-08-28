@@ -1,7 +1,7 @@
 winetricks (0.0+20120826+svn907-1) unstable; urgency=high
 
   * New upstream release
-    - All download links to e.g. pointing to Microsoft site were updated.
+    - All download links (e.g. those pointing to Microsoft) updated.
   * debian/control
     - (Depends): Add libwine | libwine-unstable | libwine-dbg-unstable to
       satisfy requirement for wineserver.
