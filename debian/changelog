@@ -3,8 +3,8 @@ winetricks (0.0+20120826+svn907-1) unstable; urgency=high
   * New upstream release
     - All download links to e.g. pointing to Microsoft site were updated.
   * debian/control
-    - (Depends): Add libwine | libwine-unstable | libwine-dbg-unstable to satisfy
-      requirement for wineserver.
+    - (Depends): Add libwine | libwine-unstable | libwine-dbg-unstable to
+      satisfy requirement for wineserver.
   * debian/patches
     - (10): New; Fix --gui option to start GUI only when option is enabled.
   * debian/README.Debian
