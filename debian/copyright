@@ -27,7 +27,7 @@ Files: debian/winetricks.svg
 Copyright:
  2010-2011 Joel Holdsworth <joel@airwebreathe.org.uk>
 License: LGPL-2.1+
-X-Comment:
+Comment:
  Date: Wed, 20 Apr 2011 18:10:48 -0700
  From: Scott Ritchie (winetricks Ubuntu maintainer) <scott@open-vote.org>
  To: Jari Aalto <jari.aalto@cante.net>
