@@ -4,9 +4,9 @@ winetricks (0.0+20121030+svn918-1) unstable; urgency=low
   * debian/control:
     - (Depends): Replace "wine-bin | wine-bin-unstable | wine64-bin,
       libwine | libwine-unstable | libwine-dbg-unstable" with
-      "wine | wine-unstable" (closeS: #686193).
+      "wine | wine-unstable" (closes: #686193).
 
- -- Jari Aalto <jari.aalto@cante.net>  Thu, 01 Nov 2012 19:08:23 +0200
+ -- Jari Aalto <jari.aalto@cante.net>  Thu, 01 Nov 2012 19:13:46 +0200
 
 winetricks (0.0+20120826+svn907-1) unstable; urgency=high
 
