@@ -2,7 +2,7 @@
 
 # Name of this version of winetricks (YYYYMMDD)
 # (This doesn't change often, use the sha1sum of the file when reporting problems)
-WINETRICKS_VERSION=20120819
+WINETRICKS_VERSION=20120912
 
 # This is a utf-8 file
 # You should see an o with two dots over it here [ö]
@@ -3916,7 +3916,7 @@ w_metadata crypt32 dlls \
     publisher="Microsoft" \
     year="2003" \
     media="download" \
-    file1="../xpsp2/WindowsXP-KB835935-SP2-ENU.exe" \
+    file1="../win2ksp4/W2KSP4_EN.EXE" \
     installed_file1="$W_SYSTEM32_DLLS_WIN/crypt32.dll"
 
 load_crypt32()
@@ -4588,9 +4588,7 @@ load_dotnet20()
     # and http://bugs.winehq.org/show_bug.cgi?id=30845#c10
     w_set_winver win2k
 
-    cd "$W_CACHE"/dotnet20
-
-    if test ! -f l_intl.nls && w_workaround_wine_bug 10467 "Install l_intl.nls" 1.1.44,
+    if test ! -f "$W_CACHE"/dotnet20/l_intl.nls && w_workaround_wine_bug 10467 "Install l_intl.nls" 1.1.44,
     then
         # See http://kegel.com/wine/l_intl-sh.txt for how l_intl.nls was generated
         # Use zip rather than naked file to get past strange web proxies
@@ -4617,6 +4615,7 @@ load_dotnet20()
         $WINE reg add 'HKLM\Software\Microsoft\.NETFramework' /v InstallRoot /d 'C:\Windows\Microsoft.NET\Framework\' /f
     fi
 
+    cd "$W_CACHE"/dotnet20
     if w_workaround_wine_bug 30845 "Using native fusion while installing..." ,1.5.6
     then
         w_try env WINEDLLOVERRIDES=mscoree,fusion=n $WINE dotnetfx.exe ${W_OPT_UNATTENDED:+/q /c:"install.exe /q"}
@@ -5032,8 +5031,8 @@ w_metadata flash dlls \
     media="download" \
     file1="install_flash_player_10_plugin.exe" \
     file2="install_flash_player_10_active_x.exe" \
-    installed_file1="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10ze_Plugin.exe" \
-    installed_file2="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10ze_ActiveX.exe" \
+    installed_file1="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10zf_Plugin.exe" \
+    installed_file2="$W_SYSTEM32_DLLS_WIN/Macromed/Flash/FlashUtil10zf_ActiveX.exe" \
     homepage="http://www.adobe.com/products/flashplayer/"
 
 load_flash()
@@ -5057,7 +5056,8 @@ load_flash()
     # 2012-03-08: sha1sum ccbf24ab0dfa3635fb12d895eb55c5e888879c5d
     # 2012-05-02: sha1sum d86ca46afc312b14375aad483d1c7e5f12c707a4
     # 2012-05-11: sha1sum 4020135dfbfe4b49067bb679000e0a6b7c7ed8bc
-    w_download http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_10_active_x.exe 4020135dfbfe4b49067bb679000e0a6b7c7ed8bc
+    # 2012-08-12: sha1sum 3cd65d71ba26b829255e44a1af708fc060282bc6
+    w_download http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_10_active_x.exe 3cd65d71ba26b829255e44a1af708fc060282bc6
     cd "$W_CACHE"/flash
 
     w_try $WINE install_flash_player_10_active_x.exe ${W_OPT_UNATTENDED:+ /install}
@@ -5077,7 +5077,8 @@ load_flash()
     # 2012-03-08: sha1sum aeddca4eddb0ad91c1b8bc32f8c543069b519325
     # 2102-05-02: sha1sum 0a7a7b9b8b6b834e452b456205e33210fb3b544c, name change
     # 2102-05-11: sha1sum 060f11d5479863af609272a24dea82e6b04e0641
-    w_download http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_10_plugin.exe 060f11d5479863af609272a24dea82e6b04e0641
+    # 2012-08-12: sha1sum 3909ee6078bdae2157f595b8d7c4f1484fef710b
+    w_download http://fpdownload.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_10_plugin.exe 3909ee6078bdae2157f595b8d7c4f1484fef710b
 
     w_try $WINE install_flash_player_10_plugin.exe ${W_OPT_UNATTENDED:+ /install}
 }
@@ -5355,6 +5356,24 @@ load_ffdshow()
 
 #----------------------------------------------------------------
 
+w_metadata hid dlls \
+    title="MS hid" \
+    publisher="Microsoft" \
+    year="2003" \
+    media="download" \
+    file1="../win2ksp4/W2KSP4_EN.EXE" \
+    installed_file1="$W_SYSTEM32_DLLS_WIN/hid.dll"
+
+load_hid()
+{
+    helper_win2ksp4 i386/hid.dl_
+    w_try_cabextract --directory="$W_SYSTEM32_DLLS" "$W_TMP"/i386/hid.dl_
+
+    w_override_dlls native hid
+}
+
+#----------------------------------------------------------------
+
 w_metadata icodecs dlls \
     title="Indeo codecs" \
     publisher="Intel" \
@@ -5584,6 +5603,23 @@ load_mozillabuild()
     w_download http://ftp.mozilla.org/pub/mozilla.org/mozilla/libraries/win32/MozillaBuildSetup-1.5.1.exe 216c52eafe42df7559e8451f4e40a28e9c0f8133
     cd "$W_CACHE/$W_PACKAGE"
     w_try $WINE MozillaBuildSetup-1.5.1.exe $W_UNATTENDED_SLASH_S
+}
+
+#----------------------------------------------------------------
+
+w_metadata msacm32 dlls \
+    title="MS ACM32" \
+    publisher="Microsoft" \
+    year="2003" \
+    media="download" \
+    file1="../xpsp2/W2KSP4_EN.EXE" \
+    installed_file1="$W_SYSTEM32_DLLS_WIN/msacm32.dll"
+
+load_msacm32()
+{
+    helper_xpsp2 i386/msacm32.dl_
+    w_try_cabextract --directory="$W_SYSTEM32_DLLS" "$W_TMP"/i386/msacm32.dl_
+    w_override_dlls native,builtin msacm32
 }
 
 #----------------------------------------------------------------
@@ -6510,7 +6546,7 @@ load_vcrun2005()
     w_download http://download.microsoft.com/download/8/B/4/8B42259F-5D70-43F4-AC2E-4B208FD8D66A/vcredist_x86.EXE b8fab0bb7f62a24ddfe77b19cd9a1451abd7b847
 
     cd "$W_CACHE"/vcrun2005
-    w_override_dlls native,builtin msvcr80
+    w_override_dlls native,builtin atl80 msvcm80 msvcp90 msvcr80 vcomp
     w_try $WINE $file1 $W_UNATTENDED_SLASH_Q
 }
 
@@ -6530,7 +6566,7 @@ load_vcrun2008()
     # http://www.microsoft.com/technet/security/bulletin/MS11-025.mspx or
     # http://support.microsoft.com/kb/2538242
     w_download http://download.microsoft.com/download/5/D/8/5D8C65CB-C849-4025-8E95-C3966CAFD8AE/vcredist_x86.exe 470640aa4bb7db8e69196b5edb0010933569e98d
-    w_override_dlls native,builtin msvcr90
+    w_override_dlls native,builtin msvcm90 msvcp90 msvcr90 vcomp90
     cd "$W_CACHE"/vcrun2008
     w_try $WINE $file1 $W_UNATTENDED_SLASH_Q
 }
@@ -6555,7 +6591,7 @@ load_vcrun2010()
         w_call msxml3
     fi
 
-    w_override_dlls native,builtin msvcr100
+    w_override_dlls native,builtin msvcp100 msvcr100 vcomp100
     cd "$W_CACHE"/vcrun2010
     w_try $WINE vcredist_x86.exe $W_UNATTENDED_SLASH_Q
 
@@ -7873,7 +7909,7 @@ w_metadata firefox36 apps \
 
 load_firefox36()
 {
-    w_download "http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.6.28/win32/en-US/Firefox%20Setup%203.6.28.exe" 3657287c2cff34f5edc237de954a9cc6f2ca465a "$file1"
+    w_download "ftp://ftp.mozilla.org/pub/firefox/releases/3.6.28/win32/en-US/Firefox%20Setup%203.6.28.exe" 3657287c2cff34f5edc237de954a9cc6f2ca465a "$file1"
     cd "$W_CACHE"/firefox36
     w_try $WINE "$file1" ${W_OPT_UNATTENDED:+ -ms}
 
@@ -8808,14 +8844,14 @@ _EOF_
 w_metadata sketchup apps \
     title="Sketchup 8" \
     publisher="Google" \
-    year="2010" \
+    year="2012" \
     media="download" \
     file1="GoogleSketchUpWEN.exe" \
     installed_exe1="$W_PROGRAMS_X86_WIN/Google/Google SketchUp 8/SketchUp.exe"
 
 load_sketchup()
 {
-    w_download http://dl.google.com/sketchup/GoogleSketchUpWEN.exe 8a7e270c54eb3b6def797547becd02809ef6e439
+    w_download http://dl.google.com/sketchup/GoogleSketchUpWEN.exe f0628e6f05241f91e4f36d6be3b8685a408ad12b
 
     cd "$W_CACHE/$W_PACKAGE"
     w_ahk_do "
@@ -16921,6 +16957,52 @@ REGEDIT4
 
 _EOF_
     w_try_regedit "$W_TMP"/set-gfs.reg
+}
+
+w_metadata windowmanagerdecorated=y settings \
+    title="Allow the window manager to decorate windows (default)"
+w_metadata windowmanagerdecorated=n settings \
+    title="Prevent the window manager from decorating windows"
+
+load_windowmanagerdecorated()
+{
+    case $1 in
+    y|n) arg=$1;;
+    *) w_die "illegal value $1 for Decorated";;
+    esac
+
+    echo "Setting Decorated to $arg"
+    cat > "$W_TMP"/set-wmd.reg <<_EOF_
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+"Decorated"="$arg"
+
+_EOF_
+    w_try_regedit "$W_TMP"/set-wmd.reg
+}
+
+w_metadata windowmanagermanaged=y settings \
+    title="Allow the window manager to control windows (default)"
+w_metadata windowmanagermanaged=n settings \
+    title="Prevent the window manager from controling windows"
+
+load_windowmanagermanaged()
+{
+    case $1 in
+    y|n) arg=$1;;
+    *) w_die "illegal value $1 for Managed";;
+    esac
+
+    echo "Setting Managed to $arg"
+    cat > "$W_TMP"/set-wmm.reg <<_EOF_
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+"Managed"="$arg"
+
+_EOF_
+    w_try_regedit "$W_TMP"/set-wmm.reg
 }
 
 #----------------------------------------------------------------
