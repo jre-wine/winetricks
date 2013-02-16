@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Jari Aalto <jari.aalto@cante.net>
 Uploaders: tony mancill <tmancill@debian.org>
 Build-Depends: debhelper (>= 9)
+Multi-Arch: foreign
 Standards-Version: 3.9.4
 Homepage: http://code.google.com/p/winetricks
 Vcs-Git: git://git.debian.org/collab-maint/winetricks.git
