@@ -1,11 +1,11 @@
 winetricks (0.0+20121030+svn918-2) unstable; urgency=low
 
   * debian/control:
-    - (Multi-Arch): foreign (new field; closes #696591). This
+    - (Multi-Arch): foreign (new field; Closes: #696591). This
       should satisfy dependencies of a package of a different
       architecture, like win64 or win32.
 
- -- Jari Aalto <jari.aalto@cante.net>  Sat, 16 Feb 2013 19:20:16 +0200
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 16 Feb 2013 19:21:54 +0200
 
 winetricks (0.0+20121030+svn918-1) unstable; urgency=low
 
