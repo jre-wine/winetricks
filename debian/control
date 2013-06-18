@@ -7,12 +7,12 @@ Build-Depends: debhelper (>= 9)
 Multi-Arch: foreign
 Standards-Version: 3.9.4
 Homepage: http://code.google.com/p/winetricks
-Vcs-Git: git://git.debian.org/collab-maint/winetricks.git
-Vcs-Browser: http://git.debian.org/?p=collab-maint/winetricks.git;a=summary
+Vcs-Git: git://anonscm.debian.org/collab-maint/winetricks.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/winetricks.git;a=summary
 
 Package: winetricks
 Architecture: all
-Depends: ${misc:Depends}, wine | wine-unstable, wget, cabextract, unzip, p7zip
+Depends: ${misc:Depends}, wine | wine-unstable, cabextract, p7zip, unzip, wget, zip
 Recommends: zenity | kdebase-bin, xdg-utils, sudo | gksu
 Description: package manager for WINE to install software easily
  A POSIX shell script 'package manager' for WINE to install some
