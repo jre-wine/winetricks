@@ -1,7 +1,11 @@
-winetricks (0.0+20130611+svn960-1) unstable; urgency=low
+winetricks (0.0+20130624+svn1004-1) unstable; urgency=low
 
-  * NOT RELEASED
-  * New upstream release (Closes: #712625).
+  * New upstream release
+    - Update to latest (Closes: #712625).
+    - Fix wineserver path (Closes: #713058).
+    - Fix install mfc (Closes: #691935).
+    - Fix install psdk2003 (Closes: #693724).
+    - Fix install steam (Close: #703967).
   * debian/control:
     - (Depends): add zip.
     - (Multi-Arch): Delete. Not a binary package (Closes: #713060).
@@ -9,7 +13,7 @@ winetricks (0.0+20130611+svn960-1) unstable; urgency=low
   * debian/winetricks.svg
     - New.
 
- -- Jari Aalto <jari.aalto@cante.net>  Mon, 24 Jun 2013 14:59:49 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Mon, 24 Jun 2013 15:36:38 +0300
 
 winetricks (0.0+20121030+svn918-2) unstable; urgency=low
 
