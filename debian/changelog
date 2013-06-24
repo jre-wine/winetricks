@@ -1,7 +1,7 @@
 winetricks (0.0+20130611+svn960-1) unstable; urgency=low
 
   * NOT RELEASED
-  * New upstream release.
+  * New upstream release (Closes: #712625).
   * debian/control:
     - (Depends): add zip.
     - (Multi-Arch): Delete. Not a binary package (Closes: #713060).
@@ -9,7 +9,7 @@ winetricks (0.0+20130611+svn960-1) unstable; urgency=low
   * debian/winetricks.svg
     - New.
 
- -- Jari Aalto <jari.aalto@cante.net>  Mon, 24 Jun 2013 14:55:39 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Mon, 24 Jun 2013 14:59:49 +0300
 
 winetricks (0.0+20121030+svn918-2) unstable; urgency=low
 
