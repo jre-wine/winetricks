@@ -10,8 +10,12 @@ winetricks (0.0+20130624+svn1004-1) unstable; urgency=low
     - (Depends): add zip.
     - (Multi-Arch): Delete. Not a binary package (Closes: #713060).
     - (Vcs-*): Update to anonscm.debian.org.
+  * debian/rules
+    - Install icon (Closes: #708198).
+  * debian/winetricks.svg
+    - New.
 
- -- Jari Aalto <jari.aalto@cante.net>  Mon, 24 Jun 2013 15:42:24 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Tue, 25 Jun 2013 07:53:29 +0300
 
 winetricks (0.0+20121030+svn918-2) unstable; urgency=low
 
