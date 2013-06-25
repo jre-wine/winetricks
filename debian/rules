@@ -1,8 +1,9 @@
 #!/usr/bin/make -f
 
-PACKAGE		= winetricks
-CHANGELOG	= debian/upstream.changelog
-URL		= http://winetricks.googlecode.com/svn/trunk
+PACKAGE   = winetricks
+CHANGELOG = debian/upstream.changelog
+URL       = http://winetricks.googlecode.com/svn/trunk
+ICONDIR	  = debian/$(PACKAGE)/usr/share/$(PACKAGE)/icons/hicolor/scalable/apps
 
 include debian/pod2man.mk
 
@@ -14,12 +15,16 @@ get-changelog:
 man-old:
 	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
 
+override_dh_auto_test:
+	# Skip. These are internal tests.
+
 override_dh_installchangelogs:
 	dh_installchangelogs $(CHANGELOG)
 
 override_dh_auto_install:
 	# For use in debian/install
 	install -m 755 src/install-gecko.sh src/winetricks-install-gecko
+	install -D -m 644 debian/winetricks.svg $(ICONDIR)/winetricks.svg
 %:
 	dh $@
 
