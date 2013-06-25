@@ -26,8 +26,9 @@ License: LGPL-2.0+
 Files: debian/winetricks.svg
 Copyright:
  2010-2011 Joel Holdsworth <joel@airwebreathe.org.uk>
-License: LGPL-2.1+
 Comment:
+ See http://bugs.debian.org/708198 for confirmation of copyright.
+ .
  Date: Wed, 20 Apr 2011 18:10:48 -0700
  From: Scott Ritchie (winetricks Ubuntu maintainer) <scott@open-vote.org>
  To: Jari Aalto <jari.aalto@cante.net>
@@ -50,6 +51,7 @@ Comment:
  .
  Thanks,
  Scott Ritchie
+License: LGPL-2.1+
 
 License: LGPL-2.0+
  This library is free software; you can redistribute it and/or
