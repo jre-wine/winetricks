@@ -11,10 +11,13 @@ X-Upstream-Bugs:
 Comment: The program depends on multiple optional utilities
    - winetricks_detect_gui(): zenity, kdialog (kdebase-bin)
    - winetricks_detect_sudo(): gksudo (gksu), kdesudo
+  .
+  Development list is at <winetricks-dev@googlegroups.com>.
 
 Files: *
 Copyright:
-  2010-2012 Dan Kegel <dank@kegel.com>
+  2010-2013 Dan Kegel <dank@kegel.com>
+  2013 Austin English <austinenglish@gmail.com>
 License: LGPL-2.0+
 
 Files: debian/*
