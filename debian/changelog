@@ -7,8 +7,10 @@ winetricks (0.0+20130624+svn1004-1) unstable; urgency=low
     - Fix install psdk2003 (Closes: #693724).
     - Fix install steam (Close: #703967).
   * debian/control:
+    - (Description): Mention libwine.
     - (Depends): add zip.
     - (Multi-Arch): Delete. Not a binary package (Closes: #713060).
+    - (Suggests): Add libwine.
     - (Vcs-*): Update to anonscm.debian.org.
   * debian/rules
     - (override_dh_auto_install): Install icon (Closes: #708198).
@@ -16,7 +18,7 @@ winetricks (0.0+20130624+svn1004-1) unstable; urgency=low
   * debian/winetricks.svg
     - New.
 
- -- Jari Aalto <jari.aalto@cante.net>  Tue, 25 Jun 2013 08:06:10 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Tue, 25 Jun 2013 08:35:58 +0300
 
 winetricks (0.0+20121030+svn918-2) unstable; urgency=low
 
