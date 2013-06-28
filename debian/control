@@ -30,8 +30,8 @@ Description: package manager for WINE to install software easily
  Mozilla Gecko.
  .
  NOTE: This package suggests installing package libwine. Some, but not
- package downloads depend on resarting the wineserver which is available
- from libwine.
+ all package downloads depend on resarting the wineserver which is 
+ included in libwine.
  .
  NOTE: In case you have compiled wine from sources and installed it
  out of dpkg's control, winetricks' depends wouldn't know about it. In
