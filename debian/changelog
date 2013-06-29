@@ -2,9 +2,10 @@ winetricks (0.0+20130624+svn1004-2) unstable; urgency=low
 
   * debian/control:
     - (winetricks::Multi-Arch): New. Has to be defined in binary package
-      section. Thanks to Dmitry Smirnov <onlyjob@debian.org>.
+      section. Thanks to Dmitry Smirnov <onlyjob@debian.org>. (reopen;
+      Closes: #713060).
 
- -- Jari Aalto <jari.aalto@cante.net>  Fri, 28 Jun 2013 11:35:33 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 29 Jun 2013 10:41:04 +0300
 
 winetricks (0.0+20130624+svn1004-1) unstable; urgency=low
 
