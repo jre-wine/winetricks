@@ -1,4 +1,3 @@
 src/winetricks			usr/bin
-src/winetricks-install-gecko 	usr/bin
 debian/*.svg			usr/share/winetricks/icons/hicolor/scalable/apps
 debian/*.desktop 		usr/share/winetricks/applications
