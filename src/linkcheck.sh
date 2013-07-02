@@ -1,13 +1,41 @@
 #!/bin/sh
+# Link checker for winetricks.
+#
+# Copyright (C) 2011,2012,2013 Dan Kegel.
+#
+# This software comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser Public License version 2.1, as published by the Free Software
+# Foundation. Please see the file COPYING for details.
+
+set -e
+
+passes=0
+errors=0
+
+if ! test -x "`which curl 2>/dev/null`"
+then
+    echo "Please install curl"
+    exit 1
+fi
+
 datadir="links.d"
+
+WINETRICKS_SOURCEFORGE=http://downloads.sourceforge.net
+# ftp.microsoft.com resolves to two different IP addresses, one of which is broken
+ftp_microsoft_com=64.4.17.176
+
+w_download() {
+    url="`echo $1 | sed -e 's,$ftp_microsoft_com,'$ftp_microsoft_com',;s,$WINETRICKS_SOURCEFORGE,'$WINETRICKS_SOURCEFORGE',;s, ,%20,g'`"
+    urlkey="`echo "$url" | tr / _`"
+    echo "$url" > "$datadir"/"$urlkey.url"
+}
 
 # Extract list of URLs from winetricks
 extract_all() {
-    for url in ` grep '^ *w_download ' winetricks | sort | grep http | sed 's/^ *//' | awk '{print $2}' | tr -d '"'"'" `
-    do
-        urlkey=`echo $url | tr / _`
-        echo "$url" > "$datadir"/"$urlkey.url"
-    done
+    grep '^ *w_download ' winetricks | egrep 'ftp|http|WINETRICKS_SOURCEFORGE'| sed 's/^ *//' | tr -d '\\' > url-script-fragment.tmp
+    . ./url-script-fragment.tmp
 }
 
 # Show results for a given url
@@ -18,11 +46,14 @@ show_one() {
     urlfile=$1
     base=${urlfile%.url}
     url="`cat $urlfile`"
-    if grep "HTTP.*404" "$base.log"
+    if egrep "HTTP.*200|HTTP.*30[0-9]|Content-Length" "$base.log" > /dev/null
     then
+        passes=`expr $passes + 1`
+    else
         echo "BAD $url"
         cat "$base.log"
         echo ""
+        errors=`expr $errors + 1`
     fi
 }
 
@@ -84,4 +115,15 @@ crawl)
 report)
     show_all
     ;;
+*) echo "Usage: linkcheck.sh crawl|report"; exit 1;;
 esac
+
+echo "Test over, $errors failures, $passes successes."
+if test $errors = 0 && test $passes -gt 0
+then
+    echo PASS
+    exit 0
+else
+    echo FAIL
+    exit 1
+fi
