@@ -23,7 +23,6 @@ override_dh_installchangelogs:
 
 override_dh_auto_install:
 	# For use in debian/install
-	install -m 755 src/install-gecko.sh src/winetricks-install-gecko
 	install -D -m 644 debian/winetricks.svg $(ICONDIR)/winetricks.svg
 %:
 	dh $@
