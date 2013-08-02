@@ -17,22 +17,22 @@ Recommends: zenity | kdebase-bin, xdg-utils, sudo | gksu
 Suggests: libwine
 Description: package manager for WINE to install software easily
  A POSIX shell script 'package manager' for WINE to install some
- Windows software easily. The list of downloadable applications is
- retrieved over the net. The list contains about 70 applications
+ Windows software easily. The list contains about 70 applications
  including 3dmark2001, corefonts, cygwin, directx9, dotnet35, droid,
  firefox, flash, ie8, mspaint, msxml6, python26, quicktime76, safari,
- spotify, utorrent, vb6run, vcrun2010, vlc and xvid.
+ spotify, utorrent, vb6run, vcrun2010, vlc, xvid etc.
  .
- To use GUI progress bar, install package "zenity". To read manuals,
- install package "xdg-utils". If you need to cache *.iso files with
- -k option, install packages "sudo" (or sudo GUI "gksu").
+ About pckages in Recommends header: to use GUI progress bar, install
+ package "zenity". To read manuals, install package "xdg-utils". If
+ you need to cache any *.iso files with the -k option, install package
+ "sudo" or sudo GUI "gksu".
  .
  NOTE: This package suggests installing package libwine. Some, but not
- all package downloads depend on resarting the wineserver which is 
+ all package downloads depend on restarting the wineserver which is
  included in libwine.
  .
  NOTE: In case you have compiled wine from sources and installed it
- out of dpkg's control, winetricks' depends wouldn't know about it. In
+ out of dpkg(1)'s control, winetricks' depends wouldn't know about it. In
  that case create a "dummy wine" package to satisfy depends by using
  tools in "equivs" package before installing winetricks. An example:
  .
