@@ -1,4 +1,36 @@
 ------------------------------------------------------------------------
+r1040 | austinenglish@gmail.com | 2013-08-02 02:25:12 +0300 (Fri, 02 Aug 2013) | 1 line
+
+fix a typo in a comment
+------------------------------------------------------------------------
+r1039 | austinenglish@gmail.com | 2013-08-02 02:24:51 +0300 (Fri, 02 Aug 2013) | 1 line
+
+winetricks: add a new function, w_open_folder() for opening folders. Supports xdg-open, as well as OSX/Cygwin
+------------------------------------------------------------------------
+r1038 | austinenglish@gmail.com | 2013-07-30 03:39:55 +0300 (Tue, 30 Jul 2013) | 1 line
+
+dotnet30sp1: rename the downloaded file, instead of using http encoded name on the local disk
+------------------------------------------------------------------------
+r1037 | daniel.r.kegel | 2013-07-23 19:53:01 +0300 (Tue, 23 Jul 2013) | 1 line
+
+Mention that ie7 install fails occasionally.  Only do z: workaround if / writable, just to be tidy.  Add better message for heap corruption workaround.
+------------------------------------------------------------------------
+r1036 | daniel.r.kegel | 2013-07-16 19:14:12 +0300 (Tue, 16 Jul 2013) | 1 line
+
+vista: add missing registry key; now winecfg agrees that version is vista.
+------------------------------------------------------------------------
+r1035 | austinenglish@gmail.com | 2013-07-10 03:26:52 +0300 (Wed, 10 Jul 2013) | 1 line
+
+fakechinese: add some more font aliases. Patch by Zhenbo Li
+------------------------------------------------------------------------
+r1034 | daniel.r.kegel | 2013-07-08 02:08:15 +0300 (Mon, 08 Jul 2013) | 1 line
+
+Release 20130707.
+------------------------------------------------------------------------
+r1033 | daniel.r.kegel | 2013-07-08 00:07:53 +0300 (Mon, 08 Jul 2013) | 1 line
+
+nfsworld: updated.  (Haven't dealt with 27048 yet.)
+------------------------------------------------------------------------
 r1032 | austinenglish@gmail.com | 2013-07-02 07:34:07 +0300 (Tue, 02 Jul 2013) | 1 line
 
 winetricks: fix registry path in w_register_font_replacement(). Patch by Zhenbo Li
@@ -2093,7 +2125,7 @@ set_winver: add one more registry key for win7.  Fixes issue 37.
 ------------------------------------------------------------------------
 r502 | daniel.r.kegel | 2011-04-23 16:45:51 +0300 (Sat, 23 Apr 2011) | 1 line
 
-Add man page and COPYING file to tarball. 
+Add man page and COPYING file to tarball.
 ------------------------------------------------------------------------
 r501 | daniel.r.kegel | 2011-04-23 16:39:14 +0300 (Sat, 23 Apr 2011) | 1 line
 
