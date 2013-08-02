@@ -2,7 +2,7 @@
 
 # Name of this version of winetricks (YYYYMMDD)
 # (This doesn't change often, use the sha1sum of the file when reporting problems)
-WINETRICKS_VERSION=20130629
+WINETRICKS_VERSION=20130707
 
 # This is a utf-8 file
 # You should see an o with two dots over it here [ö]
@@ -26,8 +26,8 @@ WINETRICKS_VERSION=20130629
 # - axel, wget, or curl is needed for downloading.
 # - sha1sum or openssl is needed for verifying downloads.
 # - zenity is needed by the GUI, though it can limp along somewhat with kdialog.
-# - xdg-open (if present) is used to open download pages for the
-#   user when downloads cannot be fully automated.
+# - xdg-open (if present) or open (for Mac OSX) is used to open download pages 
+#   for the user when downloads cannot be fully automated.
 # - sudo is used to mount .iso images if the user cached them with -k option.
 # - perl is used to munge steam config files
 # On ubuntu, the following lines can be used to install all the prereqs:
@@ -642,7 +642,23 @@ w_download_to()
     fi
 }
 
-# Open a web browser for the user to the give page
+# Open a folder for the user in the specified directory
+# Usage: w_open_folder directory
+w_open_folder()
+{
+    for _W_cmd in xdg-open open cygstart true
+    do
+        _W_cmdpath=`which $_W_cmd`
+        if test -n "$_W_cmdpath"
+        then
+            break
+        fi
+    done
+    $_W_cmd "$1" &
+    unset _W_cmd _W_cmdpath
+}
+
+# Open a web browser for the user to the given page
 # Usage: w_open_webpage url
 w_open_webpage()
 {
@@ -756,12 +772,7 @@ w_download_manual_to()
     if ! test -f "$W_CACHE/$_W_packagename/$_W_file"
     then
         mkdir -p "$W_CACHE/$_W_packagename"
-        case "$OS" in
-        "Windows_NT")
-            cygstart "$W_CACHE/$_W_packagename" ;;
-        *)
-            xdg-open "$W_CACHE/$_W_packagename" ;;
-        esac
+        w_open_folder "$W_CACHE/$_W_packagename"
         w_open_webpage "$_W_url"
         sleep 3   # give some time for browser to open
         w_die "$_W_dlmsg"
@@ -1606,6 +1617,7 @@ _EOF_
         currentbuildnumber="6002"
         currentversion="6.0"
         csdversion_hex=dword:00000200
+        $WINE reg add "HKLM\\System\\CurrentControlSet\\Control\\ProductOptions" /v ProductType /d "WinNT" /f
         ;;
     win7)
         csdversion="Service Pack 1"
@@ -4919,7 +4931,7 @@ load_dotnet30sp1()
     $WINE reg add "HKLM\\Software\\Microsoft-\\Net Framework Setup\\NDP\\v3.0" /v SP /t REG_DWORD /d 0001 /f
 
     # Recipe from http://bugs.winehq.org/show_bug.cgi?id=25060#c10
-    w_download http://download.microsoft.com/download/2/5/2/2526f55d-32bc-410f-be18-164ba67ae07d/XPSEP%20XP%20and%20Server%202003%2032%20bit.msi 5d332ebd1025e294adafe72030fe33db707b2c82
+    w_download http://download.microsoft.com/download/2/5/2/2526f55d-32bc-410f-be18-164ba67ae07d/XPSEP%20XP%20and%20Server%202003%2032%20bit.msi 5d332ebd1025e294adafe72030fe33db707b2c82 "XPSEP XP and Server 2003 32 bit.msi"
     w_try $WINE msiexec /i "XPSEP XP and Server 2003 32 bit.msi" ${W_OPT_UNATTENDED:+/qb}
     $WINE sc delete FontCache3.0.0.0
 
@@ -7353,14 +7365,19 @@ load_fakechinese()
 {
     w_call wenquanyi
     # Loads Wenquanyi fonts and sets aliases for Microsoft Chinese fonts
-    # Aliases to set:
-    # Microsoft JhengHei --> WenQuanYi Micro Hei
-    # Microsoft YaHei --> WenQuanYi Micro Hei
-    # SimHei --> WenQuanYi Micro Hei
+    # Reference : http://en.wikipedia.org/wiki/List_of_Microsoft_Windows_fonts
 
     w_register_font_replacement "Microsoft JhengHei" "WenQuanYi Micro Hei"
     w_register_font_replacement "Microsoft YaHei" "WenQuanYi Micro Hei"
     w_register_font_replacement "SimHei" "WenQuanYi Micro Hei"
+    w_register_font_replacement "DFKai-SB" "WenQuanYi Micro Hei"
+    w_register_font_replacement "FangSong" "WenQuanYi Micro Hei"
+    w_register_font_replacement "KaiTi" "WenQuanYi Micro Hei"
+    w_register_font_replacement "PMingLiU" "WenQuanYi Micro Hei"
+    w_register_font_replacement "MingLiU" "WenQuanYi Micro Hei"
+    w_register_font_replacement "NSimSun" "WenQuanYi Micro Hei"
+    w_register_font_replacement "SimKai" "WenQuanYi Micro Hei"
+    w_register_font_replacement "SimSun" "WenQuanYi Micro Hei"
 }
 
 #----------------------------------------------------------------
@@ -8292,6 +8309,8 @@ w_metadata ie7 dlls \
 
 load_ie7()
 {
+    echo "This fails in about 1 of 30 runs (see bug 26016), just retry if that happens"
+
     # Unregister Wine IE
     if grep -q -i "wine placeholder" "$W_PROGRAMS_X86_UNIX/Internet Explorer/iexplore.exe"
     then
@@ -8329,21 +8348,27 @@ load_ie7()
     fi
     cd "$W_CACHE"/ie7
 
-    # KLUDGE: if / is writable, having a z: mapping to it causes ie7 to put temporary directories on Z:\
+    # KLUDGE: if / is writable (as on MacOSX?), having a z: mapping to it
+    # causes ie7 to put temporary directories on Z:\
     # so hide it temporarily.  This is not very robust!
-    rm -f "$WINEPREFIX/dosdevices/z:.bak_wt"
-    mv "$WINEPREFIX/dosdevices/z:" "$WINEPREFIX/dosdevices/z:.bak_wt"
+    if test -w /
+    then
+        rm -f "$WINEPREFIX/dosdevices/z:.bak_wt"
+        mv "$WINEPREFIX/dosdevices/z:" "$WINEPREFIX/dosdevices/z:.bak_wt"
+    fi
 
-    # FIXME: can't check status, as it always reports failure on wine?
-    if w_workaround_wine_bug 21947
+    if w_workaround_wine_bug 21947 "Working around heap corruption (see also bug 26016)"
     then
         WINEDEBUG=warn+heap $WINE IE7-WindowsXP-x86-enu.exe $quiet
     else
         $WINE IE7-WindowsXP-x86-enu.exe $quiet
     fi
 
-    # END KLUDGE: restore z:, assuming user didn't kill us
-    mv "$WINEPREFIX/dosdevices/z:.bak_wt" "$WINEPREFIX/dosdevices/z:"
+    if test -w /
+    then
+        # END KLUDGE: restore z:, assuming user didn't kill us
+        mv "$WINEPREFIX/dosdevices/z:.bak_wt" "$WINEPREFIX/dosdevices/z:"
+    fi
 
     # Work around DLL registration bug until ierunonce/RunOnce/wineboot is fixed
     # FIXME: whittle down this list
@@ -14372,7 +14397,7 @@ load_myth2_demo()
         }
         winwait, Setup, Complete
         if ( w_opt_unattended > 0 ) {
-            controlclick, Button4   ; Don't run
+            controlclick, Button4   ; Do not run
             controlclick, Button2   ; Finish
         }
         winwaitclose
@@ -14455,9 +14480,9 @@ load_nfsshift_demo()
 w_metadata nfsworld games \
     title="Need For Speed World" \
     publisher="EA" \
-    year="2012" \
+    year="2013" \
     media="download" \
-    file1="setup_1229.exe" \
+    file1="setup_nfsw" \
     installed_exe1="$W_PROGRAMS_X86_WIN/Electronic Arts/Need For Speed World/GameLauncher.exe"
 
 load_nfsworld()
@@ -14466,19 +14491,25 @@ load_nfsworld()
 
     w_workaround_wine_bug 27047 "Game fails with corrupt executable error in wine-1.3.19 and earlier" 1.3.20,
 
-    # This changes frequently, I'm afraid
+    # This changes frequently, I fear
     # Be careful to update $file1 when you update the url
     # 1.8.40.65   9b1f10af09350e2b3f5ccbc679dbea628e9f432d0 ?
     # 1.8.40.1229 f355fcad20dd6267910bec93a318224718ab5de7
-    w_download http://static.cdn.ea.com/blackbox/u/f/NFSWO/1229/launcher/weblaunch_1.8.40.1229/setup_1229.exe f355fcad20dd6267910bec93a318224718ab5de7
+    # 4 July 2013 1.8.40.1509 6f76c74ae07d36470931bac74b44548d1a319ce0
+    w_download http://static.cdn.ea.com/blackbox/u/f/NFSWO/1509/launcher/weblaunch_1.8.40.1509/setup_nfsw.exe 6f76c74ae07d36470931bac74b44548d1a319ce0
 
-    if w_workaround_wine_bug 25658 "Installing dotnet20 and ie7 so launcher UI works"
+    # pre-1.6 versions of wine also needed ie7?
+    if w_workaround_wine_bug 25658 "Installing dotnet20 so launcher does not just exit"
     then
-        w_call ie7
         w_call dotnet20
     fi
 
-    if test "$W_OPT_UNATTENDED" && w_workaround_wine_bug 25961
+    if w_workaround_wine_bug 28652 "Installing gdiplus so launcher does not look horrible (and to work around crash bug 33880, too)"
+    then
+        w_call gdiplus
+    fi
+
+    if test "$W_OPT_UNATTENDED" && w_workaround_wine_bug 25961 "Installing vcrun2008 just to make unattended install easier"
     then
         w_call vcrun2008
     fi
@@ -14493,8 +14524,10 @@ load_nfsworld()
         SetWinDelay 500
         SetTitleMatchMode, 2
         run $file1
-        winwait Setup - Need For Speed
+        winwait, Language
         if ( w_opt_unattended > 0 ) {
+            ControlClick TNewButton1        ; Next
+            winwait Setup - Need For Speed
             ControlClick TNewButton1        ; Next
             winwait Setup - Need For Speed, License
             ControlClick TNewRadioButton1   ; Accept
@@ -17993,7 +18026,7 @@ execute_command()
     hidebroken) W_OPT_SHOWBROKEN=0 ;;
     prefix=*) winetricks_set_wineprefix "$arg" ;;
     annihilate) winetricks_annihilate_wineprefix ;;
-    folder) xdg-open "$WINEPREFIX" ;;
+    folder) w_open_folder "$WINEPREFIX" ;;
     winecfg) $WINE winecfg ;;
     regedit) $WINE regedit ;;
     taskmgr) $WINE taskmgr & ;;
