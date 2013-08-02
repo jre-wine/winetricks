@@ -9,7 +9,7 @@ include debian/pod2man.mk
 
 # Run manually when package is updated
 get-changelog:
-	svn log $(URL) > $(CHANGELOG)
+	svn log $(URL) | sed 's/ *$//' > $(CHANGELOG)
 
 # See debian/manpages instead
 man-old:
