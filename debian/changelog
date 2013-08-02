@@ -1,3 +1,12 @@
+winetricks (0.0+20130802+svn1040-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+    - (Description): Adjust wording (Closes: #718488). Patch thanks to
+      Pascal De Vuyst <pascal.devuyst@gmail.com>.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Fri, 02 Aug 2013 09:36:46 +0300
+
 winetricks (0.0+20130702+svn1032-1) unstable; urgency=low
 
   * New upstream release
