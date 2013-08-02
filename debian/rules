@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 PACKAGE   = winetricks
-CHANGELOG = debian/upstream.changelog
+CHANGELOG := $(shell pwd)/debian/upstream.changelog
 URL       = http://winetricks.googlecode.com/svn/trunk
 ICONDIR	  = debian/$(PACKAGE)/usr/share/$(PACKAGE)/icons/hicolor/scalable/apps
 
@@ -9,7 +9,8 @@ include debian/pod2man.mk
 
 # Run manually when package is updated
 get-changelog:
-	svn log $(URL) | sed 's/ *$//' > $(CHANGELOG)
+	cd ../upstream.svn && \
+	svn log $(URL) | sed 's/ *$$//' > $(CHANGELOG)
 
 # See debian/manpages instead
 man-old:
