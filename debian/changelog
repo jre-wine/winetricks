@@ -5,7 +5,7 @@ winetricks (0.0+20130802+svn1040-1) unstable; urgency=low
     - (Description): Adjust wording (Closes: #718488). Patch thanks to
       Pascal De Vuyst <pascal.devuyst@gmail.com>.
   * debian/rules
-    - (get-changelog): cd to upsream directory.
+    - (get-changelog): cd to upstream.svn directory.
   * debian/upstream.changelog
     - Update.
 
