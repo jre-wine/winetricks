@@ -23,7 +23,7 @@ WINETRICKS_VERSION=20130707
 # Uses the following non-Posix system tools:
 # - wine is used to execute win32 apps except on cygwin.
 # - cabextract, unrar, unzip, and 7z are needed by some verbs.
-# - axel, wget, or curl is needed for downloading.
+# - aria2c, wget, or curl is needed for downloading.
 # - sha1sum or openssl is needed for verifying downloads.
 # - zenity is needed by the GUI, though it can limp along somewhat with kdialog.
 # - xdg-open (if present) or open (for Mac OSX) is used to open download pages 
@@ -60,6 +60,7 @@ WINETRICKS_VERSION=20130707
 #   Copyright (C) 2011 Giuseppe Dia
 #   Copyright (C) 2011 Łukasz Wojniłowicz
 #   Copyright (C) 2011 Matthew Bozarth
+#   Copyright (C) 2013 Andrey Gusev <andrey.goosev!gmail.com>
 #
 # License
 #   This program is free software; you can redistribute it and/or
@@ -369,6 +370,9 @@ w_read_key()
         pl*) _W_keymsg="Proszę podać klucz dla programu '$W_PACKAGE'"
             _W_nokeymsg="Nie podano klucza"
             ;;
+        uk*) _W_keymsg="Будь ласка, введіть ключ для додатка '$W_PACKAGE'"
+            _W_nokeymsg="Ключ не надано"
+            ;;
         *)  _W_keymsg="Please enter the key for app '$W_PACKAGE'"
             _W_nokeymsg="No key given"
             ;;
@@ -581,10 +585,10 @@ w_download_to()
         *) _W_agent= ;;
         esac
 
-        if [ -x "`which axel 2>/dev/null`" ]
+        if [ -x "`which aria2c 2>/dev/null`" ]
         then
-            # Basic axel support.
-            axel -o "$_W_file" "$_W_url"
+            # Basic aria2c support.
+            aria2c -c -o "$_W_file" "$_W_url"
         elif [ -x "`which wget 2>/dev/null`" ]
         then
            # Use -nd to insulate ourselves from people who set -x in WGETRC
@@ -610,7 +614,7 @@ w_download_to()
                ${_W_agent:+--user-agent "$_W_agent"} \
                "$_W_url"
         else
-            w_die "Please install wget (or, if that's not available, curl)"
+            w_die "Please install wget or aria2c (or, if those aren't available, curl)"
         fi
         if test $? != 0
         then
@@ -766,6 +770,7 @@ w_download_manual_to()
     da*) _W_dlmsg="Hent venligst filen $_W_file fra $_W_url og placér den i $W_CACHE/$_W_packagename, kør derefter dette skript.";;
     de*) _W_dlmsg="Bitte laden Sie $_W_file von $_W_url runter, stellen Sie's in $W_CACHE/$_W_packagename, dann wiederholen Sie diesen Kommando.";;
     pl*) _W_dlmsg="Proszę pobrać plik $_W_file z $_W_url, następnie umieścić go w $W_CACHE/$_W_packagename, a na końcu uruchomić ponownie ten skrytp.";;
+    uk*) _W_dlmsg="Будь ласка, звантажте $_W_file з $_W_url, розташуйте в $W_CACHE/$_W_packagename, потім запустіть скрипт знову.";;
     *) _W_dlmsg="Please download $_W_file from $_W_url, place it in $W_CACHE/$_W_packagename, then re-run this script.";;
     esac
 
@@ -1789,6 +1794,7 @@ w_workaround_wine_bug()
     da*) w_warn "Arbejder uden om wine-fejl ${1} $_W_msg" ;;
     de*) w_warn "Wine-Fehler ${1} wird umgegangen $_W_msg" ;;
     pl*) w_warn "Obchodzenie błędu w wine ${1} $_W_msg" ;;
+    uk*) w_warn "Обхід помилки ${1} $_W_msg" ;;
     *)   w_warn "Working around wine bug ${1} $_W_msg" ;;
     esac
     winetricks_stats_log_command w_workaround_wine_bug-$1
@@ -2135,6 +2141,18 @@ winetricks_get_prefix_var()
 winetricks_prefixmenu()
 {
     case $LANG in
+    uk*) _W_msg_title="Winetricks - виберіть wineprefix"
+         _W_msg_body='Що Ви хочете зробити?'
+         _W_msg_apps='Встановити додаток'
+         _W_msg_games='Встановити гру'
+         _W_msg_benchmarks='Встановити benchmark'
+         _W_msg_default="Вибрати wineprefix за замовчуванням"
+         _W_msg_unattended0="Вимкнути автоматичну установку"
+         _W_msg_unattended1="Включити автоматичну установку"
+         _W_msg_showbroken0="Сховати нестабільні додатки (наприклад з проблемами з DRM)"
+         _W_msg_showbroken1="Показати нестабільні додатки (наприклад з проблемами з DRM)"
+         _W_msg_help="Переглянути довідку"
+         ;;
     *)   _W_msg_title="Winetricks - choose a wineprefix"
          _W_msg_body='What do you want to do?'
          _W_msg_apps='Install an app'
@@ -2273,6 +2291,18 @@ winetricks_mainmenu()
          _W_msg_folder='Przeglądaj pliki'
          _W_msg_annihilate="Usuń WSZYSTKIE DANE I APLIKACJE WEWNĄTRZ TEGO WINEPREFIXA"
          ;;
+    uk*) _W_msg_title="Winetricks - поточний prefix \"$WINEPREFIX\""
+         _W_msg_body='Щоб Ви хочете зробити для цього wineprefix?'
+         _W_msg_dlls="Встановити Windows DLL чи компонент(и)"
+         _W_msg_fonts='Встановити шрифт'
+         _W_msg_settings='Змінити налаштування'
+         _W_msg_winecfg='Запустити winecfg'
+         _W_msg_regedit='Запустити regedit'
+         _W_msg_taskmgr='Запустити taskmgr'
+         _W_msg_shell='Запуск командної оболонки (для налагодження)'
+         _W_msg_folder='Перегляд файлів'
+         _W_msg_annihilate="Видалити УСІ ДАНІ ТА ПРОГРАМИ З ЦЬОГО WINEPREFIX"
+         ;;
     *)   _W_msg_title="Winetricks - current prefix is \"$WINEPREFIX\""
          _W_msg_body='What would you like to do to this wineprefix?'
          _W_msg_dlls="Install a Windows DLL or component"
@@ -2340,8 +2370,8 @@ winetricks_mainmenu()
 winetricks_settings_menu()
 {
     case $LANG in
-    *)   _W_msg_title="Winetricks - current prefix is \"$WINEPREFIX\""
-         _W_msg_body='Which setting(s) would you like to change?'
+    *)   _W_msg_title="Winetricks - поточний prefix \"$WINEPREFIX\""
+         _W_msg_body='Які налаштування Ви хочете змінити?'
          ;;
     esac
 
@@ -2380,6 +2410,18 @@ winetricks_settings_menu()
                 --column '' \
                 --column Ustawienie \
                 --column Nazwa \
+                --height $WINETRICKS_MENU_HEIGHT \
+                --width $WINETRICKS_MENU_WIDTH \
+                "
+            ;;
+        uk*) printf %s "zenity \
+                --title '$_W_msg_title' \
+                --text '$_W_msg_body' \
+                --list \
+                --checklist \
+                --column '' \
+                --column Установка \
+                --column Назва \
                 --height $WINETRICKS_MENU_HEIGHT \
                 --width $WINETRICKS_MENU_WIDTH \
                 "
@@ -2442,6 +2484,10 @@ winetricks_showmenu()
          _W_msg_body='Które paczki chesz zainstalować?'
          _W_cached="zarchiwizowane"
          ;;
+    uk*) _W_msg_title="Winetricks - поточний prefix \"$WINEPREFIX\""
+         _W_msg_body='Які пакунки Ви хочете встановити?'
+         _W_cached="кешовано"
+         ;;
     *)   _W_msg_title="Winetricks - current prefix is \"$WINEPREFIX\""
          _W_msg_body='Which package(s) would you like to install?'
          _W_cached="cached"
@@ -2502,6 +2548,24 @@ winetricks_showmenu()
                 --column Status \
                 --column 'Rozmiar (MB)' \
                 --column 'Czas (sek)' \
+                --height $WINETRICKS_MENU_HEIGHT \
+                --width $WINETRICKS_MENU_WIDTH \
+                "
+             ;;
+        uk*) printf %s "zenity \
+                --title '$_W_msg_title' \
+                --text '$_W_msg_body' \
+                --list \
+                --checklist \
+                --column '' \
+                --column Пакунок \
+                --column Назва \
+                --column Видавець \
+                --column Рік \
+                --column Медіа \
+                --column Статус \
+                --column 'Розмір (МБ)' \
+                --column 'Час (сек)' \
                 --height $WINETRICKS_MENU_HEIGHT \
                 --width $WINETRICKS_MENU_WIDTH \
                 "
@@ -2758,6 +2822,7 @@ winetricks_list_all()
     da*) _W_cached="cached"   ; _W_download="kan hentes"    ;;
     de*) _W_cached="gecached" ; _W_download="herunterladbar";;
     pl*) _W_cached="zarchiwizowane"   ; _W_download="do pobrania"  ;;
+    uk*) _W_cached="кешовано"   ; _W_download="завантажуване"  ;;
     *)   _W_cached="cached"   ; _W_download="downloadable"  ;;
     esac
 
@@ -2994,6 +3059,7 @@ winetricks_cache_iso()
             da*)  w_warn "Forkert disk [$_W_volname] indsat. Indsæt venligst disken [$_W_expected_volname]" ;;
             de*)  w_warn "Falsche Disk [$_W_volname] eingelegt.  Bitte legen Sie Disk [$_W_expected_volname] ein!" ;;
         pl*)  w_warn "Włożono zły dysk [$_W_volname].  Proszę włożyć dysk [$_W_expected_volname]" ;;
+            uk*)  w_warn "Неправильний диск [$_W_volname].  Будь ласка, вставте диск [$_W_expected_volname]" ;;
             *)    w_warn "Wrong disc [$_W_volname] inserted.  Please insert disc [$_W_expected_volname]" ;;
             esac
 
@@ -3211,6 +3277,7 @@ winetricks_mount_real_volume()
     da*)_W_mountmsg="Indsæt venligst disken '$_W_expected_volname' (krævet af pakken '$_PACKAGE')" ;;
     de*)_W_mountmsg="Disc '$_W_expected_volname' bitte einlegen (für Pakete '$W_PACKAGE')" ;;
     pl*)  _W_mountmsg="Proszę włożyć dysk '$_W_expected_volname' (potrzebny paczce '$W_PACKAGE')" ;;
+    uk*)  _W_mountmsg="Будь ласка, вставте том '$_W_expected_volname' (потрібний для пакунка '$W_PACKAGE')" ;;
     *)  _W_mountmsg="Please insert volume '$_W_expected_volname' (needed for package '$W_PACKAGE')" ;;
     esac
 
@@ -3721,6 +3788,7 @@ winetricks_install_app()
     da*) fail_msg="Installationen af pakken $1 fejlede" ;;
     de*) fail_msg="Installieren von Pakete $1 gescheitert" ;;
     pl*) fail_msg="Niepowodzenie przy instalacji paczki $1" ;;
+    uk*) fail_msg="Помилка встановлення пакунка $1" ;;
     *)   fail_msg="Failed to install package $1" ;;
     esac
 
@@ -3882,6 +3950,24 @@ load_atmlib()
 {
     helper_win2ksp4 i386/atmlib.dl_
     w_try_cabextract --directory="$W_SYSTEM32_DLLS" "$W_TMP"/i386/atmlib.dl_
+}
+
+#----------------------------------------------------------------
+
+w_metadata avifil32 dlls \
+    title="MS avifil32" \
+    publisher="Microsoft" \
+    year="2004" \
+    media="download" \
+    file1="../xpsp2/WindowsXP-KB835935-SP2-ENU.exe" \
+    installed_file1="$W_SYSTEM32_DLLS_WIN/avifil32.dll"
+
+load_avifil32()
+{
+    helper_xpsp2 i386/avifil32.dl_
+    w_try_cabextract --directory="$W_SYSTEM32_DLLS" "$W_TMP"/i386/avifil32.dl_
+
+    w_override_dlls native avifil32
 }
 
 #----------------------------------------------------------------
@@ -5995,19 +6081,17 @@ load_pdh()
 w_metadata physx dlls \
     title="PhysX" \
     publisher="NVidia" \
-    year="2010" \
+    year="2013" \
     media="download" \
-    file1="PhysX_9.10.0129_SystemSoftware.exe" \
+    file1="PhysX-9.13.0604-SystemSoftware.msi" \
     installed_file1="$W_PROGRAMS_WIN/NVIDIA Corporation/PhysX/Engine/v2.8.3/PhysXCore.dll"
 
 load_physx()
 {
-    # http://www.nvidia.com/object/physx_9.09.0814.html
-    # w_download http://us.download.nvidia.com/Windows/9.09.0814/PhysX_9.09.0814_SystemSoftware.exe e19f7c3385a4a68e7acb85301bb4d2d0d1eaa1e2
-    # http://www.nvidia.com/object/physx_9.10.0129.html
-    w_download http://us.download.nvidia.com/Windows/9.10.0129/PhysX_9.10.0129_SystemSoftware.exe 33a8b54d842c7246946de15b1a48209c386c9c4b
+    # Has a minor issue, see bug report http://bugs.winehq.org/show_bug.cgi?id=34167 
+    w_download http://uk.download.nvidia.com/Windows/9.13.0604/PhysX-9.13.0604-SystemSoftware.msi c2aac1635bfc474de82b5aad6571d15b4ccb84b5
     cd "$W_CACHE"/physx
-    w_try $WINE PhysX_9.10.0129_SystemSoftware.exe $W_UNATTENDED_SLASH_Q
+    w_try $WINE msiexec /i PhysX-9.13.0604-SystemSoftware.msi $W_UNATTENDED_SLASH_Q
 }
 
 #----------------------------------------------------------------
@@ -6715,18 +6799,22 @@ load_vcrun2010()
 
     case "$W_ARCH" in
     win64)
-        # See http://bugs.winehq.org/show_bug.cgi?id=30713
         # Also install the 64 bit version
         # http://www.microsoft.com/en-us/download/details.aspx?id=13523
         w_download http://download.microsoft.com/download/A/8/0/A80747C3-41BD-45DF-B505-E9710D2744E0/vcredist_x64.exe 027d0c2749ec5eb21b031f46aee14c905206f482
-        w_try_cabextract --directory="$W_TMP" vcredist_x64.exe -F '*.cab'
-        w_try_cabextract --directory="$W_TMP" "$W_TMP"/vc_red.cab
-        cp "$W_TMP"/F_CENTRAL_mfc100_x64 "$W_SYSTEM64_DLLS"/mfc100.dll
-        cp "$W_TMP"/F_CENTRAL_mfc100u_x64 "$W_SYSTEM64_DLLS"/mfc100u.dll
-        cp "$W_TMP"/F_CENTRAL_msvcr100_x64 "$W_SYSTEM64_DLLS"/msvcr100.dll
-        cp "$W_TMP"/F_CENTRAL_msvcp100_x64 "$W_SYSTEM64_DLLS"/msvcp100.dll
-        cp "$W_TMP"/F_CENTRAL_vcomp100_x64 "$W_SYSTEM64_DLLS"/vcomp100.dll
-        cp "$W_TMP"/F_CENTRAL_atl100_x64 "$W_SYSTEM64_DLLS"/atl100.dll
+        if w_workaround_wine_bug 30713 "Manually extracting the 64-bit dlls"
+        then
+            w_try_cabextract --directory="$W_TMP" vcredist_x64.exe -F '*.cab'
+            w_try_cabextract --directory="$W_TMP" "$W_TMP"/vc_red.cab
+            cp "$W_TMP"/F_CENTRAL_mfc100_x64 "$W_SYSTEM64_DLLS"/mfc100.dll
+            cp "$W_TMP"/F_CENTRAL_mfc100u_x64 "$W_SYSTEM64_DLLS"/mfc100u.dll
+            cp "$W_TMP"/F_CENTRAL_msvcr100_x64 "$W_SYSTEM64_DLLS"/msvcr100.dll
+            cp "$W_TMP"/F_CENTRAL_msvcp100_x64 "$W_SYSTEM64_DLLS"/msvcp100.dll
+            cp "$W_TMP"/F_CENTRAL_vcomp100_x64 "$W_SYSTEM64_DLLS"/vcomp100.dll
+            cp "$W_TMP"/F_CENTRAL_atl100_x64 "$W_SYSTEM64_DLLS"/atl100.dll
+        else
+            w_try $WINE vcredist_x64.exe $W_UNATTENDED_SLASH_Q
+        fi
         ;;
     esac
 }
@@ -7314,10 +7402,10 @@ load_droid()
     do_droid DroidSansJapanese.ttf     "Droid Sans Japanese"     b3a248c11692aa88a30eb25df425b8910fe05dc5
     do_droid DroidSansMono.ttf         "Droid Sans Mono"         133fb6cf26ea073b456fb557b94ce8c46143b117
     do_droid DroidSans.ttf             "Droid Sans"              62f2841f61e4be66a0303cd1567ed2d300b4e31c
-    do_droid DroidSerif-BoldItalic.ttf "Droid Serif Bold Italic" b7f2d37c3a062be671774ff52f4fd95cbef813ce
-    do_droid DroidSerif-Bold.ttf       "Droid Serif Bold"        294fa99ceaf6077ab633b5a7c7db761e2f76cf8c
-    do_droid DroidSerif-Italic.ttf     "Droid Serif Italic"      bdd8aad5e6ac546d11e7378bdfabeac7ccbdadfc
-    do_droid DroidSerif-Regular.ttf    "Droid Serif"             805c5f975e02f488fa1dd1dd0d44ed4f93b0fab4
+    do_droid DroidSerif-BoldItalic.ttf "Droid Serif Bold Italic" 41ce5fef1bd0164caed6958885d7285c841c95f1
+    do_droid DroidSerif-Bold.ttf       "Droid Serif Bold"        2775e9b8e96a3e9593acb5cf6923abb2e6008187
+    do_droid DroidSerif-Italic.ttf     "Droid Serif Italic"      e91cc6c1ae9a6699683bcee024551cb58d1be790
+    do_droid DroidSerif-Regular.ttf    "Droid Serif"             a689ce25a4063cf501c12d616f832f2235b5b93b
 }
 
 #----------------------------------------------------------------
@@ -8318,7 +8406,7 @@ load_ie7()
     fi
 
     # Change the override to the native so we are sure we use and register them
-    w_override_dlls native,builtin iexplore.exe itircl itss jscript mshtml msimtf shdoclc shdocvw shlwapi urlmon xmllite
+    w_override_dlls native,builtin iexplore.exe itircl itss jscript mshtml msimtf shdoclc shdocvw shlwapi urlmon wininet xmllite
 
     # Bundled updspapi cannot work on wine
     w_override_dlls builtin updspapi
@@ -8421,13 +8509,13 @@ load_ie8()
     w_call msls31
 
     # Change the override to the native so we are sure we use and register them
-    w_override_dlls native,builtin iexplore.exe itircl itss jscript msctf mshtml shdoclc shdocvw shlwapi urlmon xmllite
+    w_override_dlls native,builtin iexplore.exe itircl itss jscript msctf mshtml shdoclc shdocvw shlwapi urlmon wininet xmllite
 
     # Bundled updspapi cannot work on wine
     w_override_dlls builtin updspapi
 
     # Remove the fake dlls from the existing WINEPREFIX
-    for dll in browseui.dll inseng.dll itircl itss jscript msctf mshtml  shdoclc shdocvw shlwapi urlmon
+    for dll in browseui.dll inseng.dll itircl itss jscript msctf mshtml shdoclc shdocvw shlwapi urlmon
     do
         test -f "$W_SYSTEM32_DLLS"/$dll.dll &&
         mv "$W_SYSTEM32_DLLS"/$dll.dll "$W_SYSTEM32_DLLS"/$dll.dll.bak
@@ -17387,6 +17475,13 @@ load_sandbox()
     elif test -d "$WINEPREFIX/drive_c/users/$USER/My Documents"
     then
         for dir in Desktop "My Documents" "My Music" "My Pictures" "My Videos"
+        do
+            rm -f "$WINEPREFIX/drive_c/users/$USER/$dir" > /dev/null 2>&1
+            mkdir -p "$WINEPREFIX/drive_c/users/$USER/$dir"
+        done
+    elif test -d "$WINEPREFIX/drive_c/users/$USER/Meine Dokumente"
+    then
+        for dir in Desktop "Meine Dokumente" "Eigene Musik" "Eigene Bilder" "Eigene Videos"
         do
             rm -f "$WINEPREFIX/drive_c/users/$USER/$dir" > /dev/null 2>&1
             mkdir -p "$WINEPREFIX/drive_c/users/$USER/$dir"
