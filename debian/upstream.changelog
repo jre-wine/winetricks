@@ -1,4 +1,40 @@
 ------------------------------------------------------------------------
+r1049 | daniel.r.kegel | 2013-08-24 06:48:19 +0300 (Sat, 24 Aug 2013) | 1 line
+
+avifil32: new verb
+------------------------------------------------------------------------
+r1048 | austinenglish@gmail.com | 2013-08-06 01:39:00 +0300 (Tue, 06 Aug 2013) | 1 line
+
+sandbox: add German support. Patch by Andre Hentschel
+------------------------------------------------------------------------
+r1047 | daniel.r.kegel | 2013-08-04 19:14:45 +0300 (Sun, 04 Aug 2013) | 1 line
+
+Update Ukrainian translation; patch by Andrey Gusev
+------------------------------------------------------------------------
+r1046 | daniel.r.kegel | 2013-08-04 02:48:50 +0300 (Sun, 04 Aug 2013) | 1 line
+
+physx: update (in case games rely on new version).  Patch from Andrey Gusev
+------------------------------------------------------------------------
+r1045 | daniel.r.kegel | 2013-08-03 18:03:52 +0300 (Sat, 03 Aug 2013) | 1 line
+
+Add Ukrainian localization by Andrey Gusev
+------------------------------------------------------------------------
+r1044 | austinenglish@gmail.com | 2013-08-02 21:24:30 +0300 (Fri, 02 Aug 2013) | 1 line
+
+winetricks: override wininet to native in ie7/ie8. Closes issue 332
+------------------------------------------------------------------------
+r1043 | austinenglish@gmail.com | 2013-08-02 20:26:00 +0300 (Fri, 02 Aug 2013) | 1 line
+
+winetricks: replace axel with aria2c. Fixes issue 185
+------------------------------------------------------------------------
+r1042 | austinenglish@gmail.com | 2013-08-02 20:25:04 +0300 (Fri, 02 Aug 2013) | 1 line
+
+droid: update serif font sha1sums
+------------------------------------------------------------------------
+r1041 | austinenglish@gmail.com | 2013-08-02 20:02:46 +0300 (Fri, 02 Aug 2013) | 1 line
+
+vcrun2010: use w_workaround_wine_bug for the win64 installer bug, so the user knows that a hack is being used
+------------------------------------------------------------------------
 r1040 | austinenglish@gmail.com | 2013-08-02 02:25:12 +0300 (Fri, 02 Aug 2013) | 1 line
 
 fix a typo in a comment
