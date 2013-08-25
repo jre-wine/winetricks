@@ -1,3 +1,11 @@
+winetricks (0.0+20130824+svn1049-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/upstream.changelog
+    - Update.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Sun, 25 Aug 2013 08:59:08 +0300
+
 winetricks (0.0+20130802+svn1040-1) unstable; urgency=low
 
   * New upstream release
