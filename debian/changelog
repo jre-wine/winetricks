@@ -1,10 +1,10 @@
 winetricks (0.0+20130830+svn1053-1) unstable; urgency=low
 
   * New upstream release
-    - Include check for Wine 1.4.1 and python26 install (Closes: #720737).
+    - Contains check for python26 install for Wine 1.4.1 (Closes: #720737).
       See https://code.google.com/p/winetricks/issues/detail?id=347
 
- -- Jari Aalto <jari.aalto@cante.net>  Fri, 30 Aug 2013 06:26:08 +0300
+ -- Jari Aalto <jari.aalto@cante.net>  Fri, 30 Aug 2013 06:27:52 +0300
 
 winetricks (0.0+20130824+svn1049-1) unstable; urgency=low
 
