@@ -1,4 +1,153 @@
 ------------------------------------------------------------------------
+r1086 | daniel.r.kegel | 2014-01-15 19:11:38 +0200 (Wed, 15 Jan 2014) | 1 line
+
+Look for wineserver in more places.  Fixes issue 399.
+------------------------------------------------------------------------
+r1085 | austinenglish@gmail.com | 2014-01-15 07:47:51 +0200 (Wed, 15 Jan 2014) | 1 line
+
+directplay: set override before registering native dlls. Closes issue 398
+------------------------------------------------------------------------
+r1084 | austinenglish@gmail.com | 2014-01-14 23:49:56 +0200 (Tue, 14 Jan 2014) | 1 line
+
+mdac27 does not work on 64-bit prefixes
+------------------------------------------------------------------------
+r1083 | daniel.r.kegel | 2013-12-29 01:57:00 +0200 (Sun, 29 Dec 2013) | 1 line
+
+Fix syntax error from last change
+------------------------------------------------------------------------
+r1082 | austinenglish@gmail.com | 2013-12-28 21:19:49 +0200 (Sat, 28 Dec 2013) | 1 line
+
+xmllite: add German locale support. Closes issue 391.
+------------------------------------------------------------------------
+r1081 | austinenglish@gmail.com | 2013-12-28 03:31:33 +0200 (Sat, 28 Dec 2013) | 1 line
+
+revert r1078, it breaks dotnet installs
+------------------------------------------------------------------------
+r1080 | austinenglish@gmail.com | 2013-12-27 06:22:03 +0200 (Fri, 27 Dec 2013) | 1 line
+
+allow arbitary virtual desktop sizes. Closes issue 384
+------------------------------------------------------------------------
+r1079 | austinenglish@gmail.com | 2013-12-27 05:25:21 +0200 (Fri, 27 Dec 2013) | 1 line
+
+update uplay sha1sum
+------------------------------------------------------------------------
+r1078 | austinenglish@gmail.com | 2013-12-03 22:50:23 +0200 (Tue, 03 Dec 2013) | 1 line
+
+msxml3: use sp9 version of msxml3, which also has an automatic download. Closes issue 370
+------------------------------------------------------------------------
+r1077 | austinenglish@gmail.com | 2013-11-14 01:12:47 +0200 (Thu, 14 Nov 2013) | 1 line
+
+winetricks: wmp10 does not install on 64-bit prefixes. Fixes issue 379
+------------------------------------------------------------------------
+r1076 | austinenglish@gmail.com | 2013-11-12 07:34:50 +0200 (Tue, 12 Nov 2013) | 1 line
+
+update uplay sha1sum. Fixes issue 373
+------------------------------------------------------------------------
+r1075 | austinenglish@gmail.com | 2013-11-06 23:02:32 +0200 (Wed, 06 Nov 2013) | 1 line
+
+add support for wine-1.7.x series in w_workaround_wine_bug(). Fixes issue 376
+------------------------------------------------------------------------
+r1074 | austinenglish@gmail.com | 2013-10-28 11:04:43 +0200 (Mon, 28 Oct 2013) | 1 line
+
+update 7zip to 9.20. Closes issue 366
+------------------------------------------------------------------------
+r1073 | austinenglish@gmail.com | 2013-10-23 13:14:46 +0300 (Wed, 23 Oct 2013) | 2 lines
+
+remove old firefox versions/cruft, update firefox to 24.0
+
+------------------------------------------------------------------------
+r1072 | daniel.r.kegel | 2013-10-19 17:44:27 +0300 (Sat, 19 Oct 2013) | 1 line
+
+vcrun2008: also override atl90
+------------------------------------------------------------------------
+r1071 | daniel.r.kegel | 2013-10-16 16:41:21 +0300 (Wed, 16 Oct 2013) | 1 line
+
+emu8086: new verb by Xiaojun Ma
+------------------------------------------------------------------------
+r1070 | daniel.r.kegel | 2013-10-08 17:10:34 +0300 (Tue, 08 Oct 2013) | 1 line
+
+constantia, cambria: new font verbs.  Fixes issue 360.
+------------------------------------------------------------------------
+r1069 | austinenglish@gmail.com | 2013-09-30 21:38:50 +0300 (Mon, 30 Sep 2013) | 1 line
+
+msftedit: new verb. Patch by Zhenbo Li
+------------------------------------------------------------------------
+r1068 | daniel.r.kegel | 2013-09-30 06:52:41 +0300 (Mon, 30 Sep 2013) | 1 line
+
+vc2010express: work around bugs installing SQL, enable -q
+------------------------------------------------------------------------
+r1067 | daniel.r.kegel | 2013-09-29 23:50:43 +0300 (Sun, 29 Sep 2013) | 1 line
+
+cmake: updated
+------------------------------------------------------------------------
+r1066 | daniel.r.kegel | 2013-09-29 23:30:16 +0300 (Sun, 29 Sep 2013) | 1 line
+
+vc2010express: new verb
+------------------------------------------------------------------------
+r1065 | austinenglish@gmail.com | 2013-09-23 23:15:55 +0300 (Mon, 23 Sep 2013) | 1 line
+
+winetricks: better quoting for $WINE variable. Fixes issue 345
+------------------------------------------------------------------------
+r1064 | daniel.r.kegel | 2013-09-22 05:28:45 +0300 (Sun, 22 Sep 2013) | 1 line
+
+qqintl: add ie7 to work around bug 30083
+------------------------------------------------------------------------
+r1063 | daniel.r.kegel | 2013-09-21 20:46:28 +0300 (Sat, 21 Sep 2013) | 1 line
+
+qq2012, qqintl: new verbs (based on patch by Hillwood Yang_
+------------------------------------------------------------------------
+r1062 | austinenglish@gmail.com | 2013-09-20 06:16:29 +0300 (Fri, 20 Sep 2013) | 1 line
+
+dotnet20: remove unneeded hacks only affecting ancient versions of wine
+------------------------------------------------------------------------
+r1061 | austinenglish@gmail.com | 2013-09-20 04:40:52 +0300 (Fri, 20 Sep 2013) | 1 line
+
+bump version
+------------------------------------------------------------------------
+r1060 | austinenglish@gmail.com | 2013-09-20 04:39:00 +0300 (Fri, 20 Sep 2013) | 1 line
+
+add dotnet45
+------------------------------------------------------------------------
+r1059 | austinenglish@gmail.com | 2013-09-20 02:09:21 +0300 (Fri, 20 Sep 2013) | 1 line
+
+add a win2k3 windows version option
+------------------------------------------------------------------------
+r1058 | austinenglish@gmail.com | 2013-09-16 21:33:33 +0300 (Mon, 16 Sep 2013) | 1 line
+
+$XDG_CACHE_HOME should default to $HOME/.cache, not $HOME/.config
+------------------------------------------------------------------------
+r1057 | austinenglish@gmail.com | 2013-09-12 02:53:57 +0300 (Thu, 12 Sep 2013) | 1 line
+
+dotnet40: die early if the prefix is 64-bit
+------------------------------------------------------------------------
+r1056 | austinenglish@gmail.com | 2013-09-05 22:31:43 +0300 (Thu, 05 Sep 2013) | 1 line
+
+winetricks: replace all symlinks under the user dir with a directory in sandbox. Works for all languages. Closes issue 346.
+------------------------------------------------------------------------
+r1055 | austinenglish@gmail.com | 2013-09-05 03:11:47 +0300 (Thu, 05 Sep 2013) | 1 line
+
+remove volnum, it hasn't been needed since before wine-1.2
+------------------------------------------------------------------------
+r1054 | austinenglish@gmail.com | 2013-09-05 02:20:42 +0300 (Thu, 05 Sep 2013) | 1 line
+
+winetricks: better XDG support. Based on a patch by dunsmoreb. Closes issue 349
+------------------------------------------------------------------------
+r1053 | austinenglish@gmail.com | 2013-08-30 00:59:53 +0300 (Fri, 30 Aug 2013) | 1 line
+
+winetricks: die in python26 if the wine version is 1.4.1. Fixes issue 347
+------------------------------------------------------------------------
+r1052 | daniel.r.kegel | 2013-08-27 14:57:08 +0300 (Tue, 27 Aug 2013) | 1 line
+
+nuget: fix metadata
+------------------------------------------------------------------------
+r1051 | daniel.r.kegel | 2013-08-25 18:00:51 +0300 (Sun, 25 Aug 2013) | 1 line
+
+nuget: added.  Fixes bug 342.
+------------------------------------------------------------------------
+r1050 | daniel.r.kegel | 2013-08-25 17:16:46 +0300 (Sun, 25 Aug 2013) | 1 line
+
+Python26_comtypes depends on python26, but dependencies on apps #fail because of isolation; make them both dlls.  Fixes bug 134.
+------------------------------------------------------------------------
 r1049 | daniel.r.kegel | 2013-08-24 06:48:19 +0300 (Sat, 24 Aug 2013) | 1 line
 
 avifil32: new verb
