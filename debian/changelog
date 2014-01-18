@@ -1,3 +1,17 @@
+winetricks (0.0+20140115+svn1086-1) unstable; urgency=low
+
+  * New upstream release
+    - Search usr/lib/$arch/wine/bin (multiarch; Closes: #734464).
+  * debian/control
+    - (Depends): add arch specific wine package checks.
+      (Closes: #731195). Patch thanks to Simon McVittie
+      <smcv@debian.org>.
+    - (Standards): Update to 3.9.5.
+  * debian/upstream.changelog
+    - Update.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Thu, 16 Jan 2014 06:54:07 +0200
+
 winetricks (0.0+20130830+svn1053-1) unstable; urgency=low
 
   * New upstream release
