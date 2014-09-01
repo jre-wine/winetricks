@@ -2,7 +2,8 @@ Source: winetricks
 Section: contrib/otherosfs
 Priority: optional
 Maintainer: Joseph Bisch <joseph.bisch@gmail.com>
-Build-Depends: debhelper (>= 9)
+Build-Depends:
+ debhelper (>= 9)
 Standards-Version: 3.9.5
 Homepage: http://code.google.com/p/winetricks
 Vcs-Git: git://anonscm.debian.org/collab-maint/winetricks.git
@@ -11,9 +12,20 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/winetricks.git;a=s
 Package: winetricks
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}, wine32 | wine32-unstable | wine64 | wine64-unstable | wine | wine-unstable | wine-development, cabextract, p7zip, unzip, wget, zip
-Recommends: zenity | kdebase-bin, xdg-utils, sudo | gksu
-Suggests: libwine
+Depends:
+ cabextract,
+ p7zip,
+ unzip,
+ wget,
+ wine32 | wine32-unstable | wine64 | wine64-unstable | wine | wine-unstable | wine-development,
+ zip,
+ ${misc:Depends}
+Recommends:
+ sudo | gksu,
+ xdg-utils,
+ zenity | kdebase-bin
+Suggests:
+ libwine
 Description: package manager for WINE to install software easily
  A POSIX shell script 'package manager' for WINE to install some
  Windows software easily. The list contains about 70 applications
