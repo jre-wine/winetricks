@@ -11,7 +11,7 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/winetricks.git;a=s
 Package: winetricks
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}, wine32 | wine32-unstable | wine64 | wine64-unstable | wine | wine-unstable, cabextract, p7zip, unzip, wget, zip
+Depends: ${misc:Depends}, wine32 | wine32-unstable | wine64 | wine64-unstable | wine | wine-unstable | wine-development, cabextract, p7zip, unzip, wget, zip
 Recommends: zenity | kdebase-bin, xdg-utils, sudo | gksu
 Suggests: libwine
 Description: package manager for WINE to install software easily
