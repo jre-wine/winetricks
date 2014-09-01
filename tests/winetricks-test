@@ -1,36 +1,33 @@
 #!/bin/sh
 # Regression test for winetricks
 
+# Override this if you want to put the work area on a different disk
+WINE_PREFIXES=${WINE_PREFIXES:-$HOME/winetrickstest-prefixes}
+preloadcache="$HOME/winetricks-preload-cache"
+cache="$HOME/winetricks-cache"
+
 set -x
 
 # verbs known to not work in -q mode yet
-BLACKLIST="cygwin|kde|psdk2003|psdkwin7|dotnet20sp2"
+BLACKLIST="kde|mingw|psdk2003|psdkwin7|steam"
 # verbs that hang in -q because of simple problem we should work around soon
 BLACKLIST="$BLACKLIST|vc2005trial"
 # verbs that are too slow
 BLACKLIST="$BLACKLIST|bfbc2|dxsdk_nov2006|dxsdk_jun2010"
 # verbs that are too flaky
-BLACKLIST="$BLACKLIST|amnesia_tdd_demo|wowtrial|mfsxde"
+BLACKLIST="$BLACKLIST|wowtrial|mfsxde"
 # steam verbs I don't have
 BLACKLIST="$BLACKLIST|borderlands|supermeatboy|trine"
 # broken http://bugs.winehq.org/show_bug.cgi?id=26411:
 BLACKLIST="$BLACKLIST|mfsxde|mfsx_demo"
-# only support older versions of wine
-BLACKLIST="$BLACKLIST|gecko110|gecko"
 # hang lately, probably ui changes in install process
 BLACKLIST="$BLACKLIST|bioshock2|audibledm"
 # We don't have -q support for these
 BLACKLIST="$BLACKLIST|dx8sdk"
-# broken
-BLACKLIST="$BLACKLIST|dotnet11|dotnet11sp1"
 # broken, see https://code.google.com/p/winetricks/issues/detail?id=318
 BLACKLIST="$BLACKLIST|xna40"
 # broken/flaky, http://bugs.winehq.org/show_bug.cgi?id=26016
 BLACKLIST="$BLACKLIST|xmllite"
-# manual downloads
-BLACKLIST="$BLACKLIST|dotnet30|dotnet30sp1|dotnet35|dotnet35sp1"
-# depend on manual downloads
-BLACKLIST="$BLACKLIST|jet40"
 # redundant metaverbs
 BLACKLIST="$BLACKLIST|allcodecs"
 
@@ -43,7 +40,9 @@ QUICKCHECK="flash spotify"
 # middle of a two day run.
 for tool in time cabextract unrar unzip 7z
 do
-    if test "`which $tool`" = ""
+    type $tool
+    ret=$?
+    if [ ! $ret -eq 0 ]
     then
         echo "Please install $tool."
         exit 1
@@ -52,10 +51,17 @@ done
 
 passes=0
 errors=0
+
 fail()
 {
     echo FAIL: $@
     errors=`expr $errors + 1`
+}
+
+pass()
+{
+    echo PASS: $@       
+    passes=`expr $passes + 1`
 }
 
 case "$LANG" in
@@ -130,49 +136,27 @@ total_df()
     df | grep -v /dev/loop | awk '/^\// { sum += $4 } END { print sum }'
 }
 
+# for single apps, wrapper around test_command:
 test_app()
 {
     app=$1
     _errors_before=$errors
 
-    export WINE_PREFIXES=$HOME/winetrickstest-prefixes
-    export WINEPREFIX=$WINE_PREFIXES/$app
-    DRIVE_C="$WINEPREFIX/dosdevices/c:"
-
-    # change if you don't want to skip ones already installed
-    if test -d $HOME/winetrickstest-prefixes/$app
-    then
-        echo "Skipping $app, already installed"
-        return 0
-        #rm -rf $WINEPREFIX
-    fi
-    mkdir -p $WINEPREFIX
-
     # Watch transient disk space
     DF_START=`total_df`
-    if test -d ~/.cache/winetricks/$app
+    if test -d "$W_CACHE"/$app
     then
-        DU_CACHE_START=`du -s ~/.cache/winetricks/$app | awk '{print $1}'`
+        DU_CACHE_START=`du -s "$W_CACHE"/$app | awk '{print $1}'`
     else
         DU_CACHE_START=0
     fi
     touch df-daemon
     (set +x; while test -f df-daemon; do total_df; sleep 1; done ) > df-during.log &
 
-    # Isolate us from the user's home directory
-    sh -x winetricks sandbox
+    test_command $app
+    test_app_checksums
 
-    echo "Installing $app"
-    if ! /usr/bin/time -p --output=time.log sh winetricks --no-isolate -q $app
-    then
-        rm df-daemon
-        fail "test_app $app failed!"
-        return
-    fi
-    rm df-daemon
-    seconds=`awk '/real/ {print $2}' < time.log | sed 's/\..*//'`
-    echo "test_app: ${app}: install_time $seconds seconds."
-
+    # Post install:
     # Don't check whether metaverbs are installed
     case "$app" in
     allcodes) ;;
@@ -185,6 +169,8 @@ test_app()
         ;;
     esac
 
+    # Cleanup..
+    rm df-daemon
     # Total max disk usage = max df change plus any initial blocks in cache
     DF_MIN=`cat df-during.log | awk '{ if (min == "" || $1 < min) min=$1; } END {print min}' `
     DF_DIFF=`expr $DF_START - $DF_MIN`
@@ -194,30 +180,65 @@ test_app()
     TOTAL_MB=`expr $TOTAL / 1024`
     mkdir -p measurements
     echo "${app}:size_MB=${TOTAL_MB},time_sec=${seconds}" >> measurements/$app.dat
+}
 
-    # Work around dangling processes (whether normal or the fault of wine or the verb script)
-    case $app in
-    dotnet*)
-        killall wineconsole ;;   # bug in wine?  the wineconsoles are for the langpacks, and seem empty.
-    wmi)
-        killall WinMgmt.exe ;;   # wmi starts a service
-    fontxplorer)
-        killall winefile.exe ;;  # a number of apps open a folder on the desktop
-    hegemony*)
-        killall Launcher.exe ;;  # or should this be in the verb?
-    esac
+test_command()
+{
+    command=$@
+    _errors_before=$errors
+
+    export WINEPREFIX=$WINE_PREFIXES/$(echo $@ | tr " " "-")
+    DRIVE_C="$WINEPREFIX/dosdevices/c:"
+
+    # change if you don't want to skip ones already installed
+    if test -d $WINEPREFIX
+    then
+        echo "Skipping $command, already installed"
+        return 0
+        #rm -rf $WINEPREFIX
+    fi
+
+    # Isolate us from the user's home directory
+    sh -x winetricks sandbox
+
+    echo "Installing $command"
+    if [ "$EXPECT_FAIL" = "yes" ]
+    then
+        # A success is failure:
+        sh winetricks --no-isolate -q $command && fail "$@ succeeded, should have failed"
+    elif ! /usr/bin/time -p --output=time.log sh winetricks --no-isolate -q $command
+    then
+        rm df-daemon
+        fail "test_command $command failed!"
+        return
+    else
+        echo "winetricks $@ completed"
+    fi
+    seconds=`awk '/real/ {print $2}' < time.log | sed 's/\..*//'`
+    echo "test_app: ${app}: install_time $seconds seconds."
+
+    # Cleanup:
+    for x in $command
+    do
+        case $x in
+        dotnet*)
+            killall wineconsole ;;   # bug in wine?  the wineconsoles are for the langpacks, and seem empty.
+        wmi)
+            killall WinMgmt.exe ;;   # wmi starts a service
+        fontxplorer)
+            killall winefile.exe ;;  # a number of apps open a folder on the desktop
+        hegemony*)
+            killall Launcher.exe ;;  # or should this be in the verb?
+        esac
+    done
     killall notepad.exe          # Arcania-Gothic4 and others
 
+    echo "Checking for dangling processes!"
     ps augxw | grep exe
     $WINESERVER -w
     echo "Wineserver done."
 
-    test_app_checksums
-
-    if test $_errors_before = $errors
-    then
-        passes=`expr $passes + 1`
-    fi
+    pass $@
 }
 
 test_dlls()
@@ -233,6 +254,27 @@ test_dlls()
     for a in `cat dlls.verbs`
     do
         test_app $a
+    done
+}
+
+test_dotnet()
+{
+    # verify that each individual installer works:
+    for x in dotnet11 dotnet11sp1 dotnet20 dotnet20sp1 dotnet20sp2 dotnet30 dotnet30sp1 dotnet35 dotnet35sp1 dotnet40 dotnet45
+    do
+        test_command --verify $x
+    done
+
+    # combinations that should work:
+    for combo in "dotnet20 dotnet20sp2"
+    do
+        echo "$combo"
+    done
+
+    # combinations that should break:
+    for fail_combo in "dotnet11 dotnet20"
+    do
+        echo "$fail_combo"
     done
 }
 
@@ -299,15 +341,31 @@ test_install_cached_or_download()
     fi
 }
 
+# The very few manual downloads required by $QUICKCHECK
+# Run this if you don't want to re-download them.
+test_preload()
+{
+    export W_CACHE="$preloadcache"
+    for a in msxml3 mdac27 dotnet30
+    do
+       rm -rf $WINE_PREFIXES/$a
+       test_app $a
+    done
+}
+
 test_quick()
 {
+    echo "warning: quick test takes up around 20GB"
     # Test the frequent download-changes-checksum offenders first
-    cache="$HOME/winetricks-quickcheck-cache"
-    rm -rf "$cache"
     export W_CACHE="$cache"
+    rm -rf "$W_CACHE"
+    if test -d "$preloadcache"
+    then
+        cp -a "$preloadcache" "$W_CACHE"
+    fi
     for a in $QUICKCHECK
     do
-       rm -rf $HOME/winetrickstest-prefixes/$a
+       rm -rf "$WINE_PREFIXES"/$a
        test_app $a
     done
 
@@ -317,6 +375,7 @@ test_quick()
 
 test_full() {
     test_quick
+    test_dotnet
     test_speed list
     test_speed list-download
     # three tries to preload cache
@@ -333,7 +392,9 @@ test_full() {
 }
 
 case "$1" in
+preload) test_preload;;
 quick) test_quick;;
+dotnet) test_preload ; test_dotnet;;
 full)  test_full;;
 *)     echo "Usage: $0 quick|full"; exit 1;;
 esac
