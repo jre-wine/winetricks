@@ -1,4 +1,3 @@
 version=3
-# NOTE: Updated often. See upstream version control
-opts="uversionmangle=s/^/0.0+/" \
-http://winetricks.org/download/releases .*winetricks-([\d.]+).tgz
+opts="dversionmangle=s/.*svn//" \
+http://code.google.com/p/winetricks/source/list detail\?r=(\d+)
