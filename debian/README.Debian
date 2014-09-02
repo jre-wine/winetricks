@@ -14,8 +14,6 @@ Wine setup / before using winetricks
 
  -- Jari Aalto <jari.aalto@cante.net>, Sat, 25 Aug 2012 17:41:13 +0300
 
-From d/control:
-
 About packages in Recommends header: to use GUI progress bar, install
 package "zenity". To read manuals, install package "xdg-utils". If
 you need to cache any *.iso files with the -k option, install package
