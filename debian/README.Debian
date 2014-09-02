@@ -13,3 +13,27 @@ Wine setup / before using winetricks
 	https://bugs.launchpad.net/ubuntu/+source/winetricks/+bug/1006909
 
  -- Jari Aalto <jari.aalto@cante.net>, Sat, 25 Aug 2012 17:41:13 +0300
+
+From d/control:
+
+About packages in Recommends header: to use GUI progress bar, install
+package "zenity". To read manuals, install package "xdg-utils". If
+you need to cache any *.iso files with the -k option, install package
+"sudo" or sudo GUI "gksu".
+.
+NOTE: This package suggests installing package libwine. Some, but not
+all package downloads depend on restarting the wineserver which is
+included in libwine.
+.
+NOTE: In case you have compiled wine from sources and installed it
+out of dpkg(1)'s control, winetricks' depends wouldn't know about it. In
+that case create a "dummy wine" package to satisfy depends by using
+tools in "equivs" package before installing winetricks. An example:
+.
+  git clone git@github.com:jaalto/project--debian-wine-dummy.git
+  cd project--debian-wine-dummy
+  make
+  dpkg -i wine*.deb
+  apt-get install winetricks
+
+ -- Joseph Bisch <joseph.bisch@gmail.com>, Tues, 02 Sept 2014 15:06:00 -0400
