@@ -1,3 +1,16 @@
+winetricks (0.0+20140818+svn1202-1) unstable; urgency=low
+
+  * debian/control
+    - New maintainer (Closes: #735288)
+    - Add wine-development to depends (Closes: #758996)
+    - Use wrap-and-sort
+  * debian/copyright
+    - Add Joseph Bisch for debian/*
+  * debian/upstream.changelog
+    - Update 
+
+ -- Joseph Bisch <joseph.bisch@gmail.com>  Mon, 01 Sep 2014 22:40:40 +0000
+
 winetricks (0.0+20140115+svn1086-1) unstable; urgency=low
 
   * New upstream release
