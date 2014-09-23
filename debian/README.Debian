@@ -1,18 +1,17 @@
-Wine setup / before using winetricks
+If wine is installed, it's wine binary and wineserver are used, even
+if wine-development is installed. The wine-development wine binary and
+wineserver are only used if just wine-development is installed.
+.
+If you have both wine and wine-development installed and you want to
+use the wine-development wine binary and wineserver, you should execute
+the following commands before running winetricks. Make sure to replace
+the * in the WINESERVER line with the appropriate directory based on
+your system's architecture.
+.
+  export WINE=/usr/bin/wine-development
+  export WINESERVER=/usr/lib/*/wine-development/wineserver
 
-	Most of the software is 32bit only, so if you have 64bit OS,
-	consider setting:
-
-	    export WINEARCH=win32
-
-	before initializing wine; before ~/.wine is created. This
-	prevents wine being structured as a 64-bit installation and
-	allows winetricks to work. Refer to LP#1006909 for more
-	information:
-
-	https://bugs.launchpad.net/ubuntu/+source/winetricks/+bug/1006909
-
- -- Jari Aalto <jari.aalto@cante.net>, Sat, 25 Aug 2012 17:41:13 +0300
+ -- Joseph Bisch <joseph.bisch@gmail.com>, Tues, 23 Sept 2014 18:24:42 -0400
 
 About packages in Recommends header: to use GUI progress bar, install
 package "zenity". To read manuals, install package "xdg-utils". If
@@ -28,10 +27,26 @@ out of dpkg(1)'s control, winetricks' depends wouldn't know about it. In
 that case create a "dummy wine" package to satisfy depends by using
 tools in "equivs" package before installing winetricks. An example:
 .
-  git clone git@github.com:jaalto/project--debian-wine-dummy.git
+  git clone https://github.com/jaalto/project--debian-wine-dummy.git
   cd project--debian-wine-dummy
   make
   dpkg -i wine*.deb
   apt-get install winetricks
 
  -- Joseph Bisch <joseph.bisch@gmail.com>, Tues, 02 Sept 2014 15:06:00 -0400
+
+Wine setup / before using winetricks
+
+	Most of the software is 32bit only, so if you have 64bit OS,
+	consider setting:
+
+	    export WINEARCH=win32
+
+	before initializing wine; before ~/.wine is created. This
+	prevents wine being structured as a 64-bit installation and
+	allows winetricks to work. Refer to LP#1006909 for more
+	information:
+
+	https://bugs.launchpad.net/ubuntu/+source/winetricks/+bug/1006909
+
+ -- Jari Aalto <jari.aalto@cante.net>, Sat, 25 Aug 2012 17:41:13 +0300
