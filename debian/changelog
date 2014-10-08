@@ -1,13 +1,34 @@
+winetricks (0.0+20141007+svn1207-1) unstable; urgency=medium
+
+  * New upstream release
+    - Apply wine-development from Jens Reyer (Closes: #758996)
+  * debian/changelog
+    - Fix 0.0+20140818+svn1202-1 changelog
+  * debian/README.Debian
+    - Fix git clone url (Closes: #762596)
+    - Add note about setting WINE and WINESERVER
+    - Change order to descending
+
+ -- Joseph Bisch <joseph.bisch@gmail.com>  Wed, 08 Oct 2014 16:09:56 -0400
+
 winetricks (0.0+20140818+svn1202-1) unstable; urgency=low
 
   * debian/control
     - New maintainer (Closes: #735288)
-    - Add wine-development to depends (Closes: #758996)
+    - Add wine-development to depends
     - Use wrap-and-sort
   * debian/copyright
     - Add Joseph Bisch for debian/*
+    - Update upstream names
   * debian/upstream.changelog
-    - Update 
+    - Update
+  * debian/clean
+    - Remove
+  * debian/watch
+    - Update
+  * debian/rules
+    - Remove installation of winetricks.svg
+  * Move content from long description to README.Debian
 
  -- Joseph Bisch <joseph.bisch@gmail.com>  Mon, 01 Sep 2014 22:40:40 +0000
 
