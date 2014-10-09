@@ -1,4 +1,4 @@
-winetricks (0.0+20141007+svn1207-1) unstable; urgency=medium
+winetricks (0.0+20141009+svn1208-1) unstable; urgency=medium
 
   * New upstream release
     - Apply wine-development from Jens Reyer (Closes: #758996)
@@ -9,7 +9,7 @@ winetricks (0.0+20141007+svn1207-1) unstable; urgency=medium
     - Add note about setting WINE and WINESERVER
     - Change order to descending
 
- -- Joseph Bisch <joseph.bisch@gmail.com>  Wed, 08 Oct 2014 16:09:56 -0400
+ -- Joseph Bisch <joseph.bisch@gmail.com>  Thu, 09 Oct 2014 11:49:56 -0400
 
 winetricks (0.0+20140818+svn1202-1) unstable; urgency=low
 
