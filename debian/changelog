@@ -1,3 +1,10 @@
+winetricks (0.0+20141009+svn1208-2) unstable; urgency=medium
+
+  * debian/patches
+    - Add fix for vcrun2013 sha1sum mismatch (Closes: #775439).
+
+ -- Joseph Bisch <joseph.bisch@gmail.com>  Sun, 01 Feb 2015 21:38:06 +0000
+
 winetricks (0.0+20141009+svn1208-1) unstable; urgency=medium
 
   * New upstream release
