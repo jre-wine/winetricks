@@ -3,13 +3,13 @@
 
 # Override this if you want to put the work area on a different disk
 WINE_PREFIXES=${WINE_PREFIXES:-$HOME/winetrickstest-prefixes}
-preloadcache="$HOME/winetricks-preload-cache"
-cache="$HOME/winetricks-cache"
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+cache="$XDG_CACHE_HOME/winetricks"
 
 set -x
 
 # verbs known to not work in -q mode yet
-BLACKLIST="kde|mingw|psdk2003|psdkwin7|steam"
+BLACKLIST="kde|mingw|psdk2003|psdkwin7"
 # verbs that hang in -q because of simple problem we should work around soon
 BLACKLIST="$BLACKLIST|vc2005trial"
 # verbs that are too slow
@@ -30,17 +30,22 @@ BLACKLIST="$BLACKLIST|xna40"
 BLACKLIST="$BLACKLIST|xmllite"
 # redundant metaverbs
 BLACKLIST="$BLACKLIST|allcodecs"
-
+# doesn't always quit properly:
+BLACKLIST="$BLACKLIST|spotify"
+# FIXME: (wine/winetricks bug?) usually hangs in winetricks-test:
+BLACKLIST="$BLACKLIST|dotnet30sp1|dotnet35|dotnet35sp1|dotnet45"
+# mfplat.dll.MFTRegister https://bugs.winehq.org/show_bug.cgi?id=37811
+BLACKLIST="$BLACKLIST|xvid"
 
 # Verbs known to update frequently
-QUICKCHECK="flash spotify"
+QUICKCHECK="flash"
 
 # Check for programs this script (or winetricks) uses.
 # Better to find out they're missing now than in the
 # middle of a two day run.
-for tool in time cabextract unrar unzip 7z
+for tool in time cabextract
 do
-    type $tool
+    which $tool
     ret=$?
     if [ ! $ret -eq 0 ]
     then
@@ -64,6 +69,17 @@ pass()
     passes=`expr $passes + 1`
 }
 
+w_time()
+{
+    # OSX time doesn't support -o, so try it first:
+    if ! /usr/bin/time -o test.log echo test > /dev/null 2>&1
+    then
+        /usr/bin/time -p "$@"
+    else
+        /usr/bin/time -p -o time.log "$@"
+    fi
+}
+
 case "$LANG" in
 ""|"C") echo "Some games won't install in the Posix locale; doing 'export LANG=en_US.UTF-8'" ; export LANG=en_US.UTF-8;;
 esac
@@ -81,7 +97,47 @@ case "$OS" in
     ;;
  *)
     export WINE=${WINE:-wine}
-    export WINESERVER=${WINESERVER:-wineserver}
+    # Find wineserver.  Some distros (Debian) don't have it on the path,
+    # on the mistaken understanding that user scripts never need it :-(
+    # If wineserver is from wine-development set WINE to wine-development.
+    # FIXME: get packagers to put wineserver on the path.
+    for x in \
+        "$WINESERVER" \
+        "${WINE}server" \
+        "`which wineserver 2> /dev/null`" \
+        "`dirname $WINE`/server/wineserver" \
+        /usr/lib/wine/wineserver \
+        /usr/lib/i386-kfreebsd-gnu/wine/wineserver \
+        /usr/lib/i386-linux-gnu/wine/wineserver \
+        /usr/lib/powerpc-linux-gnu/wine/wineserver \
+        /usr/lib/i386-kfreebsd-gnu/wine/bin/wineserver \
+        /usr/lib/i386-linux-gnu/wine/bin/wineserver \
+        /usr/lib/powerpc-linux-gnu/wine/bin/wineserver \
+        /usr/lib/x86_64-linux-gnu/wine/bin/wineserver \
+        /usr/lib/i386-kfreebsd-gnu/wine-development/wineserver \
+        /usr/lib/i386-linux-gnu/wine-development/wineserver \
+        /usr/lib/powerpc-linux-gnu/wine-development/wineserver \
+        /usr/lib/x86_64-linux-gnu/wine-development/wineserver \
+        file-not-found
+    do
+        if test -x "$x"
+        then
+            case "$x" in
+             /usr/lib/*/wine-development/wineserver)
+                if test -x /usr/bin/wine-development
+                then
+                    WINE="/usr/bin/wine-development"
+                fi
+                ;;
+            esac
+            break
+        fi
+    done
+
+    case "$x" in
+        file-not-found) w_die "wineserver not found!" ;;
+        *) WINESERVER="$x" ;;
+    esac
     ;;
 esac
 
@@ -90,7 +146,7 @@ srcdir=`cd $srcdir; pwd`
 
 test_speed()
 {
-    if ! /usr/bin/time -p --output=time.log sh winetricks $1 > foo.log
+    if ! w_time sh winetricks nocrashdialog $1 > foo.log
     then
         fail "winetricks $1 returned status $?"
     fi
@@ -98,7 +154,13 @@ test_speed()
     then
         fail "winetricks $1 returned too few lines"
     fi
-    seconds=`awk '/real/ {print $2}' < time.log | sed 's/\..*//'`
+    if ! test -f time.log
+    then
+        # OSX, fake it:
+        seconds=0
+    else
+        seconds=`awk '/real/ {print $2}' < time.log | sed 's/\..*//'`
+    fi
     echo test_speed: winetricks $1 took $seconds seconds
     # Longest runtime as of 11 Dec 2010 is 5 seconds on an e8400 with cygwin
     if test $seconds -gt 7
@@ -153,7 +215,7 @@ test_app()
     touch df-daemon
     (set +x; while test -f df-daemon; do total_df; sleep 1; done ) > df-during.log &
 
-    test_command $app
+    test_command --verify $app
     test_app_checksums
 
     # Post install:
@@ -190,12 +252,10 @@ test_command()
     export WINEPREFIX=$WINE_PREFIXES/$(echo $@ | tr " " "-")
     DRIVE_C="$WINEPREFIX/dosdevices/c:"
 
-    # change if you don't want to skip ones already installed
+    # always use a clean $WINEPREFIX
     if test -d $WINEPREFIX
     then
-        echo "Skipping $command, already installed"
-        return 0
-        #rm -rf $WINEPREFIX
+        rm -rf $WINEPREFIX
     fi
 
     # Isolate us from the user's home directory
@@ -205,8 +265,8 @@ test_command()
     if [ "$EXPECT_FAIL" = "yes" ]
     then
         # A success is failure:
-        sh winetricks --no-isolate -q $command && fail "$@ succeeded, should have failed"
-    elif ! /usr/bin/time -p --output=time.log sh winetricks --no-isolate -q $command
+        sh winetricks --no-isolate -q nocrashdialog $command && fail "$@ succeeded, should have failed"
+    elif ! w_time sh winetricks --no-isolate -q nocrashdialog $command
     then
         rm df-daemon
         fail "test_command $command failed!"
@@ -214,7 +274,12 @@ test_command()
     else
         echo "winetricks $@ completed"
     fi
-    seconds=`awk '/real/ {print $2}' < time.log | sed 's/\..*//'`
+    if ! test -f time.log
+    then
+        seconds=0
+    else
+        seconds=`awk '/real/ {print $2}' < time.log | sed 's/\..*//'`
+    fi
     echo "test_app: ${app}: install_time $seconds seconds."
 
     # Cleanup:
@@ -260,21 +325,23 @@ test_dlls()
 test_dotnet()
 {
     # verify that each individual installer works:
-    for x in dotnet11 dotnet11sp1 dotnet20 dotnet20sp1 dotnet20sp2 dotnet30 dotnet30sp1 dotnet35 dotnet35sp1 dotnet40 dotnet45
+    # skipping dotnet30sp1/dotnet35/dotnet35sp1/dotnet45, known to hang
+    for x in dotnet11 dotnet11sp1 dotnet20 dotnet20sp1 dotnet20sp2 dotnet30 dotnet40
     do
+        echo "testing $x"
         test_command --verify $x
     done
 
     # combinations that should work:
     for combo in "dotnet20 dotnet20sp2"
     do
-        echo "$combo"
+        test_command --verify dotnet20 dotnet20sp2
     done
 
     # combinations that should break:
     for fail_combo in "dotnet11 dotnet20"
     do
-        echo "$fail_combo"
+        EXPECT_FAIL=yes test_command dotnet11 dotnet20
     done
 }
 
@@ -341,28 +408,11 @@ test_install_cached_or_download()
     fi
 }
 
-# The very few manual downloads required by $QUICKCHECK
-# Run this if you don't want to re-download them.
-test_preload()
-{
-    export W_CACHE="$preloadcache"
-    for a in msxml3 mdac27 dotnet30
-    do
-       rm -rf $WINE_PREFIXES/$a
-       test_app $a
-    done
-}
-
 test_quick()
 {
     echo "warning: quick test takes up around 20GB"
     # Test the frequent download-changes-checksum offenders first
     export W_CACHE="$cache"
-    rm -rf "$W_CACHE"
-    if test -d "$preloadcache"
-    then
-        cp -a "$preloadcache" "$W_CACHE"
-    fi
     for a in $QUICKCHECK
     do
        rm -rf "$WINE_PREFIXES"/$a
@@ -378,23 +428,14 @@ test_full() {
     test_dotnet
     test_speed list
     test_speed list-download
-    # three tries to preload cache
-    # FIXME: check cache to see if we need to do this
-    for try in `seq 1 3`
-    do
-        test_manual_dlls
-        echo press enter
-        read x
-    done
     #test_install_cached_or_download
     test_speed list-cached
     test_speed list-installed
 }
 
 case "$1" in
-preload) test_preload;;
 quick) test_quick;;
-dotnet) test_preload ; test_dotnet;;
+dotnet) test_dotnet;;
 full)  test_full;;
 *)     echo "Usage: $0 quick|full"; exit 1;;
 esac
