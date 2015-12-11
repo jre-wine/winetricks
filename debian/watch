@@ -1,3 +1,4 @@
 version=3
-opts="dversionmangle=s/.*svn//" \
-http://code.google.com/p/winetricks/source/list detail\?r=(\d+)
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/winetricks-$1\.tar\.gz/,\
+dversionmangle=s/^\d*\.\d*\+// \
+  https://github.com/Winetricks/winetricks/tags .*/v?(\d\S*)\.tar\.gz
