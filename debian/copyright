@@ -3,11 +3,11 @@ Upstream-Name: winetricks
 Upstream-Contact: Dan Kegel <dank@kegel.com>
 Source: http://freshmeat.net/projects/winetricks
 X-Upstream-Devel:
-  http://code.google.com/p/winetricks
+  https://github.com/Winetricks/winetricks
 X-Upstream-Vcs:
-  svn checkout http://winetricks.googlecode.com/svn/trunk/ winetricks
+  git clone https://github.com/Winetricks/winetricks.git
 X-Upstream-Bugs:
-  http://code.google.com/p/winetricks/issues/list
+  https://github.com/Winetricks/winetricks/issues
 Comment: The program depends on multiple optional utilities
    - winetricks_detect_gui(): zenity, kdialog (kdebase-bin)
    - winetricks_detect_sudo(): gksudo (gksu), kdesudo
