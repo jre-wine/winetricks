@@ -1,3 +1,11 @@
+If you only have wine64 installed, run the following commands before
+you run winetricks to use wine64:
+.
+  export WINESERVER=/usr/lib/x86_64-linux-gnu/wine/wineserver
+  export WINEPREFIX="$HOME/.wine64"
+
+ -- Joseph Bisch <joseph.bisch@gmail.com>, Fri, 11 Dec 2015 22:06:45 -0500
+
 If wine is installed, it's wine binary and wineserver are used, even
 if wine-development is installed. The wine-development wine binary and
 wineserver are only used if just wine-development is installed.
