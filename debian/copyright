@@ -16,10 +16,10 @@ Comment: The program depends on multiple optional utilities
 
 Files: *
 Copyright:
-  2007-2013 Dan Kegel <dank!kegel.com>
-  2008-2013 Austin English <austinenglish!gmail.com>
+  2007-2014 Dan Kegel <dank!kegel.com>
+  2008-2015 Austin English <austinenglish!gmail.com>
   2010-2011 Phil Blankenship <phillip.e.blankenship!gmail.com>
-  2010-2012 Shannon VanWagner <shannon.vanwagner!gmail.com>
+  2010-2015 Shannon VanWagner <shannon.vanwagner!gmail.com>
   2010 Belhorma Bendebiche <amro256!gmail.com>
   2010 Eleazar Galano <eg.galano!gmail.com>
   2010 Travis Athougies <iammisc!gmail.com>
@@ -39,7 +39,7 @@ License: LGPL-2.1+
 
 Files: debian/*
 Copyright:
-  2014      Joseph Bisch <joseph.bisch@gmail.com>
+  2014-2015 Joseph Bisch <joseph.bisch@gmail.com>
   2011-2013 Jari Aalto <jari.aalto@cante.net>
   2011      Tony Mancill <tmancill@debian.org>
 License: LGPL-2.0+
