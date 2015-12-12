@@ -17,7 +17,7 @@ Depends:
  p7zip,
  unzip,
  wget,
- wine32 | wine32-unstable | wine64 | wine64-unstable | wine | wine-unstable | wine-development,
+ wine32 | wine32-development | wine64 | wine64-development | wine | wine-development,
  zip,
  ${misc:Depends}
 Recommends:
