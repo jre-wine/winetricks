@@ -1,3 +1,590 @@
+commit 750e356efb599dd0175b4160f035d4a9ef021461
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20160425
+
+commit c19a728aaaff6f0d71313f78e4134d9a88615cb2
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: remove python26_comtypes / python26_setuptools broken, old, and not actively supported upstream
+
+commit 0b6456c462118fd83b636b7b1d105e6912e0dcf2
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: print winetricks and wine version in winetricks_init()
+
+commit 9d9db7d054701317508164814906103159ba1321
+Author: Austin English <austinenglish@gmail.com>
+
+    add .gitignore
+
+commit 1841d8fc2f1f8541fcdfb9e66ea3ea4f1f8374c4
+Author: Austin English <austinenglish@gmail.com>
+
+    jet40: restore original microsoft.com url
+
+commit b42f844db7ead1012cf1ecc2fee6c79286bf53cd
+Author: Austin English <austinenglish@gmail.com>
+
+    cmd: revert back to a microsoft.com URL (really, archive.org)
+
+commit ebf6b6254bd7fe2019e133affae19aa2837eff98
+Author: Austin English <austinenglish@gmail.com>
+
+    xna40: add Louis' workaround from bug 30718
+
+commit df1c9165aac415cea97568cbaeac70c469bf948c
+Merge: 818d69d cd24274
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #602 from saulotoledo/master
+
+commit cd24274bd8abdef6ee278b23bef4831618d195ad
+Author: Saulo Soares de Toledo <saulotoledo@gmail.com>
+
+    Self-update functionality for winetricks.
+    - With this patch it is possible to use "winetricks --self-update|--selfupdate" to automatically update the script with the last online version. Also, it is possible to rollback an update by running "winetricks --update-rollback";
+    - Added checking to avoid running the command into dev versions of winetricks;
+    - Added message for users who run unprivileged and do not have the proper permissions to update winetricks.
+
+commit 818d69d5c01dd2b816644ba901864d5e847d1fe4
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to(): fix aria2c torify support
+
+commit 05aef56d2c863ab720c12ffa71d4961943cdfd83
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add -t/--torify support
+
+commit 04bdc4eb078ee119711bbcdb9fb1628c1b3eabd7
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20160329
+
+commit 774a45b6fd22d8b6ea1384144f11b2a1698ee69c
+Author: Austin English <austinenglish@gmail.com>
+
+    mt4: new verb (Meta Trader 4)
+
+commit 6b611ec1c7663bfe0ffce267b6bf760b205ad30d
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20160328
+
+commit 8a24accc5c66f21095076d23b85678ca62db4390
+Author: Austin English <austinenglish@gmail.com>
+
+    windowscodecs: initial 64-bit esupport
+
+commit 8681123d75382b4a755a4a8b2c4dfea1e3ba2ac7
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2015: also extract api-ms-win-crt-conio-l1-1-0.dll
+
+commit b774889a3e8accd6c7648b13047b287829748461
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2015: warn about win7 mode installations failing
+
+commit c2234e790122d1a7214941a843cea2a4acadcd6b
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: improve aria2 support (fixes 612)
+
+commit 5da9dbe07391002773c0b6dd47b4bd98d1038ec2
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks-test: xna40 now completes without an error dialog
+
+commit 496da3b012d31ba5b5558b3ae4e0ec294e627eae
+Author: Austin English <austinenglish@gmail.com>
+
+    Makefile: default to a 32-bit prefix if WINEARCH is not set
+
+commit ede4d10bd5dbf0d3683460a97161577a3a75e386
+Author: Austin English <austinenglish@gmail.com>
+
+    emu8086: update download URL
+
+commit 2b7d4360240f5f3d56078d6b5b517b8c9b5303e3
+Author: Austin English <austinenglish@gmail.com>
+
+    ev3: add -q support
+
+commit 0befeae82605ae45e2b5206dfcfdbb0793c54f6d
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: introduce W_UNATTENDED_SLASH_QB to unify /qb handling
+
+commit 0d337cb7c38b49c96051697a9d3e19e32a642066
+Author: Austin English <austinenglish@gmail.com>
+
+    ev3: update download URL
+
+commit 60e9fe389323dd3d9c3788e9ffc87e6888988dd8
+Author: Austin English <austinenglish@gmail.com>
+
+    xna40: needs dotnet45, not dotnet40
+
+commit f3e3b56241a43ca97755e6ab2c23b94b1c2ffeb7
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2003: fix url
+
+commit 924de3519bd2771c9c64e284b0d407729f7124cb
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: check each test scripts dependencies before running any tests
+
+commit 1ec9e0f238432956fd709bcddd729920de8d30c4
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: version bump - 20160311
+
+commit d16735dea2de302ac1eac836fceb5c21329fe420
+Author: Austin English <austinenglish@gmail.com>
+
+    linkcheck.sh: cleanup temp files after running
+
+commit 8f52e63f43fb6db0d5d1d832824054190b3955f3
+Author: Austin English <austinenglish@gmail.com>
+
+    baekmuk: update URL and some cleanups
+
+commit ca7dae70186fcd904908b28c39a902857d08a518
+Author: Austin English <austinenglish@gmail.com>
+
+    opensymbol: update URL to jessie (stable)
+
+commit 7eb00702d1934dadcb3c86c4f0771490a4360a14
+Author: Austin English <austinenglish@gmail.com>
+
+    openwatcom: update URL
+
+commit 66dc10bf6778ee1298c5365ef85ae1ebac594ca2
+Author: Austin English <austinenglish@gmail.com>
+
+    kindle: needs taskset -c 0, not vcrun2008
+
+commit 16fbbdfe0ae7567fa65ac4ecefdd923b5fe2d428
+Author: Austin English <austinenglish@gmail.com>
+
+    shockwave: update sha1sum
+
+commit 2f95454b2d878099a0fd9dad6b985d0277abace8
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8_kb2936068: exit code 194 is not an error
+
+commit ac1f6e9a82dab06c3762a5cfe1ebe8f3ff177578
+Merge: 38e1a5f 30209b5
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #620 from birdie-github/master
+
+commit 30209b5345ded73e7a3f60a25e342581cc045ce8
+Author: Artem S. Tashkinov <birdie-github@users.noreply.github.com>
+
+    Typos
+
+commit 38e1a5fc791ff4f056af05e25aea50554d244d5d
+Merge: 233009a 654454a
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #618 from birdie-github/patch-2
+
+commit 233009a9c4447d358c0e159f41a0922db6924579
+Merge: e789535 01c9767
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #619 from birdie-github/master
+
+commit 01c9767f7ccd5dc75e340fd17399e25da563a306
+Author: Artem S. Tashkinov <birdie-github@users.noreply.github.com>
+
+    Preliminary Russian translation
+
+commit 654454a4d8adbc79562998b49885492f6a46cec5
+Author: Artem S. Tashkinov <birdie-github@users.noreply.github.com>
+
+    A real albeit untidy help page
+
+commit e78953505a4675ebfab4899693882c2fe75d849d
+Merge: 11fe80c 2d946a4
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #614 from eli-schwartz/master
+
+commit 2d946a4b2ae345131ef54a373797db67ea39f17f
+Author: Eli Schwartz <eschwartz93@gmail.com>
+
+    kindle: update to version 1.15 (build 43061)
+
+commit 11fe80ce702b4e746e3668b377f0cd87023f8228
+Author: Austin English <austinenglish@gmail.com>
+
+    ie6: make ie6 an automated download again
+
+commit 03e923f8f28a6d2b03856faed0f98e96c7891e89
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_manual_to(): verify sha1sum of manually downloaded files
+
+commit 0184948e29af25dddee202d9545380813b112f4a
+Author: Austin English <austinenglish@gmail.com>
+
+    ie6: use $W_PACKAGE instead of hardcoding
+
+commit 4c2dc6ce393082a53b7045ba9b70af7320c3a170
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8-kb2936068: rename to ie8_kb2936068, avoid warning on OSX. Fixes #610
+
+commit 2ba4f33d8d1978ef0ddc88490c472017bd46afec
+Author: Austin English <austinenglish@gmail.com>
+
+    ev3/ie8-kb2936068: minor cleanups
+
+commit 143bef7f6dfccdae9848ca6cb934b81545c23e8a
+Author: qwertychouskie <asdfghrbljzmkd@outlook.com>
+
+    ev3: new verb
+
+commit 17f8d4c6fb8ead0a49ab52a068f65429ec74cb71
+Author: qwertychouskie <asdfghrbljzmkd@outlook.com>
+
+    ie8-kb2936068: new verb
+
+commit dd1bff70e6f11338b63ee07e44ff28e76010885e
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: make sure all uses of reg delete pass /f to avoid prompting
+
+commit 868317c4fe8707b417db52960d4ce2bf641e4cce
+Author: Austin English <austinenglish@gmail.com>
+
+    cmd: update download URL
+
+commit 4af3a5f61ed286c9bb860d370744294f5eb74d89
+Merge: 4981610 613fff6
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #598 from eli-schwartz/master
+
+commit 613fff6a2ad05e3e3ff86bf751a9087dfb8d1868
+Author: Eli Schwartz <eschwartz93@gmail.com>
+
+    kindle: update to version 1.14.43019
+
+commit 49816105881159f65a63a06c574b52610b1305d0
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: version bump - 20160219
+
+commit 6b449c6a5f7172899400262e2bed862fcc059e5d
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: when not using a shared prefix, pass through verb to winetricks_init
+
+commit 436c900dba2b7524c955eb1d61b32aff4b742854
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add W_UNATTENDED_SLASH_QUIET
+
+commit aaf517829a263fc42b142ca864d255a9af987d42
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add W_UNATTENDED_SLASH_QT, use for controlpad
+
+commit e8329a51535489f54a479ac5a2db5c237a8fbbef
+Author: Austin English <austinenglish@gmail.com>
+
+    shockwave: update sha1sum
+
+commit a5e32a8a4329ec663690a4a8cf40e3ab071aad2d
+Author: Björgvin Ragnarsson <nifgraup@gmail.com>
+
+    winetricks: download from archive.org on second try
+
+commit 1c38f776cd98e83de35e79c7ea5231b523c85e23
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix breakage
+
+commit 1cbd1e69ae0fa5377cf50731feeef36b9644a828
+Author: Austin English <austinenglish@gmail.com>
+
+    nfsworld: remove, the game has been shut down
+
+commit 2a032399731a0a1ec701240793720dbede7e21c0
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: get rid of w_declare_exe
+
+commit d3ee0748caf4f342271eb6f30eaeaa1b82e6a188
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: consistently use cd "$W_CACHE"/"$W_PACKAGE" instead of hardcoded package names
+
+commit c6c41f08484caf15c90b703ede93f534dbc6043c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: remove workarounds for bugs fixed in 1.8
+
+commit a7bed70c73b739c893ac1e2e58fba2d2a11d276f
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add W_UNATTENDED_SLASH_QN/W_UNATTENDED_SLASH_QNT
+
+commit 252f1bd8b8ad051ec74762d3717f2c06bd22ba3e
+Author: Austin English <austinenglish@gmail.com>
+
+    msdxmocx: update URL/sha1sum
+
+commit 9317b36fb79fda9a6f69c1ddd25b29fd7507c7fa
+Author: Austin English <austinenglish@gmail.com>
+
+    quicktime72: move download URL back to apple.com
+
+commit a9036b2a58dea9b99adc1b1790877ddf5af6042c
+Author: Austin English <austinenglish@gmail.com>
+
+    adobeair: update sha1sum
+
+commit 834c63328fd0d39abbb12a860f17355c66f50ff1
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2003: avoid using ${file1} variable in url, breaks winetricks-test :/
+
+commit b6cf2a250f5c091558ebb0ba586461d979cafb19
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2003: fix download URL (filename changed)
+
+commit 2cc2d5f16b2b3109e065a6b0fb27da7b3c5b1ce0
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: indentation fix
+
+commit 8988d4fb3da4b4e8adea135a41bd2a51a2526839
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: respect WINETRICKS_OPT_SHAREDPREFIX if set in environment
+
+commit 016197d822db495df376407334d85f3b2e3b0f9c
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2015: also install native api-ms-win-crt-math-l1-1-0.dll
+
+commit da1adfff8a0d60b0639b3040b1000b069bc57c4d
+Author: Austin English <austinenglish@gmail.com>
+
+    cleanup whitespace/quoting from previous commit
+
+commit 7e31a2c7693294937faceee77671c8175f81824a
+Merge: 07ba4a0 9277044
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #595 from hillwoodroc/master
+
+commit 9277044a54359323faa1ef0b3254b54e237e8171
+Author: hillwoodroc <hillwoodroc@gmail.com>
+
+    Update QQ, Picasa and Chinese translation
+
+commit 07ba4a06112f0fa8e7bb6a45d8e20071e3e7786d
+Author: Austin English <austinenglish@gmail.com>
+
+    kindle: install native vcrun2008
+
+commit 0c327c429fc39530ace839dca49f6a37cb8919e1
+Merge: f438ace 3cf3d9a
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #593 from jre-wine/jre/debian_wineserver
+
+commit 3cf3d9a3c0e0920792d481b0c7eb286278e7d51a
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    Adapt to new Debian /usr/bin/wineserver[-development].
+
+commit f438acede276b32c2e563b1507b2a146d4b67147
+Merge: ac4c2ad 24a8226
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #592 from AndreRH/master
+
+commit 24a82262ce0e44275317dc11bb7f085ae8accd67
+Author: André Hentschel <nerv@dawncrow.de>
+
+    Add myself in the Copyright section
+
+commit 58ba634ec8cd42be983687fc82f64ca87f89cada
+Author: André Hentschel <nerv@dawncrow.de>
+
+    Update German translations
+
+commit 196d16069ab958ea6d1e7090bbb23c77f008729d
+Author: André Hentschel <nerv@dawncrow.de>
+
+    Add German translations
+
+commit d1cac90f8dff51b532bcd64bf14dd1770f405979
+Author: André Hentschel <nerv@dawncrow.de>
+
+    Some English spelling fixes
+
+commit 68e8fd1df9075f9a7c0c4a473b40e1915fda2e3f
+Author: André Hentschel <nerv@dawncrow.de>
+
+    Fix some German translations
+
+commit 573ac2d2fbee395ff77611a97fae8f2b4e8bac87
+Author: André Hentschel <nerv@dawncrow.de>
+
+    Minor syntax fix in comments
+
+commit ac4c2adebbbad55e253a95e0e8f513a7446e02d3
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: bump version to 20160109
+
+commit 8762f1417ae1aaa221eeaa99e279b21be9a75712
+Author: Austin English <austinenglish@gmail.com>
+
+    corefonts: ftp.netbsd.org is not reliable, try ftp.fi.debian.org instead
+
+commit 1e91d5c0f2013a2a43b6d572019e544e4babcdd3
+Author: Austin English <austinenglish@gmail.com>
+
+    comctl32: update URL
+
+commit e8411b2cffd948f716b5e392683a1549fbdf7bf2
+Merge: f2c7a05 3115128
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #586 from chongli/master
+
+commit f2c7a0535551fb29c5fe6dc850035671d2878caf
+Author: Hao Peng <penghao@linuxdeepin.com>
+
+    make sure using builtin iexplore before remove gecko
+
+commit f78602a7a60fc6f0293d0c5e134825a76d564cb9
+Author: Hao Peng <penghao@linuxdeepin.com>
+
+    fix IE7 installer failing because ckecking version number of iexplore.exe
+
+commit 50cfa5c6d6ecb56017ba229c4a301fd93e3d36bb
+Author: Hao Peng <penghao@linuxdeepin.com>
+
+    fix IE8 installer failing because ckecking version number of iexplore.exe
+
+commit 0de9d816f79fab3adc88485b93689d130bba16ea
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: quote $WINESERVER usage
+
+commit 61cc1c0181a28abeb82557c3c85b6e588a70d2e2
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: use a more restrictive grep pattern when searching for exe processes
+
+commit 311512851f3f6f92b4937aad92790181115f4181
+Author: Kurt Dietrich <kurto@mac.com>
+
+    Added a recipe for dotnet452.
+    This exact version is needed for the game Endless Legend.
+
+commit 125e9b37a7568eae799c354a0ac256dcd7f67084
+Author: Austin English <austinenglish@gmail.com>
+
+    adobeair: update sha1sum (yes, again)
+
+commit aa7a4d757650aa6f657886365ad10a6c21920f12
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks-test: add steam to quickcheck apps
+
+commit 9194487b9579ddde28ef55e5787e0343af094d7f
+Merge: cd82d09 ff22cbe
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #584 from ANeilan/master
+
+commit ff22cbe4d816801b349dbf029707ace635a4feec
+Author: Alan Neilan <aneilan@student.bridgew.edu>
+
+    updated sha1sum of steamsetup.exe
+
+commit cd82d093e13cbd6e166e769e5cee5dfdf0eed676
+Merge: d76882e 395e8eb
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #583 from incyclum/master
+
+commit d76882ea2b6097add4a3a58dd4277f64b4462166
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: version bump - 20151227
+
+commit b751cc5e6d536165a8bf5b272ea09253f058ad7c
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: cleanup and add a warning that it's broken with 1.8.1
+
+commit cd9d9819f17e04bce5dcd1c0a4ffde199d77af7e
+Author: Austin English <austinenglish@gmail.com>
+
+    w_wine_version: add support for 1.8.x
+
+commit 395e8eb30c89103d7c230b271ff304676f3cae8b
+Author: David Delobel <delobeldavid@mailoo.org>
+
+    Replaced FTP urls to HTTP for corefonts
+
+commit 28e82db18e9b624b6fd47de24942c927d11a401c
+Author: Austin English <austinenglish@gmail.com>
+
+    shockwave: update sha1sum
+
+commit eff6c1d019e0efdd7cd1e8f8fe894d6810d4044c
+Author: Austin English <austinenglish@gmail.com>
+
+    binkw32: update sha1sum
+
+commit 1dc667c5a85220467df325fcd2dd59191c90dfd7
+Author: Austin English <austinenglish@gmail.com>
+
+    adobeair: update sha1sum
+
+commit 790bcca440e157b33b52d357edb7ea944368e464
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet_verifier: update sha1sum
+
+commit ca1a031aeaf9a3c3655b9addf17450055c9d33aa
+Author: Austin English <austinenglish@gmail.com>
+
+    xmllite requires winxp to install
+
+commit 96307f7b702e01844771d5cb9887d64c852b1b65
+Merge: d78fc2f 18fa1d7
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #577 from kakurasan/newverb
+
+commit 18fa1d728187139d88b35f57256095199ace56ee
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    Add "fakejapanese_ipamona" verb
+
+commit 0a3abf39181cf2fb08c948fab6f9d375d848b5a1
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    Add "IPAMona Japanese fonts" verb
+
 commit d78fc2f747d4a3437f7a28a71a440fb31d39e5b7
 Author: Austin English <austinenglish@gmail.com>
 
