@@ -14,11 +14,13 @@ set -e
 passes=0
 errors=0
 
-if ! test -x "`which curl 2>/dev/null`"
-then
-    echo "Please install curl"
-    exit 1
-fi
+check_deps() {
+    if ! test -x "`which curl 2>/dev/null`"
+    then
+        echo "Please install curl"
+        exit 1
+    fi
+}
 
 datadir="links.d"
 
@@ -107,7 +109,12 @@ crawl_all() {
 mkdir -p "$datadir"
 
 case "$1" in
+check-deps)
+    check_deps
+    exit $?
+    ;;
 crawl)
+    check_deps
     extract_all
     crawl_all
     show_all
@@ -118,6 +125,8 @@ report)
 *) echo "Usage: linkcheck.sh crawl|report"; exit 1;;
 esac
 
+# cleanup
+rm -rf "$datadir" url-script-fragment.tmp
 echo "Test over, $errors failures, $passes successes."
 if test $errors = 0 && test $passes -gt 0
 then
