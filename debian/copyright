@@ -39,7 +39,7 @@ License: LGPL-2.1+
 
 Files: debian/*
 Copyright:
-  2014-2015 Joseph Bisch <joseph.bisch@gmail.com>
+  2014-2016 Joseph Bisch <joseph.bisch@gmail.com>
   2011-2013 Jari Aalto <jari.aalto@cante.net>
   2011      Tony Mancill <tmancill@debian.org>
 License: LGPL-2.0+
