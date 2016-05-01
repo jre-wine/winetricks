@@ -7,7 +7,7 @@ Subject: Start GUI only when --gui option is used. Handle empty args.
 
 --- a/src/winetricks
 +++ b/src/winetricks
-@@ -19579,6 +19579,14 @@
+@@ -18933,6 +18933,14 @@
          shift
      fi
  
@@ -22,7 +22,7 @@ Subject: Start GUI only when --gui option is used. Handle empty args.
      case "$1" in
      die) w_die "we who are about to die salute you." ;;
      volnameof=*)
-@@ -19592,7 +19600,7 @@
+@@ -18946,7 +18954,7 @@
          # This will read the volname from the given image and put it to stdout.
          winetricks_volname ${1#volnameof=}
          ;;
