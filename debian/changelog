@@ -1,3 +1,29 @@
+winetricks (0.0+20151116-1) unstable; urgency=low
+
+  * New upstream release
+    - Use mktemp for temp files (Closes: #790928).
+    - Update sha1sum for steam (Closes: #775546).
+  * debian/control
+    - Update URLs to GitHub.
+    - Update depends.
+  * debian/copyright
+    - Update URLs to GitHub.
+    - Update copyright years.
+  * debian/patches
+    - Remove obsolete vcrun2013 patch.
+    - Refresh patches.
+    - Add adobeair sha1sum fix patch (Closes: #790929).
+  * debian/watch
+    - Update for GitHub repo.
+  * debian/upstream.changelog
+    - Update.
+  * debian/rules
+    - Change gen-changelog to work with Git.
+  * debian/README.Debian
+    - Add note about wine64.
+
+ -- Joseph Bisch <joseph.bisch@gmail.com>  Wed, 09 Dec 2015 11:19:51 -0500
+
 winetricks (0.0+20141009+svn1208-2) unstable; urgency=medium
 
   * debian/patches
