@@ -24,8 +24,6 @@ BLACKLIST="$BLACKLIST|mfsxde|mfsx_demo"
 BLACKLIST="$BLACKLIST|bioshock2|audibledm"
 # We don't have -q support for these
 BLACKLIST="$BLACKLIST|dx8sdk"
-# broken, see https://code.google.com/p/winetricks/issues/detail?id=318
-BLACKLIST="$BLACKLIST|xna40"
 # broken/flaky, http://bugs.winehq.org/show_bug.cgi?id=26016
 BLACKLIST="$BLACKLIST|xmllite"
 # redundant metaverbs
@@ -38,21 +36,23 @@ BLACKLIST="$BLACKLIST|dotnet30sp1|dotnet35|dotnet35sp1|dotnet45"
 BLACKLIST="$BLACKLIST|xvid"
 
 # Verbs known to update frequently
-QUICKCHECK="flash"
+QUICKCHECK="flash steam"
 
 # Check for programs this script (or winetricks) uses.
 # Better to find out they're missing now than in the
 # middle of a two day run.
-for tool in time cabextract
-do
-    which $tool
-    ret=$?
-    if [ ! $ret -eq 0 ]
-    then
-        echo "Please install $tool."
-        exit 1
-    fi
-done
+check_deps() {
+    for tool in time cabextract
+    do
+        which $tool
+        ret=$?
+        if [ ! $ret -eq 0 ]
+        then
+            echo "Please install $tool."
+            exit 1
+        fi
+     done
+}
 
 passes=0
 errors=0
@@ -299,8 +299,8 @@ test_command()
     killall notepad.exe          # Arcania-Gothic4 and others
 
     echo "Checking for dangling processes!"
-    ps augxw | grep exe
-    $WINESERVER -w
+    ps augxw | grep \\.exe
+    "$WINESERVER" -w
     echo "Wineserver done."
 
     pass $@
@@ -308,8 +308,8 @@ test_command()
 
 test_dlls()
 {
-    sh winetricks list-manual-download > manual.log
-    sh winetricks dlls list | awk '{print $1}' > dlls.log
+    sh winetricks list-manual-download | grep -v 'Using winetricks' > manual.log
+    sh winetricks dlls list | grep -v 'Using winetricks' | awk '{print $1}' > dlls.log
     if grep .------------------- dlls.log
     then
         fail "output of dlls list contained garbage"
@@ -434,9 +434,10 @@ test_full() {
 }
 
 case "$1" in
-quick) test_quick;;
-dotnet) test_dotnet;;
-full)  test_full;;
+check-deps) check_deps ; exit $? ;;
+quick) check_deps && test_quick;;
+dotnet) check_deps && test_dotnet;;
+full)  check_deps && test_full;;
 *)     echo "Usage: $0 quick|full"; exit 1;;
 esac
 
