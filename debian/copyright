@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
 Upstream-Name: winetricks
 Upstream-Contact: Austin English <austinenglish@gmail.com>, Dan Kegel <dank@kegel.com>
-Source: http://freshmeat.net/projects/winetricks
+Source: https://github.com/Winetricks/winetricks
 X-Upstream-Devel:
   https://github.com/Winetricks/winetricks
 X-Upstream-Vcs:
