@@ -25,7 +25,9 @@ Recommends:
  xdg-utils,
  zenity | kdebase-bin
 Suggests:
- libwine
+ aria2,
+ libwine,
+ tor
 Description: package manager for WINE to install software easily
  A POSIX shell script 'package manager' for WINE to install some
  Windows software easily. The list contains about 70 applications
