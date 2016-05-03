@@ -1,3 +1,9 @@
+Description: Remove winetricks built-in update functionality.
+Author: Joseph Bisch <joseph.bisch@gmail.com>
+Forwarded: not-needed
+Last-Update: 2016-05-02
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/src/winetricks
 +++ b/src/winetricks
 @@ -614,68 +614,6 @@
