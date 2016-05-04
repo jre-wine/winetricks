@@ -39,4 +39,10 @@ git tag -s -m "winetricks-${version}" ${version}
 git push
 git push --tags
 
+git archive --prefix="winetricks-${version}/" -o "../${version}.tar.gz" "${version}"
+gpg --armor --detach-sign "../${version}.tar.gz"
+
+echo "Go to https://github.com/winetricks/winetricks/releases/edit/${version}"
+echo "and attach ../${version}.tar.gz.asc."
+
 exit 0
