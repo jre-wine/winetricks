@@ -1,7 +1,9 @@
 Source: winetricks
 Section: contrib/otherosfs
 Priority: optional
-Maintainer: Joseph Bisch <joseph.bisch@gmail.com>
+Maintainer: Debian Wine Party <pkg-wine-party@lists.alioth.debian.org>
+Uploaders:
+ Joseph Bisch <joseph.bisch@gmail.com>
 Build-Depends:
  debhelper (>= 9)
 Standards-Version: 3.9.8
