@@ -1,3 +1,31 @@
+winetricks (0.0+20160425-1) unstable; urgency=medium
+
+  * New upstream release
+    - Fix download links (Closes: #822754).
+  * debian/upstream.changelog
+    - Update.
+  * debian/README.debian
+    - Update for newer versions of wine and winetricks (Closes: #810658).
+  * debian/control
+    - Update depends (Closes: #810658).
+    - Bump Standards-Version.
+    - Update Vcs-{Git,Browser} to use HTTPS.
+    - Set minimum wine and wine-development version (Closes: #782680, #807045).
+    - Add aria2 and tor Suggests (for aria2c and torify).
+    - Replace myself with Debian Wine Party as maintainer.
+    - Set myself as uploader.
+    - Set Vcs-{Git,Browser} to pkg-wine instead of collab-maint.
+  * debian/copyright
+    - Bump year for myself.
+    - Add Austin English as Upstream-Contact instead of Dan Kegel.
+    - Update Source to point to GitHub.
+  * debian/patches
+    - Remove adobeair-sha1sum-fix.patch.
+    - Refresh remaining patch.
+    - Add remove-self-update.patch.
+
+ -- Joseph Bisch <joseph.bisch@gmail.com>  Sun, 01 May 2016 12:58:24 -0400
+
 winetricks (0.0+20151116-1) unstable; urgency=low
 
   * New upstream release
