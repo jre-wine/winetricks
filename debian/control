@@ -19,7 +19,7 @@ Depends:
  p7zip,
  unzip,
  wget,
- wine (>= 1.8-2) | wine-development (>= 1.9.1-1),
+ wine,
  zip,
  ${misc:Depends}
 Recommends:

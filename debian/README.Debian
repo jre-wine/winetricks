@@ -1,10 +1,10 @@
-If wine is installed, it's wine binary and wineserver are used, even
-if wine-development is installed. The wine-development wine binary and
-wineserver are only used if just wine-development is installed.
+Winetricks uses the /usr/bin/wine and /usr/bin/wineserver pathnames.
+These are provided by both wine and wine-development. In case you have
+installed both, the Debian alternatives system decides which one provides
+these pathnames.
 .
-If you have both wine and wine-development installed and you want to
-use the wine-development wine binary and wineserver, you should execute
-the following commands before running winetricks.
+If you want to use the one which doesn't provide them, you should
+execute the following commands before running winetricks:
 .
   export WINE=/usr/bin/wine-development
   export WINESERVER=/usr/bin/wineserver-development
