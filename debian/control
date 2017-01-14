@@ -15,6 +15,7 @@ Package: winetricks
 Architecture: all
 Multi-Arch: foreign
 Depends:
+ binutils,
  cabextract,
  p7zip,
  unzip,
