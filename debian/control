@@ -30,8 +30,8 @@ Recommends:
 Suggests:
  aria2,
  tor
-Description: package manager for WINE to install software easily
- A POSIX shell script 'package manager' for WINE to install some
+Description: package manager for Wine to install software easily
+ A POSIX shell script 'package manager' for Wine to install some
  Windows software easily. The list contains about 70 applications
  including 3dmark2001, corefonts, cygwin, directx9, dotnet35, droid,
  firefox, flash, ie8, mspaint, msxml6, python26, quicktime76, safari,
