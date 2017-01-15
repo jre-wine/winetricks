@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Winetricks
 Comment=Install applications on Wine
-Exec=winetricks
+Exec=winetricks --gui
 Terminal=false
 Icon=winetricks
 Type=Application
