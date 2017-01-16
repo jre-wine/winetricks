@@ -1,6 +1,7 @@
 winetricks (0.0+20170101-1) UNRELEASED; urgency=medium
 
   * Team upload.
+  * New upstream release.
   * d/control,README.Debian:
     - Only depend on unversioned "wine" (Closes: #825395).
     - Drop outdated dependency on libwine.
