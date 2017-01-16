@@ -16,10 +16,6 @@ package "zenity". To read manuals, install package "xdg-utils". If
 you need to cache any *.iso files with the -k option, install package
 "sudo" or sudo GUI "gksu".
 .
-NOTE: This package suggests installing package libwine. Some, but not
-all package downloads depend on restarting the wineserver which is
-included in libwine.
-.
 NOTE: In case you have compiled wine from sources and installed it
 out of dpkg(1)'s control, winetricks' depends wouldn't know about it. In
 that case create a "dummy wine" package to satisfy depends by using

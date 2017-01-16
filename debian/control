@@ -28,7 +28,6 @@ Recommends:
  zenity | kdebase-bin
 Suggests:
  aria2,
- libwine,
  tor
 Description: package manager for WINE to install software easily
  A POSIX shell script 'package manager' for WINE to install some
