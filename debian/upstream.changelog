@@ -1,3 +1,922 @@
+commit 8d3d2c6a2b7f1aa87380e7e55181f3fd173c65d4
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20170101
+
+commit 07a7b7913d53e2dd96a6157592aea7d2be83742b
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init(): also print WINEARCH in winetricks version info
+
+commit 5440d5fb102417d221e36623712eb05945ee9356
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20161228
+
+commit 00c53fb0969fbc92fff4e8ce9749033f3c753d1c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_showmenu: fix for SC2188
+
+commit e68ec508d418efa0a2394f3ca1486ed9f2c2afcc
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add FIXMEs to downloader functions about unifying options support
+
+commit 4a13fbac399ef0d878b297cd7aa0c6c4bb7e1ab3
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to(): warn Russian users that archive.org is blocked when attempting to use it
+
+commit 0dda982404a5659e7cd27f36ceec683ff31d40ae
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_latest_version_check(): use winetricks_dl_url_to_stdout()
+
+commit 4decd71e360d466d56b40eda74511dd9f469487f
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add winetricks_dl_url_to_stdout() helper
+
+commit 72382698e0dbd353caf6c237438a6f837aa4a209
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/wintricks-test: put a better fix in test_dlls() for missing/empty dlls.verbs file
+
+commit 66d96346b3b4146b91c3e29dc446ce887eac1127
+Author: Austin English <austinenglish@gmail.com>
+
+    dirac: add some sleeps to make ahk script more reliable on slow machines
+
+commit 5aeb25e334130d110a736f5688db68aaf5c20e7a
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: miscellaneous formatting fixes
+
+commit 3f598cf3e84042cc01d3ba772162814919661907
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix running tests without xvfb
+
+commit 02e63af6ccee3dbeeb18e96d9d4345ea9cc6465c
+Author: Austin English <austinenglish@gmail.com>
+
+    guildwars: remove, download is dead
+
+commit c96326ab1b3f290ea7c3cc6bb17c12d4e0801eca
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add fixme
+
+commit 086155bdf6fb43321364ca8ac8a8f04bc673630e
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add initial xvfb checks
+
+commit ad44f0f5e7411d0f3e99fae63ec10ab7ffb2dd9b
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add blacklist for archive.org, use for travis-ci
+
+commit 032088baedc3f452a2b9a7d301853d9858564280
+Author: Austin English <austinenglish@gmail.com>
+
+    check that we have verbs to test
+
+commit ecdb414f62c6efd1ce04b5bb6672925efdeb6cb0
+Author: Austin English <austinenglish@gmail.com>
+
+    travis.yml: add some notes
+
+commit a0d15cf2b825bb8aa9c679ece7222c5e682e88cf
+Author: Никола Вукосављевић <hauzer.nv@gmail.com>
+
+    droid: remove extraneous single quotes in download URL
+
+commit d3205e91f2ab7e532c2b786cb98ad54d0555db81
+Author: Austin English <austinenglish@gmail.com>
+
+    w_ahk_do(): try awk instead of sed for more portable newline conversion
+
+commit 9cca6a28bea56f26b71b0b3ce589558ba3caf61c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: use shellcheck 0.4.4, which can disable a checker globally in a file
+
+commit f0b4fa10816aa2477dd093aa928230eab15262bf
+Author: Austin English <austinenglish@gmail.com>
+
+    mt4: update w_ahk_do script for new window title
+
+commit 0aec016f5300e3f1255f3e4b2c5a96f08c3cb0ea
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2008: add initial 64-bit support
+
+commit 935feda7b47b4987188a9bab4f1138baea820d8f
+Author: Austin English <austinenglish@gmail.com>
+
+    opera: remove obsolete verb
+
+commit d2ff9ce0882ca8e1f898f5b98505bad014602e30
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to(): avoid depending on pathchk -P, which isn't supported on current OSX
+
+commit 961757e6f429819c91f6e46be2912414fb42ebe5
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to(): document that _W_packagename can also be an absolute path
+
+commit 12f3209609a15993ac21036c9911ad65dbad684f
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to(): use consistent option formatting
+
+commit 5f07addec249f5b6770cadf28b2625fbd0672eb3
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add WINETRICKS_DOWNLOADER variable to allow setting which downloader program is used
+
+commit aed81bb7d0a8f2d423f7402d38900f561160283e
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to(): add stricter timeout/retry limits for all downloaders
+
+commit 825ab9e295c91a7f02091be7459e38d162603d23
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix various shellcheck issues
+
+commit ab462cc387343ba8237b6b5881188548f449ba86
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: strip leading zeros from df to avoid a shell math error
+
+commit 35b7229784155f7c8c0b8c5aefcebfa321be4283
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add support info
+
+commit cd839ca15dbb794a57c97621d104571ac26826f1
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: document test targets
+
+commit 0f657ba35c4ad595e82193ebf0b81cab4a7d3ad3
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: add a fallback using find for finding shell scripts
+
+commit 42844344272f51af57975ecda764642944bf1a8e
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: make sure that we are in top level directory
+
+commit 54d9107312ec217f293afbb60080e30605893b30
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20161107
+
+commit d1c3d3f53491a4534368ba06a3f5ecf005a32936
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add builtin good/bad verbs for basic sanity checking
+
+commit 16c598f1937507a99ec633a7ca235082c2441c23
+Author: Austin English <austinenglish@gmail.com>
+
+    initial Travis OSX support
+
+commit bdf80e66fe39c2c39c71d6ae1a397a00d7361ec5
+Author: Austin English <austinenglish@gmail.com>
+
+    travis.yml: add time wrapper to shell commands
+
+commit 08249961fb4a7434c9d1fad98abdf5572d867091
+Author: Austin English <austinenglish@gmail.com>
+
+    liberation: add missing w_try()
+
+commit 4f39ff46f088c63fcaf72ed1234cea08a71abe4f
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: remove no longer needed "Accept-Encoding: gzip,deflate" hack
+
+commit 60ab3890a19c5c3c19242f8f0a4941fc7a54005b
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to(): cleanup formatting, move downloader options to one per line
+
+commit 75cf8f5545ce24a41fe850b076219c82787d62df
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: suppress wine/winetricks version info on startup if $WINETRICKS_SUPER_QUIET is set
+
+commit f34f34ba4a0f795be94299039c2a3c88ce962595
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: introduce $WINETRICKS_SUPER_QUIET to silence some output that breaks winetricks-test
+
+commit 6f91e92edd7646c4140d25b03e202b848c308e34
+Author: Austin English <austinenglish@gmail.com>
+
+    steam: update sha1sum
+
+commit 0f07f41e51972ec70f79d71f1173f77cd6cd5f80
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: remove now unused $W_TMP_EARLY_CLEAN variable
+
+commit fbf7af6e7dcb4fa59318b1c3cb0b3cce9545b624
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: don't remove $W_TMP_EARLY if $W_OPT_NOCLEAN is set
+
+commit 9774ee2bc63ea778c1e0ce1459eeccabfe74d5e7
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fail early in verb if cabextract is needed and not installed
+
+commit 018b5d66eb1f8ed20845be74d46cd3762e375303
+Author: Austin English <austinenglish@gmail.com>
+
+    Makefile: add a shell-checks target
+
+commit fde21c0249fbba71ab46bfa8689fdf44f51c8e8b
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_latest_version_check: misc improvements
+
+commit 79d6a28f19bb5c82a608d0c453c44ccf91cd54fb
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to: allow downloading outside $W_CACHE if absolute path is given
+
+commit c706f16bd233b2c08687afbdf1ffc334caef265a
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_selfupdate: improve debug message
+
+commit fcc55afee24d18e523871ff0666f1b2c455d467a
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_selfupdate: handle both gzip and decompressed update files
+
+commit 352ab463b9d3b4aff8f821418de28872e34d6133
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_latest_version_check: enable automatic updates via opt-in config
+
+commit b7f567416ba6175325cb5c25163817f7f7506327
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: check winetricks version against latest upstream
+
+commit 0f2cdb70df72e03c097ca778c342178e95fbadeb
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix XDG_CONFIG_HOME values
+
+commit e8fea1829e7a2708255bba80d394671eb6330e8a
+Author: Austin English <austinenglish@gmail.com>
+
+    shell-checks: actually fail if checkbashisms/shellcheck aren't installed
+
+commit 68e3f706ef0fc21f1ccb2d86deb7e0230bee12f4
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_print_version: fix syntax
+
+commit cc2d37fec68fed48948184ddab26f3b301b579e2
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add a $WINETRICKS_CONFIG directory/variable
+
+commit e1e7a15fd0b34cd82ce61bb5ef4adeea94f11d93
+Author: Austin English <austinenglish@gmail.com>
+
+    add LATEST file with latest release version
+
+commit cff85394c67c6da9b62c4e7280db3c73a0067b1a
+Author: QwertyChouskie <qwertychouskie@users.noreply.github.com>
+
+    Tweaks to README.md
+
+commit 624d74ad32771da15070705aba6c1b2e1b04177d
+Author: Fabio Porcedda <fabio.porcedda@gmail.com>
+
+    foobar2000: update to v1.3.12
+
+commit c977fea3314e4d11e773ea51d0ed391b6178a587
+Author: Austin English <austinenglish@gmail.com>
+
+    rename tests/prevent-bashims to tests/shell-checks
+
+commit 9562ad1fd619a1aba430a18834234bb32d16cec4
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20161012
+
+commit 47d1a3a959b19786865ad8f58abe30134c1060dd
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add FIXME
+
+commit 1865aa56c0fb7af9ef2d520a7906cf46531aac27
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: disable dotnet20sp2 in test_dotnet()
+
+commit 96b3149e08a69e3979c6109379d13dac7d7a839c
+Author: Austin English <austinenglish@gmail.com>
+
+    shockwave: update sha1sum
+
+commit 1ad909779e45a1f2c4ad682c5114184194839de1
+Author: Austin English <austinenglish@gmail.com>
+
+    w_do_call(): ignore errors from missing verify_$cmd function
+
+commit 45ca895c096a1df24df7ada34a42de7ef86e28f4
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/prevent-bashisms: use git ls-files instead of find
+
+commit 9bdbe91aa4a76d2f359cb466dd013d095f864d0f
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix dotnet test failures
+
+commit 8058608ee916475ad3ea7185486d7d062befbd13
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix typo
+
+commit 60f252c71f22e72423664ca8d8fa4447c8ebaa46
+Author: Austin English <austinenglish@gmail.com>
+
+    linkcheck.sh: fix typo
+
+commit 16d9ed50726a12d4e7d1baf54bbded410483c931
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20161005
+
+commit 6de2422ccbe350f27524403ff201dadbda05d3b4
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to(): disable SC2086 warnings
+
+commit dba29c98675cf78c2a439f85dc5c9a961c6064fd
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/prevent-bashims: print shellcheck/checkbashisms version info
+
+commit b8b390472c97240f38bd9c1c802a5a982fc8edce
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2065
+
+commit e110ea8d857a5b02404d065b62add226a650bf25
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC1007
+
+commit 27e76e408687bc47e0d0f75256168c05b2c43355
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/prevent-bashisms: avoid using SHELLCHECK_OPTS, pass excludes on command line explicitly instead
+
+commit b807ce5d939f8bef91a1f93961423ad786c58f2f
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/prevent-bashisms: move copyright to top
+
+commit 6fa2410c9b474cb6add7f0d4fb20a3d8d70c33e7
+Author: Austin English <austinenglish@gmail.com>
+
+    add initial TravisCI configuration
+
+commit ba2a0605ddcdfa8edb2175b401f02cfeac55edfe
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: update test dependencies
+
+commit dd9092336458fa8b522ee51b46ccce57f898b030
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/prevent-bashisms: add shellcheck
+
+commit 43ef6c2fe65c72650f4ebcec731b7af2c626351a
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: remove no longer needed wine/winetricks version info in verbose mode (checkbashisms)
+
+commit da70e686e2bfe93d8aeabe75713ca5d11af3d470
+Author: Austin English <austinenglish@gmail.com>
+
+    w_do_call(): avoid command -v bashism when using --verify (checkbashisms)
+
+commit 2096b45c6558de08becf0af90336f5f69a81f7d6
+Author: Austin English <austinenglish@gmail.com>
+
+    w_question(): use printf instead of echo -n (checkbashisms)
+
+commit a966f8928d6a7f5fd19d8eefa20900e19f7ba34b
+Author: Austin English <austinenglish@gmail.com>
+
+    w_dotnet_verify(): print dotnet_verifier status
+
+commit 2ddcc67850b118daa7cf61f3881fb29bdb97ac0c
+Author: Austin English <austinenglish@gmail.com>
+
+    3m_library: fix homepage metadata (shellcheck)
+
+commit 601ee511779b95afc0b66d7b81f1609b1e40f394
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix shellcheck SC2145, et al
+
+commit ad0bcd5e339e9961c586327566b03c6a5f2a4fce
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2035
+
+commit efd9607246433f60dd2fb706b77c800ee4370cad
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2012
+
+commit 9f0367f663bea20e55dfaab392bec052884d06fd
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2068
+
+commit a382f8c22cde92881a900e85de328a1e9c875beb
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2145
+
+commit 15962f29d5ce8c6f271d92031360d26b45e4c5c0
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2034
+
+commit ed3274d799abe5bbfb28f3590ac6768d0777e3ee
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2086
+
+commit 1fd8487ff95c5ea772ffeefd41fedf707ccfbfea
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2164
+
+commit 936c6a22f473f5de00cb8e12d80a96bf5f9fb73c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: disable SC2154 for shellcheck
+
+commit 7e321b11b7d74aae31dc4a04cad1cfaab0b844a9
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix shellcheck SC2046
+
+commit 2d82e050f08df22603bb401b3bf90f8a63b65ac1
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: disable SC1090 for shellcheck
+
+commit fb0a9f15bf352926ab32ab34de782295ff24597e
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix miscellaneous shellcheck issues
+
+commit 8685c9cc17462e41e7affab2c0a154a0318ec407
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: fix shellcheck issues
+
+commit e580681a20fee782281aa9fc6410f67ebe2ef17a
+Author: Austin English <austinenglish@gmail.com>
+
+    src/uniquefiles.sh: fix shellcheck issues
+
+commit 3954c01e88d2fc28972388d61533e77945717b73
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: fix shellcheck issues
+
+commit b74c889e19933142c9122ffc8288f6fda15d4b4d
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/prevent-bashims: fix shellcheck issues
+
+commit 15bf54cfea292f5ebcd39246d723bcb9d605d671
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix shellcheck issues
+
+commit b5d79d057ddae870270584c902ff99feb811ce52
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: blacklist dotnet20sp2/xna31, Wine bug #40460
+
+commit 608d43ffa37a1fc5f7ce41cb9605ad30600bd388
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix allcodecs typo
+
+commit dd6513dd7681bac75fec3959b954a7c77c2be2a1
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add missing w_die() implementation
+
+commit dcc6744a718531c82820f9138e035b5431d38c41
+Author: Austin English <austinenglish@gmail.com>
+
+    xna40: fix typo, fixes issue #674
+
+commit 3932c05451a144dc827e6a791f3bd655d12a3fec
+Author: Austin English <austinenglish@gmail.com>
+
+    msdxmocx: update sha1sum/url
+
+commit 04275ed64bd6aa18eeeb440c57152f10bcaa4093
+Author: Austin English <austinenglish@gmail.com>
+
+    mb_warband_demo: remove, download dead
+
+commit 23cfacf89a759809cd71f9d8bb186b6246170863
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix another unused variable and shellcheck issues
+
+commit 5e76519debcb25a3ab19b6b1ae437e6ef09b800d
+Author: Austin English <austinenglish@gmail.com>
+
+    tests: add a check to prevent bashisms from creeping into code
+
+commit 94d899e716100ff308146d46e0e26751d64b7532
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: avoid 'type', which isn't POSIX. Use 'command -v' instead.
+
+commit b971a22c58bd5943c4e62dbb44ed9c89e78474ae
+Author: Austin English <austinenglish@gmail.com>
+
+    linkcheck.sh: avoid backticks
+
+commit c6c53032df6ba137a3f0395e4f1ee4f07f901a0e
+Author: Austin English <austinenglish@gmail.com>
+
+    wog: avoid backticks
+
+commit 2fda60f4782c6c36b640933597242f1fd8417292
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: avoid use of local variable declarations, not POSIX
+
+commit 6c6704f253f89ba5e4926cc182132ab745128f60
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks-test: use variable
+
+commit e31ccd2ab52822e10d65455403c0c7c79c3e10b5
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet46: add initial implementation, based on dotnet45
+
+commit de9b364d38fefa32d163f6256021ec27d67a51e5
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp2: fix some potential race conditions
+
+commit d092a4b47c742e485aec6b4377eda63efdfd6d1d
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet_verifier: update download URL
+
+commit 00c3fb7a6b4db381aae5bdbba397890f6724269e
+Merge: 22cf856 7bd3425
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #667 from boltronics/api-ms-win-crt-math-l1-1-0_override_fix
+
+commit 22cf856e059391070814ccb31b1b23761e44bbd3
+Merge: cb6f280 33fd31f
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #670 from vanillajonathan/patch-1
+
+commit 33fd31f6b29e99ab4a3216974bd01dd5ba6688ad
+Author: Jonathan <vanillajonathan@users.noreply.github.com>
+
+    Markup for formatted example data
+
+commit 7bd342522d4f59c4416580decf53f4a97623214e
+Author: Adam Bolte <abolte@systemsaviour.com>
+
+    winetricks: Fix a vcrun2015 override
+
+commit cb6f280f5a4287dbaba0317440f85b10a00a61de
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: avoid use of unitialized variable $DRIVE_C
+
+commit f30c62845ed5b02095deb42344da684f3e6ad06b
+Merge: 1575a83 1e81511
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #665 from vitlav/master
+
+commit 1575a83beb516ad45f0931ce649ecee3815a413b
+Merge: 29aad8a c950c60
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #657 from vanillajonathan/patch-1
+
+commit 29aad8a0e88deb8c267d7bc9a32a0bd9bba0ef4c
+Merge: ad6bbc6 09d349a
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #664 from Narthorn/master
+
+commit 1e815115d833bef40fa4a78ebd855a828a11d5cc
+Author: Vitaly Lipatov <lav@etersoft.ru>
+
+    use detected torify and torify options for aria2c
+
+commit 09d349a9c22cf7073e0458fa483c30c193860f9e
+Author: Narthorn <narthorn@gmail.com>
+
+    winetricks: get rid of unneccessary double-quotes around $()
+
+commit ad6bbc6624b19f3e3fc602ccfc128c894786d78f
+Author: Austin English <austinenglish@gmail.com>
+
+    add win2k8/win8/win81/win10 verbs
+
+commit e68ce935db0feb6731dd36c831604aed72408274
+Author: Austin English <austinenglish@gmail.com>
+
+    opensymbol: update to latest
+
+commit 9b5de4a833ce58bab38f35763029e8900aad308f
+Author: Austin English <austinenglish@gmail.com>
+
+    test cleanups
+
+commit 16dc5a51b34a80621be4424b79f0a3836a10025d
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20160724
+
+commit 20424e236c7c100ecf0858fb370c711c5304fdf6
+Author: Austin English <austinenglish@gmail.com>
+
+    relase.sh: fix path to pgp signature file
+
+commit a82c23b41713356ff18ab7f703b70d51a118a642
+Author: Austin English <austinenglish@gmail.com>
+
+    github-api-releases.py: fix for Debian's python-magic
+
+commit c527086c86625ec6dfc7e534c83ec9d0184a65bc
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add initial embedded wine cmd support
+
+commit ad469c23dd682208d8aa9043d7fc0320f9f57a73
+Author: Austin English <austinenglish@gmail.com>
+
+    tests: add some TODOs
+
+commit 1e0cefd4b8ace60d6f7c7fc5309192f67eba5b57
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: avoid backtricks (``), use $()
+
+commit c0fc2ccd0d11490271daaf6e50bfa1df5569b40d
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: get rid of backticks(``), use $() instead
+
+commit 5a8cae5aec229646555d284fca68b490146605ab
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: fix typo
+
+commit 6c734f1023d50f8f09811aa7ea42469a13b4c148
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add some basic .verb tests
+
+commit 75eb191b7630336a5b5822d3ebb41039977e54f9
+Author: Austin English <austinenglish@gmail.com>
+
+    README: add some .verb documentation
+
+commit 4f33db1b12c203c09e229abc5aba0f6cd8985a90
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_handle_options: alphabetize case list
+
+commit c7092d0e28c520a9fea7b81def3c755faaca9220
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20160628
+
+commit 670f621c349529d86a38f888c0721bfda5076f8e
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: fix path to github-api-releases.py
+
+commit d4c71edeb32086b1cb1a77b602f5690d42d54f2d
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: specify the GPG key to use
+
+commit f2959d5f1f7845640dae61c33ca6927c04d19799
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20160627
+
+commit 6b00ecda62108d0943447eec45502f73050d387b
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: create local signed release tarball
+
+commit 4e5c0ea499dd596d3719717166172113e7209d1e
+Author: Austin English <austinenglish@gmail.com>
+
+    github-api-releases.py: check in script, authored by Joseph Bisch
+
+commit c950c6015a4dd51db645bc96da63da93259bff0b
+Author: Jonathan <vanillajonathan@users.noreply.github.com>
+
+    Moved vim line to the bottom of the file
+
+commit 2236992c3f145a5c9f3e2778cf58af125f6c92ef
+Author: Austin English <austinenglish@gmail.com>
+
+    wmv9vcm: new verb
+
+commit 13de95e60cc5d34cfbc26bbe9906739a81d5e722
+Author: Jonathan <vanillajonathan@users.noreply.github.com>
+
+    Add code editor hints
+
+commit 9502a7c1dde4f30281d1668542c3fd2e2cc942e6
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20160622
+
+commit 32a87de664eb7da92cfff0b72d382cdb69c95bcf
+Author: Austin English <austinenglish@gmail.com>
+
+    w_get_sha1sum(): only try to verify sha1sum for actual files
+
+commit d1cf96e1e8d7f7c1453d4f0686a1c388a7b98885
+Author: Jonathan <vanillajonathan@users.noreply.github.com>
+
+    winetricks: miscellaneous spelling updates
+
+commit b36bd4799657a05cb98059410158f6a8d74b15ed
+Author: Andrey Gusev <andrey.goosev@gmail.com>
+
+    winetricks: Add separate override just for d3dx10_43
+
+commit 87e17d1754eb4318e62611108d7299bfbde8b223
+Merge: 97a23b0 a0b02d2
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #656 from eli-schwartz/master
+
+commit a0b02d2450e8c1ece1c748de4085a3c485646ea8
+Author: Eli Schwartz <eschwartz93@gmail.com>
+
+    kindle: update to version 1.16 (build 44025)
+
+commit a31cc0579c28d19f4e5803c76c4d1ab165f7cdbc
+Author: Eli Schwartz <eschwartz93@gmail.com>
+
+    kindle: Fix bug reference number
+
+commit 97a23b031c7a8eef857be2536fa49908e4c05747
+Author: Jonathan <vanillajonathan@users.noreply.github.com>
+
+    winetricks.1: Change strings to proper case, wine to Wine, etc
+
+commit 060ec5bb2496d8a1cdc3063941dc571dbfd861d1
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_ar(): use 7zip as a fallback if ar is missing
+
+commit dfd66e6a9906d670ea6b8e0aea66ab7f7261e472
+Author: Austin English <austinenglish@gmail.com>
+
+    7zip: update to latest release
+
+commit 31f293fbdeccc583a1cc403cd1b67819ef576286
+Author: Austin English <austinenglish@gmail.com>
+
+    opensymbol: restore J flag to tar
+
+commit 4a99017de0ee507425a6053d6876aa61695b46a6
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_ar: should be w_die, not w_fatal
+
+commit 900f58df591d364a4728cec826341bc0c229d0a8
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add a w_try_ar() function, give better warning if ar is missing
+
+commit 9376044a41e79b0e6365beecc87f09574ee6ad8b
+Merge: 0748ac1 79dddc4
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #636 from vanillajonathan/patch-1
+
+commit 0748ac19387236febaa27cbf44064575fbabbc91
+Merge: 22a90d7 37230c5
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #651 from jschueller/patch-1
+
+commit 37230c5f1efd5551db443e7e73e01dd0eb31e3da
+Author: Julien Schueller <schueller@phimeca.com>
+
+    Override more vcrun2015 dlls for 32 bits prefix
+
+commit 22a90d7777e1c6c6262bc9919502a0704b081285
+Author: Austin English <austinenglish@gmail.com>
+
+    w_wine_version: support wine-1.9.x
+
+commit 267afa826b4b1c7e97d05aed9a4a3743818e23db
+Merge: e669394 844f46e
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #647 from qwertychouskie/patch-2
+
+commit 844f46e1d1f7d59326cb168248406547f20640bd
+Author: qwertychouskie <asdfghrbljzmkd@outlook.com>
+
+    Update ev3 verb
+
+commit e669394f3a834af9d642d4e8cd37ecca009f66eb
+Author: Austin English <austinenglish@gmail.com>
+
+    adobeair: remove extra space in metadata
+
+commit 5f9c9d36d548897c5f7d13180cc46fe193c8f511
+Author: Rafal <kenorb@users.noreply.github.com>
+
+    mt4: do not use checksum for mt4setup.exe which may change
+
+commit 2f4fab4109b1919d4e479c06ac9cf70abbe89408
+Author: Andrey Gusev <andrey.goosev@gmail.com>
+
+    winetricks: update Ukranian translation
+
+commit 3399c38411259bf171fc32a3e145bc49fee2291e
+Author: Austin English <austinenglish@gmail.com>
+
+    release.sh: allow overridding version
+
+commit 79dddc48bcb5a8617a2ed3882a89566d4692eb93
+Author: Jonathan <vanillajonathan@users.noreply.github.com>
+
+    Update control
+
+commit 2b1b364182d3dfd7ce03efe58d4a85204db74a0b
+Author: Dmitry Andreevich Kirilin <dmitry.a.kirilin@gmail.com>
+
+    foobar2000: update to v1.3.10
+
+commit a3f073569f937822a728bfbb203530dc27a141b6
+Author: Austin English <austinenglish@gmail.com>
+
+    update src/release.sh for github releases, also now updates manpage
+
+commit 3879667c47baad25db4b518a91254c7b3c37ac85
+Author: Austin English <austinenglish@gmail.com>
+
+    update manpage
+
+commit 5e74e0550f6e5f097ea4b3ba30837bfc31cc8465
+Author: Austin English <austinenglish@gmail.com>
+
+    Makefile: update copyright
+
+commit 446dd0234b79636bd9bdeb81ab2d81cab3063a7c
+Author: Austin English <austinenglish@gmail.com>
+
+    Makefile: winetricks now uses git, not svn
+
 commit 750e356efb599dd0175b4160f035d4a9ef021461
 Author: Austin English <austinenglish@gmail.com>
 
