@@ -1,7 +1,7 @@
 .\" -*- nroff -*-
-.TH WINETRICKS 1 "June 2013" "Winetricks 20130615" "Wine package manager"
+.TH WINETRICKS 1 "January 2017" "Winetricks 20170101" "Wine Package Manager"
 .SH NAME
-winetricks \- manage virtual windows environments using wine
+winetricks \- manage virtual Windows environments using Wine
 .SH SYNOPSIS
 .BI "winetricks "
 [options] [verb ... ]
@@ -12,9 +12,9 @@ is an easy way to work around common problems in Wine.
 It provides simple commands to
 tweak Wine settings,
 download and install missing Windows DLLs and fonts,
-or install various games or apps with appropriate workarounds for the current version of wine.
+or install various games or apps with appropriate workarounds for the current version of Wine.
 .PP
-It can be used via gui or commandline.  The commandline mode is intended both for interactive use and as a building block in fancier wine frontends and in automated regression testing.
+It can be used via GUI or command line.  The command-line mode is intended both for interactive use and as a building block in fancier Wine frontends and in automated regression testing.
 
 .B winetricks
 with no arguments displays a GUI using either Zenity or Kdialog.
@@ -27,19 +27,23 @@ Don't check whether packages were already installed
 .TP
 .B
 \-\-gui
-Show gui diagnostics even when driven by commandline
+Show GUI diagnostics even when driven by the command-line interface
+.TP
+.B
+\-\-isolate
+Install each app or game in its own bottle
 .TP
 .B
 \-k, \-\-keep_isos
-Cache isos (allows later installation without disc)
+Cache ISOs (allows later installation without disc)
+.TP
+.B
+\-\-no\-isolate
+Don't install each app or game in its own bottle (default)
 .TP
 .B
 \-\-no\-clean
 Don't delete temp directories (useful during debugging)
-.TP
-.B
-\-\-no\-isolate
-Don't install each app or game in its own bottle
 .TP
 .B
 \-q, \-\-unattended
@@ -51,7 +55,7 @@ Retry hard when caching scratched discs
 .TP
 .B
 \-\-showbroken
-Even show verbs that are currently broken in wine
+Even show verbs that are currently broken in Wine
 .TP
 .B
 \-v, \-\-verbose
@@ -127,6 +131,9 @@ Wine checks several environment variables on startup:
 .I WINE
 If set, this specifies which wine binary to use by default
 .TP
+.I WINESERVER
+If set, this specifies which wineserver to use by default
+.TP
 .I WINEPREFIX
 If set, this specifies the location of the default .wine directory ( usually
 .IR $HOME/.wine
@@ -158,8 +165,8 @@ The most recent version of
 can be downloaded from
 .I http://winetricks.org/download/releases/
 .PP
-The latest snapshot of the code may be obtained via svn; see
-.I http://code.google.com/p/winetricks/source/checkout
+The latest snapshot of the code may be obtained via git; see
+.I https://github.com/Winetricks/winetricks/
 .PP
 For further information about
 .B winetricks
