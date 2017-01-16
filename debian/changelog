@@ -1,6 +1,7 @@
-winetricks (0.0+20170101-1) UNRELEASED; urgency=medium
+winetricks (0.0+20170101-1) unstable; urgency=medium
 
   * Team upload.
+
   * New upstream release.
   * d/control,README.Debian:
     - Only depend on unversioned "wine" (Closes: #825395).
@@ -12,7 +13,8 @@ winetricks (0.0+20170101-1) UNRELEASED; urgency=medium
     - Install icon and desktop file in recognized system paths
       (Closes: #846355).
   * winetricks.desktop:
-    - Start winetricks with gui option
+    - Start winetricks with gui option.
+    - Update Comment and Categories.
   * d/u/signing-key.asc:
     - Add upstream signing key.
   * d/watch:
@@ -23,7 +25,7 @@ winetricks (0.0+20170101-1) UNRELEASED; urgency=medium
     - Refresh.
     - Also drop latest version check in remove-self-update.patch.
 
- -- Jens Reyer <jre.winesim@gmail.com>  Mon, 16 Jan 2017 15:47:46 +0100
+ -- Jens Reyer <jre.winesim@gmail.com>  Mon, 16 Jan 2017 23:27:02 +0100
 
 winetricks (0.0+20160425-1) unstable; urgency=medium
 
