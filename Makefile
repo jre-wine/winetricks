@@ -1,6 +1,8 @@
 # Makefile for winetricks - a script for working around common problems in wine
 #
-# Copyright (C) 2013 Dan Kegel.  See also copyright notice in src/winetricks.
+# Copyright (C) 2013 Dan Kegel
+# Copyright (C) 2015-2016 Austin English
+# See also copyright notice in src/winetricks.
 #
 # winetricks comes with ABSOLUTELY NO WARRANTY.
 #
@@ -43,7 +45,7 @@ cleanup:
 	sed --in-place 's,[ \t]\+$$,,' $$(find $(SOURCES) -type f)
 
 dist: clean $(SOURCES)
-	tar --exclude='*.patch' --exclude=measurements --exclude=.svn \
+	tar --exclude='*.patch' --exclude=measurements --exclude=.git \
 		--exclude-backups \
 		-czvf winetricks-$(version).tar.gz $(SOURCES)
 
@@ -73,12 +75,20 @@ check:
 	echo 'To suppress tests in debuild, export DEB_BUILD_OPTIONS=nocheck'
 	echo ''
 	echo 'FIXME: this should kill stray wine processes before and after, but some leak through, you might need to kill them.'
+	# Check for checkbashisms/shellcheck issues first:
+	echo "Running checkbashisms/shellcheck:"
+	sh ./tests/shell-checks || exit 1
 	# Check all script dependencies before starting tests:
 	echo "Checking dependencies.."
 	sh ./src/linkcheck.sh check-deps || exit 1
 	sh ./tests/winetricks-test check-deps || exit 1
 	echo "Running tests"
 	cd src; if test -z "$(WINEARCH)" ; then export WINEARCH=win32 ; fi ; sh ../tests/winetricks-test quick
+
+shell-checks:
+	echo "This runs shell checks only. Currently, these are checkbashisms and shellcheck."
+	echo "This is relatively fast and doesn't download anything."
+	sh ./tests/shell-checks || exit 1
 
 test:
 	echo 'This verifies that most DLL verbs, plus flash and dotnet, install ok.'
@@ -101,6 +111,9 @@ test:
 	echo 'To suppress tests in debuild, export DEB_BUILD_OPTIONS=nocheck'
 	echo ''
 	echo 'FIXME: this should kill stray wine processes before and after, but some leak through, you might need to kill them.'
+	# Check for checkbashisms/shellcheck issues first:
+	echo "Running checkbashisms/shellcheck:"
+	sh ./tests/shell-checks || exit 1
 	# Check all script dependencies before starting tests:
 	echo "Checking dependencies.."
 	sh ./src/linkcheck.sh check-deps || exit 1
@@ -110,3 +123,7 @@ test:
 	echo 'And now, the one hour run check.'
 	if test ! -z "$(XDG_CACHE_HOME)" ; then rm -rf $(XDG_CACHE_HOME)/winetricks ; else rm -rf $(HOME)/.cache/winetricks ; fi
 	cd src; if test -z "$(WINEARCH)" ; then export WINEARCH=win32 ; fi ; sh ../tests/winetricks-test full
+
+xvfb-check:
+	echo "xvfb runs make check, for verbs safe for it"
+	cd src; if test -z "$(WINEARCH)" ; then export WINEARCH=win32 ; fi ; sh ../tests/winetricks-test xvfb-check
