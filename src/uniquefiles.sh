@@ -1,5 +1,12 @@
 #!/bin/sh
 # Script to locate unique files useful for install checks
+#
+# Copyright:
+#   Copyright (C) 2014 Dan Kegel
+#   Copyright (C) 2016 Austin English
+#
+# SPDX-License-Identifier: LGPL-2.1+
+
 set -e
 
 if ! test "$1"
