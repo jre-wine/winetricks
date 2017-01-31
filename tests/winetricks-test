@@ -1,5 +1,10 @@
 #!/bin/sh
 # Regression test for winetricks
+#
+# Copyright:
+#   See copyright list in src/winetricks
+#
+# SPDX-License-Identifier: LGPL-2.1+
 
 # TODO:
 # add selfupdate tests
