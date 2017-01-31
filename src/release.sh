@@ -3,13 +3,10 @@
 #
 # Usage: $0 optional_version_name
 #
-# Copyright (C) 2016 Austin English
+# Copyright:
+#   Copyright (C) 2016 Austin English
 #
-# This software comes with ABSOLUTELY NO WARRANTY.
-#
-# This is free software, placed under the terms of the
-# GNU Lesser Public License version 2.1, as published by the Free Software
-# Foundation. Please see the file COPYING for details.
+# SPDX-License-Identifier: LGPL-2.1+
 
 set -e
 set -u
