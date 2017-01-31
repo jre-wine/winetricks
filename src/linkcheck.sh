@@ -1,13 +1,10 @@
 #!/bin/sh
 # Link checker for winetricks.
 #
-# Copyright (C) 2011,2012,2013 Dan Kegel.
+# Copyright:
+#   Copyright (C) 2011,2012,2013 Dan Kegel.
 #
-# This software comes with ABSOLUTELY NO WARRANTY.
-#
-# This is free software, placed under the terms of the
-# GNU Lesser Public License version 2.1, as published by the Free Software
-# Foundation. Please see the file COPYING for details.
+# SPDX-License-Identifier: LGPL-2.1+
 
 set -e
 
