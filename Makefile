@@ -1,19 +1,16 @@
 # Makefile for winetricks - a script for working around common problems in wine
 #
-# Copyright (C) 2013 Dan Kegel
-# Copyright (C) 2015-2016 Austin English
-# See also copyright notice in src/winetricks.
+# Copyright:
+#   Copyright (C) 2013 Dan Kegel
+#   Copyright (C) 2015-2016 Austin English
+#   See also copyright notice in src/winetricks.
 #
-# winetricks comes with ABSOLUTELY NO WARRANTY.
-#
-# This is free software, placed under the terms of the
-# GNU Lesser Public License version 2.1, as published by the Free Software
-# Foundation. Please see the file src/COPYING for details.
+# SPDX-License-Identifier: LGPL-2.1+
 #
 # Web Page: http://winetricks.org
 #
 # Maintainers:
-# Dan Kegel <dank!kegel.com>, Austin English <austinenglish!gmail.com>
+# Austin English <austinenglish!gmail.com>
 
 INSTALL = install
 INSTALL_PROGRAM = $(INSTALL)
