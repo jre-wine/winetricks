@@ -1,3 +1,0 @@
-src/winetricks			usr/bin
-debian/*.svg			usr/share/icons/hicolor/scalable/apps
-debian/*.desktop 		usr/share/applications
