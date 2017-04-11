@@ -1,46 +1,48 @@
-Winetricks uses the /usr/bin/wine and /usr/bin/wineserver pathnames.
-These are provided by both wine and wine-development. In case you have
-installed both, the Debian alternatives system decides which one provides
-these pathnames.
-.
-If you want to use the one which doesn't provide them, you should
-execute the following commands before running winetricks:
-.
+Using Winetricks with non-default Wine versions
+===============================================
+
+Winetricks expects Wine in /usr/bin/wine and /usr/bin/wineserver. If you
+want to use another version of Wine you should execute the following
+commands before running winetricks, e.g.:
+
   export WINE=/usr/bin/wine-development
   export WINESERVER=/usr/bin/wineserver-development
 
- -- Joseph Bisch <joseph.bisch@gmail.com>, Tues, 23 Sept 2014 18:24:42 -0400
+If you have compiled Wine from source and installed it out of dpkg(1)'s
+control, winetricks' depends wouldn't know about it. In that case create
+a "dummy wine" package to satisfy depends by using tools in the "equivs"
+package before installing winetricks. An example:
 
-About packages in Recommends header: to use GUI progress bar, install
-package "zenity". To read manuals, install package "xdg-utils". If
-you need to cache any *.iso files with the -k option, install package
-"sudo" or sudo GUI "gksu".
-.
-NOTE: In case you have compiled wine from sources and installed it
-out of dpkg(1)'s control, winetricks' depends wouldn't know about it. In
-that case create a "dummy wine" package to satisfy depends by using
-tools in "equivs" package before installing winetricks. An example:
-.
   git clone https://github.com/jaalto/project--debian-wine-dummy.git
   cd project--debian-wine-dummy
   make
   dpkg -i wine*.deb
   apt-get install winetricks
 
- -- Joseph Bisch <joseph.bisch@gmail.com>, Tues, 02 Sept 2014 15:06:00 -0400
 
-Wine setup / before using winetricks
+About optional packages
+=======================
 
-	Most of the software is 32bit only, so if you have 64bit OS,
-	consider setting:
+To use GUI progress bar, install "zenity" or "kdebase-bin".
+To read manuals, install "xdg-utils".
+If you need to cache any *.iso files with the -k option, install "sudo",
+or for sudo GUIs "gksu" or "kdesudo".
+For improved downloading install "aria2".
+If download sites, e.g. archive.org, are blocked in your country install
+"tor" and start winetricks with the option "--torify".
 
-	    export WINEARCH=win32
 
-	before initializing wine; before ~/.wine is created. This
-	prevents wine being structured as a 64-bit installation and
-	allows winetricks to work. Refer to LP#1006909 for more
-	information:
+32- and 64-bit
+==============
 
-	https://bugs.launchpad.net/ubuntu/+source/winetricks/+bug/1006909
+Most of the software is 32bit only, so if you have 64bit OS, consider
+setting:
 
- -- Jari Aalto <jari.aalto@cante.net>, Sat, 25 Aug 2012 17:41:13 +0300
+  export WINEARCH=win32
+
+before ~/.wine is created. This prevents Wine being structured as a
+64-bit installation and allows winetricks to work. Refer to LP#1006909
+for more information:
+
+  https://bugs.launchpad.net/ubuntu/+source/winetricks/+bug/1006909
+
