@@ -4,15 +4,9 @@ PACKAGE   = winetricks
 CHANGELOG := $(shell pwd)/debian/upstream.changelog
 ICONDIR	  = debian/$(PACKAGE)/usr/share/$(PACKAGE)/icons/hicolor/scalable/apps
 
-include debian/pod2man.mk
-
 # Run manually when package is updated
 get-changelog:
 	git log --pretty=short upstream/master > $(CHANGELOG)
-
-# See debian/manpages instead
-man-old:
-	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
 
 override_dh_auto_test:
 	# Skip. These are internal tests.
