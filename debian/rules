@@ -1,9 +1,7 @@
 #!/usr/bin/make -f
 
-PACKAGE   = winetricks
 CHANGELOG := debian/upstream/changelog
 UPSTREAMVERSION=$(shell dpkg-parsechangelog -S Version | sed "s|\(0.0+\)*\(.*\)-.*|\2|")
-ICONDIR	  = debian/$(PACKAGE)/usr/share/$(PACKAGE)/icons/hicolor/scalable/apps
 
 # Run manually when package is updated (upstream git tag must be available)
 # and new upstream version is in d/changelog
