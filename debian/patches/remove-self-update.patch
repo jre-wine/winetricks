@@ -1,137 +1,41 @@
 Description: Remove winetricks built-in update functionality.
 Author: Joseph Bisch <joseph.bisch@gmail.com>
+Author: Jens Reyer <jre.winesim@gmail.com>
 Forwarded: not-needed
-Last-Update: 2017-01-16
+Last-Update: 2017-04-11
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/src/winetricks
 +++ b/src/winetricks
-@@ -684,84 +684,6 @@ w_dotnet_verify()
-             w_info ".Net Verifier returned $dn_status"
- }
- 
--# Checks if the user can run the self-update/rollback commands
--winetricks_check_update_availability()
--{
--    # Prevents the development file overwrite:
--    if test -d "../.git"
--    then
--        w_warn "You're running in a dev environment. Please make a copy of the file before running this command."
--        exit;
--    fi
--
--    # Checks read/write permissions on update directories
--    if ! (test -r "$0" && test -w "$0" && test -w "${0%/*}" && test -x "${0%/*}")
--    then
--        w_warn "You don't have the proper permissions to run this command. Try again with sudo or as root."
--        exit;
--    fi
--}
--
--winetricks_selfupdate()
--{
--    winetricks_check_update_availability
--
--    _W_filename="${0##*/}"
--    _W_rollback_file="${0}.bak"
--    _W_update_file="${0}.update"
--
--    _W_tmpdir=${TMPDIR:-/tmp}
--    _W_tmpdir="$(mktemp -d "$_W_tmpdir/$_W_filename.XXXXXXXX")"
--
--    w_download_to "$_W_tmpdir" https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
--
--    # 2016/10/26: now file is uncompressed? Handle both cases:
--    update_file_type="$(file "$_W_tmpdir/$_W_filename")"
--    case "$update_file_type" in
--        *"POSIX shell script"*)
--            #echo "already decompressed!"
--            w_try mv "$_W_tmpdir/$_W_filename" "${_W_update_file}"
--            ;;
--        *"gzip compressed data"*)
--            w_try mv "$_W_tmpdir/$_W_filename" "${_W_update_file}.gz"
--            w_try gunzip "${_W_update_file}.gz"
--            ;;
--         *)
--            echo "Unknown file type: $update_file_type"
--            exit 1
--            ;;
--    esac
--
--    w_try rmdir "$_W_tmpdir"
--
--    w_try cp "$0" "$_W_rollback_file"
--    w_try chmod -x "$_W_rollback_file"
--
--    w_try mv "$_W_update_file" "$0"
--    w_try chmod +x "$0"
--
--    w_warn "Update finished! The current version is $($0 -V). Use 'winetricks --update-rollback' to return to the previous version."
--
--    exit
--}
--
--winetricks_selfupdate_rollback()
--{
--    winetricks_check_update_availability
--
--    _W_rollback_file="${0}.bak"
--
--    if test -f "$_W_rollback_file"
--    then
--        w_try mv "$_W_rollback_file" "$0"
--        w_try chmod +x "$0"
--        w_warn "Rollback finished! The current version is $($0 -V)."
--    else
--        w_warn "Nothing to rollback."
--    fi
--    exit;
--}
--
- # Download a file
- # Usage: w_download_to (packagename|path to download file) url [sha1sum [filename [cookie jar]]]
- # Caches downloads in winetrickscache/$packagename
-@@ -2704,31 +2626,6 @@ winetricks_get_platform()
-     fi
- }
- 
--winetricks_latest_version_check()
--{
--    if [ "$WINETRICKS_LATEST_VERSION_CHECK" = 'disabled' ] || [ -f "${WINETRICKS_CONFIG}/disable-latest-version-check" ] ; then
--        w_info "winetricks latest version check update disabled"
--        return
--    fi
--
--    latest_version="$(winetricks_dl_url_to_stdout https://raw.githubusercontent.com/Winetricks/winetricks/master/files/LATEST)"
--
--    # Also check that $latest_version is an actual number in case github is down
--    if [ ! -z "${latest_version}" ] && [ ! "$WINETRICKS_VERSION" = "${latest_version}" ] && \
--        echo "${latest_version}" | grep -E "[0-9]{8}" ; then
--
--        if [ -f "${WINETRICKS_CONFIG}/enable-auto-update" ] ; then
--            w_info "You are running winetricks-${WINETRICKS_VERSION}."
--            w_info "New upstream release winetricks-${latest_version} is available."
--            w_info "auto-update enabled: running winetricks_selfupdate"
--            winetricks_selfupdate
--        else
--            w_warn "You are running winetricks-${WINETRICKS_VERSION}, latest upstream is winetricks-${latest_version}!"
--            w_warn "You should update using your distribution's package manager, --self-update, or manually."
--        fi
--    fi
--}
--
- winetricks_print_version()
+@@ -766,6 +766,9 @@ w_dotnet_verify()
+ # Checks if the user can run the self-update/rollback commands
+ winetricks_check_update_availability()
  {
-     # Normally done by winetricks_init, but we don't want to set up the WINEPREFIX
-@@ -4619,7 +4516,6 @@ winetricks_init()
-         echo "Using winetricks $(winetricks_print_version) with ${WINETRICKS_WINE_VERSION} and WINEARCH=${W_ARCH}"
++    w_warn "Self-update not available. Use your distribution's package management."
++    exit
++
+     # Prevents the development file overwrite:
+     if test -d "../.git"
+     then
+@@ -2862,6 +2865,9 @@ winetricks_get_platform()
+ 
+ winetricks_latest_version_check()
+ {
++    w_info "winetricks latest version check update disabled by your distribution"
++    return
++
+     if [ "$WINETRICKS_LATEST_VERSION_CHECK" = 'disabled' ] || [ -f "${WINETRICKS_CONFIG}/disable-latest-version-check" ] ; then
+         w_info "winetricks latest version check update disabled"
+         return
+@@ -4785,7 +4791,6 @@ winetricks_init()
+         echo "Using winetricks $(winetricks_print_version) with ${WINETRICKS_ORIG_WINE_VERSION} and WINEARCH=${W_ARCH}"
      fi
  
 -    winetricks_latest_version_check
  }
  
  winetricks_usage()
-@@ -4690,8 +4586,6 @@ Options:
+@@ -4856,8 +4861,6 @@ Options:
      --force           Don't check whether packages were already installed
      --gui             Show gui diagnostics even when driven by commandline
      --isolate         Install each app or game in its own bottle (WINEPREFIX)
@@ -140,7 +44,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  -k, --keep_isos       Cache isos (allows later installation without disc)
      --no-clean        Don't delete temp directories (useful during debugging)
  -q, --unattended      Don't ask any questions, just install automatically
-@@ -4735,10 +4629,8 @@ winetricks_handle_option()
+@@ -4901,10 +4904,8 @@ winetricks_handle_option()
      --optout) WINETRICKS_STATS_REPORT=0;;
      -q|--unattended) winetricks_set_unattended 1 ;;
      -r|--ddrescue) WINETRICKS_OPT_DD=ddrescue ;;
