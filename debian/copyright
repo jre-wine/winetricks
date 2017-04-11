@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: winetricks
 Upstream-Contact: Austin English <austinenglish@gmail.com>
 Source: https://github.com/Winetricks/winetricks
@@ -8,11 +8,6 @@ X-Upstream-Vcs:
   git clone https://github.com/Winetricks/winetricks.git
 X-Upstream-Bugs:
   https://github.com/Winetricks/winetricks/issues
-Comment: The program depends on multiple optional utilities
-   - winetricks_detect_gui(): zenity, kdialog (kdebase-bin)
-   - winetricks_detect_sudo(): gksudo (gksu), kdesudo
-  .
-  Development list is at <winetricks-dev@googlegroups.com>.
 
 Files: *
 Copyright:
@@ -48,7 +43,7 @@ Files: src/winetricks.svg
 Copyright:
  2010-2011 Joel Holdsworth <joel@airwebreathe.org.uk>
 Comment:
- See http://bugs.debian.org/708198 for confirmation of copyright.
+ See https://bugs.debian.org/708198 for confirmation of copyright.
  .
  Date: Wed, 20 Apr 2011 18:10:48 -0700
  From: Scott Ritchie (winetricks Ubuntu maintainer) <scott@open-vote.org>
