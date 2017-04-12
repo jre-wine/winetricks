@@ -24,7 +24,7 @@ Depends:
  zip,
  ${misc:Depends}
 Recommends:
- sudo | gksu,
+ sudo | gksu | kdesudo,
  xdg-utils,
  zenity | kdebase-bin
 Suggests:
