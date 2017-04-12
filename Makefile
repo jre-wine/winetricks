@@ -4,16 +4,16 @@
 # Copyright (C) 2015-2016 Austin English
 # See also copyright notice in src/winetricks.
 #
-# winetricks comes with ABSOLUTELY NO WARRANTY.
+# This software comes with ABSOLUTELY NO WARRANTY.
 #
-# This is free software, placed under the terms of the
-# GNU Lesser Public License version 2.1, as published by the Free Software
-# Foundation. Please see the file src/COPYING for details.
+# This is free software, placed under the terms of the GNU Lesser
+# Public License version 2.1 (or later), as published by the Free
+# Software Foundation. Please see the file COPYING for details.
 #
 # Web Page: http://winetricks.org
 #
 # Maintainers:
-# Dan Kegel <dank!kegel.com>, Austin English <austinenglish!gmail.com>
+# Austin English <austinenglish!gmail.com>
 
 INSTALL = install
 INSTALL_PROGRAM = $(INSTALL)
@@ -37,7 +37,7 @@ clean:
 		-o -name "*.log" \
 		-o -name "*.out" \
 		-o -name "*.verbs" \
-	| xargs --no-run-if-empty rm
+	| xargs -r rm
 	rm -rf src/df-* src/measurements src/links.d
 
 # Remove trailing whitespaces
@@ -54,6 +54,10 @@ install:
 	$(INSTALL_PROGRAM) src/winetricks $(DESTDIR)$(PREFIX)/bin/winetricks
 	$(INSTALL) -d $(DESTDIR)$(PREFIX)/share/man/man1
 	$(INSTALL_DATA) src/winetricks.1 $(DESTDIR)$(PREFIX)/share/man/man1/winetricks.1
+	$(INSTALL) -d $(DESTDIR)$(PREFIX)/share/applications
+	$(INSTALL_DATA) src/winetricks.desktop $(DESTDIR)$(PREFIX)/share/applications/winetricks.desktop
+	$(INSTALL) -d $(DESTDIR)$(PREFIX)/share/icons/hicolor/scalable/apps
+	$(INSTALL_DATA) src/winetricks.svg $(DESTDIR)$(PREFIX)/share/icons/hicolor/scalable/apps/winetricks.svg
 
 check:
 	echo 'This verifies that most DLL verbs, plus flash, install ok.'
@@ -84,6 +88,9 @@ check:
 	sh ./tests/winetricks-test check-deps || exit 1
 	echo "Running tests"
 	cd src; if test -z "$(WINEARCH)" ; then export WINEARCH=win32 ; fi ; sh ../tests/winetricks-test quick
+
+check-coverage:
+	WINETRICKS_ENABLE_KCOV=1 $(MAKE) check
 
 shell-checks:
 	echo "This runs shell checks only. Currently, these are checkbashisms and shellcheck."
@@ -124,6 +131,12 @@ test:
 	if test ! -z "$(XDG_CACHE_HOME)" ; then rm -rf $(XDG_CACHE_HOME)/winetricks ; else rm -rf $(HOME)/.cache/winetricks ; fi
 	cd src; if test -z "$(WINEARCH)" ; then export WINEARCH=win32 ; fi ; sh ../tests/winetricks-test full
 
+test-coverage:
+	WINETRICKS_ENABLE_KCOV=1 $(MAKE) test
+
 xvfb-check:
 	echo "xvfb runs make check, for verbs safe for it"
 	cd src; if test -z "$(WINEARCH)" ; then export WINEARCH=win32 ; fi ; sh ../tests/winetricks-test xvfb-check
+
+xvfb-check-coverage:
+	WINETRICKS_ENABLE_KCOV=1 $(MAKE) xfvb-check-coverage

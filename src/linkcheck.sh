@@ -5,9 +5,9 @@
 #
 # This software comes with ABSOLUTELY NO WARRANTY.
 #
-# This is free software, placed under the terms of the
-# GNU Lesser Public License version 2.1, as published by the Free Software
-# Foundation. Please see the file COPYING for details.
+# This is free software, placed under the terms of the GNU Lesser
+# Public License version 2.1 (or later), as published by the Free
+# Software Foundation. Please see the file COPYING for details.
 
 set -e
 
@@ -22,9 +22,11 @@ check_deps() {
     fi
 }
 
-datadir="links.d"
+# FIXME: make sure that this is top directory ( -d README.d or something):
+datadir="output/links.d"
+mkdir -p "${datadir}"
 
-WINETRICKS_SOURCEFORGE=http://downloads.sourceforge.net
+WINETRICKS_SOURCEFORGE=https://downloads.sourceforge.net
 # ftp.microsoft.com resolves to two different IP addresses, one of which is broken
 ftp_microsoft_com=64.4.17.176
 
@@ -37,7 +39,9 @@ w_download() {
 
 # Extract list of URLs from winetricks
 extract_all() {
-    grep '^ *w_download ' winetricks | egrep 'ftp|http|WINETRICKS_SOURCEFORGE'| sed 's/^ *//' | tr -d '\\' > url-script-fragment.tmp
+    # https://github.com/koalaman/shellcheck/issues/861
+    # shellcheck disable=SC1003
+    grep '^ *w_download ' winetricks | grep -E 'ftp|http|WINETRICKS_SOURCEFORGE'| sed 's/^ *//' | tr -d '\\' > url-script-fragment.tmp
     # shellcheck disable=SC1091
     . ./url-script-fragment.tmp
 }
@@ -50,7 +54,7 @@ show_one() {
     urlfile=$1
     base=${urlfile%.url}
     url="$(cat "$urlfile")"
-    if egrep "HTTP.*200|HTTP.*30[0-9]|Content-Length" "$base.log" > /dev/null
+    if grep -E "HTTP.*200|HTTP.*30[0-9]|Content-Length" "$base.log" > /dev/null
     then
         passes=$((passes + 1))
     else
@@ -86,7 +90,7 @@ crawl_one() {
        sort > "$base.log"
     # more diff-able?
     #cat "$base.log" |
-    #  egrep 'HTTP|Last-Modified:|Content-Length:|ETag:' |
+    #  grep -E 'HTTP|Last-Modified:|Content-Length:|ETag:' |
     #  tr '\012' ' ' |
     #  sed 's/ Connection:.*//' > "$datadir"/"$urlkey.dat"
     #echo "" >> "$base.dat"

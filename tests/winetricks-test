@@ -1,5 +1,15 @@
 #!/bin/sh
 # Regression test for winetricks
+#
+# Copyright (C) 2010-2014 Dan Kegel
+# Copyright (C) 2011-2017 Austin English
+# See also copyright notice in src/winetricks.
+#
+# This software comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the GNU Lesser
+# Public License version 2.1 (or later), as published by the Free
+# Software Foundation. Please see the file COPYING for details.
 
 # TODO:
 # add selfupdate tests
@@ -10,7 +20,55 @@ WINE_PREFIXES=${WINE_PREFIXES:-$HOME/winetrickstest-prefixes}
 XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 cache="$XDG_CACHE_HOME/winetricks"
 
+#set -e
 set -x
+
+# FIXME: currently this requires running from src (linkcheck.sh might too), which is ugly.
+# IMO it should run from top, and/or have the logic to find src and cd there itself
+# Once this is fixed, check outputdir logic below:
+if [ -f README.md ] ; then
+    TOP="$PWD"
+elif [ -f ../README.md ] ; then
+    TOP="$(realpath ..)"
+else
+    echo "Running from unknown directory. Exiting"
+    exit 1
+fi
+
+# Start with a fresh output dir each time:
+outputdir="${TOP}/output"
+rm -rf "${outputdir}"
+mkdir -p "${outputdir}"
+
+# Workaround for:
+# kcov has trouble with forking shell scripts
+# https://github.com/SimonKagstrom/kcov/issues/64
+# https://github.com/SimonKagstrom/kcov/issues/165
+
+# check-deps checks for time/cabextract, but doesn't invoke winetricks so we don't care about it for coverage
+# If the below code runs, it creates an empty 'kcov-results' dir in the root directory. So, bail out here:
+if [ "$1" = "check-deps" ] ; then
+    true
+
+# Using an environmental variable rather than a CLI option
+# so it doesn't need extra handling/targets in Makefile
+elif [ ! -z "$WINETRICKS_ENABLE_KCOV" ] ; then
+    KCOV_RESULTS="${outputdir}/kcov-results"
+    rm -rf "$KCOV_RESULTS"
+    mkdir -p "$KCOV_RESULTS"
+
+    # kcov --kcov-options output-dir testscript --test-script-args
+    # I think kcov lets you append results, if not we may have to use separate for each invocation then combine at the end
+    # It seems to be capping out at 468 lines for me. Mentioned on their github here:
+    # https://github.com/SimonKagstrom/kcov/issues/165
+
+    # Previously, winetricks-test used `$WINETRICKS`. That fails for kcov, which
+    # then tracks bash itself and not winetricks. `./winetricks` works fine.
+    WINETRICKS="kcov --configure=bash-use-basic-parser=1 $KCOV_RESULTS ./winetricks"
+    #WINETRICKS="kcov --configure=bash-use-basic-parser=1 $KCOV_RESULTS-$(date +%k-%M-%S) ./winetricks"
+else
+    WINETRICKS="./winetricks"
+fi
 
 # Disable winetricks update checks:
 WINETRICKS_LATEST_VERSION_CHECK=disabled
@@ -40,14 +98,17 @@ BLACKLIST="$BLACKLIST|dx8sdk"
 BLACKLIST="$BLACKLIST|xmllite"
 # redundant metaverbs
 BLACKLIST="$BLACKLIST|allcodecs"
-# doesn't always quit properly:
-BLACKLIST="$BLACKLIST|spotify"
 # FIXME: (wine/winetricks bug?) usually hangs in winetricks-test:
 BLACKLIST="$BLACKLIST|dotnet30sp1|dotnet35|dotnet35sp1|dotnet45"
 # mfplat.dll.MFTRegister https://bugs.winehq.org/show_bug.cgi?id=37811
 BLACKLIST="$BLACKLIST|xvid"
 # https://bugs.winehq.org/show_bug.cgi?id=40460
 BLACKLIST="$BLACKLIST|dotnet20sp2|xna31"
+# https://bugs.winehq.org/show_bug.cgi?id=42470
+# https://bugs.winehq.org/show_bug.cgi?id=42542
+BLACKLIST="$BLACKLIST|dotnet46|dotnet461|dotnet462"
+# https://bugs.winehq.org/show_bug.cgi?id=16876
+BLACKLIST="$BLACKLIST|wmi"
 
 # Travis CI is apparently blocking archive.org, which breaks several verbs:
 # https://github.com/travis-ci/travis-ci/issues/6798
@@ -113,11 +174,11 @@ w_die()
 w_time()
 {
     # OSX time doesn't support -o, so try it first:
-    if ! /usr/bin/time -o test.log echo test > /dev/null 2>&1
+    if ! /usr/bin/time -o "${outputdir}/test.log" echo test > /dev/null 2>&1
     then
         /usr/bin/time -p "$@"
     else
-        /usr/bin/time -p -o time.log "$@"
+        /usr/bin/time -p -o "${outputdir}/time.log" "$@"
     fi
 }
 
@@ -134,7 +195,7 @@ case "$OS" in
     esac
     WINE=""
     WINESERVER=true
-    DRIVE_C="C:/"
+    #DRIVE_C="C:/"
     ;;
  *)
     export WINE=${WINE:-wine}
@@ -177,18 +238,16 @@ case "$OS" in
     ;;
 esac
 
-srcdir=$(cd "$(dirname "$0")" || w_die "Could not cd to $(dirname "$0")" ; pwd)
-
 test_speed()
 {
     # shellcheck disable=SC2086
-    if ! w_time $XVFB sh winetricks nocrashdialog "$1" > foo.log
+    if ! w_time $XVFB $WINETRICKS nocrashdialog "$1" > "${outputdir}/foo.log"
     then
         fail "winetricks $1 returned status $?"
     fi
 
     # shellcheck disable=SC2046
-    if [ $(wc -l < foo.log) -lt 5 ] ; then
+    if [ $(wc -l < "${outputdir}/foo.log") -lt 5 ] ; then
         fail "winetricks $1 returned too few lines"
     fi
 
@@ -196,7 +255,7 @@ test_speed()
         # OSX, fake it:
         seconds=0
     else
-        seconds=$(awk '/real/ {print $2}' < time.log | sed 's/\..*//')
+        seconds=$(awk '/real/ {print $2}' < "${outputdir}/time.log" | sed 's/\..*//')
     fi
 
     echo "test_speed: winetricks $1 took $seconds seconds"
@@ -204,29 +263,6 @@ test_speed()
     # shellcheck disable=SC2086
     if [ $seconds -gt 7 ] ; then
         fail "test_speed: winetricks $1 took $seconds seconds"
-    fi
-}
-
-test_app_checksums()
-{
-    # Verify the installation
-    if [ -f "$srcdir/winetricksverify.d/$app.sha1sum" ]
-    then
-        windir="$($WINE cmd /c echo "%windir%" | cut -c 4- | tr -d '\015')"
-        progdir="$($WINE cmd /c echo "%ProgramFiles%" | cut -c 4- | tr -d '\015')"
-
-        cd "$DRIVE_C" || w_die "Could not cd to $DRIVE_C"
-        # Fix up the filenames, which can differ between Windows versions/Wine:
-        # FIXME: we need a way to guarantee that all _original_ .sha1sums are the same.
-        # Preferably generated under 32-bit wine, so that we don't need a really complex sed
-        # substitution here...
-        sed -e "s!Program\ Files/!/$progdir/!" -e "s!/windows/!/$windir/!" < "$srcdir/winetricksverify.d/$app.sha1sum" > "$app.sha1sum.tmp"
-        if ! sha1sum -c "$app.sha1sum.tmp"
-        then
-            fail "test_app_checksum $app !"
-        fi
-        rm "$app.sha1sum.tmp"
-        cd "$srcdir" || w_die "Could not cd into $srcdir"
     fi
 }
 
@@ -248,11 +284,10 @@ test_app()
     else
         DU_CACHE_START=0
     fi
-    touch df-daemon
-    (set +x; while test -f df-daemon; do total_df; sleep 1; done ) > df-during.log &
+    touch "${outputdir}/df-daemon"
+    (set +x; while test -f "${outputdir}/df-daemon"; do total_df; sleep 1; done ) > "${outputdir}/df-during.log" &
 
     test_command --verify "$app"
-    test_app_checksums
 
     # Post install:
     # Don't check whether metaverbs are installed
@@ -260,8 +295,8 @@ test_app()
     allcodecs) ;;
     *)
         # no xvfb needed
-        sh winetricks -q list-installed > list-installed.out
-        if ! grep -w "$app" list-installed.out
+        ./winetricks -q list-installed > "${outputdir}/list-installed.out"
+        if ! grep -w "$app" "${outputdir}/list-installed.out"
         then
             fail "test app $app not installed after install?"
         fi
@@ -269,15 +304,15 @@ test_app()
     esac
 
     # Cleanup..
-    rm df-daemon
+    rm "${outputdir}/df-daemon"
     # Total max disk usage = max df change plus any initial blocks in cache
-    DF_MIN=$(awk '{ if (min == "" || $1 < min) min=$1; } END {printf "%d\n", min}' < df-during.log )
+    DF_MIN=$(awk '{ if (min == "" || $1 < min) min=$1; } END {printf "%d\n", min}' < "${outputdir}/df-during.log" )
     DF_DIFF=$((DF_START - DF_MIN))
     TOTAL=$((DF_DIFF + DU_CACHE_START))
     echo "test_app: ${app}: max_disk $TOTAL blocks."
     TOTAL_MB=$((TOTAL / 1024))
-    mkdir -p measurements
-    echo "${app}:size_MB=${TOTAL_MB},time_sec=${seconds}" >> "measurements/$app.dat"
+    mkdir -p "${outputdir}/measurements"
+    echo "${app}:size_MB=${TOTAL_MB},time_sec=${seconds}" >> "${outputdir}/measurements/$app.dat"
 }
 
 test_command()
@@ -286,7 +321,7 @@ test_command()
     _command_dash="$(echo "$command" | tr " " "-")"
 
     export WINEPREFIX="$WINE_PREFIXES/$_command_dash"
-    DRIVE_C="$WINEPREFIX/dosdevices/c:"
+    #DRIVE_C="$WINEPREFIX/dosdevices/c:"
 
     # always use a clean $WINEPREFIX
     if [ -d "$WINEPREFIX" ] ; then
@@ -294,7 +329,7 @@ test_command()
     fi
 
     # Isolate us from the user's home directory
-    $XVFB sh -x winetricks sandbox
+    $XVFB $WINETRICKS sandbox
 
     echo "Installing $command"
 
@@ -302,9 +337,9 @@ test_command()
     if [ "$EXPECT_FAIL" = "yes" ] ; then
         # A success is failure:
         # shellcheck disable=SC2086
-        $XVFB sh winetricks --no-isolate -q nocrashdialog "$@" && fail "$command succeeded, should have failed"
-    elif ! w_time $XVFB sh winetricks --no-isolate -q nocrashdialog "$@" ; then
-        rm df-daemon
+        $XVFB $WINETRICKS --no-isolate -q nocrashdialog "$@" && fail "$command succeeded, should have failed"
+    elif ! w_time $XVFB $WINETRICKS --no-isolate -q nocrashdialog "$@" ; then
+        rm "${outputdir}/df-daemon"
         fail "test_command $command failed!"
         return
     else
@@ -324,16 +359,35 @@ test_command()
     do
         case $x in
         dotnet*)
-            killall wineconsole ;;   # bug in wine?  the wineconsoles are for the langpacks, and seem empty.
+            # bug in wine?  the wineconsoles are for the langpacks, and seem empty.
+            if pgrep wineconsole; then
+                killall wineconsole
+            fi
+            ;;
         wmi)
-            killall WinMgmt.exe ;;   # wmi starts a service
+            # wmi starts a service
+            if pgrep WinMgmt ; then
+                killall WinMgmt.exe
+            fi
+            ;;
         fontxplorer)
-            killall winefile.exe ;;  # a number of apps open a folder on the desktop
+            # a number of apps open a folder on the desktop
+            if pgrep winefile ; then
+                killall winefile.exe
+            fi
+            ;;
         hegemony*)
-            killall Launcher.exe ;;  # or should this be in the verb?
+            # or should this be in the verb?
+            if pgrep Launcher ; then
+                killall Launcher.exe
+            fi
+            ;;
         esac
     done
-    killall notepad.exe          # Arcania-Gothic4 and others
+
+    if pgrep notepad.exe ; then
+        killall notepad.exe          # Arcania-Gothic4 and others
+    fi
 
     echo "Checking for dangling processes!"
     # shellcheck disable=SC2009
@@ -353,7 +407,7 @@ test_custom_verbs()
     # Test as apps first, then dll, since they take different codepaths
 
     # First, a working 'app' as an app:
-cat > true.verb <<_EOF
+cat > "${outputdir}/true.verb" <<_EOF
 w_metadata true apps
 
 load_true()
@@ -365,7 +419,7 @@ load_true()
 _EOF
 
     # Next, a broken 'app' as an app:
-cat > false.verb <<_EOF
+cat > "${outputdir}/false.verb" <<_EOF
 w_metadata false apps
 
 load_false()
@@ -377,14 +431,14 @@ load_false()
 _EOF
 
     # no xvfb needed
-    sh winetricks --no-isolate true.verb ; ret=$?
+    $WINETRICKS --no-isolate "${outputdir}/true.verb" ; ret=$?
     case $ret in
-        0) pass "true.verb not isolated, as apps passed" ;;
-        *) fail "true.verb not isolated, as apps failed" ;;
+        0) pass "${outputdir}/true.verb not isolated, as apps passed" ;;
+        *) fail "${outputdir}/true.verb not isolated, as apps failed" ;;
     esac
 
     # no xvfb needed
-    sh winetricks --no-isolate false.verb ; ret=$?
+    $WINETRICKS --no-isolate "${outputdir}/false.verb" ; ret=$?
     case $ret in
         0) fail "false.verb not isolated, as apps worked, should have failed" ;;
         1) pass "false.verb not isolated, as apps passed" ;;
@@ -392,24 +446,24 @@ _EOF
     esac
 
     # no xvfb needed
-    sh winetricks --isolate true.verb ; ret=$?
+    $WINETRICKS --isolate "${outputdir}/true.verb" ; ret=$?
     case $ret in
-        0) pass "true.verb isolated, as apps passed" ;;
-        *) fail "true.verb isolated, as apps failed" ;;
+        0) pass "${outputdir}/true.verb isolated, as apps passed" ;;
+        *) fail "${outputdir}/true.verb isolated, as apps failed" ;;
     esac
 
     # no xvfb needed
-    sh winetricks --isolate false.verb ; ret=$?
+    $WINETRICKS --isolate "${outputdir}/false.verb" ; ret=$?
     case $ret in
-        0) fail "false.verb isolated, as apps worked, should have failed" ;;
-        1) pass "false.verb isolated, as apps passed" ;;
-        *) fail "false.verb isolated, as apps failed in unexpected way" ;;
+        0) fail "${outputdir}/false.verb isolated, as apps worked, should have failed" ;;
+        1) pass "${outputdir}/false.verb isolated, as apps passed" ;;
+        *) fail "${outputdir}/false.verb isolated, as apps failed in unexpected way" ;;
     esac
 
     # Repeat as dll:
 
     # First, a working 'app' as a dll:
-cat > true.verb <<_EOF
+cat > "${outputdir}/true.verb" <<_EOF
 w_metadata true dlls
 
 load_true()
@@ -420,7 +474,7 @@ load_true()
 _EOF
 
     # Next, a broken 'app' as a dll:
-cat > false.verb <<_EOF
+cat > "${outputdir}/false.verb" <<_EOF
 w_metadata false dlls
 
 load_false()
@@ -431,71 +485,74 @@ load_false()
 _EOF
 
     # no xvfb needed
-    sh winetricks --no-isolate true.verb ; ret=$?
+    $WINETRICKS --no-isolate "${outputdir}/true.verb" ; ret=$?
     case $ret in
         0) pass "true.verb isolated, as dlls passed" ;;
         *) fail "true.verb isolated, as dlls failed" ;;
     esac
 
     # no xvfb needed
-    sh winetricks --no-isolate false.verb ; ret=$?
+    $WINETRICKS --no-isolate "${outputdir}/false.verb" ; ret=$?
     case $ret in
-        0) fail "false.verb isolated, as dlls worked, should have failed" ;;
-        1) pass "false.verb isolated, as dlls passed" ;;
-        *) fail "false.verb isolated, as dlls failed in unexpected way" ;;
+        0) fail "${outputdir}/false.verb isolated, as dlls worked, should have failed" ;;
+        1) pass "${outputdir}/false.verb isolated, as dlls passed" ;;
+        *) fail "${outputdir}/false.verb isolated, as dlls failed in unexpected way" ;;
     esac
 
     # no xvfb needed
-    sh winetricks --no-isolate true.verb ; ret=$?
+    $WINETRICKS --no-isolate "${outputdir}/true.verb" ; ret=$?
     case $ret in
-        0) pass "true.verb isolated, as dlls passed" ;;
-        *) fail "true.verb isolated, as dlls failed" ;;
+        0) pass "${outputdir}/true.verb isolated, as dlls passed" ;;
+        *) fail "${outputdir}/true.verb isolated, as dlls failed" ;;
     esac
 
     # no xvfb needed
-    sh winetricks --no-isolate false.verb ; ret=$?
+    $WINETRICKS --no-isolate "${outputdir}/false.verb" ; ret=$?
     case $ret in
-        0) fail "false.verb isolated, as dlls worked, should have failed" ;;
-        1) pass "false.verb isolated, as dlls passed" ;;
-        *) fail "false.verb isolated, as dlls failed in unexpected way" ;;
+        0) fail "${outputdir}/false.verb isolated, as dlls worked, should have failed" ;;
+        1) pass "${outputdir}/false.verb isolated, as dlls passed" ;;
+        *) fail "${outputdir}/false.verb isolated, as dlls failed in unexpected way" ;;
     esac
 
-    rm false.verb true.verb
+    rm "${outputdir}/false.verb" "${outputdir}/true.verb"
     pass
 }
 
 test_dlls()
 {
-    # no xvfb needed
-    sh winetricks list-manual-download > manual.log
-    sh winetricks dlls list | awk '{print $1}' > dlls.log
-    if grep .------------------- dlls.log ; then
+    # no xvfb needed, kcov breaks
+    ./winetricks list-manual-download > "${outputdir}/manual.log"
+    ./winetricks dlls list | awk '{print $1}' > "${outputdir}/dlls.log"
+    if grep .------------------- "${outputdir}/dlls.log" ; then
         fail "output of dlls list contained garbage"
         exit 1
     fi
 
-    sort -u < dlls.log | fgrep -w -v -f manual.log | egrep -v "$BLACKLIST" > dlls.verbs
+    sort -u < "${outputdir}/dlls.log" | grep -F -w -v -f "${outputdir}/manual.log" | grep -E -v "$BLACKLIST" > "${outputdir}/dlls.verbs"
 
-    if [ ! -f dlls.verbs ] ; then
-        w_die "dlls.verbs doesn't exist? No verbs to test!"
-    elif [ -f dlls.verbs ] && [ ! -s dlls.verbs ] ; then
-        w_die "dlls.verbs exists, but it is empty"
+    if [ ! -f "${outputdir}/dlls.verbs" ] ; then
+        w_die "${outputdir}/dlls.verbs doesn't exist? No verbs to test!"
+    elif [ -f "${outputdir}/dlls.verbs" ] && [ ! -s "${outputdir}/dlls.verbs" ] ; then
+        w_die "${outputdir}/dlls.verbs exists, but it is empty"
     else
         echo "Testing these verbs:"
-        cat dll.verbs
+        cat "${outputdir}/dlls.verbs"
     fi
 
     while IFS= read -r line; do
         test_app "$line"
-    done < dlls.verbs
+    done < "${outputdir}/dlls.verbs"
 }
 
 test_dotnet()
 {
     # verify that each individual installer works:
-    # skipping dotnet30sp1/dotnet35/dotnet35sp1/dotnet45, known to hang
-    # FIXME: dotnet20sp2: https://bugs.winehq.org/show_bug.cgi?id=40460
-    for x in dotnet11 dotnet11sp1 dotnet20 dotnet20sp1 dotnet30 dotnet40 dotnet46
+    # skipping dotnet30sp1/dotnet35/dotnet35sp1/dotnet45, known to hang (FIXME bug)
+    # dotnet20sp2: https://bugs.winehq.org/show_bug.cgi?id=40460
+    # dotnet46/461/462:
+    # https://bugs.winehq.org/show_bug.cgi?id=42470
+    # https://bugs.winehq.org/show_bug.cgi?id=42542
+    for x in dotnet11 dotnet11sp1 dotnet20 dotnet20sp1 dotnet30 dotnet40
     do
         echo "testing $x"
         test_command --verify $x
@@ -519,31 +576,15 @@ test_dotnet()
     done
 }
 
-test_manual_dlls()
-{
-    # no xvfb needed
-    sh winetricks list-manual-download > manual.log
-    sh winetricks dlls list | awk '{print $1}' > dlls.log
-    if grep .------------------- dlls.log ; then
-        fail "output of dlls list contained garbage"
-        exit 1
-    fi
-    cat dlls.log manual.log | sort | uniq -c | awk '$1 == 2 {print $2}' | egrep -v "$BLACKLIST" > dlls.verbs
-
-    while IFS= read -r line; do
-        test_app "$line"
-    done < dlls.verbs
-}
-
 test_install_cached_or_download()
 {
-    # no xvfb needed
-    sh winetricks list-cached list-download > ticd.log
+    # no xvfb needed, kcov breaks
+    ./winetricks list-cached list-download > "${outputdir}/ticd.log"
     if grep .------------------- ticd.log ; then
         fail "output of list-cached list-download contained garbage"
         exit 1
     fi
-    sort -u < ticd.log | egrep -v "$BLACKLIST" > ticd.verbs
+    sort -u < ticd.log | grep -E -v "$BLACKLIST" > ticd.verbs
 
     if true ; then
         # Split into two, only do half
@@ -561,15 +602,15 @@ test_install_cached_or_download()
         test_app "$a"
     done
 
-    # no xvfb needed
-    sh winetricks list-cached | sort > cached.txt
+    # no xvfb needed, kcov breaks
+    ./winetricks list-cached | sort > cached.txt
 
     # Verbs that are just wrappers around others don't detect cache/install state yet.
     # Verbs that are just informative placeholders don't ever download (gecko).
     # And some verbs (gecko110) don't usually install for other reasons.
     BLACKLIST_CACHE="allfonts\|cjkfonts\|allcodecs\|gecko\|gecko110\|fontfix"
 
-    egrep -vw "$BLACKLIST_CACHE" ticd.verbs > download.txt
+    grep -E -vw "$BLACKLIST_CACHE" ticd.verbs > download.txt
     comm -23 download.txt cached.txt > download-but-not-cached.txt
     echo "Supposedly downloadable"
     cat download.txt
