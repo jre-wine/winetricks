@@ -5,7 +5,7 @@ Maintainer: Debian Wine Party <pkg-wine-party@lists.alioth.debian.org>
 Uploaders:
  Joseph Bisch <joseph.bisch@gmail.com>
 Build-Depends:
- debhelper (>= 9)
+ debhelper (>= 10)
 Standards-Version: 3.9.8
 Homepage: https://github.com/Winetricks/winetricks
 Vcs-Git: https://anonscm.debian.org/git/pkg-wine/winetricks.git
