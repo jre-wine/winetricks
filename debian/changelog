@@ -1,3 +1,37 @@
+winetricks (0.0+20170327-1) experimental; urgency=medium
+
+  * New upstream release 20170327.
+  * Add initial d/gbp.conf.
+  * Bump debhelper compat level to 10.
+  * Drop d/winetricks.desktop (applied upstream 20170207).
+  * Drop d/winetricks.svg (applied upstream 20170207).
+  * Drop d/install (all files get installed correctly by upstream now).
+  * Drop d/manpages (gets installed correctly by upstream).
+  * Drop unused d/winetricks.1.pod and related code.
+  * Upstream changelog:
+    - Move to d/upstream/master.
+    - Create based on git tag name.
+    - Update for 20170327.
+  * d/rules: Drop unused variables.
+  * d/copyright:
+    - Drop unnecessary or outdated comments, move to https.
+    - Consistently use LGPL-2.1+ everywhere (upstream and debian).
+      Upstream applied a license cleanup with all authors' consent.
+    - Add myself.
+  * debian/patches/:
+    - Drop 10-option-gui.patch.
+      "winetricks" without further options will start the GUI now.
+    - Simplify remove-self-update.patch.
+  * d/README.Debian:
+    - Update and simplify.
+  * d/control:
+    - Add kdesudo as sudo alternative.
+    - Add myself to uploaders.
+  * Add lintian override for desktop-entry-lacks-keywords-entry.
+  * Add initial d/README.Maintainer.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Wed, 12 Apr 2017 20:32:57 +0200
+
 winetricks (0.0+20170101-1) unstable; urgency=medium
 
   * Team upload.
