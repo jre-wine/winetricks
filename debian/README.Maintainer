@@ -1,0 +1,45 @@
+This is a suggestion for a common workflow for maintainers and a
+reminder for myself.  It's definitely not finished yet.  Please change
+it whereever it's senseful and remove this disclaimer.
+See also the note about pristine-tar in d/gbp.conf.
+jre, 2017-04-12
+
+Update upstream version:
+========================
+
+1. Update from alioth repository and upstream
+---------------------------------------------
+
+$ gbp pull
+$ git fetch --tags https://github.com/winetricks/winetricks.git master
+
+
+2. Import new upstream version
+------------------------------
+
+$ gbp import-orig \
+      --merge-mode=replace \
+      --uscan
+
+This will ask you about the upstream version, give the matching answer:
+# What is the upstream version? [0.0+20170327] 20170327
+
+
+3. Make changes and create changelog
+------------------------------------
+
+[...]
+$ gbp dch \
+      --commit \
+      --full \
+      --spawn-editor=always \
+      -- debian/
+
+Caution: Make sure the "0.0+" prefix is in the version.
+
+
+4. Build package
+----------------
+
+$ gbp buildpackage \
+      --git-tag
