@@ -7,13 +7,18 @@
 #
 # This software comes with ABSOLUTELY NO WARRANTY.
 #
-# This is free software, placed under the terms of the
-# GNU Lesser Public License version 2.1, as published by the Free Software
-# Foundation. Please see the file COPYING for details.
+# This is free software, placed under the terms of the GNU Lesser
+# Public License version 2.1 (or later), as published by the Free
+# Software Foundation. Please see the file COPYING for details.
 
 set -e
 set -u
 set -x
+
+if [ -z "$GITHUB_TOKEN" ] ; then
+    echo "GITHUB_TOKEN must be set in the environment!"
+    exit 1
+fi
 
 # Make sure we're at top level:
 if [ ! -f Makefile ] ; then
@@ -40,6 +45,10 @@ echo "${version}" > files/LATEST
 
 git commit files/LATEST src/winetricks src/winetricks.1 -m "version bump - ${version}"
 git tag -s -m "winetricks-${version}" "${version}"
+
+# update development version in winetricks
+sed -i -e "s%WINETRICKS_VERSION=.*%WINETRICKS_VERSION=${version}-next%" src/winetricks
+git commit src/winetricks -m "development version bump - ${version}-next"
 
 git push
 git push --tags
