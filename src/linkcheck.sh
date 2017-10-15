@@ -15,15 +15,22 @@ passes=0
 errors=0
 
 check_deps() {
-    if ! test -x "$(which curl 2>/dev/null)"
-    then
+    if ! test -x "$(which curl 2>/dev/null)"; then
         echo "Please install curl"
         exit 1
     fi
 }
 
-# FIXME: make sure that this is top directory ( -d README.d or something):
-datadir="output/links.d"
+if [ -f README.md ] ; then
+    TOP="$PWD"
+elif [ -f ../README.md ] ; then
+    TOP=".."
+else
+    echo "Dude, where's my car?!"
+    exit 1
+fi
+
+datadir="${TOP}/output/links.d"
 mkdir -p "${datadir}"
 
 WINETRICKS_SOURCEFORGE=https://downloads.sourceforge.net
@@ -41,7 +48,7 @@ w_download() {
 extract_all() {
     # https://github.com/koalaman/shellcheck/issues/861
     # shellcheck disable=SC1003
-    grep '^ *w_download ' winetricks | grep -E 'ftp|http|WINETRICKS_SOURCEFORGE'| sed 's/^ *//' | tr -d '\\' > url-script-fragment.tmp
+    grep '^ *w_download ' winetricks | grep -E 'ftp|http|WINETRICKS_SOURCEFORGE' | sed 's/^ *//' | tr -d '\\' > url-script-fragment.tmp
     # shellcheck disable=SC1091
     . ./url-script-fragment.tmp
 }
@@ -54,8 +61,7 @@ show_one() {
     urlfile=$1
     base=${urlfile%.url}
     url="$(cat "$urlfile")"
-    if grep -E "HTTP.*200|HTTP.*30[0-9]|Content-Length" "$base.log" > /dev/null
-    then
+    if grep -E "HTTP.*200|HTTP.*30[0-9]|Content-Length" "$base.log" > /dev/null; then
         passes=$((passes + 1))
     else
         echo "BAD $url"
@@ -67,8 +73,7 @@ show_one() {
 
 # Show full report on most recent crawl
 show_all() {
-    for urlfile in "$datadir"/*.url
-    do
+    for urlfile in "$datadir"/*.url ; do
         show_one "$urlfile"
     done
 }
@@ -85,15 +90,15 @@ crawl_one() {
     url="$(cat "$urlfile")"
 
     curl --connect-timeout 10 --retry 6 -s -S -I "$url" 2>&1 |
-       tr -d '\015' |
-       grep . |
-       sort > "$base.log"
+        tr -d '\015' |
+        grep . |
+        sort > "$base.log"
     # more diff-able?
-    #cat "$base.log" |
+    # cat "$base.log" |
     #  grep -E 'HTTP|Last-Modified:|Content-Length:|ETag:' |
     #  tr '\012' ' ' |
     #  sed 's/ Connection:.*//' > "$datadir"/"$urlkey.dat"
-    #echo "" >> "$base.dat"
+    # echo "" >> "$base.dat"
     show_one "$urlfile"
 }
 
@@ -101,8 +106,7 @@ crawl_one() {
 # Do fetches in background so slow servers don't hang us
 # Print quick feedback as results come in
 crawl_all() {
-    for urlfile in "$datadir"/*.url
-    do
+    for urlfile in "$datadir"/*.url ; do
         url="$(cat "$urlfile")"
         echo "Crawling $url"
         crawl_one "$urlfile" &
