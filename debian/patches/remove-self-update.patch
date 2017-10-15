@@ -7,7 +7,7 @@ Last-Update: 2017-04-11
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/src/winetricks
 +++ b/src/winetricks
-@@ -766,6 +766,9 @@ w_dotnet_verify()
+@@ -804,6 +804,9 @@ w_dotnet_verify()
  # Checks if the user can run the self-update/rollback commands
  winetricks_check_update_availability()
  {
@@ -15,9 +15,9 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 +    exit
 +
      # Prevents the development file overwrite:
-     if test -d "../.git"
-     then
-@@ -2862,6 +2865,9 @@ winetricks_get_platform()
+     if test -d "../.git"; then
+         w_warn "You're running in a dev environment. Please make a copy of the file before running this command."
+@@ -2914,6 +2917,9 @@ winetricks_get_platform()
  
  winetricks_latest_version_check()
  {
@@ -27,7 +27,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
      if [ "$WINETRICKS_LATEST_VERSION_CHECK" = 'disabled' ] || [ -f "${WINETRICKS_CONFIG}/disable-latest-version-check" ] ; then
          w_info "winetricks latest version check update disabled"
          return
-@@ -4785,7 +4791,6 @@ winetricks_init()
+@@ -4803,7 +4809,6 @@ winetricks_init()
          echo "Using winetricks $(winetricks_print_version) with ${WINETRICKS_ORIG_WINE_VERSION} and WINEARCH=${W_ARCH}"
      fi
  
@@ -35,7 +35,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  }
  
  winetricks_usage()
-@@ -4856,8 +4861,6 @@ Options:
+@@ -4874,8 +4879,6 @@ Options:
      --force           Don't check whether packages were already installed
      --gui             Show gui diagnostics even when driven by commandline
      --isolate         Install each app or game in its own bottle (WINEPREFIX)
@@ -44,7 +44,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  -k, --keep_isos       Cache isos (allows later installation without disc)
      --no-clean        Don't delete temp directories (useful during debugging)
  -q, --unattended      Don't ask any questions, just install automatically
-@@ -4901,10 +4904,8 @@ winetricks_handle_option()
+@@ -4919,10 +4922,8 @@ winetricks_handle_option()
      --optout) WINETRICKS_STATS_REPORT=0;;
      -q|--unattended) winetricks_set_unattended 1 ;;
      -r|--ddrescue) WINETRICKS_OPT_DD=ddrescue ;;
