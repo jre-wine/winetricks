@@ -1,3 +1,19 @@
+winetricks (0.0+20170823-1) unstable; urgency=medium
+
+  * Upload to unstable.
+  * New upstream release 20170823.
+  * d/gbp.conf: Enable pristine-tar in "gbp pull".
+  * d/copyright: Update.
+  * d/patches:
+    - Refresh patches.
+    - Add patch to use /usr/share/metainfo/ for appdata.xml.
+  * d/rules: Use dpkg library to get upstream version.
+  * d/README.Maintainer: Document get-changelog.
+  * d/control: Update standards version.
+  * d/changelog: Fix typo about upstream changelog location in previous entry.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sun, 15 Oct 2017 22:33:12 +0200
+
 winetricks (0.0+20170327-1) experimental; urgency=medium
 
   * New upstream release 20170327.
@@ -9,7 +25,7 @@ winetricks (0.0+20170327-1) experimental; urgency=medium
   * Drop d/manpages (gets installed correctly by upstream).
   * Drop unused d/winetricks.1.pod and related code.
   * Upstream changelog:
-    - Move to d/upstream/master.
+    - Move to d/upstream/.
     - Create based on git tag name.
     - Update for 20170327.
   * d/rules: Drop unused variables.
