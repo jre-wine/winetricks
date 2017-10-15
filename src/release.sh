@@ -12,8 +12,33 @@
 # Software Foundation. Please see the file COPYING for details.
 
 set -e
-set -u
+#set -u
 set -x
+
+nopush=0
+# Don't push commits/tags or upload files
+if [ "$1" = "--no-push" ] ; then
+    nopush=1
+    shift
+fi
+
+# FIXME: If "--no-push" isn't set, above statement dies, not sure how to construct properly to avoid
+set -u
+
+# For a WINEPREFIX for winetricks list commands:
+tmpdir="$(mktemp -d)"
+
+# WINEPREFIX must be under a directory owned by user, so can't be in /tmp directly..
+export WINEPREFIX="${tmpdir}/wineprefix"
+
+# Set an empty cache so nothing shows as cached:
+export W_CACHE="/dev/null"
+
+# Set WINEARCH="win32" so we don't get 64-bit warning in output:
+export WINEARCH="win32"
+
+# Needed by the list commands below:
+export WINETRICKS_LATEST_VERSION_CHECK="development"
 
 if [ -z "$GITHUB_TOKEN" ] ; then
     echo "GITHUB_TOKEN must be set in the environment!"
@@ -43,24 +68,46 @@ sed -i -e "s%\\.TH.*%${line}%" src/winetricks.1
 # update LATEST (version) file
 echo "${version}" > files/LATEST
 
-git commit files/LATEST src/winetricks src/winetricks.1 -m "version bump - ${version}"
+# Update verb lists:
+# actual categories
+./src/winetricks apps list | sed 's/[[:blank:]]*$//' > files/verbs/apps.txt
+./src/winetricks benchmarks list | sed 's/[[:blank:]]*$//' > files/verbs/benchmarks.txt
+./src/winetricks dlls list | sed 's/[[:blank:]]*$//' > files/verbs/dlls.txt
+./src/winetricks games list | sed 's/[[:blank:]]*$//' > files/verbs/games.txt
+./src/winetricks settings list | sed 's/[[:blank:]]*$//' > files/verbs/settings.txt
+
+# meta categories
+./src/winetricks list-all | sed 's/[[:blank:]]*$//' > files/verbs/all.txt
+./src/winetricks list-download | sed 's/[[:blank:]]*$//' > files/verbs/download.txt
+./src/winetricks list-manual-download | sed 's/[[:blank:]]*$//' > files/verbs/manual-download.txt
+
+git commit files/LATEST files/verbs/*.txt src/winetricks src/winetricks.1 -m "version bump - ${version}"
 git tag -s -m "winetricks-${version}" "${version}"
 
 # update development version in winetricks
 sed -i -e "s%WINETRICKS_VERSION=.*%WINETRICKS_VERSION=${version}-next%" src/winetricks
 git commit src/winetricks -m "development version bump - ${version}-next"
 
-git push
-git push --tags
-
+if [ $nopush = 1 ] ; then
+    echo "--no-push used, not pushing commits / tags"
+else
+    git push
+    git push --tags
+fi
 
 # create local tarball, identical to github's generated one
-git archive --prefix="winetricks-${version}/" -o "../${version}.tar.gz" "${version}"
+git archive --prefix="winetricks-${version}/" -o "${tmpdir}/${version}.tar.gz" "${version}"
 
 # create a detached signature of the tarball
-gpg --armor --default-key 0xA041937B --detach-sign "../${version}.tar.gz"
+gpg --armor --default-key 0xA041937B --detach-sign "${tmpdir}/${version}.tar.gz"
 
 # upload the detached signature to github:
-python3 src/github-api-releases.py  ../../"${version}.tar.gz.asc" Winetricks winetricks "${version}"
+if [ $nopush = 1 ] ; then
+    echo "--no-push used, not uploading signature file"
+else
+    python3 src/github-api-releases.py  "${tmpdir}/${version}.tar.gz.asc" Winetricks winetricks "${version}"
+fi
+
+rm -rf "${tmpdir}"
 
 exit 0

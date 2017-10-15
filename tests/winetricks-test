@@ -11,6 +11,8 @@
 # Public License version 2.1 (or later), as published by the Free
 # Software Foundation. Please see the file COPYING for details.
 
+# Requires wine >= 2.8 (https://bugs.winehq.org/show_bug.cgi?id=37811)
+
 # TODO:
 # add selfupdate tests
 # automate non -q verbs with autohotkey
@@ -29,7 +31,8 @@ set -x
 if [ -f README.md ] ; then
     TOP="$PWD"
 elif [ -f ../README.md ] ; then
-    TOP="$(realpath ..)"
+    # realpath isn't available on OSX, use a subshell instead:
+    TOP="$(cd .. && echo "$PWD")"
 else
     echo "Running from unknown directory. Exiting"
     exit 1
@@ -79,34 +82,25 @@ WINETRICKS_SUPER_QUIET=1
 export WINETRICKS_SUPER_QUIET
 
 # verbs known to not work in -q mode yet
-BLACKLIST="kde|mingw|psdk2003|psdkwin7"
+BLACKLIST="dx8sdk|kde|mingw|psdk2003|psdkwin7"
 # verbs that hang in -q because of simple problem we should work around soon
 BLACKLIST="$BLACKLIST|vc2005trial"
 # verbs that are too slow
 BLACKLIST="$BLACKLIST|bfbc2|dxsdk_nov2006|dxsdk_jun2010"
-# verbs that are too flaky
-BLACKLIST="$BLACKLIST|wowtrial|mfsxde"
 # steam verbs I don't have
 BLACKLIST="$BLACKLIST|borderlands|supermeatboy|trine"
 # broken http://bugs.winehq.org/show_bug.cgi?id=26411:
 BLACKLIST="$BLACKLIST|mfsxde|mfsx_demo"
 # hang lately, probably ui changes in install process
-BLACKLIST="$BLACKLIST|bioshock2|audibledm"
-# We don't have -q support for these
-BLACKLIST="$BLACKLIST|dx8sdk"
+BLACKLIST="$BLACKLIST|bioshock2"
 # broken/flaky, http://bugs.winehq.org/show_bug.cgi?id=26016
 BLACKLIST="$BLACKLIST|xmllite"
 # redundant metaverbs
 BLACKLIST="$BLACKLIST|allcodecs"
 # FIXME: (wine/winetricks bug?) usually hangs in winetricks-test:
 BLACKLIST="$BLACKLIST|dotnet30sp1|dotnet35|dotnet35sp1|dotnet45"
-# mfplat.dll.MFTRegister https://bugs.winehq.org/show_bug.cgi?id=37811
-BLACKLIST="$BLACKLIST|xvid"
 # https://bugs.winehq.org/show_bug.cgi?id=40460
 BLACKLIST="$BLACKLIST|dotnet20sp2|xna31"
-# https://bugs.winehq.org/show_bug.cgi?id=42470
-# https://bugs.winehq.org/show_bug.cgi?id=42542
-BLACKLIST="$BLACKLIST|dotnet46|dotnet461|dotnet462"
 # https://bugs.winehq.org/show_bug.cgi?id=16876
 BLACKLIST="$BLACKLIST|wmi"
 
@@ -139,17 +133,15 @@ errors=0
 # Better to find out they're missing now than in the
 # middle of a two day run.
 check_deps() {
-    for tool in time cabextract
-    do
+    for tool in time cabextract; do
         which $tool
         ret=$?
 
-        if [ ! $ret -eq 0 ]
-        then
+        if [ ! $ret -eq 0 ] ; then
             echo "Please install $tool."
             exit 1
         fi
-     done
+    done
 }
 
 fail()
@@ -174,8 +166,7 @@ w_die()
 w_time()
 {
     # OSX time doesn't support -o, so try it first:
-    if ! /usr/bin/time -o "${outputdir}/test.log" echo test > /dev/null 2>&1
-    then
+    if ! /usr/bin/time -o "${outputdir}/test.log" echo test > /dev/null 2>&1; then
         /usr/bin/time -p "$@"
     else
         /usr/bin/time -p -o "${outputdir}/time.log" "$@"
@@ -187,45 +178,49 @@ case "$LANG" in
 esac
 
 case "$OS" in
- "Windows_NT")
-    # Mostly unimplemented...
-    # Cheezy fix for getting rid of double slashes when running cygwin in wine
-    case "$HOME" in
-      /) HOME="" ;;
-    esac
-    WINE=""
-    WINESERVER=true
-    #DRIVE_C="C:/"
-    ;;
- *)
-    export WINE=${WINE:-wine}
-    # Find wineserver.  Some distros (Debian) don't have it on the path,
-    # on the mistaken understanding that user scripts never need it :-(
-    # If wineserver is from wine-development set WINE to wine-development.
-    # FIXME: get packagers to put wineserver on the path.
-    for x in \
-        "$WINESERVER" \
-        "${WINE}server" \
-        "$(which wineserver 2> /dev/null)" \
-        "$(dirname $WINE)/server/wineserver" \
-        /usr/lib/wine/wineserver \
-        /usr/lib/i386-kfreebsd-gnu/wine/wineserver \
-        /usr/lib/i386-linux-gnu/wine/wineserver \
-        /usr/lib/powerpc-linux-gnu/wine/wineserver \
-        /usr/lib/i386-kfreebsd-gnu/wine/bin/wineserver \
-        /usr/lib/i386-linux-gnu/wine/bin/wineserver \
-        /usr/lib/powerpc-linux-gnu/wine/bin/wineserver \
-        /usr/lib/x86_64-linux-gnu/wine/bin/wineserver \
-        /usr/lib/i386-kfreebsd-gnu/wine-development/wineserver \
-        /usr/lib/i386-linux-gnu/wine-development/wineserver \
-        /usr/lib/powerpc-linux-gnu/wine-development/wineserver \
-        /usr/lib/x86_64-linux-gnu/wine-development/wineserver \
-        file-not-found
+    "Windows_NT")
+        # Mostly unimplemented...
+        # Cheezy fix for getting rid of double slashes when running cygwin in wine
+        case "$HOME" in
+            /) HOME="" ;;
+        esac
+
+        WINE=""
+        WINESERVER=true
+        #DRIVE_C="C:/"
+        ;;
+    *)
+        export WINE=${WINE:-wine}
+        # Find wineserver.  Some distros (Debian) don't have it on the path,
+        # on the mistaken understanding that user scripts never need it :-(
+        # If wineserver is from wine-development set WINE to wine-development.
+        # FIXME: get packagers to put wineserver on the path.
+        for x in \
+            "$WINESERVER" \
+            "${WINE}server" \
+            "$(which wineserver 2> /dev/null)" \
+            "$(dirname $WINE)/server/wineserver" \
+            /usr/lib/wine/wineserver \
+            /usr/lib/i386-kfreebsd-gnu/wine/wineserver \
+            /usr/lib/i386-linux-gnu/wine/wineserver \
+            /usr/lib/powerpc-linux-gnu/wine/wineserver \
+            /usr/lib/i386-kfreebsd-gnu/wine/bin/wineserver \
+            /usr/lib/i386-linux-gnu/wine/bin/wineserver \
+            /usr/lib/powerpc-linux-gnu/wine/bin/wineserver \
+            /usr/lib/x86_64-linux-gnu/wine/bin/wineserver \
+            /usr/lib/i386-kfreebsd-gnu/wine-development/wineserver \
+            /usr/lib/i386-linux-gnu/wine-development/wineserver \
+            /usr/lib/powerpc-linux-gnu/wine-development/wineserver \
+            /usr/lib/x86_64-linux-gnu/wine-development/wineserver \
+            file-not-found
     do
         if [ -x "$x" ] ; then
             case "$x" in
                 /usr/lib/*/wine-development/wineserver)
-                        if [ -x /usr/bin/wine-development ] ; then WINE="/usr/bin/wine-development" ; fi ;;
+                    if [ -x /usr/bin/wine-development ] ; then
+                        WINE="/usr/bin/wine-development"
+                    fi
+                    ;;
             esac
             break
         fi
@@ -241,8 +236,7 @@ esac
 test_speed()
 {
     # shellcheck disable=SC2086
-    if ! w_time $XVFB $WINETRICKS nocrashdialog "$1" > "${outputdir}/foo.log"
-    then
+    if ! w_time $XVFB $WINETRICKS nocrashdialog "$1" > "${outputdir}/foo.log"; then
         fail "winetricks $1 returned status $?"
     fi
 
@@ -296,8 +290,7 @@ test_app()
     *)
         # no xvfb needed
         ./winetricks -q list-installed > "${outputdir}/list-installed.out"
-        if ! grep -w "$app" "${outputdir}/list-installed.out"
-        then
+        if ! grep -w "$app" "${outputdir}/list-installed.out"; then
             fail "test app $app not installed after install?"
         fi
         ;;
@@ -355,8 +348,7 @@ test_command()
     echo "test_app: ${app}: install_time $seconds seconds."
 
     # Cleanup:
-    for x in $command
-    do
+    for x in $command; do
         case $x in
         dotnet*)
             # bug in wine?  the wineconsoles are for the langpacks, and seem empty.
@@ -549,11 +541,7 @@ test_dotnet()
     # verify that each individual installer works:
     # skipping dotnet30sp1/dotnet35/dotnet35sp1/dotnet45, known to hang (FIXME bug)
     # dotnet20sp2: https://bugs.winehq.org/show_bug.cgi?id=40460
-    # dotnet46/461/462:
-    # https://bugs.winehq.org/show_bug.cgi?id=42470
-    # https://bugs.winehq.org/show_bug.cgi?id=42542
-    for x in dotnet11 dotnet11sp1 dotnet20 dotnet20sp1 dotnet30 dotnet40
-    do
+    for x in dotnet11 dotnet11sp1 dotnet20 dotnet20sp1 dotnet30 dotnet40 dotnet46 dotnet461 dotnet462; do
         echo "testing $x"
         test_command --verify $x
     done
@@ -562,15 +550,13 @@ test_dotnet()
 
     # combinations that should work:
     # FIXME: dotnet20sp2: https://bugs.winehq.org/show_bug.cgi?id=40460
-    for combo in "dotnet20 dotnet20sp2"
-    do
+    for combo in "dotnet20 dotnet20sp2"; do
         # shellcheck disable=SC2086
         EXPECT_FAIL=yes test_command --verify $combo
     done
 
     # combinations that should break:
-    for fail_combo in "dotnet11 dotnet20"
-    do
+    for fail_combo in "dotnet11 dotnet20"; do
         # shellcheck disable=SC2086
         EXPECT_FAIL=yes test_command $fail_combo
     done
@@ -597,8 +583,7 @@ test_install_cached_or_download()
         VERBS=$(cat ticd.verbs)
     fi
 
-    for a in $VERBS
-    do
+    for a in $VERBS; do
         test_app "$a"
     done
 
@@ -631,8 +616,7 @@ test_quick()
     echo "warning: quick test takes up around 20GB"
     # Test the frequent download-changes-checksum offenders first
     export W_CACHE="$cache"
-    for a in $QUICKCHECK
-    do
+    for a in $QUICKCHECK; do
         # shellcheck disable=SC2115
         rm -rf "$WINE_PREFIXES/$a"
         test_app "$a"
@@ -651,6 +635,7 @@ test_full() {
     test_speed list-cached
     test_speed list-installed
     test_custom_verbs
+    test_w_compare_wine_version
 }
 
 test_xvfb() {
@@ -666,12 +651,117 @@ test_xvfb() {
     test_dlls
 }
 
+helper_test_w_compare_wine_version()
+{
+    version="$1" # version we're pretending to be (e.g., wine-2.0)
+    comparison="$2" # the comparison to make (e.g., ',1.8', '1.9,', or '1.8,1.9')
+    workaround_expected="$3" # should the workaround be executed (yes/no)
+
+    WINETRICKS_WINE_VERSION="$version"
+    export WINETRICKS_WINE_VERSION
+
+if [ "${workaround_expected}" = "yes" ] ; then
+    cat > "${outputdir}/test_version.verb" <<_EOF
+w_metadata test_version settings
+
+load_test_version()
+{
+    # FIXME: w_info/w_die aren't getting through b/c of QUIET? stop using quiet everywhere..
+    if w_workaround_wine_bug 99999 "test" "$comparison" ; then
+        w_info "Using w_workaround, expected, version: $WINETRICKS_WINE_VERSION"
+    else
+        w_die "Not using w_workaround, unexpected, version: $WINETRICKS_WINE_VERSION"
+    fi
+}
+_EOF
+elif [ "${workaround_expected}" = "no" ] ; then
+    cat > "${outputdir}/test_version.verb" <<_EOF
+w_metadata test_version settings
+
+load_test_version()
+{
+    if w_workaround_wine_bug 99999 "test" "$comparison" ; then
+        w_die "Using w_workaround, unexpected, version: $WINETRICKS_WINE_VERSION"
+    else
+        w_info "Not using w_workaround, expected, version: $WINETRICKS_WINE_VERSION"
+    fi
+}
+_EOF
+else
+    w_die "unknown value ${workaround_expected}!"
+fi
+
+    # no xvfb needed
+    $WINETRICKS -v --no-isolate "${outputdir}/test_version.verb" ; ret=$?
+    case $ret in
+        0) pass "test_version.verb (version: $version comparison: $comparison expected: $workaround_expected passed" ;;
+        *) fail "test_version.verb (version: $version comparison: $comparison expected: $workaround_expected failed" ;;
+    esac
+}
+
+test_w_compare_wine_version()
+{
+    # Previous code was very fragile, and had no regression tests.
+    # Now that we can override reported Wine version with $WINETRICKS_WINE_VERSION, easier to test using some custom verbs
+
+    #    val1,   (for >= val1)
+    #    ,val2   (for <= val2)
+    #    val1,val2 (for >= val1 && <= val2)
+
+    # helper_test_w_compare_wine_version() {
+    #    version="$1" # version we're pretending to be (e.g., wine-2.0)
+    #    comparison="$2" # the comparison to make (e.g., ',1.8', '1.9,', or '1.8,1.9')
+    #    workaround_expected="$3" # should the workaround be executed (yes/no)
+
+    helper_test_w_compare_wine_version "wine-2.0" ",1.6" "no"
+    helper_test_w_compare_wine_version "wine-2.0" ",1.4" "no"
+    helper_test_w_compare_wine_version "wine-2.0" "1.4,1.6" "no"
+    helper_test_w_compare_wine_version "wine-1.6" "1.4,2.0" "yes"
+    helper_test_w_compare_wine_version "wine-1.0" "1.8.0," "no"
+    helper_test_w_compare_wine_version "wine-1.0" ",1.8.0" "yes"
+    helper_test_w_compare_wine_version "wine-1.3" ",1.2" "no"
+    helper_test_w_compare_wine_version "wine-1.3" "1.2," "yes"
+    helper_test_w_compare_wine_version "wine-1.3.4" ",1.2" "no"
+    helper_test_w_compare_wine_version "wine-1.3.4" "1.2," "yes"
+    helper_test_w_compare_wine_version "wine-1.6" ",1.2" "no"
+    helper_test_w_compare_wine_version "wine-1.6" ",1.2" "no"
+    helper_test_w_compare_wine_version "wine-1.6" "1.2," "yes"
+    helper_test_w_compare_wine_version "wine-1.6-rc1" ",1.2" "no"
+    helper_test_w_compare_wine_version "wine-1.6-rc1" "1.2," "yes"
+    helper_test_w_compare_wine_version "wine-2.0.1" ",1.8.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0.1" "1.8.0," "yes"
+    helper_test_w_compare_wine_version "wine-2.0.1" ",2.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0.1" ",2.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0.1" "2.0," "yes"
+    helper_test_w_compare_wine_version "wine-2.0" ",1.8.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0" ",1.8.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0" "1.8.0," "yes"
+    helper_test_w_compare_wine_version "wine-2.0" "1.8.0," "yes"
+    helper_test_w_compare_wine_version "wine-2.0" ",1.8.1" "no"
+    helper_test_w_compare_wine_version "wine-2.0" "1.8.1," "yes"
+    helper_test_w_compare_wine_version "wine-2.0" ",1.8" "no"
+    helper_test_w_compare_wine_version "wine-2.0" "1.8," "yes"
+    helper_test_w_compare_wine_version "wine-2.0" ",1.9" "no"
+    helper_test_w_compare_wine_version "wine-2.0.1 (debian 2.0.1-r1)" ",1.8.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0.1 (debian 2.0.1-r1)" "1.8.0," "yes"
+    helper_test_w_compare_wine_version "wine-2.0.1 (staging)" ",1.8.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0.1 (staging)" "1.8.0," "yes"
+    helper_test_w_compare_wine_version "wine-2.0-rc1" ",1.8.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0-rc1" ",1.8.0" "no"
+    helper_test_w_compare_wine_version "wine-2.0-rc1" "1.8.0," "yes"
+    helper_test_w_compare_wine_version "wine-3.0" ",1.8.0" "no"
+    helper_test_w_compare_wine_version "wine-3.0" "1.8.0," "yes"
+
+    # FIXME: there's plenty of room for more tests..
+}
+
 case "$1" in
     check-deps) check_deps ; exit $? ;;
     custom-verbs) test_custom_verbs ;;
     dotnet) check_deps && test_dotnet ;;
     full)  check_deps && test_full ;;
     quick) check_deps && test_quick ;;
+    w_compare_wine_version) check_deps && test_w_compare_wine_version ;;
     xvfb-check) check_deps && XVFB=xvfb-run && export XVFB && test_xvfb ;;
     *) echo "Usage: $0 quick\|full" ; exit 1 ;;
 esac

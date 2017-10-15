@@ -20,8 +20,7 @@ w_die() {
 w_try() {
     "$@"
     status=$?
-    if test $status -ne 0
-    then
+    if test $status -ne 0; then
         w_die "Note: command $* returned status $status.  Aborting."
     fi
 }
@@ -53,11 +52,18 @@ else
     files_to_check="$(find . -type f -exec file {} \; | grep -e 'POSIX shell script' | cut -d : -f1)"
 fi
 
-for shellscript in $files_to_check
-do
+for shellscript in $files_to_check; do
     echo "Checking ${shellscript} for bashisms:"
     w_try checkbashisms --posix "${shellscript}"
 
     echo "Checking ${shellscript} with shellcheck:"
     w_try shellcheck -s sh "${shellscript}"
+
+    echo "Checking ${shellscript} with bashate:"
+
+    # Can't ignore individual things for now, filed bug:
+    # https://bugs.launchpad.net/bash8/+bug/1698088
+    # E006=line length check
+    # E010=do/while same line (in some perl in winetricks)
+    w_try bashate -i E006,E010 "${shellscript}"
 done
