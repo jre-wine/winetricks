@@ -1,3 +1,1164 @@
+commit 2932be389a5d646c7c00a1e18a055e9a707f79e3
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20171018
+
+commit 471f1bd4aa4235e4b1cb78590d56aff50a9c35e9
+Author: mmengden <mmengden@users.noreply.github.com>
+
+    vcrun2017: new verb
+
+commit b5ef847a1618191083c0b3857315e70f715e3638
+Author: Austin English <austinenglish@gmail.com>
+
+    w_do_call(): check for conflicts before installed_file
+
+commit 5d7a3a604352dadde001b12d99616dec7a51243a
+Author: Austin English <austinenglish@gmail.com>
+
+    wmi: fix download url
+
+commit 3bae8bbb0311c50e3e37eec5a66f8d7d659b43ed
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks : remove hegemony demos, now 404ing
+
+commit 880b22ad2ff86cd66469dfac34047a60c03c5936
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    Makefile: install appdata file to /usr/share/metainfo/.
+
+commit 24da1fc64cc66e0180c2caa0c46448729c1f64b2
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    debian: update copyright file
+
+commit 043b9c00625c18432bca07c47eae98cb0a4ba086
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    src/winetricks: document use of torify
+
+commit a328a45272b458e030baa4e3c9740c01d98689f1
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: wrap wineserver with warnings for users
+
+commit 254cb28d4e9d6a084b41186f39670655691c5c41
+Author: Austin English <austinenglish@gmail.com>
+
+    Revert "winhttp: use win7 dll instead of win2ksp4, also add 64-bit support"
+
+commit 6e7b7782ff0c4c344e988316100a7d0c946ff8de
+Author: Austin English <austinenglish@gmail.com>
+
+    webio: add new dll
+
+commit 2dcf55e9ee3d7446e297ef78086c4083df7c1904
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: introduce $W_TASKSET, for Linux/FreeBSD support
+
+commit fb00967f23a022e592f24a5857218574f393a8ef
+Author: Viktor Szakats <vszakats@users.noreply.github.com>
+
+    Secure URLs
+
+commit b7fa9388b9dffd462d0519624d9299c15ae42d39
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_regedit: split into 32/64 bit versions, run both by default
+
+commit b5ab30ac1e18dbd590b63de0042211cdfb7ed648
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: return a specific exit code when a verb is unsupported on a given WINEARCH
+
+commit 28b9a872750368f6e17f61bf3df04654b0f55122
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: make multi-arch wine aware, fixes .Net on 64-bit prefixes
+
+commit c0bf0c433c2f00f0fbdd980bda88ba7ab74f4179
+Author: Austin English <austinenglish@gmail.com>
+
+    safari: use $WINE_MULTI
+
+commit d8a32c956f4ec3f0b89e42de004ef3eb392b80c4
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: lay out a multi-arch aware wine setup
+
+commit fe46e918592ffa6c0a3ac1388f6d3e0b5959e74c
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40: add another warning for 64-bit
+
+commit 81fe7a8755b9693d6f0d973f96e8612aa2b17e72
+Author: Austin English <austinenglish@gmail.com>
+
+    vjrun20: unsupported on win64 (dotnet20)
+
+commit 3aba8e4ef7332af4d0b42aab1cb1844ff9f2cc5a
+Author: Austin English <austinenglish@gmail.com>
+
+    secur32: fix a typo breaking verb on win64
+
+commit 87a8338836c892b1c84f7023cd4dda734293951a
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8_kb2936068: unsupported on win64
+
+commit f6c1161ee6d516d2b91323bd1822b289184573d3
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: win64 prefixes are not supported by installer
+
+commit dd9349298cd59f60af146c71493d1c7b247b7c80
+Author: Austin English <austinenglish@gmail.com>
+
+    improve win64 broken/unsupported messages a bit
+
+commit d7580b147f563afda8b1366cdad3af4b73598fdc
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: indent case statements
+
+commit e7b89a1f6fbcb64d75d7974f2e6b1f57e86b7924
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: indent case statements
+
+commit b66560de246c7d2a7a52bbab5934f618c16e44fa
+Author: Austin English <austinenglish@gmail.com>
+
+    speechsdk: wine-2.18 ships a stub sapi.dll, work around it
+
+commit 24b0dfb2218c9d2267191b477c635d474c7f08a7
+Author: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>
+
+    Updated Russian translation
+
+commit 335fd6f0133b8a936e58bdcf3f111d86f1703d82
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    fakejapanese_vlgothic: new verb
+
+commit 0a068d6ecedc0cfedf47a7063c1eeb51b97b41a4
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    vlgothic: new verb, VLGothic Japanese fonts
+
+commit 3789b8e3e93117dc781f3d6ca2cbcb778d50c2a8
+Author: Austin English <austinenglish@gmail.com>
+
+    ie6: update URL
+
+commit c81b00601c8daaa995263cce796881fa6f2f2817
+Author: lsdage <jbradavka@gmail.com>
+
+    fix of a typo
+
+commit fcfd655fedd9497ff6aca2538f5cbffad6a54eb8
+Author: Shannon VanWagner <shannon.vanwagner@gmail.com>
+
+    Update Winetricks - vs2010express ISO link
+
+commit 63bc6dbe612d017a0cb6bf6e4cde265162d75bca
+Author: Austin English <austinenglish@gmail.com>
+
+    liberation: update URL
+
+commit 584825bcf3d768832842af45190a9893072045e9
+Author: Austin English <austinenglish@gmail.com>
+
+    usp10: add missing 'cp' in win64 mode
+
+commit 3874de2a55bcca8abf5078acf1e9593dc10b1d21
+Author: Austin English <austinenglish@gmail.com>
+
+    w_override_all_dlls: sync dll list to wine-2.16
+
+commit e8c8066851eea550c5207caa8997b1b40f79695d
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20170823-next
+
+commit 1c616909eb73331537cd7c91f71efdc688589c36
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20170823
+
+commit b37e09f7d45236efaadbe5dc244c27a55d52040a
+Author: Austin English <austinenglish@gmail.com>
+
+    gmdls: fix download URL
+
+commit b01d50df89f7b54ee308b48bb0481209390e69ad
+Author: Austin English <austinenglish@gmail.com>
+
+    tests: use more consistent if/then formatting
+
+commit 7010bc6f90122a31e838dd8628844317e76ffccb
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: use more consistent if/then formatting
+
+commit ea53a316dd48104e10d5b254be58db006cf5c41a
+Author: Austin English <austinenglish@gmail.com>
+
+    linkcheck.sh: formatting fixes
+
+commit e03b0121d576243690521e59e7944411e32297e9
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: re-enable indentation checks, now that all are fixed
+
+commit a7fef155e32f04128cee7dbc9937c16f426322a3
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: fix for/do for bashate
+
+commit c75820ef297a4fe500e0b0ec94c22e07743ecfe5
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix various bashate issues
+
+commit 89b7fedb6e98ed89599d6ed2bb415289285199c6
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix various indentation issues (bashate)
+
+commit 27876d67010e7c275ddeb2353acbc6186190d2c5
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix trailing spaces
+
+commit 18d7fe25fa4e7d81014de1fc1fb76a3758e7da97
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release: remove trailing whitespace from verb lists
+
+commit 23ed54224c007938806715d718bf5a5fdbcf34eb
+Author: Austin English <austinenglish@gmail.com>
+
+    debian/copyright: remove trailing whitespace
+
+commit 80ad02b5fccbcb45125f1d660241a10048459708
+Author: k3erg <17491122+k3erg@users.noreply.github.com>
+
+    Use "sort -t. -k 1,1n -k 2,2n -k 3,3n" instead of "sort -t. -k1 -k3 " to support 2.xx builds
+
+commit ee984cf1481d58180cca4c5c85197d5ae24674df
+Author: k3erg <17491122+k3erg@users.noreply.github.com>
+
+    replace "sort -V" with "sort -n -t. -k1 -k3"
+
+commit 9fe62fc9ad849619edc0b40f07c05e68534c1f81
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: update
+
+commit b5a00481ab17ec297dffd90793a468eed0e3486f
+Author: Austin English <austinenglish@gmail.com>
+
+    adobeair: force a quiet install to work around wine bug 43506
+
+commit c3b859f7294d7aad5ba0c337c68994aa95e77a49
+Author: Austin English <austinenglish@gmail.com>
+
+    w_common_override_dll: fix find command for wine manifest files
+
+commit c1a41f27c22b2bb669a7785282168452dc340442
+Author: Austin English <austinenglish@gmail.com>
+
+    w_compare_wine_version: fix portability that I stupidly broke (e.g., Dash)
+
+commit 5264c18acb28797d955fabca29ef9f8414926210
+Author: Austin English <austinenglish@gmail.com>
+
+    version warning
+
+commit 7c02ec965a920ef0d39c1bf5aab2d818457ad2ad
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_early_wine: add a kludge for Debian
+
+commit 43314ed7895396bfd625824d88b5e19c25f46cac
+Author: AsciiWolf <mail@asciiwolf.com>
+
+    Add AppStream appdata file
+
+commit 27a073c7bf9774e7c5e2bf68fa8a35fac0a26b68
+Author: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>
+
+    Updated Russian translation
+
+commit 373643b47f07b0a202cedaf9206e8639be7aa1aa
+Author: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>
+
+    Fixed some typos in Russian translation
+
+commit d9811c99fe604a01180da5a1d6d5777eb572e9ef
+Author: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>
+
+    Added Russian translation to the shortcut comment
+
+commit d4abeeecbc59bd14100f2f214f7b75210e5ce51f
+Author: Andrey Gusev <glintwine@users.noreply.github.com>
+
+    Update Ukrainian translation
+
+commit 9dc7daac7dfe51f59e3886e39d3b61cd1f933720
+Author: Austin English <austinenglish@gmail.com>
+
+    wsh56js/wsh56vb: deprecated, use wsh57
+
+commit 2e5ad1f3a6443a4a99bc8c7db583270e43786fa6
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: realpath isn't available on OSX, use a subshell instead of find directory name
+
+commit bd74f7f2b3acd34a4c300eff7b01fc5ea92949d2
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: cleanup blacklist a bit
+
+commit eb883a67437da4338f2be0e16bcf2bd3aa4a4538
+Author: Austin English <austinenglish@gmail.com>
+
+    misc/bisect-wine-winetricks.sh: add missing `run` to git bisect command in usage note
+
+commit aa8e26fddb7a96cba2e38a1e808d0eaf3d971f34
+Author: Austin English <austinenglish@gmail.com>
+
+    shockwave: update shasum
+
+commit 11d778fb69f9ea1e88a96948544161bbdb17078d
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: fix cabextract checks in verbs that call other verbs with cabextract as a dependency
+
+commit 5060f652dcb2c9b1765e049f6f56d9ff1a2f9086
+Author: Austin English <austinenglish@gmail.com>
+
+    get bashate running on OSX
+
+commit 8d413b42aede532ef89f076d93283e23540b13b5
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: only run bashate if it's available
+
+commit e41818fa47397ca491976c080b4bd6d3fb30f9b2
+Author: Austin English <austinenglish@gmail.com>
+
+    travis.yml: add bashgate
+
+commit 937694590f3849942f724c851d5b1560b244160f
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: add bashate
+
+commit d0ed5bb55e224275451795c79943354f1a98f164
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix bashate issues
+
+commit cc74fb2764c90b71d085eb16b86997d5773e5591
+Author: Austin English <austinenglish@gmail.com>
+
+    src/winetricks: fix bashate issues
+
+commit b578cbb27d203dda4b99aae655577872cf09e83f
+Author: Austin English <austinenglish@gmail.com>
+
+    src/uniquefiles.sh: fix bashate issues
+
+commit 6ee098eb5d69da5750df751c590a213a548cc6f6
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: fix bashate issues
+
+commit f2def6a54e115dd9c87f4e97f0fbad1ca60bd1a3
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: allow setting --no-push to run a test release without pushing anything to the net
+
+commit ef96effb78650bbbad6cb1abb099a5fd54a60f7e
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: use tmpdir for tarball/signature file
+
+commit 55f84b2620519c4d1544c59db62c733400d4d5a1
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: make files/verbs output more consistent
+
+commit 6bb189fab227a8192ac767f860bf01a9fb5f4b70
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20170614-next
+
+commit 2c1c48057d6a57621f90c00892e2b9991a40fd86
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20170614
+
+commit e3851c2e538b5982eed8a99cff94cae79c0ec9f6
+Author: Austin English <austinenglish@gmail.com>
+
+    ev3: bug 34897 was fixed in 1.9.12
+
+commit 6097da246f72cf553cc1354e47fe37189df2cac1
+Author: Austin English <austinenglish@gmail.com>
+
+    qedit: add back dll, using dll from win7
+
+commit 79b0f2138cecfbf10ded12a3075a5b89fb791f59
+Author: Austin English <austinenglish@gmail.com>
+
+    msscript: use dll from winxpsp3
+
+commit d4056f55efe643a4bbed129d1eee893443583858
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2008: remove manifests when installing native dll
+
+commit 6226c413238779abea2a8f6480eef4d048392140
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2005: use native,builtin override and remove manifest
+
+commit c37ee2caa02d5e66d97970504b595f55b5852cb7
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: unify dll overriding code fromw_override_dlls() w_override_app_dlls() in a new w_common_override_dll() function
+
+commit cf324ae258d895ab1ec81da25cfa64212d234608
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: rework version comparing, use sort -V + grep rather than test
+
+commit 5ff2a152b70d23fd20d3d6d380ad4c5c48f6dc7e
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet462: add a workaround for list-installed
+
+commit d5f861d00a4a81cf6a5b68bc8f9ce6f2541b2610
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet_verifier: update shasum/URL
+
+commit 37c3c33d45c337207b9af32251af715d3f72cb94
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: allow overriding WINETRICKS_WINE_VERSION
+
+commit 5e90e75fd980298254e74b047851061392501bf4
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: remove extra line remaining from a bad rebase
+
+commit b088c9e4bcb035cf7c23d2ab2427f8a24eced090
+Author: Austin English <austinenglish@gmail.com>
+
+    msxml3: update to a working mirror
+
+commit 7b1326c6cf9d79619f5ad8549561219539732a89
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: xvid works now, remove from blacklist
+
+commit 1d7de0fdc374d9f126288f76777b9c176b8824b4
+Author: m4sk1n <me@m4sk.in>
+
+    Added Polish description
+
+commit 6aaa2f9f55ad410bc9c481a0c0a381ad8bb6adf7
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: use w_package_unsupported_win64 in more places
+
+commit cf38737c8013fbc37a58fa2a21278ceb44563e02
+Author: Austin English <austinenglish@gmail.com>
+
+    zootycoon2_demo: remove
+
+commit 9be6db6e2af1eb7503e5751ca125e0bb56f74abc
+Author: Austin English <austinenglish@gmail.com>
+
+    wsh56vb: update URL
+
+commit 1d2bc588f1c1f107445178e758da0816e220b070
+Author: Austin English <austinenglish@gmail.com>
+
+    wmi: update URL
+
+commit bef7af267f43e938875f7775cf86c30098551cb8
+Author: Austin English <austinenglish@gmail.com>
+
+    wme9: update URL
+
+commit d0ce30ac476aec9eb7b76d8cf8e29d959ef4ef69
+Author: Austin English <austinenglish@gmail.com>
+
+    vc2010express: update URL
+
+commit efc446d005c07e2bd3d5ecc16c080bb50e4adff9
+Author: Austin English <austinenglish@gmail.com>
+
+    msscript: update URL
+
+commit fdb1633f832f857f198b8f89796c52a77738da38
+Author: Austin English <austinenglish@gmail.com>
+
+    mspaint: update URL
+
+commit 69a314f448c809b9c971bf8ff2a3447ae4ace7fd
+Author: Austin English <austinenglish@gmail.com>
+
+    imvu: remove
+
+commit 1f68c90f64eaf0bef40219f40733ab3f38a3d174
+Author: Austin English <austinenglish@gmail.com>
+
+    cmd: update URL
+
+commit 252b67fb36e331d665b197f60649c5a30cb45479
+Author: Austin English <austinenglish@gmail.com>
+
+    cabinet/mdac27: update URL
+
+commit 026e6dd3e2bb3a932741dbf6846a9ca19994490c
+Author: Viktor Szakats <vszakats@users.noreply.github.com>
+
+    secure some URLs
+
+commit b033c81abc9e7eb98ec312771f0069e71f5ea797
+Author: Austin English <austinenglish@gmail.com>
+
+    icodecs: improve reliability a bit
+
+commit c69f81391101c51399ea93438e94f19b4082ae25
+Author: Konstantin Kondratyuk <kondratyuk@etersoft.ru>
+
+    dotnet462: fix name of downloading file
+
+commit 60ef48767ffecf472175352290360a3725c4a475
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2005: add win64 support
+
+commit 07992920ad7a9b385c108c4ce12a82ec5adfdc8c
+Author: Austin English <austinenglish@gmail.com>
+
+    icodecs: add iv5setup.exe codecs, needed by Age of Wonders
+
+commit 88e60226141f1e02cb58d6ecf53b8b7627353b2f
+Author: Austin English <austinenglish@gmail.com>
+
+    xlsfonts: give a better warning if xlsfonts is not installed
+
+commit ba7bb0ba92da3f648335867de8aea40b23f7bf42
+Author: Austin English <austinenglish@gmail.com>
+
+    tahoma: update URL (and other misc things)
+
+commit 426bcf7e83b8688d06b320985f0ebdad953f855b
+Author: Austin English <austinenglish@gmail.com>
+
+    secur32: use dll from win7, add win64 support
+
+commit ac74137b3a5f31ba024a93b13c3e5a05baa0644b
+Author: Austin English <austinenglish@gmail.com>
+
+    pngfilt: use dll from winxpsp3
+
+commit 3193b9e7a7e450cc469bc0ba502ea57eaa0b88ad
+Author: Austin English <austinenglish@gmail.com>
+
+    msmask: use vb6sp6 dll
+
+commit 7c6a9b03377acb5a2a154dfc9a298fe23c89055f
+Author: Austin English <austinenglish@gmail.com>
+
+    mshflxgd: use vb6sp6 dll
+
+commit a07b25ec5383ed606df4377d98bcb056765e5cd0
+Author: Austin English <austinenglish@gmail.com>
+
+    mfc40: use dll from win7
+
+commit aeb386458d0521744268d27891f96703e85fb55f
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove unmaintained derived metadata stuff
+
+commit 53742a8c3fca32cc26a2334a8c6caf6d415d623e
+Author: Marcin Mikołajczak <m4sk1n@vivaldi.net>
+
+    Updated Polish translation
+
+commit 16c33ea839d8d0d7ab174bc14666da3e048294df
+Author: QwertyChouskie <qwertychouskie@users.noreply.github.com>
+
+    Small tweaks to IE8 verb
+
+commit 72447b5a5ea206b8faf3f5f8b66ecae02d67c00e
+Author: Austin English <austinenglish@gmail.com>
+
+    migrate a couple links from code.google.com to github.com, document the other two
+
+commit 7b65e5d25b6f257acef87c997b62c9fe9ff82535
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20170517-next
+
+commit f18d038fe00a796fa9b6e227c074cd99299455bd
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20170517
+
+commit afb974ff2a4b68f0ec1895f6852424fed1476c1d
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: request Bitcoin rather than Paypal
+
+commit 878610059a522a03dd15e85b2a5229b2d62028b6
+Author: Austin English <austinenglish@gmail.com>
+
+    riched30: normalize download name
+
+commit 36c9bae95cbf420095d0a8f804fc35c01aa7e815
+Author: Austin English <austinenglish@gmail.com>
+
+    msxml3: update URL
+
+commit 22636428d3370c961d7b29b8f53c4417932f8f98
+Author: Austin English <austinenglish@gmail.com>
+
+    usp10: use dll from win7sp1
+
+commit e245a67b4ce467f3aa6ac529406ae1da5597b6d4
+Author: Austin English <austinenglish@gmail.com>
+
+    riched30: update URL/shasum
+
+commit f7f04ce3f123f9e97d130f33b08bdee20665edc4
+Author: Austin English <austinenglish@gmail.com>
+
+    pdh: use dll from win7sp1
+
+commit 18978dc73f40ede3670219990c2be37dc3f70be4
+Author: Austin English <austinenglish@gmail.com>
+
+    gmdls: remove extraneous w_try() call
+
+commit e2324642b70261f85416d40690d12aaeea53ba7f
+Author: Austin English <austinenglish@gmail.com>
+
+    gmdls: update URL
+
+commit 0eacaf6ec15cf7ea29df51a154fb80834250a6df
+Author: Austin English <austinenglish@gmail.com>
+
+    tabctl32: use vb6sp6 dll
+
+commit 0723c8ab186e52fc83534cd8d1dd35c41638dcb5
+Author: Austin English <austinenglish@gmail.com>
+
+    richtx32: use vb6sp6 dll
+
+commit 59232a3b559560657a0499db901bcd284554d50f
+Author: Austin English <austinenglish@gmail.com>
+
+    msflxgrd: use vb6sp6 dll
+
+commit d6bb4b5bbcaa1e48ab321403a1200ba659e2b62b
+Author: Austin English <austinenglish@gmail.com>
+
+    comdlg32ocx: use vb6sp6 dll
+
+commit 228d87f3f79a194e981faa375ab3bd64a7badb56
+Author: Austin English <austinenglish@gmail.com>
+
+    comctl32ocx: use vb6sp6 dll
+
+commit 0d7bb20cb0a085bab131e517fac12093969ba154
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_vb6sp6: add helper function for Visual Basic 6 SP6
+
+commit bb8df9f393ca46b1a967e9fada8b5d1884b8c478
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_7z: support choosing extracted files
+
+commit 4d39df1cbe31675af5f546666fb7018b7600a1ac
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: fix W_COMMONFILES_WIN for win32 prefixes
+
+commit b51e1a44e8f3687f75b3629364340f8b95b82e2b
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: remove FIXME
+
+commit ebdc0685bbf90128b3e21c6db8b82ac15e0dd2e8
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_win2ksp4: fix servicepack filename
+
+commit b9e9c25b294fd7f4d732bd3f39630dcef78b0306
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_latest_version_check: avoid printing extraneous version number
+
+commit 495690e9910147aa0c0148e47fca323293accc21
+Author: Austin English <austinenglish@gmail.com>
+
+    w_override_all_dlls: sync dll list to wine-2.7
+
+commit d1d1d1115512dd5a0d3cb209ff70711c9efea39a
+Author: Jasmin Sehic <jasmins@embed.com.au>
+
+    Updated .NET Framework 4.6.2 slim source
+
+commit 9073e579b83ee3f24ce14a018d82cd8cdaff1b0b
+Author: QwertyChouskie <qwertychouskie@users.noreply.github.com>
+
+    Fix w_package_warn_win64
+
+commit b687bc64805f8acdf2da62e8e562dc0e8dd86b77
+Author: Austin English <austinenglish@gmail.com>
+
+    qdvd: use dll from win7sp1
+
+commit cb0a9be081e227a1c03c6b359d6a20a7cab49a73
+Author: Austin English <austinenglish@gmail.com>
+
+    dxdiagn: use dll from win7sp1
+
+commit 5cc237e8bff341388172408b670b03f91ea9ed69
+Author: Austin English <austinenglish@gmail.com>
+
+    amstream: use dll from win7sp1
+
+commit 49b6aeb3302703e6cf633ca152555f6561d668f7
+Author: Austin English <austinenglish@gmail.com>
+
+    mdx: use Jun2010 directx
+
+commit b6fc75279ee50eee6c631dade609ea6117db6a08
+Author: Austin English <austinenglish@gmail.com>
+
+    xact: use Jun2010 directx
+
+commit c9e0a5ee5821d54fe6ff0d50989c1efa59104fe1
+Author: Austin English <austinenglish@gmail.com>
+
+    load_native_mdac: set mtxdm to native,builtin
+
+commit e241f04d7b9ec9955f9f1465979d4e48efda962d
+Author: Austin English <austinenglish@gmail.com>
+
+    msls31: update to working URL
+
+commit 3d8e614ac4b498abf70b8604093d3c3f6cd280af
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_win2ksp4: update to working mirror
+
+commit 5e99cb112420c35ae998daabffe26c6b8abf0118
+Author: Austin English <austinenglish@gmail.com>
+
+    d3dx9: use Jun2010 directx
+
+commit 40abf327a0601731b6ca4a4feb5de1c6dcedb5c5
+Author: Austin English <austinenglish@gmail.com>
+
+    d3dx9: add missing d3dx9_xx verbs
+
+commit e17abe557a4d47c8f217a5f147d1f0f0e0878677
+Author: twdragon <twdragon@bmstu.ru>
+
+    Fixed URL and checksum for fonts-opensymbol (release 8 replaced with release 9)
+    Original Debian repository was used to download the .deb file.
+
+commit 2ce3b43209648d05761b0e4d3c4976d3d01f53cc
+Author: Michael Nix <mchl.nix@googlemail.com>
+
+    fixes typo in winetricks (#785)
+
+commit d1bdcd79b9b061a16a1ae09eb6ec541f836032b8
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2008: use native rather than native, builtin to avoid Wine's manifest from being used
+
+commit e4c6cbeb237ab5eb3ab15c189e8df3ce38387023
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2005: use native rather than native, builtin to avoid Wine's manifest from being used
+
+commit 5a41f5bd1861517c288f50e9446d9323d5f49e91
+Author: QwertyChouskie <qwertychouskie@users.noreply.github.com>
+
+    Fix downloading some links from Internet Archive
+
+commit 17dd1fb82953b40c8a5167d8a68249589c1acd34
+Author: Austin English <austinenglish@gmail.com>
+
+    winhttp: use win7 dll instead of win2ksp4, also add 64-bit support
+
+commit 06a872372cee679237d5a27d5f4bdf40b4d515cd
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_winxpsp3: move to gnome.org's mirror, archive.org is unreliable
+
+commit 35eb15ff45656165dff5e9e173ec5d162144ee2c
+Author: Austin English <austinenglish@gmail.com>
+
+    csmt: registry value should be a REG_DWORD, not REG_SZ
+
+commit 8978b5a0d1683516bbc8197e221d8b857df6b9b7
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30: update to a working mirror
+
+commit 3f50cf9e6b142b1ed31739f7b7f14bfd07ce7ae0
+Author: Austin English <austinenglish@gmail.com>
+
+    csmt: add csmt=off/on option for toggling Command Stream Multithreading
+
+commit f192124d74dac6ab6ed6139501551914e034d198
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: generate verb lists to check into git, update on release
+
+commit 73f132f24c8c2710d83f6d8dcb11af02d946a39d
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: re-enable dotnet46* tests
+
+commit ddf5c7c059ebc9b78031584cb82332e091c52d28
+Author: Austin English <austinenglish@gmail.com>
+
+    64-bit cleanups
+
+commit c2324b6d605ec555b3bb8a670668ba097bf39ce5
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add w_package_broken_win64()/w_package_warn_win64() helper functions
+
+commit e5e5ed5b0319896af04e127c0d392cefe031c59b
+Author: Austin English <austinenglish@gmail.com>
+
+    xmllite: add win64 support
+
+commit 4bae98d9404e551da9755a3ba5dbb64f2f76741a
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    src/winetricks: Fix typos in comments and messages.
+
+commit 98f15be400a2cbce7624ace4114d257b5470f860
+Author: Austin English <austinenglish@gmail.com>
+
+    msftedit: add win64 support
+
+commit 0b1708a9bc67d8f405eb8dbb30d19b4f486c8504
+Author: Austin English <austinenglish@gmail.com>
+
+    mf: add win64 support
+
+commit 0dea0c9652e129cab9a00ccb9a1b497768b99172
+Author: Austin English <austinenglish@gmail.com>
+
+    gdiplus: add win64 support
+
+commit 6cad012a1e66c20fad559bf3341228792cc839a3
+Author: Austin English <austinenglish@gmail.com>
+
+    esent: add win64 support
+
+commit c0618e07b3bde15e33faa0f95e76f96378c0dc74
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: add helper_win7sp1_x64()
+
+commit cd0598f2d21d8060dbedbc6548c818630a92c655
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: update a comment
+
+commit efb178992adefe84dfcfcea04ffdb42d1b6e684a
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: warn 64-bit users that most verbs only install 32 bit stuff
+
+commit 7c24e22d5176dd240e23deadbab8d099475f8df6
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: document helper function filelists
+
+commit 8b45a2e9b1452ed6abc5b8f29132147870432e9e
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: add README
+
+commit 6c18a758cd99974d8a9a6fe33344c3cd67b17591
+Author: Austin English <austinenglish@gmail.com>
+
+    misc/filelists: check in filelists of files in directx/service pack archives
+
+commit 7e70cef4fa909e0d6c0428e185b1d5ed54f1358a
+Author: Austin English <austinenglish@gmail.com>
+
+    jet40: use $W_COMMONFILES_WIN instead of $W_COMMONFILES_X86_WIN
+
+commit 2e8fbad10307ae80a975fc30151069407a8730d8
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add $W_COMMONFILES_WIN definition
+
+commit 34686056db5dae047e8224338d5b2cc955e75c29
+Author: Austin English <austinenglish@gmail.com>
+
+    linkcheck.sh: use correct output directory
+
+commit 7f4c027de3c059e63d4ce3619648f4474bbb57fa
+Author: Austin English <austinenglish@gmail.com>
+
+    physx: "SSL: no alternative certificate subject name matches target host name 'uk.download.nvidia.com'"
+
+commit 0938309c84100b7720971bf0c6b03055818f935e
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: sha1 is now deprecated, will be removed in approximately one year. Update requirements/add warning to verbs using sha1
+
+commit 73625652df394207ce30ed0803429478d332c457
+Author: Austin English <austinenglish@gmail.com>
+
+    remove ragnarok, download link is busted and new one requires a log in
+
+commit d652dabcd254ed626c180e73eba62a1c6a5cbd46
+Author: Austin English <austinenglish@gmail.com>
+
+    remove lego_potc_demo,  download is dead, mirrors shasums do not match
+
+commit 9f3f7cfc6d6f3e0fae3df5bb8a861fae109bc773
+Author: Austin English <austinenglish@gmail.com>
+
+    remove gothic4_demo,  download is dead, mirrors shasums do not match
+
+commit d460cda813f56c0064356626197f0b44ab8001e6
+Author: Austin English <austinenglish@gmail.com>
+
+    unigine_heaven: update URL, convert to sha256
+
+commit 12df435298513462c9a753744013783770cae7c4
+Author: Austin English <austinenglish@gmail.com>
+
+    eve: update download URL, convert to sha256
+
+commit a075807a64c59fc4e82935eed10687bf91eb3d15
+Author: Austin English <austinenglish@gmail.com>
+
+    dirt2_demo: update URL, convert to sha256
+
+commit 62209778babe55a3b6691ec219b7bff62df65ccf
+Author: Austin English <austinenglish@gmail.com>
+
+    deusex2_demo: update URL, convert to sha256
+
+commit 17acf6805370796b1bb6343ec927306c11b7beb9
+Author: Austin English <austinenglish@gmail.com>
+
+    bttf101: update URL, convert to sha256
+
+commit 61a02e82827eb5da1940cc8f702377e525059391
+Author: Austin English <austinenglish@gmail.com>
+
+    amnesia_tdd_demo: update URL to working one, convert to sha256
+
+commit 2d8ff9af327bc0aded3ee288122d96f778569d32
+Author: Austin English <austinenglish@gmail.com>
+
+    remove splitsecond_demo, no longer available
+
+commit ac1f34aece2e9b8cedb2856cd88c2269b78fe212
+Author: Austin English <austinenglish@gmail.com>
+
+    remove rayman2_demo, no longer available
+
+commit 1097a8920182622bffb3fcbbea08592f9f529053
+Author: Austin English <austinenglish@gmail.com>
+
+    remove farmsim2011_demo, download is dead, mirrors shasums do not match
+
+commit e935be7ba4197e35700aee522b36b8c987ea0398
+Author: Austin English <austinenglish@gmail.com>
+
+    remove divinity2_demo, download is dead, mirrors shasums do not match
+
+commit 1af593e434746215167dfb55e28790ffa0f1454d
+Author: Austin English <austinenglish@gmail.com>
+
+    remove cojbib_demo, download is dead, mirrors shasums do not match
+
+commit c48d4e4585620964a0ee984b6895316e10cab809
+Author: Austin English <austinenglish@gmail.com>
+
+    remove bladekitten_demo,  download is dead, mirrors shasums do not match
+
+commit 6a11be642a38e1b72015fc394942dc3d07944e69
+Author: Austin English <austinenglish@gmail.com>
+
+    remove aoe_demo, no longer available
+
+commit 8102ca65884c5d9858f95e6771c79f5da248ee55
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove a couple unneeded sha1 comments I missed
+
+commit ab24b7a1e94de78a16cd5f01d44e1a421fa5a343
+Author: Austin English <austinenglish@gmail.com>
+
+    xmllite: use dll from win7sp1
+
+commit c85aa62ccc22f1a488f7763c029bbad3f3637031
+Author: Austin English <austinenglish@gmail.com>
+
+    wog: convert to sha256
+
+commit f6e1669926e6198d8e291a4af468349743aa4721
+Author: Austin English <austinenglish@gmail.com>
+
+    tropico3: update url, convert to sha256
+
+commit 0aee0982d0593ece900d24da03677ffede53332b
+Author: Austin English <austinenglish@gmail.com>
+
+    starcraft2_demo: convert to sha256
+
+commit a9f9f0c869c28887b347e908b3d3bd7e9d75dc18
+Author: Austin English <austinenglish@gmail.com>
+
+    spore_cc_demo: update URL, convert to sha256
+
+commit 2366d4b7b4643c1047d21ebd9d413502e95cd3b6
+Author: Austin English <austinenglish@gmail.com>
+
+    sammax304_demo: convert to sha256
+
+commit 067fec579e01abcec434295816c84d644ff5fe0b
+Author: Austin English <austinenglish@gmail.com>
+
+    sammax301_demo: convert to sha256
+
+commit 76919ccf577e3104fa8bb80e661e9096dc576b91
+Author: Austin English <austinenglish@gmail.com>
+
+    riseofnations_demo: convert to sha256
+
+commit f929f194a42b8f093ecb391c5d91d825860d8072
+Author: Austin English <austinenglish@gmail.com>
+
+    mfsx_demo: change download to a working manual one, convert to sha256
+
+commit 3ee835df0efa85640cdacbc7b1389d051535355e
+Author: Austin English <austinenglish@gmail.com>
+
+    lhp_demo: change to working manual url, update to SHA256
+
+commit 79734cde5aee570c926d6d697b0db00b25e27815
+Author: Austin English <austinenglish@gmail.com>
+
+    hordesoforcs2_demo: convert to sha256
+
+commit dbf87d5e62131c09b6703f2ecc3e32958fda2fe4
+Author: Austin English <austinenglish@gmail.com>
+
+    hon: update to latest, convert to sha256
+
+commit 705cf587b66408d85886636ebca721d3702742d0
+Author: Austin English <austinenglish@gmail.com>
+
+    foobar2000: update, convert to sha256
+
+commit f9a1bb4554906b197c3ca218e70c5e734bddfbe0
+Author: Austin English <austinenglish@gmail.com>
+
+    csi6_demo: convert to sha256
+
+commit 030b0c7a2f81c01c2fd98b2248da95d56a1d7c99
+Author: Austin English <austinenglish@gmail.com>
+
+    cod_demo: convert to sha256
+
+commit 22f2a37c54333902eecc847f1f25b7aa87202940
+Author: Austin English <austinenglish@gmail.com>
+
+    cod4mw_demo: should use w_download_manual, convert to sha256
+
+commit 76837847fb39918a060f757a48e7c3ad36db4dd1
+Author: Austin English <austinenglish@gmail.com>
+
+    cnc_tiberian_sun: update URL, convert to sha256
+
+commit c5fc8e00d5156e25f3e59bea42bcd8de3b9e8c47
+Author: Austin English <austinenglish@gmail.com>
+
+    cnc_redalert3_demo: convert to sha256
+
+commit 1a107281d319cb52f5b43a861ecb9e15a8be19a6
+Author: Austin English <austinenglish@gmail.com>
+
+    civ4_demo: convert to sha256
+
+commit 8ae84fee7336611599bb826259c99648ee965fbd
+Author: Austin English <austinenglish@gmail.com>
+
+    blobby_volley: convert to sha256
+
+commit fdf2a810996b78fbf8a8cd4e3aa32c79e87497f3
+Author: Austin English <austinenglish@gmail.com>
+
+    avatar_demo: convert to sha256
+
+commit 6151f879384ac407147cf480a6d519702425c668
+Author: Austin English <austinenglish@gmail.com>
+
+    atmosphir: update to 1.0.2, convert to sha256
+
+commit 87174ced28b57d8750618de402de79612b5f9765
+Author: Austin English <austinenglish@gmail.com>
+
+    aoe3_demo: update URL, convert to sha256
+
+commit 7222c5d278cb799f7403d2fa39a54afe53a57466
+Author: Austin English <austinenglish@gmail.com>
+
+    3dmark06: convert to sha256
+
+commit 5ca3604ef1be480aa006ba459bca820430c18caf
+Author: Austin English <austinenglish@gmail.com>
+
+    3dmark03: convert to sha256
+
+commit d27c382b5e95fef972981b473450aa9697f1b075
+Author: hillwoodroc <hillwoodroc@gmail.com>
+
+    Add MS ole32 Module.
+
+commit 557d22f002d9f3196cdcb38b7f85639c71420395
+Author: Austin English <austinenglish@gmail.com>
+
+    misc date/formatting fixes
+
+commit d48648c812bdfcdd973d46f2617bf7dfd4610151
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20170327-next
+
 commit c7e3980d17de9082cc747e4f302e778beb4aa510
 Author: Austin English <austinenglish@gmail.com>
 

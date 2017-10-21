@@ -1,3 +1,14 @@
+winetricks (0.0+20171018-1) unstable; urgency=medium
+
+  * New upstream release 20171018.
+  * d/patches:
+    - Refresh patches.
+    - Drop appdata.patch (applied upstream).
+    - Add fix-save-report-statistics-preference.patch.
+  * d/README.Maintainer: Improve upstream changelog instructions.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sat, 21 Oct 2017 15:21:01 +0200
+
 winetricks (0.0+20170823-1) unstable; urgency=medium
 
   * Upload to unstable.
