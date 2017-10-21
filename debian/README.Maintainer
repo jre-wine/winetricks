@@ -25,13 +25,7 @@ This will ask you about the upstream version, give the matching answer:
 # What is the upstream version? [0.0+20170327] 20170327
 
 
-3. Create upstream changelog
-----------------------------
-
-$ ./debian/rules get-changelog
-
-
-4. Make changes and create changelog
+3. Make changes and create changelog
 ------------------------------------
 
 [...]
@@ -42,6 +36,16 @@ $ gbp dch \
       -- debian/
 
 Caution: Make sure the "0.0+" prefix is in the version.
+
+
+4. Update and commit upstream changelog
+---------------------------------------
+
+$ ./debian/rules get-changelog
+$ git add debian/upstream/changelog
+$ git commit --amend
+
+This amends the updated upstream changelog to the debian release commit.
 
 
 5. Build package
