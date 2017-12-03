@@ -14,19 +14,20 @@ Winetricks is licensed under the LGPL 2.1 or later. Sending a pull request indic
 * Test it:
     * Ideally, Winetricks should work under any Wine version. In practice, testing against the current development and stable versions is sufficient.
         * If a bug is only present in some Wine versions, w_workaround_bug() should be used
-    * ```./src/winetricks -q -v foo```
+    * ```./src/winetricks -q -v foo``` to test your changes for verb foo.
     * ```./tests/shell-checks```: MUST pass (Travis CI verifies)
         * This tool uses checkbashisms (package `devscripts` on Debian-based distributions) and [ShellCheck](https://github.com/koalaman/shellcheck)
         * If ShellCheck fails, see [ShellCheck wiki](https://github.com/koalaman/shellcheck/wiki) and fix/[ignore](https://github.com/koalaman/shellcheck/wiki/Ignore) the error(s)
             * Detailed error information is available in the wiki (e.g. [SC2154](https://github.com/koalaman/shellcheck/wiki/SC2154))
-    * ```./tests/winetricks-test check```: optional but recommended, if you have the time and hard drive space this should be run
+    * ```./tests/winetricks-test check```: optional but recommended, if you have the time and hard drive space this should be run. It downloads and installs every verb (?).
 
 ## Sending your patch:
 * Commit:
-    * Commit should start with component affected, or misc/winetricks if generic, followed by a short summary:
+    * Commit should start with component affected (use misc or winetricks for generic changes), followed by a short summary:
     ```git commit -a -m 'vcrun2005: fix a typo'```
         * If you add a new verb, use the format: `verb_name: new verb(, description...)`
-    * Extended git logs are okay if more explanation is needed
+    * Extended git logs are okay if more explanation is needed.
+    * Every PR must/should be for one issue only and should contain one commit only. There's no need to make atomic commits, unless you make really large-scale changes.
 * Send PR: https://github.com/Winetricks/winetricks/compare/
 * If you are asked for changes:
     * Edit the source/commit as appropriate: ```vi src/winetricks``` / ```git commit --amend -a```
