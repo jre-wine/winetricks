@@ -27,7 +27,7 @@ Depends:
 Recommends:
  sudo | gksu | kdesudo,
  xdg-utils,
- zenity | kdebase-bin
+ zenity | kdialog,
 Suggests:
  aria2,
  tor
