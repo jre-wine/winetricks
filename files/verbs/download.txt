@@ -1,4 +1,4 @@
-Using winetricks 20171018 - sha256sum: 637b054ee4c50459e49ccc36f018893dabd194e63e7e856dbf9a6257ba42311a with wine-2.0.2 (Debian 2.0.2-1) and WINEARCH=win32
+Using winetricks 20171222 - sha256sum: b9be878672d7d2ea1206111344d5439c6f0894e758052537dda2cbff4f29777b with wine-2.0.3 (Debian 2.0.3-1) and WINEARCH=win32
 3dmark05
 3dmark2000
 3dmark2001
@@ -24,7 +24,9 @@ bioshock2_steam
 bioshock_demo
 borderlands_steam
 cabinet
+calibri
 cambria
+candara
 civ5_demo_steam
 cjkfonts
 cmake
@@ -39,6 +41,7 @@ consolas
 constantia
 controlpad
 controlspy
+corbel
 corefonts
 crayonphysics_demo
 crypt32
@@ -144,6 +147,7 @@ maxmagicmarker_demo
 mdac27
 mdac28
 mdx
+meiryo
 mf
 mfc40
 mfc42
@@ -187,6 +191,7 @@ penpenxmas
 physx
 plantsvszombies
 pngfilt
+pptfonts
 psdk2003
 psdkwin7
 psdkwin71
