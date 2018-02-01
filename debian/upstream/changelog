@@ -1,3 +1,198 @@
+commit c0674b14a7e49242bbcb424515b41c142fa12ebe
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20171222
+
+commit 7de11b2059cf8b1f4850b8cc54e97740f5d13c3b
+Author: Mihai Todor <todormihai@gmail.com>
+
+    w_register_font: Revert 2c2b44e because it's not needed
+
+commit 552c087014892997af41ebdc3698c97b06da680b
+Author: Mihai Todor <todormihai@gmail.com>
+
+    load_tahoma: Remove outdated FIXME
+
+commit 0f4bdc9d07e72df51cb86049c754838185b5a4e4
+Author: Mihai Todor <todormihai@gmail.com>
+
+    load_cambria: Register Cambria Math
+
+commit 4b2356c9c082ad64422430db6732d306aa3cc785
+Author: Mihai Todor <todormihai@gmail.com>
+
+    Winetricks: Relocate load_consolas to the lexicographical position
+
+commit d3fb42723ce8168b234956f1ff4a50a7eacc3503
+Author: Mihai Todor <todormihai@gmail.com>
+
+    load_pptfonts: new verb, load MS PowerPoint Viewer fonts
+
+commit 63ac0717c3db7f48b94422162dbfb54025a40f62
+Author: Mihai Todor <todormihai@gmail.com>
+
+    load_meiryo: new verb, load MS Meiryo font
+
+commit ab9bce9f3d651b293206ad338c046cea108627d0
+Author: Mihai Todor <todormihai@gmail.com>
+
+    load_corbel: new verb, load MS Corbel font
+
+commit a3320ceb3337cbf6b210ba7c382d76f35fcf065c
+Author: Mihai Todor <todormihai@gmail.com>
+
+    load_candara: new verb, load MS Candara font
+
+commit e95e35b3fc2576b739361dc8f8e1e6a831590624
+Author: Mihai Todor <todormihai@gmail.com>
+
+    load_calibri: new verb, load MS Calibri font
+
+commit 6934fb016dd775a6517983068349f9b0ec8ed685
+Author: Mihai Todor <todormihai@gmail.com>
+
+    load_liberation: Write the correct font names to the registry
+
+commit e5ba397d8373b24966e25112b60a57e654d5ca35
+Author: Mihai Todor <todormihai@gmail.com>
+
+    w_try_cp_font_files: Prevent registry writes race
+
+commit 3adc378c73232f4272fce699e338bfa037ef5f17
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: document bashate's lack of --version
+
+commit 4fbeee3a9a8cc20ffd0dd5c6fb6b0c3b253ed73d
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: refactor tool checks to work with set -e
+
+commit c63979438f894bff8f7730be31855058815a4f1c
+Author: Austin English <austinenglish@gmail.com>
+
+    consolas: fix typo in font name
+
+commit 4bdd67c9b79fba976a986b11570a3676ae84a43b
+Author: Austin English <austinenglish@gmail.com>
+
+    uff: update to 0.83, extract all fonts
+
+commit 2c2b44eec9f9582275c35ddd62a74f2f396855a6
+Author: Austin English <austinenglish@gmail.com>
+
+    w_register_font(): use full path to fonts in $W_FONTSDIR in the registry
+
+commit 6ac8d6c038688e4c216ee220ad78f47fd46b17dd
+Author: Austin English <austinenglish@gmail.com>
+
+    liberation(): sort stuff
+
+commit 4f68eab8b46f094e3b0f26297d28b7649c0c4c90
+Author: Austin English <austinenglish@gmail.com>
+
+    liberation(): add LiberationSansNarrow
+
+commit 458713d233031223b61b1ae78b7e0bd92f91f249
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: don't show an error in winetricks_conficts() or winetricks_is_installed() on first run
+
+commit aaa1a2454a3c61fd26a69a07912e4fb5576d9828
+Author: Austin English <austinenglish@gmail.com>
+
+    corefonts: sort stuff
+
+commit 7969722a8d48eff211ff5461799bb51a55e7a116
+Author: Austin English <austinenglish@gmail.com>
+
+    corefonts/eufonts: fix Trebuchet MS font names
+
+commit 4a258d90d7bfae8a93d51a31ca85047183ee54f4
+Author: Mihai Todor <todormihai@gmail.com>
+
+    winetricks_is_installed: return false if the verb hasn't been run before
+
+commit 3c2532c654c7b26bae673ab25593734819f9fac1
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: fix remaining SC1117 issues
+
+commit 1d3a09aa3982c76b28e1d80a0d724d77889c9e06
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: use double backslashes in registry keys (SC1117)
+
+commit 01a90f6a5872850f5330987b393de1f82ec91b5a
+Author: Mihai Todor <todormihai@gmail.com>
+
+    w_register_font: Register TTC fonts as TrueType
+
+commit a864b065339551995b9ecdfd9ea3a4be85c5da93
+Author: Mihai Todor <todormihai@gmail.com>
+
+    winetricks: Fix font duplication
+
+commit 917618e59951e95779363ae8240d3a59afe2fa6b
+Author: Mihai Todor <todormihai@gmail.com>
+
+    w_try_cp_font_files: new verb, try copy font files
+
+commit 2bc66fa21c6c7089e01a2fa3ee30e30db89580fe
+Author: Austin English <austinenglish@gmail.com>
+
+    shockwave: update shasum
+
+commit f21e87d77be7efc746f3e67fe1ca34a86a207361
+Author: Mihai Todor <todormihai@gmail.com>
+
+    misc: fix OSX builds on Travis
+
+commit 389d1ed6810cab5a54be2d68c2c6b4752a04f272
+Author: Nader Hendawi <naderhen@gmail.com>
+
+    Update netfx_setupverifier_new.zip URL
+
+commit 916f3b03fe2832110d1d46c0c9d2e39c08759215
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: warn user not to run as root
+
+commit 8c73df9b63be18a835a4f1f71f99ccd25ac40673
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: make all shell scripts executable
+
+commit 7e851fabc038848203c61130486fe764cdddce67
+Author: Austin English <austinenglish@gmail.com>
+
+    dxsdk_jun2010: fix sha256sum
+
+commit bf54c6d22d7c5d758a526a2f25f1221a8f1f9055
+Author: Mihai Todor <todormihai@gmail.com>
+
+    w_register_font/w_register_font_replacement: properly backup font reg files
+
+commit aa38a201d29412b4546b54447904e112eb723727
+Author: Mihai Todor <todormihai@gmail.com>
+
+    Add missing Arial Bold EU Font
+
+commit fa07ae25fb8813b475e74190796925d18b491827
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    tracking stats: create cache directory if needed
+
+commit 413f667e1fe6e6bc4a88f636b5f0103aab2f99b9
+Author: Mihai Todor <todormihai@gmail.com>
+
+    Add a couple of missing double semicolons
+
+commit 24c573368a5dce0a81b4e0ca6c66be9ae3cbfe3d
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20171018-next
+
 commit 2932be389a5d646c7c00a1e18a055e9a707f79e3
 Author: Austin English <austinenglish@gmail.com>
 
