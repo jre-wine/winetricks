@@ -22,7 +22,6 @@ Depends:
  unzip,
  wget,
  wine,
- zip,
  ${misc:Depends}
 Recommends:
  policykit-1 | kde-cli-tools,
