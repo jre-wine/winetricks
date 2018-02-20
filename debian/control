@@ -25,7 +25,8 @@ Depends:
  zip,
  ${misc:Depends}
 Recommends:
- sudo | gksu | kdesudo,
+ policykit-1 | kde-cli-tools,
+ sudo,
  xdg-utils,
  zenity | kdialog,
 Suggests:
