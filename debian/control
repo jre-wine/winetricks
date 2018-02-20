@@ -20,7 +20,7 @@ Depends:
  cabextract,
  p7zip,
  unzip,
- wget,
+ wget | curl,
  wine,
  ${misc:Depends}
 Recommends:
