@@ -1,5 +1,8 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: https://winetricks.org
+Comment: winetricks is not part of the Debian distribution, but is in the
+ contrib archive area instead, because while winetricks itself is free software,
+ its main purpose is to download and install mainly non-free software.
 
 Files: *
 Copyright:
