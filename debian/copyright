@@ -1,13 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: winetricks
-Upstream-Contact: Austin English <austinenglish@gmail.com>
-Source: http://winetricks.org
-X-Upstream-Devel:
- https://github.com/Winetricks/winetricks
-X-Upstream-Vcs:
- git clone https://github.com/Winetricks/winetricks.git
-X-Upstream-Bugs:
- https://github.com/Winetricks/winetricks/issues
+Source: https://winetricks.org
 
 Files: *
 Copyright:
