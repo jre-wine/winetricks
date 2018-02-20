@@ -20,7 +20,7 @@ Depends:
  cabextract,
  p7zip,
  unzip,
- wget | curl,
+ aria2 |  wget | curl,
  wine,
  ${misc:Depends}
 Recommends:
@@ -29,7 +29,6 @@ Recommends:
  xdg-utils,
  zenity | kdialog | x11-utils,
 Suggests:
- aria2,
  tor
 Description: package manager for Wine to install software easily
  A POSIX shell script 'package manager' for Wine to install some
