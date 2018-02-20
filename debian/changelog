@@ -1,3 +1,17 @@
+winetricks (0.0+20180217-1) unstable; urgency=medium
+
+  * New upstream release 20180217.
+  * Change to new upstream signing key.
+  * d/control:
+    - Depend on policykit-1 (pkexec) or kde-cli-tools (kdesu).
+      Drop dependencies on gksu and kdesudo.
+      Separately depend on sudo. (Closes: #885548)
+    - Drop dependency on zip (not needed).
+    - Alternatively depend on curl next to wget.
+    - Alternatively depend on x11-utils next to zenity or kdialog.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Tue, 20 Feb 2018 16:40:14 +0100
+
 winetricks (0.0+20171222-1) unstable; urgency=medium
 
   * New upstream release 20171212.

@@ -1,3 +1,83 @@
+commit 4d24734e1aedd21bd97b6b8076ac0f41af83d538
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20180217
+
+commit 875cd2be29ee52bb71e7007ef2cd674b727ca939
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: update to my new signing key (expiring 2021/02/17)
+
+commit 23c86582005a6bf4f7635c3a93ac006199d4e02b
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    winetricks_detect_sudo: add pkexec as default option
+
+commit 6f90f830763572d46438d35a73014e2fe93cf495
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    winetricks: fix sudo usages (quote-related issues and kdesu* command-line issues)
+
+commit d523c3c0e985415ca10fab186c7f7e2abf5b174d
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    fakejapanese_vlgothic, meiryo: conflict each other
+
+commit 1e8b6aaa26aeeff38f9eca46b4c1a4dca2cc19ad
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    cjkfonts: call fakejapanese_vlgothic
+
+commit 80c9ddad4a1786e80390b92416842f3c1d675068
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    allfonts: skip fake* and pptfonts
+
+commit f971dd295a3a611168ae736ad4efb8cfc66ea6ce
+Author: obsequiousnewt <obsequiousnewt@gmail.com>
+
+    wmp10: update overrides
+
+commit 38526731f1d551573c7b3d80f902d4e80833c9e6
+Author: obsequiousnewt <obsequiousnewt@gmail.com>
+
+    wmp9: update overrides
+
+commit b932aed3748242949b9998c28aeda9c2ae20ddea
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    travis.yml: switch to Ubuntu Artful (17.10)
+
+commit efc50d9875a0c9c7473c339359d0cae894f938a9
+Author: 鄭仁翔 <james58899@users.noreply.github.com>
+
+    zh_TW typo
+
+commit 097fcf40fe40a05782b0c4d044ac127a84a5ae55
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    adobeair: use latest version (version 28 as of this commit)
+
+commit 53530c60f45e5257b7d3148598f8b16f228bfe99
+Author: Mihai Todor <todormihai@gmail.com>
+
+    autostart_winedbg: new verb
+
+commit a705475dcf974acd3d62cafc71920cfa58bf8e80
+Author: Mihai Todor <todormihai@gmail.com>
+
+    w_register_font: Remove outdated comments
+
+commit a951dd216cbc0a4aaf8a100f16bbeb421cdcbe91
+Author: Marcin Mikołajczak <me@m4sk.in>
+
+    Update Polish translation
+
+commit d30478da6981e0842956e5b326339b52540efaec
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20171222-next
+
 commit c0674b14a7e49242bbcb424515b41c142fa12ebe
 Author: Austin English <austinenglish@gmail.com>
 
