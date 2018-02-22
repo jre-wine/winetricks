@@ -6,7 +6,7 @@ Uploaders:
  Joseph Bisch <joseph.bisch@gmail.com>,
  Jens Reyer <jre.winesim@gmail.com>,
 Build-Depends:
- debhelper (>= 11~)
+ debhelper (>= 11~),
 Standards-Version: 4.1.3
 Homepage: https://github.com/Winetricks/winetricks
 Vcs-Git: https://anonscm.debian.org/git/pkg-wine/winetricks.git
@@ -16,20 +16,20 @@ Package: winetricks
 Architecture: all
 Multi-Arch: foreign
 Depends:
+ aria2 | wget | curl,
  binutils,
  cabextract,
  p7zip,
  unzip,
- aria2 |  wget | curl,
  wine,
- ${misc:Depends}
+ ${misc:Depends},
 Recommends:
  policykit-1 | kde-cli-tools,
  sudo,
  xdg-utils,
  zenity | kdialog | x11-utils,
 Suggests:
- tor
+ tor,
 Description: package manager for Wine to install software easily
  A POSIX shell script 'package manager' for Wine to install some
  Windows software easily. The list contains about 70 applications
