@@ -1,3 +1,268 @@
+commit 1be4c775b1e307109cd6ae8860309b6a16d28209
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20180513
+
+commit cfe308c810bbbc24a3da985ebf787d47057afe63
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: add a travis check for trailing whitepsace
+
+commit 5881efdb924ef5cfad7042493832347804f6c804
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_list_installed(): use winetricks.log to determine what's been installed rather than parsing metadata/filesystem
+
+commit 9e1fab41487b73708ca71a8bf70047c1b30fffab
+Author: Austin English <austinenglish@gmail.com>
+
+    Revert "winetricks_list_installed(): use winetricks.log to determine what's been installed rather than parsing metadata/filesystem"
+
+commit 166c56b06474a589e05d606fce105c8eac565fe3
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: print test failures at end of the run
+
+commit ce28eb5d833f43d732a8e99e56200a32157d9e0d
+Author: Austin English <austinenglish@gmail.com>
+
+    icodecs: workaround a wine bugfix that makes quiet mode hang
+
+commit 43344b2f0cf577e0298e53910c3f876573ee16b9
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_list_installed(): use winetricks.log to determine what's been installed rather than parsing metadata/filesystem
+
+commit 09cd197760bf9424f95bcd920fc64572dd7d9afe
+Author: Austin English <austinenglish@gmail.com>
+
+    w_askpermission: don't ask for permission in unattended CLI mode
+
+commit 6441e2bc253a89c387d66f03b80ce25d09ca5bc4
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_usage(): document annihilate
+
+commit bba991e0a6790d504cfd95c41ee2cb3ebcb5945e
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_detect_gui(): print zenity/kdialog version info for debugging
+
+commit 94163951d8f1120e41d1c6897c1a3638e69c751a
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: don't append extra '64' onto wine binary name if already there
+
+commit 7dd1edfe7829817b5260cc0ddd1de08b30a2b3e5
+Author: Austin English <austinenglish@gmail.com>
+
+    jet40: fix installation on win64
+
+commit aab121b8e91196b42db2760089b43bed8d8a42b5
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: add bug links for some longstanding FIXMEs
+
+commit aee8d517a9c197085a31fb99fc3cac2e8c1f7e83
+Author: Austin English <austinenglish@gmail.com>
+
+    busybox: new package
+
+commit 77cce998df8fae346ff99270472fc744417b4207
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    travis.yml: install checkbashisms and shellcheck without "brew update"
+
+commit bcea01a47ea29eb7be1de1cf99ebb1a45ce0d631
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    travis.yml: install bashate with .deb files built for Ubuntu 18.04 LTS
+
+commit fd0914db043dd8263c781f36cc401b021bef0a3a
+Author: blizzard <blizzard@sachlevice.eu>
+
+    Fixed URL and checksum for fonts-opensymbol (release 10 replaced with release 11)
+
+commit 5940b26b215521ccd0737dae8459a0762dbccb36
+Author: Andy Pemberton <pembertona@gmail.com>
+
+    remove_mono should also remove 64 bit mscoree.dll; fixes winetricks/issues/972
+
+commit 37927d33901d877d73907593a3fdb452055c5106
+Author: Austin English <austinenglish@gmail.com>
+
+    ev3: remove a no longer needed workaround
+
+commit 55dc7a4ff297ba2b5be7d03de1f4529745a163ef
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: remove a no longer needed workaround
+
+commit ef6672b66af8ba95f38fb485ad57a4da96359ce1
+Author: 朝歌 <amtlib-dot-dll@users.noreply.github.com>
+
+    Revise comments for p7zip and Fedora
+
+commit c55b9adf115030e81b5d25539c596a285fa371e5
+Author: Austin English <austinenglish@gmail.com>
+
+    .travis.yml: fix pip on OSX
+
+commit 956b2eda3db6a44d16edd601abd85c328de4377d
+Author: Austin English <austinenglish@gmail.com>
+
+    remove plantsvszombies, download dead
+
+commit cd8052dfff056ab5db8aae4053890421b08caf81
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: update winxpsp3 mirror
+
+commit 9eaa744cdd8838ed907a9072a947f921257590dc
+Author: Austin English <austinenglish@gmail.com>
+
+    picasa39: remove, no longer supported or available from google
+
+commit 131fc83bf9852f95bd753eb42d54bde7f7b401d7
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    load_amstream() verb, add: w_try_regsvr amstream.dll
+
+commit 6adde42c14146eea61940826fb0e5ceb59be3e63
+Author: Allan M. de Azevedo <4lln.medeiros@gmail.com>
+
+    opensymbol: fix URL and checksum (release 10)
+
+commit 47c4695f29d5f53fd1b3740789b387adeb03f40e
+Author: Matthew Nguyen <matthewnguyen.667@gmail.com>
+
+    Edited README.md
+
+commit f2b3d268d941120d13b4c3c3960b78a879d37761
+Author: Andrew Eikum <aeikum@codeweavers.com>
+
+    xact: Don't install 64-bit xact libraries
+
+commit 185acea55d3b69361ea7eee8240e59dbeec9af28
+Author: Emiel Wiedijk <me@aimileus.nl>
+
+    csmt: CSMT enabled by default in src/winetricks
+
+commit f5a5caca4e4ceecd62cc4a850946535deb009444
+Author: Emiel Wiedijk <me@aimileus.nl>
+
+    verbs: CSMT enabled by default
+
+commit b1d882fa4082c67ac3f461555bc39694a7c52031
+Author: Austin English <austinenglish@gmail.com>
+
+    kindle: use an older Kindle verion to work around wine bug 43508
+
+commit f4d7b0ac35ae6bd1e23f2d904b31c9739ce3fc88
+Author: Austin English <austinenglish@gmail.com>
+
+    windowscodecs: also remove placeholder wmphoto.dll
+
+commit 8d334db8a526f4e4bf906c136b23c45ad4e2f65a
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    winetricks: add "--country=" option and support config file "${WINETRICKS_CONFIG}/country"
+
+commit 0dbcc45ad62bc7e18078d61e36762d5029e1c34d
+Author: Matthias Kastner <mail@matthias-kastner.de>
+
+    office2013pro: new verb
+
+commit 1a5c90475c5d83daba33d12fdbf6dda47156f582
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    dxdiag: use minimal override set for DirectMusic
+
+commit 423fedaf4cf98764414ded9964413a605392d89c
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    dxdiag: use dxdiagn_feb2010
+
+commit a67e8412585b986d4f19baf1b90de499acf81425
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    dxdiagn_feb2010: new verb (February 2010 version)
+
+commit bd21bbbecc1ed2dddb660d5e16aee58d6f202ca0
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    vc2010express: switch from archive.org to a working URL
+
+commit a7be5f160b96c3915a0d30485dd42874db73c2a9
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    shockwave: update sha256sum (12.3.2.202)
+
+commit cae7d189dc19495128e6a11350908033aab3cda6
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    adobeair: update sha256sum (29.0.0.112)
+
+commit 865bef18f46e4fb818ca2aca1e337251ed62fe4e
+Author: Austin English <austinenglish@gmail.com>
+
+    vulkansdk: new verb
+
+commit bcb3ba41d2b34bf516b4c395643db35537194787
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    w_download_to: exit from loop when download succeeded
+
+commit 4ca9345727985d9c7b129e83a172774b4a714c69
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    cod1: fix typos (w_try_cd -> cd)
+
+commit 807ed1f831ff1784e5e58c76e338c88f04801b32
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    debian: prefer policykit-1 for graphical sudo helper
+
+commit e1689bf18522e1eadb920e999882b4d779e2278a
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    debian: update Maintainer and Homepage field
+
+commit c15b52bc5712d3cc1ce40adba3054f5b59d8fede
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks: fix typo pfexec<>pkexec
+
+commit dccd720a2d0db00fe2f13abff1148c8fa07794d8
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: document pfexec and other sudo like options at top of file
+
+commit f433e1637b962be569eaf69054bfa06e0473784a
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: add link to Slackbuilds (Slackware) packages
+
+commit aa5f431270519c590b55a1d4d9cd03bcf960557b
+Author: Austin English <austinenglish@gmail.com>
+
+    w_override_all_dlls: sync dll list to wine-3.2
+
+commit 26ae152d476d27ab2bbdc3c730442aac1f54dab3
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    directmusic: split into multiple verbs
+
+commit daad2ecb5db2952099e63d4bfd55993b717a47e8
+Author: Artem Butusov <art.sormy@gmail.com>
+
+    Added support for Cinepak Coded by Radius
+
+commit 2a090e04d10d53bdafc6231ac954344ab1f57588
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20180217-next
+
 commit 4d24734e1aedd21bd97b6b8076ac0f41af83d538
 Author: Austin English <austinenglish@gmail.com>
 

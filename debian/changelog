@@ -1,3 +1,11 @@
+winetricks (0.0+20180513-1) UNRELEASED; urgency=medium
+
+  * New upstream release 20180513.
+  * Promote aria2 to preferred alternative to wget/curl.
+  * Run wrap-and-sort.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Wed, 16 May 2018 16:56:44 +0200
+
 winetricks (0.0+20180217-1) unstable; urgency=medium
 
   * New upstream release 20180217.
