@@ -1,8 +1,9 @@
-This is a suggestion for a common workflow for maintainers and a
-reminder for myself.  It's definitely not finished yet.  Please change
-it whereever it's senseful and remove this disclaimer.
+This documents the steps necessary to upgrade the Debian source package
+to a new upstream version.  It's a suggestion for a common workflow for
+maintainers and a reminder for myself.
+Please change it whereever senseful.
 See also the note about pristine-tar in d/gbp.conf.
-jre, 2017-04-12
+jre, 2018-05-20
 
 Update upstream version:
 ========================
