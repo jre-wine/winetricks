@@ -1,7 +1,7 @@
 Source: winetricks
 Section: contrib/otherosfs
 Priority: optional
-Maintainer: Debian Wine Party <pkg-wine-party@lists.alioth.debian.org>
+Maintainer: Debian Wine Team <debian-wine@lists.debian.org>
 Uploaders:
  Joseph Bisch <joseph.bisch@gmail.com>,
  Jens Reyer <jre.winesim@gmail.com>,
