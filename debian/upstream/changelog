@@ -1,3 +1,93 @@
+commit e196b99b77736a191a9583b9e525ab9bd7595af0
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20180603
+
+commit dee7aa96add8ee3918bd1bde5e1a4b7b0f408976
+Author: Austin English <austinenglish@gmail.com>
+
+    icodecs: fix quiet mode in win64 prefixes
+
+commit b6e0c0e22a2af537810c49c7bc8ae06cbd3717c9
+Author: Austin English <austinenglish@gmail.com>
+
+    steam: update sha256sum
+
+commit 3733382bccbd2dc58bf391d10d6ec385fb961d2d
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    shockwave: update sha256sum (12.3.3.203)
+
+commit a25e2a69b99cf20a01cb40d08f765d527b754cdc
+Author: Austin English <austinenglish@gmail.com>
+
+    vulkanrt: new verb
+
+commit 5bb4cee554f7ed0c7ac3a48e464cc94e5d945b4f
+Author: Austin English <austinenglish@gmail.com>
+
+    vulkansdk: update to version 1.1.73.0
+
+commit 5b107c78b126e2c148bfbcc8188c804e5057512a
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    gmdls: use DirectX April 2006
+
+commit 76f5fdf0a7ad3f83ebd0ec85c2daf302dd9cea05
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    calibri, cambria, candara, consolas, constantia, corbel, meiryo: update URL
+
+commit 7fadbd7f8ea836d4e548f6892c85251bc1470a24
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove WINEPREFIX after a successful test
+
+commit 459f6112fbca05169d68e14c4caef46628b22615
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove spurious `rm df-daemon` in test_command()
+
+commit 79188d95669c19505acca5e9408fb107a1275bcd
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix a debugging statement
+
+commit 250cb3ca961f8b6ef9e450e1fbf3f574e73f981a
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove stray typo introduced in 50197beda63b716ed336ed869ab256874ebf52f2
+
+commit eeb538c3bd60be997aec545e001f41193a6ff854
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try: sort w_try and w_try_* wrapper functions
+
+commit 96e36387d3f45738fcf92ee74ce62ce7ccfcadba
+Author: Austin English <austinenglish@gmail.com>
+
+    benchmarks: sort in source code
+
+commit f5677f88a6d2fa1009a21f5feb582054cfb9fa07
+Author: Austin English <austinenglish@gmail.com>
+
+    settings: sort in source code
+
+commit 50197beda63b716ed336ed869ab256874ebf52f2
+Author: Austin English <austinenglish@gmail.com>
+
+    apps: sort in source code
+
+commit d81d5b5972c0bf0cb5b718a391a191670739f6ce
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: make category headers more visible
+
+commit 2fa9ea92a89b2d87ca923d2ae5c1291d9fd5f622
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20180513-next
+
 commit 1be4c775b1e307109cd6ae8860309b6a16d28209
 Author: Austin English <austinenglish@gmail.com>
 
