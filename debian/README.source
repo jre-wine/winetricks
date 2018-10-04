@@ -8,8 +8,8 @@ jre, 2018-05-20
 Update upstream version:
 ========================
 
-1. Update from alioth repository and upstream
----------------------------------------------
+1. Update from Debian and upstream repositories
+-----------------------------------------------
 
 $ gbp pull
 $ git fetch --tags https://github.com/winetricks/winetricks.git master
