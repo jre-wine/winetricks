@@ -1,7 +1,8 @@
 #!/bin/sh
 # Link checker for winetricks.
 #
-# Copyright (C) 2011,2012,2013 Dan Kegel.
+# Copyright (C) 2011-2013 Dan Kegel
+# Copyright (C) 2016-2018 Austin English
 #
 # This software comes with ABSOLUTELY NO WARRANTY.
 #
@@ -15,16 +16,23 @@ passes=0
 errors=0
 
 check_deps() {
-    if ! test -x "$(which curl 2>/dev/null)"; then
+    if ! test -x "$(command -v curl 2>/dev/null)"; then
         echo "Please install curl"
         exit 1
     fi
 }
 
-if [ -f README.md ] ; then
+if [ -f src/winetricks ] ; then
     TOP="$PWD"
-elif [ -f ../README.md ] ; then
-    TOP=".."
+    shwinetricks="${PWD}/src/winetricks"
+elif [ -f ../src/winetricks ] ; then
+    # realpath isn't available on OSX, use a subshell instead:
+    TOP="$(cd .. && echo "$PWD")"
+    shwinetricks="${TOP}/src/winetricks"
+elif [ -f ../../src/winetricks ] ; then
+    # realpath isn't available on OSX, use a subshell instead:
+    TOP="$(cd ../.. && echo "$PWD")"
+    shwinetricks="${TOP}/src/winetricks"
 else
     echo "Dude, where's my car?!"
     exit 1
@@ -46,9 +54,14 @@ w_download() {
 
 # Extract list of URLs from winetricks
 extract_all() {
+    # w_linkcheck_ignore=1 is a stupid hack to tell linkcheck.sh to ignore a URL (e.g., because it contains a variable)
+    # Ideally, avoid using the variable, but we can't e.g., for dxvk
+    # Should not be used for https://example.com/${file1}, as otherwise we can't easily check if the URL is down
+
     # https://github.com/koalaman/shellcheck/issues/861
     # shellcheck disable=SC1003
-    grep '^ *w_download ' winetricks | grep -E 'ftp|http|WINETRICKS_SOURCEFORGE' | sed 's/^ *//' | tr -d '\\' > url-script-fragment.tmp
+    grep '^ *w_download ' "${shwinetricks}" | grep -E 'ftp|http|WINETRICKS_SOURCEFORGE' | grep -v "w_linkcheck_ignore=1" | sed 's/^ *//' | tr -d '\\' > url-script-fragment.tmp
+
     # shellcheck disable=SC1091
     . ./url-script-fragment.tmp
 }
