@@ -1,3 +1,14 @@
+winetricks (0.0+20180815-1) unstable; urgency=medium
+
+  * New upstream release 20180815.
+  * Drop alioth reference from README.source.
+  * Refresh patches.
+  * Add patch to remove shebang line from the new bash-completion.
+  * Add copyright information for src/winetricks.bash-completion.
+  * Bump Standards-Version to 4.2.1 (no changes needed).
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sun, 07 Oct 2018 13:46:25 +0200
+
 winetricks (0.0+20180603-1) unstable; urgency=medium
 
   * New upstream release 20180603.

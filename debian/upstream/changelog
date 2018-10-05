@@ -1,3 +1,336 @@
+commit ccc1c48ffa750c18eec1da317ac392934b68844f
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20180815
+
+commit e862ffb437da75afe5572acca1b051e070b998ce
+Author: Austin English <austinenglish@gmail.com>
+
+    dxvk: use $W_TMP_EARLY rather than $W_TMP
+
+commit ce8fc0aa3038abe4fbd8267764d183c0f93bc4e7
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    dxvk65: new verb
+
+commit be279f3e77531eddfbdbf0c492c4435836427453
+Author: Austin English <austinenglish@gmail.com>
+
+    mingw: add -q support
+
+commit 448820167ca493e206b3ce3b600f390d4c08a72a
+Author: Austin English <austinenglish@gmail.com>
+
+    w_append_path: fix backslash escaping
+
+commit 7ecc2c7e2eda0c1e42d2c71c7c719ee5a346078e
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    flash: update to 29.0.0.171
+
+commit b7051631c9ee80f9bd402a355e851112badc0b8a
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    foobar2000: update to v1.4
+
+commit 481dff6ba0fae19b33c080a941597fc0c549634c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: use spaces in test WINEPREFIXes
+
+commit 7060a538b7ffc5768faf9010e27de35aea25f868
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_cp_font_files(): handle prefixes with spaces
+
+commit 62426e87c60c30a97c072dc0d1e97d48c0fbe509
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: don't depend on being in src/ to run
+
+commit cf53698820c44de50c91ab446cac4f7e8ecabb89
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: don't depend on being in src/ to run
+
+commit 37af7264c88fd126d84288fafb49bb7263523840
+Author: Austin English <austinenglish@gmail.com>
+
+    winxp: set proper version numbers for 32/64-bit
+
+commit 311803690fe025ba88254e5f876936db3476bef4
+Author: Austin English <austinenglish@gmail.com>
+
+    w_set_winver(): add Wine-Bug to FIXME
+
+commit bddfb48ae11ce1fdc936b81bb62e84e527f423b0
+Author: Austin English <austinenglish@gmail.com>
+
+    cabinet: update download URL
+
+commit bf060ff1ed5197dcb0d499af62e8671f59558e9c
+Author: Austin English <austinenglish@gmail.com>
+
+    kindle: add missing shasum
+
+commit 083e5d278f4f566c5c48725fcddb83e604b8f3ae
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    kindle: update download URL
+
+commit 4ea2f8b7f934ea51c017405f008be9b65378c434
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mdac27: update download URL
+
+commit fa1e6da052304ff70858f0f906a09ec376057c2c
+Author: Austin English <austinenglish@gmail.com>
+
+    windowscodecs: use win2k3 instead of winxp to install.
+
+commit 5f3c7b6dcc139e8e192a56bc3502e110893bd3a6
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    dxvk64: new verb
+
+commit d7e121a3ce748cc86d5c4e4d6480dcc9577842ed
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    dxvk63: new verb
+    Fix sha256sum, for updated re-release of version 0.63.
+    he Vulkan API requirement remains unchanged at 1.x.73.
+
+commit df58c042a9c6ba2f2d0b9b84defe6e2404bc909d
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    dxvk62: new verb
+
+commit 1984c794055471fae46525e642f9cfca5af13d6f
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    dxvk54: update verb - set minimum Wine version of 3.6
+    See: https://github.com/doitsujin/dxvk/wiki/Common-issues
+
+commit 81d3cf3bec93560fb29f110490a85db1020f4bd4
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    Add winetricks.bashcomp BASH completion script
+
+commit fd8b205c51ff778bdb894c246e82a82584081054
+Author: Viktor Szakats <commit@vszakats.net>
+
+    Secure URLs
+
+commit 4795145112fa73b537fccfd1dd7d347320964fb2
+Author: Lantizia <s.maddox@lantizia.me.uk>
+
+    Swap Tahoma version v2.26 for v2.60
+
+commit 5a81a65ad9260929094774f45ce3b812e1030ebd
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_check_update_availability: avoid using a subshell (SC2235)
+
+commit 501f86c026fb2416dc2542fb3c4e3c4927075bcc
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: use `command -v` instead of `which` (SC2230)
+
+commit 232d01e46a60bdea0d93b5c4e6beaea0280a8fb1
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    misc: quote expansions in for loop globs to prevent wordsplitting (SC2231)
+
+commit 526d72df4187673e589c3431583ef77dea25d4bc
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    misc: use `command -v` instead of `which` (SC2230)
+
+commit cfc9cf3deb620ff67f6e5c6a472208fdc1b6da40
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: use `command -v` instead of `which`
+
+commit 429a43e44988aeeafffd4a020ef10b07d7830932
+Author: Austin English <austinenglish@gmail.com>
+
+    misc/travis-install-bashate-deb.sh: use `command -v` instead of `which`
+
+commit 5cea8ef3bc7afd0fb01b6cfd0db8454861732583
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: workaround broken checkbashisms (missing command -v)
+
+commit 58750aa39657757dcd6f57a4ca54806e3feb8843
+Author: Austin English <austinenglish@gmail.com>
+
+    vc2005trial: make autohotkey script more reliable
+
+commit aef662678aa37bf39e708ca0f67157f8591cb10f
+Author: Lantizia <s.maddox@lantizia.me.uk>
+
+    corefonts: add missing Andale Mono font
+
+commit bb025afb76ad45bca9c803aedd3f5a9a864b6a0e
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: search for "Wine Mono" instead of "Mono"
+
+commit a416ae8286330bcfa9234a905e7d95717b701422
+Author: Artem S. Tashkinov <birdie-github@users.noreply.github.com>
+
+    Fix #1009
+
+commit c423a85b3cfda1e6181fc8164b089842964a0794
+Author: Austin English <austinenglish@gmail.com>
+
+    dxvk: use upstream's RELEASE file to determine dxvk version to install
+
+commit a97cb1a1a245e980458ab397633e7bb250c7876d
+Author: Austin English <austinenglish@gmail.com>
+
+    linkcheck.sh: allow ignoring a URL by prefixing with w_linkcheck_ignore
+
+commit fe470df1abc7f840a158dd4e4612cbb5e5680af0
+Author: Austin English <austinenglish@gmail.com>
+
+    dxvk61: new verb
+
+commit 3389d2a8fea1577ed080e3da73a74124e7573160
+Author: Austin English <austinenglish@gmail.com>
+
+    dxvk60: update shasum
+
+commit 47e94e11163c1e7acac525365e305ca467e8b20b
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    Add dxvk60 verb: dxvk version 0.60 (released 22 June 2018)
+    Add verb54 verb: dxvk version 0.54 (released 06 June 2018)
+    Alter dxvk verb to call dxvk (latest) verb
+    Add shared helper_dxvk() function:
+     * Support optional Wine / Vulkan API warning
+     * Provide link to dxvk version release notes
+     * Provide link to dxvk Driver Wiki
+
+commit be5ec37cf617f3e776b662b33f74bfad923e50f2
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    Add verb isolate_home
+    This verb just removes Wineprefix symlinks to the Wine user's
+    $HOME directory. Complementary to the sandbox verb.
+
+commit 995dc82eccd6ddd2b1fc18cbbf1b6dba8ab5389d
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    dx8vb: new verb
+
+commit 5cfc33274960140028b54149005637ac48a43fbe
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    sound: restore verbs (from 50197be)
+
+commit d67f41c53dc6542d6bf49978e59c85a89d24c116
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    shockwave: update sha256sum (12.3.4.204)
+
+commit 15454b4498e9b6cd007912d265681f1d56efa8e0
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    winetricks: replace FTP download URLs with HTTP(S) URLs
+
+commit 052f7f38f9696a0aca87e9378aa5545b407eaa80
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    steam: run steam/steamwebhelper in winxp mode
+    Automatically workaround WineHQ bug #39403
+
+commit d716cbedd15a91527ea4db69570348b08082abff
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: blacklist dotnet46 because of wine bug 42470
+
+commit cf0d79b536218e4bcffc74ff7154c1ccc5a4d8a3
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    dxvk: unset _W_dxvk_dir
+
+commit e2da57b808af0c1e44638ca7f671ccc1a75a0b13
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    dxvk: fix DLL names for overriding
+
+commit b8c75f735175955e50f0de4b600385e984a120c9
+Author: Austin English <austinenglish@gmail.com>
+
+    steam: fix quiet install
+
+commit 8927df2e272fe153427daa76febdcbbd2c635490
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: don't verify installs if the verb was skipped
+
+commit c87f877f239ae8520f67eca8c42df11b67b1b54f
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    office2013pro: allow to use user mount tools
+
+commit bedb322cb35d81f54eed6d17322cb7231412a9d0
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    winetricks: add functionalities that mount/unmount ISO images with FUSE-based tools or hdiutil
+
+commit 6209ec671c81847a9497b78f4eaf64fd77b0769c
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    Fix handling WINE64 resolution with a Gentoo mult-slotted Wine variant
+    Deal with the case where wine and wine64 (binaries or binary wrappers)
+    have a suffix part. E.g. Gentoo multi-slotted Wine64 variants could be:
+    wine64-staging-9999
+
+commit 6235746626451b72b7270f25833c595d0f74a207
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    Fix vulkansdk verb
+    Add registry settings, and **winevulkan.json** file, required by
+    **winevulkan** to use the installed Vulkan version instead of
+    the builtin **vulkan-1.dll** implementation.
+
+commit 97a3c5ac02cea11193bd6371c200f8c1e47d2fa3
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    dxvk: new verb
+
+commit 575ad8cdf81842b8b0d1308b9c3fec247f0c00b5
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    adobeair: update sha256sum (30.0.0.107)
+
+commit 25ae68c6fc343cad070a25cd9fcfe02ee39a5cde
+Author: Austin English <austinenglish@gmail.com>
+
+    hon: update sha256sum
+
+commit 8405657458ba57d9a7f7b45b05428a5fe9bf9336
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet_verifier: update download link/shasum
+
+commit dee148516f416f80d533cc542ce3a9a2134367c9
+Author: Austin English <austinenglish@gmail.com>
+
+    wmi: update download URL
+
+commit 6b654295a2dde0ed1f7b8f962f66ce32afd7663c
+Author: Austin English <austinenglish@gmail.com>
+
+    eve: move FIXME out of w_ahk_do call, which breaks autohotkey
+
+commit 4619f21e14e3199077cd65e781a9db67cc4872a4
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20180603-next
+
 commit e196b99b77736a191a9583b9e525ab9bd7595af0
 Author: Austin English <austinenglish@gmail.com>
 
