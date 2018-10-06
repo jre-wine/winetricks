@@ -43,6 +43,11 @@ Copyright:
  2017 Daniel Rusek <mail@asciiwolf.com>
 License: CC0-1.0
 
+Files: src/winetricks.bash-completion
+Copyright:
+ 2018 Rob Walker <bob.mt.wya!gmail.com>
+License: LGPL-2.1+
+
 Files: src/winetricks.desktop
 Copyright:
  2007-2013 Scott Ritchie <scottritchie!ubuntu.com>
