@@ -58,7 +58,7 @@ if [ "$1" = "check-deps" ] ; then
 
 # Using an environmental variable rather than a CLI option
 # so it doesn't need extra handling/targets in Makefile
-elif [ ! -z "$WINETRICKS_ENABLE_KCOV" ] ; then
+elif [ -n "$WINETRICKS_ENABLE_KCOV" ] ; then
     KCOV_RESULTS="${outputdir}/kcov-results"
     rm -rf "$KCOV_RESULTS"
     mkdir -p "$KCOV_RESULTS"
@@ -100,13 +100,6 @@ BLACKLIST="$BLACKLIST|bioshock2"
 BLACKLIST="$BLACKLIST|xmllite"
 # redundant metaverbs
 BLACKLIST="$BLACKLIST|allcodecs"
-# FIXME: (wine/winetricks bug?) usually hangs in winetricks-test:
-BLACKLIST="$BLACKLIST|dotnet30sp1|dotnet35|dotnet35sp1|dotnet45"
-# dotnet46 has endless critical section timeouts: https://bugs.winehq.org/show_bug.cgi?id=42470
-# FIXME: test Dmitry's patch
-BLACKLIST="$BLACKLIST|dotnet46"
-# https://bugs.winehq.org/show_bug.cgi?id=40460
-BLACKLIST="$BLACKLIST|dotnet20sp2|xna31"
 # https://bugs.winehq.org/show_bug.cgi?id=16876
 BLACKLIST="$BLACKLIST|wmi"
 
@@ -372,18 +365,20 @@ test_command()
     $XVFB $WINETRICKS --no-isolate -q nocrashdialog "$@"
     return=$?
 
+    if [ "$return" = "32" ] && [ "$WINEARCH" != "win32" ]; then
+        skip "$command is not supported on $WINEARCH, requires win32"
+        archskip=1
+    elif [ "$return" = "64" ] && [ "$WINEARCH" != "win64" ]; then
+        skip "$command is not supported on $WINEARCH, requires win64"
+        archskip=1
+    fi
+
     if [ "$EXPECT_FAIL" = "yes" ] ; then
         # A success is failure:
         if [ "$return" = "0" ] ; then
             fail "$command succeeded, should have failed"
-        elif [ "$return" = "32" ] && [ "$WINEARCH" != "win32" ]; then
-            skip "$command is not supported on $WINEARCH, requires win32"
-            archskip=1
-        elif [ "$return" = "64" ] && [ "$WINEARCH" != "win64" ]; then
-            skip "$command is not supported on $WINEARCH, requires win64"
-            archskip=1
         else
-            fail "test_command $command failed!"
+            pass "test_command $command expected to fail, and did fail!"
             return
         fi
     else
@@ -593,9 +588,10 @@ test_dlls()
 test_dotnet()
 {
     # verify that each individual installer works:
-    # skipping dotnet30sp1/dotnet35/dotnet35sp1/dotnet45, known to hang (FIXME bug)
-    # dotnet20sp2: https://bugs.winehq.org/show_bug.cgi?id=40460
-    for x in dotnet11 dotnet11sp1 dotnet20 dotnet20sp1 dotnet30 dotnet40 dotnet46 dotnet461 dotnet462; do
+    for x in dotnet11 dotnet11sp1 \
+            dotnet20 dotnet20sp1 dotnet20sp2 \
+            dotnet30 dotnet30sp1 dotnet35 dotnet35sp1 \
+            dotnet40 dotnet45 dotnet452 dotnet46 dotnet461 dotnet462 dotnet472; do
         echo "testing $x"
         test_command --verify $x
     done
@@ -603,10 +599,9 @@ test_dotnet()
     # FIXME: add other possible combinations
 
     # combinations that should work:
-    # FIXME: dotnet20sp2: https://bugs.winehq.org/show_bug.cgi?id=40460
     for combo in "dotnet20 dotnet20sp2"; do
         # shellcheck disable=SC2086
-        EXPECT_FAIL=yes test_command --verify $combo
+        test_command --verify $combo
     done
 
     # combinations that should break:
