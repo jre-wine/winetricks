@@ -1,3 +1,353 @@
+commit 4450ef130aebf5f400657ce0a08d9c0bdf7a143e
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20181203
+
+commit 5908a445e1bf6ce3d4e1b0d421de9a747aa9968c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: use 'test -n' instead of 'test ! -z' (shellcheck)
+
+commit 6437f64b226b07caf175a60c6b094f560093ce88
+Author: Austin English <austinenglish@gmail.com>
+
+    kindle: use 'test -n' instead of 'test ! -z' (shellcheck)
+
+commit 35b6e7b80fa4c6c4a43ab6a08845eef5369b9f74
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_dxvk: use 'test -n' instead of 'test ! -z' (shellcheck)
+
+commit 44815cdb60bdde8f26149691f445db0c76e5c528
+Author: Austin English <austinenglish@gmail.com>
+
+    mdac28: warn users about upstream bug 45627
+
+commit 12ff15caf20296379797ae2f6d7958fd734617cd
+Author: Austin English <austinenglish@gmail.com>
+
+    Revert "adobeair: formatting fix"
+
+commit 40a4bb57e21ba0788a93c7e63d30f2699d5b528e
+Author: Austin English <austinenglish@gmail.com>
+
+    .gitignore: ignore .swp files
+
+commit a2bc224498580b33ac7375ed38a00bcccb87e325
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: installer blocks wow64, not wine
+
+commit 9c7001a61663881a741707b7a4e9979806a272f6
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: installer blocks wow64, not wine
+
+commit d2064e3d220b78d4757f8dca6efb35b7d5659465
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30: installer blocks wow64, not wine
+
+commit be370576b966eef094cc5dca2c4caa5c52b0d2b9
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp2: wow64 fixes
+
+commit 224cf98406c3ef2d2a00f7b0861e1fcdb6cdc92f
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: wow64 fixes
+
+commit a2d24aa8cbf64cc89327f27223ce2da6bace952b
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp1: wow64 fixes
+
+commit 59c853275d82cab031419612336b315e1b87ac03
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet11sp1: installer blocks wow64, not wine
+
+commit 696a1886d5fb9d1f68fd660d712b16bea2f89f75
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet11: installer blocks wow64, not wine
+
+commit e5182d6a37e9c13bb264fbf79c057ac74cc4cf90
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20: wow64 fixes
+
+commit 1771a95b8fd7466df8b069adb18510dd082d5ca3
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: enable wow64 support
+
+commit bb196f3bf1c3ccf78fb3f9e8b3147f0ebbdf6969
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: skip file checks if verb was skipped because of arch
+
+commit b7e9e33738835c59e5cfb44e01261327d234e64e
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk93
+
+commit 04aa37ad704701f6ee5890e2154856f2f5828d61
+Author: Viktor Szakats <commit@vszakats.net>
+
+    upgrade/secure URLs
+
+commit 1fd6ee249f5b5ee3f2f496cdf0d2b2b801f3eded
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    dxvk80: update sha256sum
+
+commit e9606243a9e473c79917498ac4ad62d59c4ddba2
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: tweak 3.x warning
+
+commit 76926e70d4e33b8ffb7b826b8f5e19a4f308c658
+Author: Austin English <austinenglish@gmail.com>
+
+    adobeair: formatting fix
+
+commit 431bb18719c4acd134983a198fae6c7e98c3b281
+Author: Zebediah Figura <z.figura12@gmail.com>
+
+    dotnet: Remove obsolete workarounds for dotnet < 40.
+
+commit 1b78a5e7e6fcfda70296ff40b080629a565c5766
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: more dotnet tests
+
+commit defdc456ed72581d822119ae2a496324a6910a07
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: if EXPECT_FAIL is enabled, test_command() should treat a failure as a pass
+
+commit b9ba1200b9405f044317aaeae9d6c012386c73ab
+Author: Austin English <austinenglish@gmail.com>
+
+    vb2run: update URL
+
+commit 6333a0ab4737339280aba4b9499a62d614f6a8fe
+Author: Austin English <austinenglish@gmail.com>
+
+    hphbp_demo: remove, download is dead
+
+commit dbd6855aea3e659b942f363c827c4c683a0b9bfc
+Author: Austin English <austinenglish@gmail.com>
+
+    cnc3_demo: remove, download is dead
+
+commit e9f12c81c8850e0c288a033ebae737b0bf01fd87
+Author: Austin English <austinenglish@gmail.com>
+
+    cnc_tiberian_sun: remove, download is dead
+
+commit 02fd7301034a82c4554cace9b02fe0f935c56b0b
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet462: remove slim installer option
+
+commit cff27240146f04cace6f4d775852220d151d1619
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init(): warn for wine < 3.x
+
+commit bd8c584691f66f93bb7e35dab1e4ca2dc5650867
+Author: Zebediah Figura <z.figura12@gmail.com>
+
+    ie8: Override ieproxy to native and copy it to system32.
+
+commit 8a102535a49020fc9a013f6ec40ee0944467f335
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    wininet: update to newer version and add 64bit compatibility
+
+commit 612b71c1db47aff7958860d540b9841d5f1694b2
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk92
+
+commit 294b410d732f2373881a9a2f605c32b8d036fc75
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    qasf: new verb
+
+commit 09f253f75d653411bc2ef95c65ab0f6846339fe5
+Author: Max Maisel <max.maisel@posteo.de>
+
+    winetricks: allow creation of new custom wineprefix from prefix menu.
+
+commit 25e5e9a0ed14596591aec40017e2eeef9816d242
+Author: Max Maisel <max.maisel@posteo.de>
+
+    new verb: arch
+
+commit e8309927be474eeed9cb184569f5cc679536fea0
+Author: Max Maisel <max.maisel@posteo.de>
+
+    winetricks: Add "run explorer" command to main menu.
+
+commit fcd3cba4858bceb90a13505fc6bc8fa1abb89f1e
+Author: Max Maisel <max.maisel@posteo.de>
+
+    translation: fixed typo in "de" message, added wineprefix path to da message.
+
+commit 8edce248f93ca9de1c620fad2d777b34bc16ece7
+Author: Max Maisel <max.maisel@posteo.de>
+
+    winetricks_prefixmenu: fix missing menu elements when using kdialog.
+
+commit bc5c57d0d6d2c30642efaa7fee66b60f6af3e133
+Author: Austin English <austinenglish@gmail.com>
+
+    d3dcompiler_47: new verb
+
+commit 66804c394fa3648f103633061e4a7c28039fc21d
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk91
+
+commit 7fab20fd2c3593de4626a46de1531aa91989d43f
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    directx9: install devenum, quartz, msdmo and qcap (#1125)
+
+commit 5b13dfea518351a48df3dcb7b76c22b4caa3d7fc
+Author: Konstantin <hard-corp@yandex.ru>
+
+    lucida: update URL
+
+commit fc79cf351307a68af4d4122d5916267fff11e203
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    secur32: add warning about usage of native dll
+
+commit 18dbafb623eccf37e402b999113f1bbf3495620e
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    improve error handling, for winetricks temporary directory setup
+
+commit e58f7e0962d87aa9e7b77b93a95db25e73a331b8
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: fix path to /bin/sh
+
+commit 8e8862b6b94f3c54a8f1558c9a58f2c90bb5df33
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk90
+
+commit b6ff5a85b7d014a2eb3210097c02d2aac7b8ef3c
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk81
+
+commit a3ece4a5c42406b0ba8ac9f27dada52abcb07c0f
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    winetricks.bash-completion: remove shebang from header
+
+commit 541d23116d0165aa5eb17d406b161cf5721ae080
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    READ.md: add 'Updating' section; update 'Installing' section
+
+commit 53881bde2fd87ee0da45ca682fcab98808cfe877
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    README.md: add some nice badges (Travis CI status, project license)
+
+commit 023d407bb82e5350938a4d8a9e0969f74dc34491
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    convert to sed expression: devscripts checkbashisms-command-v.patch
+
+commit 5a4a8287fe40aa7b5c82f7dc0ba822b92cfd333f
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk80
+
+commit 273410c640fe4e417ad0d4161d5b29ff53abf69b
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk72
+
+commit 2ee955bbe3096d283cab4e9f97d73bb0a4c55c51
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    adobeair: update sha256sum (31.0.0.96)
+
+commit 8160f159d49cee85690a2c8e03c5ed9f54b8b8bb
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk71
+
+commit ae4ce88344fc67732f866505358cda0b2e369a2d
+Author: Austin English <austinenglish@gmail.com>
+
+    corefonts: split individual font families into their own verbs
+
+commit 768e5920f71cac91d1b6f04e0bd48d9d660d8814
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix(): print info about wineprefix on failure
+
+commit 6320033a760814c33f7c1547d195be946e95f5d3
+Author: Austin English <austinenglish@gmail.com>
+
+    w_conflicts(): tell user to use --force to ignore check
+
+commit c139c892c016c81be02418c574a9643e8dc5e01c
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk70
+
+commit a525f7994fddb25b787ddb35d608f00dd1535b24
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    dxvk helper/verbs: add support for d3d10
+
+commit c570ef43263d03bd44a41ff8fae4d4dd8d3817ce
+Author: chambm <matt.chambers42@gmail.com>
+
+    Add dotnet472 verb
+
+commit 9c70770398fd4297d80193ebd06aac1c938378e9
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet46: warn users about upstream bug 42470 (heap timeouts)
+
+commit d03d7cd60838dd5119eed94749e4d8b250c73451
+Author: Austin English <austinenglish@gmail.com>
+
+    hhw: add a missing w_try
+
+commit 8dfce3424fe752bada8908ff27e024c5b529e187
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    hhw: new verb, HTML Help Workshop
+
+commit d4906f86e1a033b0b2cf7ac84afe286b4680fdd6
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    itss: new verb
+
+commit 1383f9ea0c63e15361f50100b77fc0828296dac8
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    itircl: new verb
+
+commit 0bc42cac7246393b0858aeb8f668656f96c9b7cf
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20180815-next
+
 commit ccc1c48ffa750c18eec1da317ac392934b68844f
 Author: Austin English <austinenglish@gmail.com>
 
