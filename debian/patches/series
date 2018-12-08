@@ -1,2 +1,3 @@
 remove-self-update.patch
 appdata-license.patch
+drop-bash-completion-download.patch
