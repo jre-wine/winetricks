@@ -23,13 +23,19 @@ package before installing winetricks. An example:
 About optional packages
 =======================
 
-To use GUI progress bar, install "zenity" or "kdebase-bin".
-To read manuals, install "xdg-utils".
-If you need to cache any *.iso files with the -k option, install "sudo",
-or for sudo GUIs "gksu" or "kdesudo".
-For improved downloading install "aria2".
+The GUI requires zenity, but some of that functionality is also provided
+by kdialog or xmessage (in package x11-utils).
+
+For improved downloading install aria2.
+
+xdg-open (xdg-utils) is used to open download pages if manual
+interaction is required.
+
+pkexec (policykit-1), kdesu (kde-cli-tools) or sudo are used to mount
+*.iso files, which were cached with the -k option.
+
 If download sites, e.g. archive.org, are blocked in your country install
-"tor" and start winetricks with the option "--torify".
+tor and start winetricks with the option "--torify".
 
 
 32- and 64-bit
