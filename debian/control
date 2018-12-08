@@ -31,9 +31,11 @@ Recommends:
  zenity | kdialog | x11-utils,
 Suggests:
  tor,
-Description: package manager for Wine to install software easily
- A POSIX shell script 'package manager' for Wine to install some
- Windows software easily. The list contains about 70 applications
- including 3dmark2001, corefonts, cygwin, directx9, dotnet35, droid,
- firefox, flash, ie8, mspaint, msxml6, python26, quicktime76, safari,
- spotify, utorrent, vb6run, vcrun2010, vlc, xvid etc.
+Description: simple tool to work around common problems in Wine
+ Winetricks lets you install missing DLLs or tweak various Wine settings
+ individually.  It also has a menu of supported games/apps for which it
+ can do all the workarounds automatically.
+ .
+ It can be used via GUI or commandline, whichever you prefer; the
+ commandline mode is particularly useful as a building block in fancier
+ wine frontends and in automated regression testing.
