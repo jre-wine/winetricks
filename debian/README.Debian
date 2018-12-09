@@ -31,8 +31,10 @@ For improved downloading install aria2.
 xdg-open (xdg-utils) is used to open download pages if manual
 interaction is required.
 
-pkexec (policykit-1), kdesu (kde-cli-tools) or sudo are used to mount
-*.iso files, which were cached with the -k option.
+Winetricks caches *.iso files, if started with the -k option.  Later on
+you can often mount them without needing root privileges with fuseiso or
+archivemount.  Where this is not supported yet, you can mount them with
+pkexec (policykit-1), kdesu (kde-cli-tools) or sudo.
 
 If download sites, e.g. archive.org, are blocked in your country install
 tor and start winetricks with the option "--torify".

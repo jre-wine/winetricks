@@ -25,6 +25,7 @@ Depends:
  wine,
  ${misc:Depends},
 Recommends:
+ fuseiso | archivemount,
  policykit-1 | kde-cli-tools,
  sudo,
  xdg-utils,
