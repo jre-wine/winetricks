@@ -1,0 +1,79 @@
+Description: Disable automatic version check and selfupdate.
+  Warn and ask on manual selfupdate.
+Author: Jens Reyer <jre.winesim@gmail.com>
+Forwarded: not-needed
+Last-Update: 2018-12-16
+
+--- a/src/winetricks
++++ b/src/winetricks
+@@ -941,6 +941,18 @@ winetricks_check_update_availability()
+         w_warn "You don't have the proper permissions to run this command. Try again with sudo or as root."
+         exit
+     fi
++
++    w_warn "This will install Winetricks directly from its original developers.  Debian has no control over that version."
++    printf %s "To continue press Y or N, then Enter: "
++    read -r debresponse
++    if test "$debresponse" = Y || test "$debresponse" = y; then
++        true
++    elif test "$debresponse" = N || test "$debresponse" = n; then
++        exit
++    else
++        w_warn "Please press Y or N.  Aborting"
++        exit
++    fi
+ }
+ 
+ winetricks_selfupdate()
+@@ -982,6 +994,8 @@ winetricks_selfupdate()
+     w_try chmod +x "$0"
+ 
+     w_warn "Update finished! The current version is $($0 -V). Use 'winetricks --update-rollback' to return to the previous version."
++    w_warn "Winetricks is no more controlled by Debian but by the Winetricks project now."
++    w_warn "The next update of the winetricks package may or may not revert this change."
+ 
+     exit
+ }
+@@ -3168,10 +3182,10 @@ winetricks_latest_version_check()
+     if [ ! "$WINETRICKS_VERSION" = "${latest_version}" ] && [ ! "$WINETRICKS_VERSION" = "${latest_version}-next" ]; then
+         if [ -f "${WINETRICKS_CONFIG}/enable-auto-update" ] ; then
+             w_info "You are running winetricks-${WINETRICKS_VERSION}."
+-            w_info "New upstream release winetricks-${latest_version} is available."
+-            w_info "auto-update enabled: running winetricks_selfupdate"
+-            winetricks_selfupdate
+-        else
++            w_info "The automatic selfupdate is disabled in the Debian packages."
++            #winetricks_selfupdate
++        fi
++        #else
+             case $LANG in
+                 pl*)
+                     w_warn "Korzystasz z winetricks-${WINETRICKS_VERSION}, a najnowszą wersją winetricks-${latest_version}!"
+@@ -3186,7 +3200,7 @@ winetricks_latest_version_check()
+                     w_warn "You should update using your distribution's package manager, --self-update, or manually."
+                     ;;
+             esac
+-        fi
++        #fi
+     fi
+ }
+ 
+@@ -5321,7 +5335,8 @@ winetricks_init()
+         echo "Using winetricks $(winetricks_print_version) with ${WINETRICKS_ORIG_WINE_VERSION} and WINEARCH=${W_ARCH}"
+     fi
+ 
+-    winetricks_latest_version_check
++    # In Debian during winetricks_init we don't want to automatically connect to a remote site
++    #winetricks_latest_version_check
+ }
+ 
+ winetricks_usage()
+@@ -5398,7 +5413,7 @@ Options:
+     --force           Don't check whether packages were already installed
+     --gui             Show gui diagnostics even when driven by commandline
+     --isolate         Install each app or game in its own bottle (WINEPREFIX)
+-    --self-update     Update this application to the last version
++    --self-update     Update this application to the latest version (non-Debian)
+     --update-rollback Rollback the last self update
+ -k, --keep_isos       Cache isos (allows later installation without disc)
+     --no-clean        Don't delete temp directories (useful during debugging)
