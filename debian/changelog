@@ -1,3 +1,13 @@
+winetricks (0.0+20181203-2) unstable; urgency=medium
+
+  * Add appdata-license.patch to set the correct project license.
+  * Add drop-bash-completion-download.patch to prevent automatic net connection.
+  * Update information about optional dependencies in README.Debian.
+  * Update package description in d/control.
+  * Recommend fuseiso or archivemount to mount cached iso files.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sun, 09 Dec 2018 12:34:21 +0100
+
 winetricks (0.0+20181203-1) unstable; urgency=medium
 
   * New upstream release 20181203.
