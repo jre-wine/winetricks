@@ -1,3 +1,13 @@
+winetricks (0.0+20181203-3) UNRELEASED; urgency=low
+
+  * Drop remove-self-update.patch.
+  * Add disable-automatic-selfupdate.patch.
+    Disable automatic version check and selfupdate.
+    Warn and ask on manual selfupdate.
+    Document this in README.Debian.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sun, 16 Dec 2018 16:35:06 +0100
+
 winetricks (0.0+20181203-2) unstable; urgency=medium
 
   * Add appdata-license.patch to set the correct project license.
