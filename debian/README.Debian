@@ -9,9 +9,9 @@ commands before running winetricks, e.g.:
   export WINESERVER=/usr/bin/wineserver-development
 
 If you have compiled Wine from source and installed it out of dpkg(1)'s
-control, winetricks' depends wouldn't know about it. In that case create
-a "dummy wine" package to satisfy depends by using tools in the "equivs"
-package before installing winetricks. An example:
+control, the winetricks package's depends wouldn't know about it.  To
+install winetricks anyway, create a "dummy wine" package by using tools
+in the equivs package before installing winetricks. An example:
 
   git clone https://github.com/jaalto/project--debian-wine-dummy.git
   cd project--debian-wine-dummy
@@ -33,7 +33,7 @@ interaction is required.
 
 Winetricks caches *.iso files, if started with the -k option.  Later on
 you can often mount them without needing root privileges with fuseiso or
-archivemount.  Where this is not supported yet, you can mount them with
+archivemount.  Where this is not supported yet, mounting them requires
 pkexec (policykit-1), kdesu (kde-cli-tools) or sudo.
 
 If download sites, e.g. archive.org, are blocked in your country install
@@ -58,7 +58,7 @@ for more information:
 Winetricks' selfupdate
 ======================
 
-Winetricks' automatic selfupdate and version check is disabled in
+Winetricks' automatic online version check and selfupdate is disabled in
 Debian.  Although you may still run a manual "winetricks --selfupdate",
 be aware that this will install /usr/bin/winetricks directly from its
 developers, without any lookover from Debian.  What happens then, is out
