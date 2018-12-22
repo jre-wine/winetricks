@@ -1,12 +1,12 @@
-winetricks (0.0+20181203-3) UNRELEASED; urgency=low
+winetricks (0.0+20181203-3) unstable; urgency=low
 
   * Drop remove-self-update.patch.
   * Add disable-automatic-selfupdate.patch.
-    Disable automatic version check and selfupdate.
-    Warn and ask on manual selfupdate.
+    Disable automatic online version check and selfupdate.
+    Warn and require confirmation on manual selfupdate. (Closes: #916613)
     Document this in README.Debian.
 
- -- Jens Reyer <jre.winesim@gmail.com>  Sun, 16 Dec 2018 16:35:06 +0100
+ -- Jens Reyer <jre.winesim@gmail.com>  Sat, 22 Dec 2018 14:52:50 +0100
 
 winetricks (0.0+20181203-2) unstable; urgency=medium
 
