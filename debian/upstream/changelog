@@ -1,3 +1,856 @@
+commit 3b2f4bf5b60841a01b9d5b49d14a5666defb805e
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20190615
+
+commit d0313e7462b1865843c6f6d54e4fe70bdc30433d
+Author: Jacob Hrbek <werifgx@gmail.com>
+
+    new setting: usetakefocus
+
+commit f6133cc8fa0dc0d5aa28539b732a7e0dc9a1750d
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: disable the checkbashisms kill signal check
+
+commit 325aab2cc3513d0047d533246b20d907c451b6f9
+Author: Adam Plaice <plaice.adam+github@gmail.com>
+
+    python27: new verb
+
+commit 45f05d776262b6b10d7b6188e00fd5094b9dcea4
+Author: Austin English <austinenglish@gmail.com>
+
+    vjrun20: update conflicts
+
+commit 1eee60c9dd09a1f2a10bcd5a04605fe929b00de5
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet472: update conflicts
+
+commit 5e2342995587a1aa015e464b0848c521be8bf951
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet471: update conflicts
+
+commit 929b717508f1542480b6d0321c558a829f599acf
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet472: update conflicts
+
+commit 0d8a54dca45e460755116f322c931123eba67d6e
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet462: update conflicts
+
+commit b3c64e0410d12a8910c56ca5eac18ed0834b745b
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet461: update conflicts
+
+commit d61fcfe693f3dd3e8add4ca5de5ff833144da585
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet46: update conflicts
+
+commit c38a69a18b90db00e5e369388c427cd4792f044a
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet452: update conflicts
+
+commit 3198691a87456f7b9b8bd7c1718e5f5e030200ca
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet45: update conflicts
+
+commit 6297993b52df95b202fb25f2fa07bec37aa40e8f
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: update conflicts
+
+commit faa51645479f5b04907583107ae29caea374629c
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: update conflicts
+
+commit 419701bad79433e8eade24b99d3ac37a6f0abae8
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: update conflicts
+
+commit df92daa26bd7dbf94c704c2a57738b1c8bba2275
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30: update conflicts
+
+commit 1a41f3c6794e8abf5920bad6acef7a5120ec4f06
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20: update conflicts
+
+commit 33a3f8fba37626cc1e0fb31f7f340468ca689cb3
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet11: update conflicts
+
+commit 235c8f7f0395fda62f33f5dfe2c6f0604e9c2e6a
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp2: no longer 'experimental' at this point
+
+commit 70d7d8a9eaf9edfdc07f318ca4b62bde4b946ee7
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp1: add a workaround for installing with dotnet35sp1
+
+commit ed40231dbf7dc59fa94f1f1f36173dc2a883e764
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp1: no longer 'experimental' at this point
+
+commit 0260be3d80951425a62f5f566fb23bc3baffb3ab
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20: add a workaround for installing dotnet11 and dotnet20 at the same time
+
+commit 5cc04aaef319977c8bd604bd9937d023aab16551
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet48: initial verb
+
+commit 50cdc5666937695d947bfa3a4a46589748b965f8
+Author: Austin English <austinenglish@gmail.com>
+
+    openwatcom: make more future proof
+
+commit 216d528f77fe229d0a078ed474d62608d0e1e8aa
+Author: Austin English <austinenglish@gmail.com>
+
+    openwatcom: update download URL
+
+commit c8ff9104c5a1c85139044166fd4e2c1552624844
+Author: Austin English <austinenglish@gmail.com>
+
+    lhp_demo: minor fixes
+
+commit b38c266da1b2aba26623356a59e629c329c2e3b2
+Author: Austin English <austinenglish@gmail.com>
+
+    fontxplorer: use archive.org
+
+commit 0418c34361112fa88fc34a03dfae90ef8eb77002
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: generate dotnet version list instead of hardcoding it
+
+commit 6a2f8455f9011bc30a254260e67257455c0cdd0f
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-dotnet-grid-test: use --verify when running tests
+
+commit 6070122462a7cc8304285ad7cc5e88d9ca7d5bbf
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-dotnet-grid-test: removed outdated comment
+
+commit 9f84891b9135c51191b359c53c9a37c478a087c5
+Author: wdlkmpx <wdlkmpx@users.noreply.github.com>
+
+    sdl: update to 1.2.15
+
+commit e10cc45e7a40a5b94482b9dd8c0b6e5cd5f48bf6
+Author: Jacob Hrbek <werifgx@gmail.com>
+
+    adobeair: update for 32.0.0.125
+
+commit d5659ffa0299a891ff51b5c820a509ed9fbcf817
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    dotnet40: bug 42701 was fixed in wine-2.22
+
+commit 6ad67c1f4e33eb5f10ca03f2be7c52396967c2db
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet471: new verb
+
+commit 0d60509acc93f7bfd80f76bf7b89df02a57f8a20
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet472: bug 42170 was fixed in wine-3.1
+
+commit 3d410436bc7e6cd110b5b39df53aa46115dfd349
+Author: Joey Hewitt <joey@joeyhewitt.com>
+
+    docs: add xz-utils dependency
+
+commit f01ffee72f5e432fae200c493612ef80abe9d336
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: document missing package dependencies for Ubuntu/Fedora
+
+commit 71b0cc2c4f958d041735dec4fe099d3a5948dbdc
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: sort external prerequisites
+
+commit 9acbbb631870afa62100ab2f9d35c18cf6f935e8
+Author: Austin English <austinenglish@gmail.com>
+
+    atmosphir: remove, broken
+
+commit d9db69294500818bbfad4af598ab04cbacd8a611
+Author: Daniel Bergman <daniel@grafikfel.org>
+
+    icodecs: Make unattended installation more reliable by not using autohotkey
+
+commit 15aa33a8fdefa34a28788728b05c3aa8e656d9d2
+Author: Michał Górny <mgorny@gentoo.org>
+
+    new verb: d3dcompiler_42
+
+commit cb3166271371bb1dbf95c53294cd128a91c401a8
+Author: Zebediah Figura <zfigura@codeweavers.com>
+
+    dinput8, dsound: Don't try to register native DLLs.
+
+commit 05dbc02cdad4a7c07304670a671b3ff3e9bad70a
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk012
+
+commit 5292a7bb4bfba7f0cab25f7a355124323dccab85
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2017: don't conflict with vcrun2015, as 2017 is an update to 2015
+
+commit 36721330da38de68c2ab29f3025f200f38c92c2b
+Merge: 51a845b 92a906d
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #1238 from bobwya/dxvk
+
+commit 92a906d8245edbb74c1335eed59b137b214a59b2
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk011
+
+commit 9dc0f6b7a10ad8fc4bf38f2d8f82c5aa30ab7c00
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk121
+
+commit 51a845bffae4c6986ccbdf2c303135085060dcf1
+Author: Austin English <austinenglish@gmail.com>
+
+    oleaut32: new verb
+
+commit c49811dca69edb8889bbfce27c2403cd95c76deb
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add win32 7zip fallback tests
+
+commit 3ba82d214e5b818011bdee399b28181bba5072be
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: if WINETRICKS_FORCE_WIN_7Z is set, always use Windows 7-zip when possible instead of native tools
+
+commit 2250d201b5d60176c7504b593b2df541fa4b7c76
+Author: Austin English <austinenglish@gmail.com>
+
+    filever: new verb
+
+commit aaf4cee7fc96dd2e69b4ef37be8a3952ecbd66ec
+Author: Austin English <austinenglish@gmail.com>
+
+    new verb: helper_winxpsp2_support_tools
+
+commit fd230d3cb736817338da91212b7519ac0f1fec35
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-dotnet-grid-test: checkin script to test dotnet combinations
+
+commit 2565b44215774ca03573c406d4063f28e8606ee4
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20: if running in GUI mode, installer may exit 194/195
+
+commit 2e572003791b08205330857ffbd64fb144b07942
+Merge: 2d2afad 8a3f258
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #1237 from zfigura/master
+
+commit 8a3f258baff999e194ba203a788a1b7815a1ac11
+Author: Zebediah Figura <z.figura12@gmail.com>
+
+    wsh56js: Fix a typo.
+
+commit 2d2afad2763c6adba9a16c09672fc5c011a080eb
+Merge: 2d72e02 89b6e4b
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #1224 from bobwya/dxvk
+
+commit 2d72e0260b602270d3f72211047a44257fb0501d
+Author: Ratchanan Srirattanamet <peathot@hotmail.com>
+
+    msdelta: new verb (differential compression lib)
+
+commit 89b6e4ba2836ca771ccc7c9541860aa36d9691be
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk120
+
+commit d54ff5b3c44587e5d01dbc1a52619be7bb5e8f82
+Author: kenorb <kenorb@users.noreply.github.com>
+
+    mt4: Fixes MT4 installation
+
+commit 91911c70bf9abced8959e87947e48eee98fad6e3
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk_master
+
+commit 644a72001c4ee921d3b61604518c51a2f74c3cb6
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk010
+
+commit 3631afb47f179c4cb4ddee8a965071bf02ec6d2b
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk111
+
+commit 10bc2ec37450b75eba715bf989013df39e3fb78a
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    dxvk_helper(): re-factor to: helper_dxvk_d9vk()
+
+commit ef270d9769d3dbe130c102e81e091dd64bccce4e
+Author: Austin English <austinenglish@gmail.com>
+
+    galliumnine: use w_get_github_latest_release
+
+commit 4a2f0c84c4fa48b9ea842487dfb595b28f4f5fbc
+Author: Austin English <austinenglish@gmail.com>
+
+    w_get_github_latest_release: introduce function for getting latest github release
+
+commit b9a5719a68e96cbdb42ce4d3392d1b62a0b203b5
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try: don't print anything if WINETRICKS_SUPER_QUIET is set
+
+commit c68935327425b355de23b9fecec5619d8aa983ba
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checK: disable bashate E044, Use [[ for non-POSIX comparisions
+
+commit 52652871b469747b7c4a762ee17d7cb27ccc4233
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/whitespace-check: make executable
+
+commit b18fae574f80968580084444c95e208ae3cbed3f
+Author: Sebastian Stark <sebi2306@gmail.com>
+
+    remove_mono: remove all matching GUIDs
+
+commit e31995b61bd274ef64656c5cbc59fae2b66298f9
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: installer may return 105/194
+
+commit e304a7eb7d678f520d2ea4dd617314dd8cf7fc7b
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: installer may return 105/194
+
+commit 14feae570ba46f227f2d4cb65d08981da9c22a55
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: installer may return 105/194
+
+commit c6dc631c3b73c9f3a37e77fa73abf2943913fc26
+Author: samalero <ivan.barabash96@mail.ru>
+
+    Fix #1221
+
+commit 97c4ba89e0847a52f6135122770d6b4ed844b455
+Author: Zebediah Figura <z.figura12@gmail.com>
+
+    directx9: Install all DirectShow DLLs.
+
+commit caa28d1af97ddd3d7b3e76ca7f51fb85fe1ce7eb
+Author: Zebediah Figura <z.figura12@gmail.com>
+
+    Override DLLs as native before attempting to use regsvr32.
+
+commit c6a7fe1ec5bc825c55bae4138ad3f38685478104
+Author: Zebediah Figura <z.figura12@gmail.com>
+
+    directshow: New verb.
+
+commit 22a033bedf080b468bb45d929c92efd0225337ac
+Author: Zebediah Figura <z.figura12@gmail.com>
+
+    qcap: New verb.
+
+commit b5e62cf7c2b3d89b6605281a3bed56b23af0c711
+Author: Faalagorn <faalagorn@gmail.com>
+
+    Update vcrun2017 to 14.16.27027.1
+
+commit f98983c9e3304d697f2a456d75cbdfb2eeae1962
+Author: WhiteCat6142 <whitecat6142+git@gmail.com>
+
+    Update ipa-mona-font
+
+commit 7b4e62d481f631452b0f19f0209e48541ebc1f4b
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: support newer wine-mono format in wine-4.6+
+
+commit 6bf72e92c18894d37483d79d5d50a0960afe7549
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk103
+
+commit e3961e2cdbd55805e5520c5f4010bcc74f58e6d3
+Author: Austin English <austinenglish@gmail.com>
+
+    peverify: new verb
+
+commit 742e1215aabed7b43f4e2cdee13f869a2e85bf16
+Author: Austin English <austinenglish@gmail.com>
+
+    controlspy: use a working URL
+
+commit ae1d65d8c67e3683b838a48d5a2049c4f51ad19c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: warn for wine < 4.0
+
+commit ce3e2413724d5b6505fc96c696356c899a4016b2
+Author: Austin English <austinenglish@gmail.com>
+
+    faudio: add current releases, have main verb grab latest upstream version
+
+commit 5908e30305d8ce8486f571827c90ca9f4ae36d40
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp9: win64 is unsupported
+
+commit 550c8004fd9808dda47d227b8177489445f1694b
+Author: Matthias Kastner <matthias.kastner@byte-physics.de>
+
+    Update 7zip Download Link
+
+commit 5a207df50196b548e489e09c6adcba166e9b2e4d
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to: set _W_dl_olddir before entering retry loop
+
+commit 5128c9f3941d160af2c08dab4e89153fc71d08c5
+Author: Austin English <austinenglish@gmail.com>
+
+    w_ahk_do: download autohotkey from github.com instead of autohotkey.com
+
+commit 43d04cc901586d51dc886fa45ea71dea82955455
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove Arcadia/Gothic4 notepad hack
+
+commit 49c42d5d5ee55c7dbcfa29bd8c46d0e6f77cc7f0
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove dotnet/wineconsole hack
+
+commit 4d86fb69ace4939e8c480543ecf50fe2c70e22ff
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove hegemony hack, no longer in winetricks
+
+commit 2ed83b4988b476bcb6995b0e18d33ea200c35606
+Author: Austin English <austinenglish@gmail.com>
+
+    wmi: kill WinMgmt.exe after running installer
+
+commit dc4243f9d1eee1ac627ecd65944e9584f7fb85ad
+Author: Austin English <austinenglish@gmail.com>
+
+    fontxplorer: kill explorer.exe after running installer
+
+commit cc72e42a0d117e3355129985bf86578f075c9f32
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: also check return value when EXPECT_FAIL is no
+
+commit e0e5fd2fb9e4006e1dba4918f42e376031786da4
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: don't return early when a test passes
+
+commit 0f596c84fd0648cc141b5488bc7b8d648ea4cf0b
+Author: Austin English <austinenglish@gmail.com>
+
+    wglgears: install to system32 so it is in %PATH%
+
+commit 659366f8ae6f47cd3006cee303dbda7f2d23abad
+Author: Austin English <austinenglish@gmail.com>
+
+    wglgears: update shasum
+
+commit 704a6596575ad412817f768b630d8d1069ae5c91
+Author: Austin English <austinenglish@gmail.com>
+
+    vulkanrt: check for vulkaninfo.exe instead of vulkan-1.dll to verify install
+
+commit d20aa7c7c8d27043991d1eccae5360d0d25b1237
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    Revert "dxvk: update verb - set minimum Wine version of 4.5 See: https://github.com/doitsujin/dxvk/releases/tag/v1.1"
+
+commit dc5b6231e24345b0e1d06739cb842a90d568c2b7
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    Revert "new verb: dxvk110"
+
+commit 8a79b2915070cb95ced03a1f91ba45a9af515be6
+Author: Faalagorn <faalagorn@gmail.com>
+
+    Update vcrun2013 to 12.0.40660.0
+
+commit f3d834b510bf807566e9436b37eecd08216894af
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    dxvk: update verb - set minimum Wine version of 4.5 See: https://github.com/doitsujin/dxvk/releases/tag/v1.1
+
+commit d870564d71b6fdfec39afbe32fc88bc8a483583d
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk110
+
+commit fe8c274887f3d9086490662204ec2a854032de42
+Author: Austin English <austinenglish@gmail.com>
+
+    autohotkey: download autohotkey from github.com instead of autohotkey.com
+
+commit 1ad95e7dd166b2b140cbc2fe451177804959d1e5
+Author: Austin English <austinenglish@gmail.com>
+
+    w_ahk_do: download autohotkey from github.com instead of autohotkey.com
+
+commit 653742e242fd06e16fba30002f3daaa4e94b87c9
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: actually detect WINEARCH
+
+commit 5b75252065f23acd782e7e5a770fbba208fd7245
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: actually skip test when there's an arch mismatch
+
+commit cc1126f93b472f1513d65c033c0a02f55c0dd7d4
+Author: Austin English <austinenglish@gmail.com>
+
+    src/winetricks: loosen dotnet40 conflicts
+
+commit a10fb2023fe7b14b7a329ed006189d105cfdd84a
+Author: Austin English <austinenglish@gmail.com>
+
+    shockwave: update sha256sum
+
+commit 85c7994ff409dc6b67e1267d12b3cc9d6ea9b528
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    dxvk: update RELEASE download URL
+
+commit efc0b20586463e9a051c3236e8ecc6eee097779d
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk102
+
+commit ccad49698ad64bc4f5cac5fcf271680b25db4bcd
+Author: Austin English <austinenglish@gmail.com>
+
+    openwatcom: update download URL
+
+commit 4cc2fbeb0445357c3f0396638bbd307835e3e8cb
+Author: Austin English <austinenglish@gmail.com>
+
+    mspaint: update download URL
+
+commit c118b23c80ea90a49c8cb84ab932f9debb6f341f
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: simplify check for xvfb-run (shellcheck SC2243)
+
+commit aec1817f7bf5d1532773abfe4b7fcb3639859b9b
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fail if winetricks sandbox fails
+
+commit 485362c263cc86a85255240296f2eca05fa86151
+Author: Austin English <austinenglish@gmail.com>
+
+    src/winetricks: shellcheck SC2244 fixes
+
+commit cea3463bed84065f35d154b07755dc7a05d8eec7
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk101
+
+commit 0994d40427aaac20d5329222c4a880cd13a1778f
+Author: Austin English <austinenglish@gmail.com>
+
+    adobe_diged4: add a workaround for wine bug 46019
+
+commit b2479621cab2cc26faa2513ddd9be5af0d9d84c5
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    vc2010express: fix typo
+
+commit 5c3b620a575ac6312fb739314a10f24c8c0a6c81
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20190310-next
+
+commit 4a9a1780d34343ff2071aa1840f58d5bff9a04f4
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20190310
+
+commit 70197073b5b10ab906536f7407f10c974e322b6f
+Author: Luo Yufan <njlyf2011@hotmail.com>
+
+    Improve Chinese translation
+
+commit cd3a2821ba8e850bbc4217153c142f60fbc251d6
+Author: 小太 <nospam@kota.moe>
+
+    new verb: xact_x64
+
+commit f9b07f0aad3cf5b76b41cc88855346e6159fb49e
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove wine_showstopper support
+
+commit 4d541726f2c6a692456df376a83a5efee35cc75a
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_showmenu: remove unused size_MB/time_sec fields
+
+commit 9ed12ebaab64fd011b0fab89482f8cc8ed64b1d2
+Author: Austin English <austinenglish@gmail.com>
+
+    rct3deluxe: use w_workaround_bug instead of wine_showstopper
+
+commit f13b34f4a2f5ca59bbf0fe54eab434f65de04600
+Author: Austin English <austinenglish@gmail.com>
+
+    d3dcompiler_43: use w_workaround_bug instead of wine_showstopper
+
+commit b43ec3c41e8796d88af5223eecd65323b01e3082
+Author: Austin English <austinenglish@gmail.com>
+
+    mfsx_demo: bug 26411 was fixed in 1.3.37
+
+commit 507be3b4a816d934043348ba8efd687a74917ac7
+Author: Austin English <austinenglish@gmail.com>
+
+    masseffect2/masseffect2_demo: bug 23151 is fixed
+
+commit 27295d73a708ea9ea7cfbf1252cb449b375c2adc
+Author: Austin English <austinenglish@gmail.com>
+
+    masseffect2: bug 23184 was fixed in 1.3.0
+
+commit 9cc4a2e5fc25acf614c9aefe89c39d50490cd36f
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: bug 26273 was fixed in 1.3.28
+
+commit 961ac32ba2824fa681d54e20f62fdb717f481dd3
+Author: Luo Yufan <njlyf2011@hotmail.com>
+
+    Improve Chinese translation
+
+commit 605c275ae78a49f190f7be39deb14a21f8cdfd2f
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk100
+
+commit 19d6699022f38937fd8a2141964ea36c5d384ed1
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine03: new verb
+
+commit a25bf97fbe36fdcb030ac7f8179e1d7006e7eca5
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine: new verb
+
+commit f64124aca7107c49e8a6bcc095a0b83d9687eb2a
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine02: split into helper function and verb using it
+
+commit 8e1837247793b0fa1d597d2aea493ca800fbe9cd
+Author: Andre Heider <a.heider@gmail.com>
+
+    dxvk: fix setting w_linkcheck_ignore=1
+
+commit a8d52b6d473bd577a5f4a31b110ecdde4a5f3ec6
+Author: Luo Yufan <njlyf2011@hotmail.com>
+
+    Update Chinese translation.
+
+commit ca6cc17476dd3a19ef094f178fe8b27ce182e2f2
+Author: Austin English <austinenglish@gmail.com>
+
+    msftedit: fix dll override name
+
+commit b1fd81d5115ad17da2504c746d82e6ac1bc87211
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: only attempt to remove mono if it is actually installed
+
+commit 1c8331f5e618e0e484c8ac5094418e17f13c8bad
+Author: Austin English <austinenglish@gmail.com>
+
+    vc2010express: remove mono so installer can install native .Net
+
+commit aaca4ae161380c4d6eaa1f32140e906181329a84
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: suggest a workaround for a corrupt WINEPREFIX
+
+commit 2a4ec13d86132fbe1c69afa75bd0981f45f15af0
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine02: new verb
+
+commit 9693cdc0f6083011bb1fbe0dbb58ee376afc7190
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    steam verb: drop Windows XP workaround, for 39403
+
+commit 6843ab37c458953bb55371381b518fa326144dde
+Author: Austin English <austinenglish@gmail.com>
+
+    faudio: new verb
+
+commit afe3821777b42a69f11f92d8408990dc7cfa2a49
+Author: Kamil Páral <kamil.paral@gmail.com>
+
+    settings: add 'MIME-type file associations' boolean
+
+commit 4276813b9dc76a705ca2e57ad3ca5e388a994a81
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk96
+
+commit 60b950432b024cfdf9541416b5de000b8aa2b74a
+Author: Austin English <austinenglish@gmail.com>
+
+    w_override_all_dlls: sync dll list to wine-4.0-rc1
+
+commit 6139cc5ec022f9e7f3504f7d2480b38158157240
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_latest_version_check: if the latest version couldn't be retrieved, don't warn further
+
+commit 31bbf3d74d8c81625829d0cd2a4d427dc7e1e87f
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: update copyright year
+
+commit a00bded063b8c687df12ffc6ed41280b50813edf
+Author: bobwya <bob.mt.wya@gmail.com>
+
+    new verb: dxvk95
+
+commit 2a0dfb0f8ea7e552e70c8459b55ee79a431cd71d
+Author: Austin English <austinenglish@gmail.com>
+
+    cnc_ddraw: new verb
+
+commit 5d800886b14a55f047a397566a2da3ef1ed804fa
+Author: Vitaly Lipatov <lav@etersoft.ru>
+
+    use $WINETRICKS_GUI instead of direct zenity/kdialog call
+
+commit 4c71e4141c81975ac6a9ae5f2625204da0dc7bae
+Author: Kreyren <KostWarCZE@RiXotStudio.cz>
+
+    adobeair: update shasum
+
+commit d7255457fe9873376e17a15a9ee5194e154788b4
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk94
+
+commit b3c2e4e7554a22908ae510f9f3762236ff956a74
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: DISPLAY isn't always set on OSX
+
+commit d75ed447a2b8c23be56f4f5df3d1bad29b1b3bfe
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    Fix project_license in appdata.xml.
+
+commit d1c0139847de2e77a6a6828208f39159c27d5f78
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    dxdiagn: register dll
+
+commit 9eb2f026687f07e58bc1068c0beb986b4aa3d1b2
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    amstream: register 64bit dll
+
+commit 5009da0bfdcca450c1fc93ff6c5a67d0dc4fce2e
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    qedit: register dll
+
+commit 20ec914d2025d0d3aec3c33cc75a276d53336db9
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    quartz: add 64bit support
+
+commit 3c5e99494e5921f0a3f858f57e5923e4abd920d2
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    qasf: add 64bit support
+
+commit 5063831b5906ffc4e0a7518cec2dc2371bdff981
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    new verb: w_try_regsvr64
+
+commit b231bc106efbc92e18403b4fd59ddd1a7001127e
+Author: Rob Walker <bob.mt.wya@gmail.com>
+
+    bash-completion: drop Internet COUNTRY_CODE fetch
+
+commit af538d663a177007f72e199b3152790923dd2f63
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    msxml3: force silent install
+
+commit ac125ad3bc2cc23d8a10d25b0e88e7ec580531f0
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    README: improve Installation and Updating guides
+
+commit 4b73d0dda673b7f9e1e01e6c4a350cf68d4df92b
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20181203-next
+
 commit 4450ef130aebf5f400657ce0a08d9c0bdf7a143e
 Author: Austin English <austinenglish@gmail.com>
 
