@@ -31,6 +31,8 @@ For improved downloading install aria2.
 xdg-open (xdg-utils) is used to open download pages if manual
 interaction is required.
 
+xz-utils is required by some verbs to decompress tar archives.
+
 Winetricks caches *.iso files, if started with the -k option.  Later on
 you can often mount them without needing root privileges with fuseiso or
 archivemount.  Where this is not supported yet, mounting them requires
@@ -68,3 +70,5 @@ else was changed by this subsequently, then a future update of the
 winetricks package will bring back the regular Winetricks by Debian.
 But again: Debian cannot guarantee this.
 
+
+ -- Jens Reyer <jre.winesim@gmail.com>, Sat, 15 Jun 2019 17:48:05 +0200

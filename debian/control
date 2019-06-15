@@ -29,6 +29,7 @@ Recommends:
  policykit-1 | kde-cli-tools,
  sudo,
  xdg-utils,
+ xz-utils,
  zenity | kdialog | x11-utils,
 Suggests:
  tor,
