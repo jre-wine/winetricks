@@ -1,4 +1,4 @@
-Using winetricks 20181203 - sha256sum: 2e32c987b5dd0ddd3e0836290d9561e7f251ca080248f53050cc84c27d4bbd18 with wine-3.19-116-gb78de971f6 and WINEARCH=win32
+Using winetricks 20190615 - sha256sum: b6e465841d1d7bf473d8ecd32ed7a18e0add817444bf54ec25e6c9465584c6e9 with wine-4.9 and WINEARCH=win32
 alldlls=builtin          Override most common DLLs to builtin
 alldlls=default          Remove all DLL overrides
 ao=disabled              Disable AlwaysOffscreen (default)
@@ -34,6 +34,8 @@ hosts                    Add empty C:\windows\system32\drivers\etc\{hosts,servic
 isolate_home             Remove wineprefix links to /home/austin
 macdriver=mac            Enable the Mac native Quartz driver (default)
 macdriver=x11            Disable the Mac native Quartz driver, use X11 instead
+mimeassoc=off            Disable exporting MIME-type file associations to the native desktop
+mimeassoc=on             Enable exporting MIME-type file associations to the native desktop (default)
 multisampling=disabled   Disable Direct3D multisampling
 multisampling=enabled    Enable Direct3D multisampling
 mwo=disable              Set DirectInput MouseWarpOverride to disable
@@ -65,6 +67,8 @@ sound=oss                Set sound driver to OSS
 sound=pulse              Set sound driver to PulseAudio
 strictdrawordering=disabled Disable StrictDrawOrdering (default)
 strictdrawordering=enabled Enable StrictDrawOrdering
+usetakefocus=disabled    Disable UseTakeFocus (default)
+usetakefocus=enabled     Enable UseTakeFocus
 vd=1024x768              Enable virtual desktop, set size to 1024x768
 vd=1280x1024             Enable virtual desktop, set size to 1280x1024
 vd=1440x900              Enable virtual desktop, set size to 1440x900

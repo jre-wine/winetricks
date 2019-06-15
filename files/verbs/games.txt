@@ -1,10 +1,9 @@
-Using winetricks 20181203 - sha256sum: 2e32c987b5dd0ddd3e0836290d9561e7f251ca080248f53050cc84c27d4bbd18 with wine-3.19-116-gb78de971f6 and WINEARCH=win32
+Using winetricks 20190615 - sha256sum: b6e465841d1d7bf473d8ecd32ed7a18e0add817444bf54ec25e6c9465584c6e9 with wine-4.9 and WINEARCH=win32
 acreedbro                Assassin's Creed Brotherhood (Ubisoft, 2011)
 algodoo_demo             Algodoo Demo (Algoryx, 2009) [downloadable]
 alienswarm_steam         Alien Swarm (Steam) (Valve, 2010) [downloadable]
 amnesia_tdd_demo         Amnesia: The Dark Descent Demo (Frictional Games, 2010)
 aoe3_demo                Age of Empires III Trial (Microsoft, 2005) [downloadable]
-atmosphir                Atmosphir (Minor Studios, 2011)
 avatar_demo              James Camerons Avatar: The Game Demo (Ubisoft, 2009)
 beneath_a_steel_sky_gog  Beneath a Steel Sky (GOG.com, free) (Virgin Interactive, 1994)
 bfbc2                    Battlefield Bad Company 2 (EA, 2010)
