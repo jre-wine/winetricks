@@ -6,7 +6,7 @@ Uploaders:
  Joseph Bisch <joseph.bisch@gmail.com>,
  Jens Reyer <jre.winesim@gmail.com>,
 Build-Depends:
- debhelper (>= 11~),
+ debhelper-compat (= 12),
 Standards-Version: 4.4.0
 Homepage: https://github.com/Winetricks/winetricks
 Vcs-Git: https://salsa.debian.org/wine-team/winetricks.git
