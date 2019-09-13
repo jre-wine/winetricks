@@ -19,15 +19,15 @@ Multi-Arch: foreign
 Depends:
  aria2 | wget | curl,
  binutils,
- cabextract,
- p7zip,
- unzip,
  wine,
  ${misc:Depends},
 Recommends:
+ cabextract,
  fuseiso | archivemount,
+ p7zip,
  policykit-1 | kde-cli-tools,
  sudo,
+ unzip,
  xdg-utils,
  xz-utils,
  zenity | kdialog | x11-utils,
