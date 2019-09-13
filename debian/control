@@ -24,7 +24,7 @@ Depends:
 Recommends:
  cabextract,
  fuseiso | archivemount,
- p7zip,
+ p7zip-full,
  policykit-1 | kde-cli-tools,
  sudo,
  unzip,
