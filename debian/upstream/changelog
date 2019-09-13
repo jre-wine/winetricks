@@ -1,3 +1,341 @@
+commit af5f97aaa74b04b5451e2660de897787670967c8
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20190912
+
+commit f472fbb6c66ec6e08749763590cbec92ce97cbfc
+Author: Viktor Szakats <commit@vszakats.net>
+
+    secure URLs
+
+commit 1837687854294ef92b476b2db68fe90c3b7b1c64
+Author: Austin English <austinenglish@gmail.com>
+
+    selfupdate: support updating winetricks with a different filename
+
+commit 637064ee3575592190fcfe59fca60e649c099182
+Author: wdlkmpx <wdlkmpx@gmail.com>
+
+    unifont: v12.1.02 (2019-06-01)
+
+commit b4be20558786dc8084c5b82898be8205e1f580e8
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    vcrun: Bug 30713 was fixed in wine-3.8
+
+commit 31a47151666aff9b2383fa41baaa4eb7de86c93a
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    dotnet46: Bug 38959 was fixed in wine-3.6
+
+commit 60d700f581ae02f969e9184814bc8fb7f2b6ceb3
+Author: Austin English <austinenglish@gmail.com>
+
+    protectionid: use wayback machine for download
+
+commit d8088e0cb0549b5e3ecaf3456127b91b26027dfc
+Author: thekk1 <thekk@gmx.de>
+
+    Irfanview start menu icons
+
+commit 34520eb425cfd711449b722ee426b4ed3c8f35d3
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    jscript: call wsh57 as wsh56 is deprecated.
+
+commit d417a4e9d1dbb1bfe4399896e24c5d89facaad5f
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk134
+
+commit b747397c116e4e04deef03e13b35efbf42d1218b
+Author: Austin English <austinenglish@gmail.com>
+
+    opensymbol: update download URL
+
+commit 95311f720b2b8632beb4bdbf7ebe748c557254a3
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: installers require winxp
+
+commit 14170e0135066f7c619a2110f44dcf205b976c3d
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8_kb2936068: installer requires winxp
+
+commit 6b3538c22bb85c22cfb268583864f816981a9850
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    w_unset_winver: bump winver to win7
+
+commit 6101f302a81f4f7800ad33d17626fed51dfa0e53
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    dxvk verbs: update reference to vulkan version 1.1.113
+
+commit 06193b3f2d34f72abebcb4be9b6de826d48b87ba
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk133
+
+commit 9d9cf1c2bbb17cbd28208d0ce9f8762e11cd810c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/self-update-test: don't rely on git for an old version to test
+
+commit 22cb18b010a2af1ea0557bb143a6f47ef1fbc770
+Author: Austin English <austinenglish@gmail.com>
+
+    tests: add --self-update tests
+
+commit cec8f30d2a7464b06f55615d0ee6f5ec83b8cb53
+Author: Austin English <austinenglish@gmail.com>
+
+    .travis.yml: misc formatting fixes
+
+commit c0bfe1e5c0085a92cbfd4ab63eaa83c14c93c65a
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk020
+
+commit 710c154225358e10964968ddbae7dd9679f8cb2f
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: ensure things work for both shared and non-shared mono installs
+
+commit 1e07a9e5f7c1a69ad876e7823496e75a5e1df355
+Author: Austin English <austinenglish@gmail.com>
+
+    prntvpt: remove duplicated verb
+
+commit 0197ac735a13cdd23059513bbf88a99b6b612f2b
+Author: Austin English <austinenglish@gmail.com>
+
+    prntvpt: add new dll
+
+commit b9bba298717a8da61d56338e62d91bdfb9a548f6
+Merge: 93696c8 c03c13a
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge branch 'noexec'
+
+commit 93696c8a2fc297c62ee9b9c76e571ed3b3e62908
+Author: Austin English <austinenglish@gmail.com>
+
+    windowscodecs: restore prefix's original reported windows version
+
+commit c03c13a3209a43e825636621b99e027c441fcaae
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_cp_font_files: allow running on tmpdir mounted with noexec
+
+commit 00db4e9c1bc1a2c4ac85e5c227643f2b0f336406
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: install native prntvpt to avoid upstream bug 47436
+
+commit 01ff55cd40b3ba826d897f399d01fffd8d0fb847
+Author: Austin English <austinenglish@gmail.com>
+
+    prntvpt: add new dll
+
+commit 8113e4c832412c7db14197d38edbaa23d6b8c130
+Author: Austin English <austinenglish@gmail.com>
+
+    flash: ignore download URL for linkcheck, since it contains a variable
+
+commit 5e63ed077a6979bb696431932adfaf2f58fceccb
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30: update download URL
+
+commit cf9ffc3a24e681b8d290349642f9dbb09915b39e
+Merge: 47fdad1 36041f2
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #1279 from bobwya/d9vk
+
+commit 36041f2d173f8d18e7ef8755ddca3f2a4e793ca6
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk013f
+
+commit 4251a0818c8c02aa7abd7237432a2a98f98e464a
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+     d9vk_master verb: pre-delete cache archive
+
+commit 47fdad1e1250208774a0a9fd3b15feddeb1e5900
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: fix alldlls=default
+
+commit a607031a2ec9251db2f5af8bd59e770cb8eef06e
+Author: Austin English <austinenglish@gmail.com>
+
+    sandbox: actually disable unixfs
+
+commit 69b78faf9a4c48c90a1e3d151d8404ed42fa7078
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2017: update sha256sums
+
+commit 7b9cc06214c7f6d2bc35eaa5ddfbae1fe875276b
+Merge: 3d8f11c 4348961
+Author: Austin English <austinenglish@gmail.com>
+
+    Merge pull request #1278 from bobwya/dxvk
+
+commit 3d8f11c6c80c71747c26a3fdeae43fb938b7c9f5
+Author: Alexandr <10602045+tannisroot@users.noreply.github.com>
+
+    Use Internet Archive link for WMP9
+
+commit 917f95f500eb28c0a4c4a37937dbec0718110d05
+Author: Joey Hewitt <joey@joeyhewitt.com>
+
+    Update opensymbol font URL
+
+commit ceba3afec73f188e89dc087861b770aaf4c70ab4
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_get_platform: fix a shellcheck warning
+
+commit 4348961141fc30fd6ec6c3ff00a03e763b3a7b6a
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk132
+
+commit b67f28cfd0ea0317f9580db2a3114e1cf45c766a
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    dxvk verb: use Github API to get latest release
+
+commit 212aa9fdc0819dde593108779596535c02fe39a5
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk131
+
+commit 5a355c7cd168b0561edeb687ea65e3ebbf2ff0d6
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk130
+
+commit fd2fb248b1016ecb25e4112d9ef736cc1c55c14c
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2008: remove duplicated bug links
+
+commit 69c93c4271d6847107ebe32d8ab9df1cfe9e3631
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk013
+
+commit b7d8a4714449d586d884a2cc1c64f8ee683f4c26
+Author: wdlkmpx <wdlkmpx@gmail.com>
+
+    7zip: update to 19.00
+
+commit 175709e25f677f923a74794718b4a5a44f76e85b
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk123
+
+commit 9ccd6bf68bb986c5f9f01ab40f9322ac07c2e534
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    ie7: Override ieproxy to native and copy it to system32.
+
+commit dab7573c877aec7c26fe104c14c9e85c5495d257
+Author: Austin English <austinenglish@gmail.com>
+
+    urlmon: new werb
+
+commit 07d9e64db4f6afd37f407533e9cb111f403440d3
+Author: Austin English <austinenglish@gmail.com>
+
+    iertutil: new verb
+
+commit a294def00f44b1dc1bbc3cea1c4053637efea4f4
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    docs: update Ubuntu installation instructions
+
+commit 09a070b5f04e094ea6ceeca88192a160ea0526c8
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    debian/control: update dependencies
+
+commit cdda6ecf963c8864054edf26e8928aa8f2c69513
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    debian/control: refactor
+
+commit 0d976dabf89c775ae31fb077e1788ea1069029f8
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    debian/control: run wrap-and-sort
+
+commit 0fd91cbc999faf6f269109df2c71d5027d0a664c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: sync 32/64bit specific variables
+
+commit 3fd9a36d9fb973ccf334413937e4d71aa5401311
+Author: Austin English <austinenglish@gmail.com>
+
+    faudio190607: new verb
+
+commit a91d34c425ae04cf7d0aff03993c82f7cc2a2083
+Author: Austin English <austinenglish@gmail.com>
+
+    faudio: support 64-bit only builds
+
+commit 2a93be4a57ea07b5d4d57c46a9afe56ae9e1e06e
+Author: Austin English <austinenglish@gmail.com>
+
+    faudio1906: new verb
+
+commit cdc97a264679f90ee3d06b146b11f61da7c5de74
+Author: Austin English <austinenglish@gmail.com>
+
+    faudio1905: new verb
+
+commit bf13399141a2e9ad68bdd20238b4c6dd863f0eb0
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk122
+
+commit 87d63cc2caa9df50537fc522b7b666591cb87126
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: bye bye sha1sum
+
+commit 7cedcdba24d1c4f0e2543988f3b309ff3fa4b4cb
+Author: Austin English <austinenglish@gmail.com>
+
+    mise: remove, uses deprecated sha1sum
+
+commit dbb3fed5709601b1bb422c034643b482494a86fb
+Author: Austin English <austinenglish@gmail.com>
+
+    remove gog game support
+
+commit 181441ab4fdb23612c72f76566224622539d0b1d
+Author: Austin English <austinenglish@gmail.com>
+
+    directx9: deprecate, causes more trouble than it's worth
+
+commit c01c85107c1ae421300220925f615b94cab86dff
+Author: Austin English <austinenglish@gmail.com>
+
+    emu8086: update URL
+
+commit 358c80c9b0eb7815ed50babcadb20ac5b2142207
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20190615-next
+
 commit 3b2f4bf5b60841a01b9d5b49d14a5666defb805e
 Author: Austin English <austinenglish@gmail.com>
 

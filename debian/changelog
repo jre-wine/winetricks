@@ -1,3 +1,17 @@
+winetricks (0.0+20190912-1) unstable; urgency=medium
+
+  * New upstream release 20190912.
+  * Refresh patches.
+  * Demote file-format specific dependencies to "Recommends".
+  * Depend on p7zip-full instead of p7zip.
+  * Add unrar(-free) to suggested packages.
+  * README.source: add some tooling tips.
+  * Update standards version, no changes needed.
+  * Bump debhelper from old 11 to 12.
+  * Clarify prompt before the selfupdate.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Fri, 13 Sep 2019 12:37:27 +0200
+
 winetricks (0.0+20190615-1) experimental; urgency=medium
 
   * New upstream release 20190615.
