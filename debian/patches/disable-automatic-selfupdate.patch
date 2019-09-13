@@ -12,7 +12,7 @@ Last-Update: 2018-12-16
      fi
 +
 +    w_warn "This will install Winetricks directly from its original developers.  Debian has no control over that version."
-+    printf %s "To continue press Y or N, then Enter: "
++    printf %s "To continue press Y, to abort N, then Enter: "
 +    read -r debresponse
 +    if test "$debresponse" = Y || test "$debresponse" = y; then
 +        true
