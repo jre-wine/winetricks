@@ -2,11 +2,11 @@ Description: Disable automatic version check and selfupdate.
   Warn and ask on manual selfupdate.
 Author: Jens Reyer <jre.winesim@gmail.com>
 Forwarded: not-needed
-Last-Update: 2018-12-16
+Last-Update: 2019-12-29
 
 --- a/src/winetricks
 +++ b/src/winetricks
-@@ -942,6 +942,18 @@ winetricks_check_update_availability()
+@@ -1095,6 +1095,18 @@ winetricks_check_update_availability()
          w_warn "You don't have the proper permissions to run this command. Try again with sudo or as root."
          exit
      fi
@@ -25,7 +25,7 @@ Last-Update: 2018-12-16
  }
  
  winetricks_selfupdate()
-@@ -983,6 +995,8 @@ winetricks_selfupdate()
+@@ -1136,6 +1148,8 @@ winetricks_selfupdate()
      w_try chmod +x "$0"
  
      w_warn "Update finished! The current version is $($0 -V). Use 'winetricks --update-rollback' to return to the previous version."
@@ -34,7 +34,7 @@ Last-Update: 2018-12-16
  
      exit
  }
-@@ -3068,10 +3082,10 @@ winetricks_latest_version_check()
+@@ -3231,10 +3245,10 @@ winetricks_latest_version_check()
      if [ ! "$WINETRICKS_VERSION" = "${latest_version}" ] && [ ! "$WINETRICKS_VERSION" = "${latest_version}-next" ]; then
          if [ -f "${WINETRICKS_CONFIG}/enable-auto-update" ] ; then
              w_info "You are running winetricks-${WINETRICKS_VERSION}."
@@ -49,7 +49,7 @@ Last-Update: 2018-12-16
              case $LANG in
                  pl*)
                      w_warn "Korzystasz z winetricks-${WINETRICKS_VERSION}, a najnowszą wersją winetricks-${latest_version}!"
-@@ -3086,7 +3100,7 @@ winetricks_latest_version_check()
+@@ -3249,7 +3263,7 @@ winetricks_latest_version_check()
                      w_warn "You should update using your distribution's package manager, --self-update, or manually."
                      ;;
              esac
@@ -58,18 +58,18 @@ Last-Update: 2018-12-16
      fi
  }
  
-@@ -5188,7 +5202,8 @@ winetricks_init()
-         echo "Using winetricks $(winetricks_print_version) with ${WINETRICKS_ORIG_WINE_VERSION} and WINEARCH=${W_ARCH}"
+@@ -5251,7 +5265,8 @@ winetricks_wine_setup()
+         return
      fi
  
 -    winetricks_latest_version_check
-+    # In Debian during winetricks_init we don't want to automatically connect to a remote site
++    # In Debian we don't connect automatically to a remote site for privacy reasons.
 +    #winetricks_latest_version_check
- }
  
- winetricks_usage()
-@@ -5264,7 +5279,7 @@ Options:
-     --force           Don't check whether packages were already installed
+     # Overridden for windows
+     W_ISO_MOUNT_ROOT=/mnt/winetricks
+@@ -5421,7 +5436,7 @@ Options:
+ -f,  --force           Don't check whether packages were already installed
      --gui             Show gui diagnostics even when driven by commandline
      --isolate         Install each app or game in its own bottle (WINEPREFIX)
 -    --self-update     Update this application to the last version
