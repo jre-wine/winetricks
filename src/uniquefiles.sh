@@ -12,8 +12,7 @@
 
 set -e
 
-if ! test "$1"
-then
+if ! test "$1"; then
     echo "Please specify a bunch of wineprefixes to grub through"
     echo "For instance, ~/winetrickstest-prefixes/dotnet20sp{,1,2}"
     exit 1
@@ -21,7 +20,8 @@ fi
 
 # Generate list of all filenames (except those which look ephemeral)
 rm -f /tmp/allfiles.txt
-for dir ; do
+
+for dir; do
     (
         cd "$dir/drive_c"
         # FIXME: don't assume there are no ='s in filenames, e.g. rewrite in perl
@@ -34,7 +34,7 @@ done
 sort < /tmp/allfiles.txt | uniq -c | awk '$1 == 1 {print $2}' > /tmp/uniqfiles.txt
 
 # Associate them with the verb they came from
-for dir ; do
+for dir; do
     (
         cd "$dir"
         # Undo the space-to-= transformation, too

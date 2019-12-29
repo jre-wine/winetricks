@@ -3,7 +3,7 @@ os:
   - linux
   - osx
 sudo: required
-dist: trusty
+dist: bionic
 
 
 # Note: needed by winetricks-test, which not yet supported in TravisCI
@@ -20,8 +20,6 @@ addons:
     - python-tz
     # for checkbashisms
     - devscripts
-
-# Note: if statements cannot go across multiple lines. Combine into one, or move to a shell script!
 
 # Ubuntu notes:
 #    * ShellCheck is already installed in TravisCI
@@ -52,12 +50,23 @@ addons:
 # If the script fails, install pip and use it to install bashate
 before_install:
     - time sh ./misc/travis-install-bashate-deb.sh || time sh ./misc/travis-install-bashate-pip.sh
-      # "brew update" (or auto-update when installing) takes long time
-      # checkbashisms and shellcheck can be installed without this
-      # So installing with "HOMEBREW_NO_AUTO_UPDATE=1" considerably reduces
-      # job time on macOS
-      # If it fails retry with auto-update
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]] ; then time env HOMEBREW_NO_AUTO_UPDATE=1 brew install checkbashisms shellcheck || time brew install checkbashisms shellcheck ; fi
+
+    # "brew update" (or auto-update when installing) takes a long time,
+    # but checkbashisms and shellcheck can (usually) be installed without this
+    # So try installing with "HOMEBREW_NO_AUTO_UPDATE=1", which considerably reduces job time on macOS
+    # If it fails retry each individually with auto-update enabled
+    - |
+      if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+          for pkg in checkbashisms shellcheck yq; do
+              if HOMEBREW_NO_AUTO_UPDATE=1 brew install "$pkg"; then
+                  # everything worked, nothing more to do:
+                  :
+              else
+                  # Allow failure, since homebrew can be flaky (the tests will still run on linux).
+                  time brew install "$pkg" || true
+              fi
+          done
+      fi
 
 # Note if testing on a branch, you can replace this with your desired command, e.g.,:
 # script: time sh ./src/winetricks -q comctl32
@@ -72,9 +81,6 @@ before_install:
 script:
     # shell-checks is quick and works, no display or compiles needed
     - time sh ./tests/shell-checks
-
-    # Also check for trailing whitespace. Not doing in shell-checks because it depends on a clean tree (uses git diff):
-    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then time sh ./tests/whitespace-check; fi
 
     # Keep updates working
     - time sh ./tests/self-update-test
