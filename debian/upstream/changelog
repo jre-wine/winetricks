@@ -1,3 +1,403 @@
+commit dbcd548f81025a5800f2020c0d4ed2c0b0755477
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20191224
+
+commit f88d2b413070184a97881947980c31cdcb475456
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: mark broken for various 4.x versions
+
+commit 4cfc2b88ed0240cf1e796ba31f50c388e20897b4
+Author: Austin English <austinenglish@gmail.com>
+
+    w_package_broken_{_no,}mingw: add support for marking a package broken depending on if wine was compiled with/without mingw
+
+commit 437248f9d280b53afc82cf81a8eb48cec1da2907
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp10: broken in wine-5.0-rc2
+
+commit 630dd6b578493ee8374c1ad4812a5a4ab647d7bf
+Author: Austin English <austinenglish@gmail.com>
+
+    w_package_broken: add a new function to alert a user that a package is completely broken
+
+commit 28844642433af30eea6006439f0a2f1f0fbe4629
+Author: Austin English <austinenglish@gmail.com>
+
+    w_compare_wine_version: fix comparing between wine versions
+
+commit a961870f2437a2437f207540fb212fddc0cfe80c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: organize the tests in test_w_compare_wine_version
+
+commit 9694e7a6169e5a3fb360db5bd2f5e560c7c1bb80
+Author: Austin English <austinenglish@gmail.com>
+
+    wmi: use wayback machine, other mirrors are dead
+
+commit 79f133ef45db95c41bcdd211d6f56205ba1cd7c4
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: don't output paths to tools when checking for them
+
+commit 266bc27a785fbff5a17a8235d629aa43fc51f6df
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: sort a couple functions
+
+commit 681f4acced33890246a089e4927c38025866c4cd
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp1,dotnetsp2,dotnet30: don't override ngen.exe in wine-4.0+
+
+commit 162ef4f141e4d297d44f1adf9e771ae95dcda056
+Author: Austin English <austinenglish@gmail.com>
+
+    load_native_mdac: use w_wine_version_in rather than w_workaround_wine_bug
+
+commit 6cd0c380911665b3d66ea24200a38bfbd23939ae
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk040
+
+commit 9831e4cc74538c70fc9e9a5f3bdbde090be02f42
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: use native ieframe
+
+commit 44d8a5e837a9cb8486c6b29b316629970b5c322c
+Author: Austin English <austinenglish@gmail.com>
+
+    load_native_mdac: update dll overrides
+
+commit 7b2ae001ed8d608d27b4fa510717f769d7d2858b
+Author: Austin English <austinenglish@gmail.com>
+
+    mdac28: remove obsolete warning
+
+commit 0d2eeb4bcc56dda8930a93675c08c5825369b8dd
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_cleanup: actually remove wrapper.cfg
+
+commit 063c89b8d682893ac19fc29b024b623ff72e55bc
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_cleanup: remove $WINEPREFIX/wrapper.cfg
+
+commit 735aabd257fa933a0146728a0fa135d828aec9d0
+Author: Austin English <austinenglish@gmail.com>
+
+    dxvk146: update sha256sum
+
+commit 75ef86e5273e791673b28496f0df693fc4a6c5bc
+Author: Austin English <austinenglish@gmail.com>
+
+    winamp: update download URL
+
+commit 5dfc8e880f27d511cb82067d05a17d05f3b3be09
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: refactor test_command a bit
+
+commit 7e5cb14c2fe8a7627c1962568d2a0e7f2fa64758
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk146
+
+commit fd41f5254c09ce812995e535471c2902b4747905
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2005: update 64-bit download URL
+
+commit 63c483c82963d341ef2df93e3fa2d8afbbfb4c79
+Author: Stephan Lachnit <stephanlachnit@protonmail.com>
+
+    Update copyright
+
+commit b0377443355fec04e07847c7d1900ab00ae50bd1
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: use native ieframe
+
+commit ac4ca2032620fd38c438d76327214eb93a5034b3
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: add style checks for do/then
+
+commit 6c766e119e005a4ee0169f6b856e32164464c0e8
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: put 'do' on the same line as 'do'/'while'
+
+commit 743a13559aa3d8c16b6fcec93628e9f536550194
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: put 'then' on the same line as 'if'
+
+commit c701dbec273dc394c90e2fbbf26a405ebb57842b
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: merge tests/whitespace-check, add tab check
+
+commit e45bc61deddf9e178b105220162b49a069493651
+Author: Austin English <austinenglish@gmail.com>
+
+    autostart_winedbg: remove a stray tab
+
+commit 0656890883fb09d91c1b71aa54994d6ef0d25c97
+Author: Austin English <austinenglish@gmail.com>
+
+    ie6: move msls31 to end of verb
+
+commit 10e1e163b69b743faf74e80221df0b2c1dd52c4b
+Author: Austin English <austinenglish@gmail.com>
+
+    Revert "dotnet11sp1: fix executable name when running with autohotkey"
+
+commit 6f6eaf16199e2d9211f3fec02779f62fa3394485
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: re-enable bashate checks
+
+commit f12e7cdfaf16617c7848a868435c535c351a8ab3
+Author: Austin English <austinenglish@gmail.com>
+
+    art2kmin: update download url
+
+commit 7c102c46aeeaf3f693573ad7e323bf564b343d0b
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: refactor things so list verbs can run without needing wine
+
+commit f194322885b7d674c7b22a8283cbf01a7b97fc30
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk145
+
+commit 0bfab867b0859da514e7f19bbba5bef268dc50c8
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    reorder -f|--force options, required by bash-completion script
+
+commit 8021ef77dc573c99a64e60618ec7e09146ae8471
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    dxvk130-dxvk144,dxvk verbs: update recommended Wine version
+
+commit 9992bfc64626a8ae222277b6762cea99de355570
+Author: Austin English <austinenglish@gmail.com>
+
+    w_do_call: always set the wineprefix
+
+commit 0ae704107d6b6748e62260de4825ffa986fc6fd0
+Author: Thomas McWork <thomas.mc.work@gmail.com>
+
+    properly highlight some keywords in README.MD
+
+commit 523fdd5238267f0ee2853765aab0b99502471303
+Author: Austin English <austinenglish@gmail.com>
+
+    .travis.yml: skip rather than fail for missing extra tools on OSX
+
+commit 185b256943148b70041243f58b5cc255f10e596e
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: validate .travis.yml
+
+commit 49167f8bd3b49d8b9aa57540a2a9ac84b07d5803
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet11sp1: fix executable name when running with autohotkey
+
+commit d6b5200e0b11b9a24835f56fab25a1c771aeb683
+Author: Austin English <austinenglish@gmail.com>
+
+    w_verify_cabextract_available: don't print cabextract's output
+
+commit d6c8d34430878acb56b9b38e78c2930a3aeb9dba
+Author: Austin English <austinenglish@gmail.com>
+
+    autostart_winedbg: use enabled/disabled
+
+commit 326a6d14ee1bf43deec5a3bb964a246d85df8779
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk030
+
+commit cd80a5a9a97a1d13aaca7dd6f4144de9a58a631d
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: remove stray tab
+
+commit d03dd07d996f30529a99537ac65dc88c8c6c710e
+Author: Austin English <austinenglish@gmail.com>
+
+    misc/convert_sha1_sha256.sh: remove stray tab
+
+commit d126e27d97d139bb9778b49f8825d32fb0b5e59c
+Author: Austin English <austinenglish@gmail.com>
+
+    w_dotnet_verify: fix indentation
+
+commit 96801fa05119264cb44d4ddd525bcbbe4b9789c0
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove redundant w_try
+
+commit 431dec60f93414d726968ccec712acaeb9252e29
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk144
+
+commit f965bffb390023ccad28a351fc57b2a41da81e42
+Author: Austin English <austinenglish@gmail.com>
+
+    .travis.yml: refactor before_install on OSX. Don't fail if a tool isn't available, since homebrew is unreliable and linux isn't
+
+commit 1f8436af655ed55846b25e5c94b19072f6ee0d1a
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: refactor script into separate functions
+
+commit c21a93081fae5b6b7dd913c59b5d26bb364211b2
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: add headers to helpers/setup sections
+
+commit 756e65c820b30b47e5b6094fa4840d3fe21b6de2
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: add vim mode-line
+
+commit f90186898359308ddca66b92c504af2052823ca6
+Author: Jacob Hrbek <werifgx@gmail.com>
+
+    vcrun2015/7: Add `api-ms-win-crt-private-l1-1-0`
+
+commit cecb004abff1fc5196572dcd3d4578ed72a5260c
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk143
+
+commit c97bb078b3efa773889eeb0552e03004610bdfbb
+Author: Austin English <austinenglish@gmail.com>
+
+    .travis.yml: use bionic since trusty is no longer supported
+
+commit d684cf435efd9e35368cbdd433dc3ad9285d6f4f
+Author: Mikhail Pogorelov <43519305+artemyto@users.noreply.github.com>
+
+    new verb: dxvk142
+
+commit b6aa7ed37e9622abaf833c55bc6c337a97b99546
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk022
+
+commit 447a9e153e2146fd098a5867f62bac6d4e1f6f4c
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: d9vk021
+
+commit 95a0c910a1af6e4743e6ceea4d753d92667a9cc5
+Author: Austin English <austinenglish@gmail.com>
+
+    msvcrt40: new verb
+
+commit 622960b1f82f0153f539a4451d444cb0b62c806c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: check for variables in URLs
+
+commit 224b6ae10ec6fd36ee97fa6616daa3b9a7e8060c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: get rid of WINETRICKS_SOURCEFORGE variable
+
+commit c30433ca09c39c01390a2e1805a1c76a45d5c72d
+Author: Mikhail Pogorelov <43519305+artemyto@users.noreply.github.com>
+
+    d9vk: new verb
+
+commit ea25da70eeaea4750620d5e17fdd759f15b1000c
+Author: alessivs <alex@nonlinearly.com>
+
+    annihilate: Start at $XDG_DATA_HOME/applications
+
+commit f40b4655f8f3951730b271ee02ebe9dbcc619ecc
+Author: Jacob Hrbek <werifgx@gmail.com>
+
+    winetricks_handle_option: Added -f option to WINETRICKS_FORCE
+
+commit b5802c49cca4ccd797640f4692c3d95dd5958d26
+Author: Jacob Hrbek <werifgx@gmail.com>
+
+    ie6: Updated mirror using webarchive.org
+
+commit c3220d06d78ba6f122f83d5440c4e2106480415d
+Author: Jacob Hrbek <werifgx@gmail.com>
+
+    opensymbol: Update mirror
+
+commit c724e52249c13f86b98675f8baea8d862b8453cf
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk141
+
+commit 1a3c72846a63c659b0b98073f201394ae2d08c36
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine05: new verb
+
+commit 8aaebe6935f11942b2cbbfefaf01dd3c9462c654
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine04: new verb
+
+commit f54242371e4917c94bfc01b87ea34727ad9ab09c
+Author: Jacob Hrbek <werifgx@gmail.com>
+
+    w_set_winver: Attempt to improve version uncheck
+
+commit 8bdad0616adb5aaee7ed34b9b934d5a1b64deccf
+Author: k3erg <mike.kronenberg@kronenberg.org>
+
+    npp: update to 7.7.1
+
+commit d17eb19ae42b8d36c1253d53cfb61c6d6ce5a370
+Author: Austin English <austinenglish@gmail.com>
+
+    kde: remove no longer supported installer
+
+commit 5c99449fc6810ee0dedb5c7f06d0a7b10f009266
+Author: Austin English <austinenglish@gmail.com>
+
+    riched30: download from archive.org
+
+commit 4c93e3a408dccc3ea8855d3d9e3e34e99e44ab4b
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk140
+
+commit 274dbb298c2958669a80e0a99940e7ace6b2f1a0
+Author: marcin mikołajczak <m4sk1n@mkljczk.pl>
+
+    fix typo in polish translation
+
+commit 93f02b3e89facc2c3f5f18eb410e58417d904373
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    helper_dxvk_d9vk(): fix invalid dll override handling, on BSD
+
+commit b0b1a2154f0fcd6d024befd572e7341634735c96
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20190912-next
+
 commit af5f97aaa74b04b5451e2660de897787670967c8
 Author: Austin English <austinenglish@gmail.com>
 

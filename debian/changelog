@@ -1,3 +1,15 @@
+winetricks (0.0+20191224-1) unstable; urgency=medium
+
+  * New upstream release 20191224.
+  * Refresh patches.
+  * Minor update of README.source.
+  * Update standards version to 4.5.0, no changes needed.
+  * Refer to common license file for CC0-1.0.
+  * Fix misspelling of Close => Closes.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Mon, 23 Mar 2020 18:53:49 +0100
+
 winetricks (0.0+20190912-1) unstable; urgency=medium
 
   * New upstream release 20190912.
