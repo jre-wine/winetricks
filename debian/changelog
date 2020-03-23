@@ -371,7 +371,7 @@ winetricks (0.0+20130624+svn1004-1) unstable; urgency=low
     - Fix wineserver path (Closes: #713058).
     - Fix install mfc (Closes: #691935).
     - Fix install psdk2003 (Closes: #693724).
-    - Fix install steam (Close: #703967).
+    - Fix install steam (Closes: #703967).
   * debian/control:
     - (Description): Mention libwine.
     - (Depends): add zip.
