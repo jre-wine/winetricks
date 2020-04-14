@@ -1,3 +1,10 @@
+winetricks (0.0+20200412-1) unstable; urgency=medium
+
+  * New upstream release 20200412.
+  * Refresh patches.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Tue, 14 Apr 2020 19:38:52 +0200
+
 winetricks (0.0+20191224-1) unstable; urgency=medium
 
   * New upstream release 20191224.

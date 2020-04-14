@@ -1,3 +1,468 @@
+commit f23083c2f1c2884c939e183dcee190ec319f6f79
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20200412
+
+commit b5c3e1fde0371edaf34ecf3bd8c334fa311bde78
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30: use archive.org (again) for download, current mirror is dead
+
+commit d3be4c1533e976588125cd9d4e1106985e582a9b
+Author: Austin English <austinenglish@gmail.com>
+
+    w_detect_mingw: better mingw detection
+
+commit 1e8c6d286129f06a046fbc8d5a2623942c8d63ef
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    qdvd: register dll
+
+commit fb285614d54ebad745ba6898eadc7353b2283b62
+Author: Austin English <austinenglish@gmail.com>
+
+    mspaint: use correct filename
+
+commit 56b67ac6bdbca0df4eb6e3797ad82fffefce7cd2
+Author: Austin English <austinenglish@gmail.com>
+
+    phsyx: correct installed_file1 path
+
+commit d32d70a1b5c2f45be6d690f1a2b06d1f81d9fc07
+Author: Austin English <austinenglish@gmail.com>
+
+    directmusic: don't override devenum/quartz
+
+commit 4f049824e2792e686f2ac6da265e2272c9098d38
+Author: Austin English <austinenglish@gmail.com>
+
+    directmusic: add missing installed_file1
+
+commit efe9344fc86688bc6fb1518edc0aee8de512bb69
+Author: Austin English <austinenglish@gmail.com>
+
+    w_expand_env: use WINE_ARCH for getting environment variables
+
+commit e58973e215eef260a5b42acebba57fe5d109a2c9
+Author: Austin English <austinenglish@gmail.com>
+
+    w_do_call: pass user selected prefix through to winetricks_set_wineprefix()
+
+commit 65d2e75401f1db896e24c84d407f064552ad0d53
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_is_installed: fix variable name
+
+commit 86aa9faeb0c6e8679edcd9b7040b2ff13bd24d03
+Author: Austin English <austinenglish@gmail.com>
+
+    w_do_call: fix variable name
+
+commit 2e6751de9d0cb3d7b6ce2bd6db457b6c9387060e
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: add a comment
+
+commit 6aa7f3388c7101d622161a8cc818c710eb8c8165
+Author: Austin English <austinenglish@gmail.com>
+
+    w_do_call(): allow using --verify separtely from install
+
+commit cc908dd69db5b701e2fcdeaf02a82d9420e62e28
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: fix W_COMMONFILES_X86_WIN definition
+
+commit bb791efe567c109014e743761bed786d4d1c3b42
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: misc cleanups
+
+commit 6e156d49d3453d089e45a076c8949e5f1553f335
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: define W_PROGRAMW6432
+
+commit 9059b170a9a59593896b0671f43315feec9d00c8
+Author: Austin English <austinenglish@gmail.com>
+
+    vulkansdk: move to app category
+
+commit dabfdb1b7b3efd4078bc831a2e82fc32b2727779
+Author: Austin English <austinenglish@gmail.com>
+
+    speechsdk: add a comment explaining why it's in the dll category
+
+commit e0586d53dcb3b1a2bda003830e60e5aaf54d6c48
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sdk: move to app category
+
+commit a7479f4d069e417e5cd22c9567ad2f135f1b00ff
+Author: Austin English <austinenglish@gmail.com>
+
+    dxsdk_jun2010: move to app category
+
+commit 80574317041eb5d5806dc5018a6d1471da1eeebb
+Author: Austin English <austinenglish@gmail.com>
+
+    dxsdk_nov2006: move to app category
+
+commit 952f2386990d4c2d6ef9e170b8ea6d1b46b502a4
+Author: Austin English <austinenglish@gmail.com>
+
+    w_ahk_do: instead of using tmp.ahk, use $W_PACKAGE for ahk filename so it's unique
+
+commit 5f7b258fc8b644e00f779f65f8c69af8829a5fe1
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2019: Microsoft in their infinite wisdom decided to change the shasum again
+
+commit 0ec9689cee24881e17c39fcbb21fa5719fe2aa03
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: add missing w_try
+
+commit 90af760dda07f3f1acfac8969bf4b1c2ff77bfaf
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet452: correct file1 filename
+
+commit 7c82f2ef6fd519912b8e5025896859ac22f85669
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8_kb2936068: use w_try_ms_installer
+
+commit 511f799980df40d0dcffb242171ff83b25715bac
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: use w_try_ms_installer
+
+commit ca1bf0fd3622195bc9569300c3459185f339e041
+Author: Austin English <austinenglish@gmail.com>
+
+    ie6: use w_try_ms_installer
+
+commit 6264c3103873ba222206feff421d5c037ae4e07d
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet48: use w_try_ms_installer
+
+commit e866409f0c9e30c2e8c2e0ae23a76feeb10a22de
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet472: use w_try_ms_installer
+
+commit 8a6006bbba9f4f80e560ced278cf2d4bed050ee7
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet471: use w_try_ms_installer
+
+commit ae2d95807e295b295230fc4552a4ff28a8624fa5
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet462: use w_try_ms_installer
+
+commit 35891c5dc7f9443b47ed59e471e94cc51cff9039
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet461: use w_try_ms_installer
+
+commit e99ed9d1d9b23c2dd40b58074459738c55e79636
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet46: use w_try_ms_installer
+
+commit d011c32096a60720c78490420ef7f6f7d44c111c
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet452: use w_try_ms_installer
+
+commit d878b5134d367e4e1ce6cb899b8544a5f83999b8
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet45: use w_try_ms_installer
+
+commit 7a97e6bee24dfe4c87b511a2db7c870fb5d83be3
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40: use w_try_ms_installer
+
+commit e4a00fe91fbc0227dc558d24b96be8036174849d
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: use w_try_ms_installer
+
+commit 6e32e360c74937a8ce9a907a83ad8e6ea0562b92
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: use w_try_ms_installer
+
+commit 790527d927d3d3fcc837d76b8ad50b6aff017e63
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: use w_try_ms_installer
+
+commit b250403fc0c1eb4c2152061a58f1385b49263460
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp2: use w_try_ms_installer
+
+commit a941ccf46bd19264b33126d1e2c208124fb20d57
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp1: use w_try_ms_installer
+
+commit f7c5f2966e2a407b6ba5202dd26b97a3498e8e05
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20: use w_try_ms_installer
+
+commit 7c5694b2423569cf26e77910fa1a57fe69a2a3e9
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_ms_installer: wrapper around w_try for dotnet and other msi installers
+
+commit 704d8ebb3da61781c8c54a05a53a58629c197d33
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: explicity unset WINEPREFIX in test_prefix()'s test6
+
+commit 1b0ce2f0612823bd938af5c897c1f49a81be8ca1
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove quickcheck
+
+commit f402f2f9484132f7a55e8598716d73e48eca4693
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add some newlines in test_7zip()
+
+commit 2d58e2e4fc4a2bedaa78ef97d0f2a3a65d955de8
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_unzip: reset the current directory after installing windows 7zip
+
+commit a190e48d0ec82d43c6975adaff15489939f9e336
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_unrar: reset the current directory after installing windows 7zip
+
+commit 4618ea6667e35e5d75c1a9d0649080e27a6044b7
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_ar: reset the current directory after installing windows 7zip
+
+commit 881b6d63a02dafb5029a4165c31d17e8a5323119
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_7z: reset the current directory after installing windows 7zip
+
+commit f6cc727a55cf5a2b710e9e3eccb3b550e2d04f01
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp11: extract the main installer and then run subinstallers
+
+commit 9543b8ddee18690a6f0953b16b1a4138c89896fe
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk160
+
+commit de09607d2a5c39174811863feaa4a36e68a84c2e
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    update verb: dxvk_master
+
+commit d1be11b961c6e9a66b1a3f1128d2a21ca5e9234c
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    update verb: dxvk
+
+commit fdac4c2235d9178680d45f809d1275d02403b3e4
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    helper_dxvk_d9vk: add support for d3d10core parameter
+
+commit 80e77bab6fe01d0662e0e20af57b962ecf787719
+Author: soredake <fdsfgs@krutt.org>
+
+    wmp9: add 64-bit support
+
+commit a8ab6558e6e681bce534441f4056ae0d405fdcb7
+Author: AlexTMjugador <AlexTMjugador@users.noreply.github.com>
+
+    fix dxvk_master verb downloading from d9vk repository
+
+commit 0e0af0e389b2df3bed87bd80da68baccbaa39b98
+Author: wdlkmpx <wdlkmpx@gmail.com>
+
+    msxml6: update to service pack 2
+
+commit 7906460ef32174682947002ef81a1123c7334c3e
+Author: Merlijn Sebrechts <merlijn.sebrechts@gmail.com>
+
+    load_gdiplus_winxp: update to newer winxp gdiplus
+
+commit f9e18add7da8d1feee1ac6524944aeefce131acc
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_handle_option: handle prefix=* options here
+
+commit c1e228feb16b71bd5da99808b5697476f1be1d50
+Author: Nguyen Chinh Huu <huupoke12@gmail.com>
+
+    Update fakechinese, fakejapanese and fakekorean to the new SourceHanSans font
+
+commit 4ff9602b26e07747e6a43d072d41f121a25fc29a
+Author: Nguyen Chinh Huu <huupoke12@gmail.com>
+
+    Update cjkfonts
+
+commit 88a022b1e0dc2433fc1fd9f6718a0eaf3e93631d
+Author: Nguyen Chinh Huu <huupoke12@gmail.com>
+
+    Replace old sourcehansans_cn and sourcehansans_tw by sourcehansans
+
+commit ff73333fb70ba69d18c58b4766c79a9735da95e8
+Author: soredake <fdsfgs@krutt.org>
+
+    wmp11: add new verb
+
+commit 6a813d0a9173d0e919e40a4caa65c3739aebe613
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    fakekorean: add native fontname replacements
+
+commit ad5509ce8ba38cda50a3a6df93514689a46854d2
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    fakejapanese: add native fontname replacements
+
+commit daa14c3116639fb785cf17db1bd418be1174da80
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    w_register_font_replacement: support native (non-English) font names
+
+commit 2494167a7b4fcfe5756affa513d834615b38e286
+Author: Nguyen Chinh Huu <huupoke12@gmail.com>
+
+    Modify fakechinese verb to use Source Han Sans and modify font replacements
+
+commit 030bba67d8d1804116fd33a4cc407794527f9ad1
+Author: Nguyen Chinh Huu <huupoke12@gmail.com>
+
+    Add sourcehansans_cn and sourcehansans_tw verb
+
+commit fceadc00fc0edae5252cdefcc625dacfa1dfca62
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk155
+
+commit dc9a7c2e86128ef14e2d60b6d18142df25973da4
+Author: unqueued <ts1999@nyu.edu>
+
+    cnc3_demo: restore verb
+
+commit 9233ad8142f79606628928de16c033ff53ae7dc4
+Author: Melroy van den Berg <melroy@melroy.org>
+
+    w_set_winver: add win2k8r2
+
+commit 1b3a7db88df0038f1e7429cb74e5337540383509
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk154
+
+commit 46273677dd40cfd25eae1d5caa128fe2967204ec
+Author: Zebediah Figura <z.figura12@gmail.com>
+
+    dotnet: Override mscorwks to native.
+
+commit dffb9aa1c4ac9840ad15474bdb11f608e9e0a620
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk153
+
+commit d1bfdf2a541fa445140184575a18c32646383181
+Author: Melroy van den Berg <melroy@melroy.org>
+
+    Fix non-zero exit code when breadcrumbs file can't be found. Should not cause exit 1.
+
+commit fb83be6a546f49e9309c82430d81814f33ffe701
+Author: Alejandro González <AlexTMjugador@users.noreply.github.com>
+
+    new verb: dxvk152
+
+commit 925cc3e8224275b73c466b5b18d0d55ea9eef3dd
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40: try installing KB2468871
+
+commit b8c060dc6d5543f96aa231445e3a351e8a2a03f0
+Author: Tobias Bussmann <t.bussmann@gmx.net>
+
+    new setting: mackeyremap (#1474)
+
+commit a3961d9f46dbe7aa3ce772299b7d3ca8ac2b2320
+Author: Austin English <austinenglish@gmail.com>
+
+    ie{6,7,8}: add conflicts
+
+commit 41b5009ef9132aad8839ca5a0e5a7627b6eacf2f
+Author: tbussmann <t.bussmann@gmx.net>
+
+    fix link in readme
+
+commit 688be9c92224217cc6c3b99564f0ddf2a6cdf42b
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk151
+
+commit 81b0b5ffcaa2700fc9ec657f0368d17b951b8214
+Author: Stephan Lachnit <stephanlachnit@protonmail.com>
+
+    Update debian/copyright
+
+commit bebf919e1e3bc9a68b2117c071e8a8a823e50dec
+Author: Oleg Dubinskiy <oleg.dubinskij2013@yandex.ua>
+
+    new verb: dxtrans
+
+commit a3d1928f772c87b9f466e6a6ec4371d422723fea
+Author: PietJankbal <xerox.xerox2000x@gmail.com>
+
+    wmp10: workaround for broken installer wmp10 (#1460)
+
+commit b4bc33b14dc13e5da680a9f5a68199d73e57d414
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk150
+
+commit d641fa72cea4ca82a2c148be25471e54962ec565
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    update dxvk verb
+
+commit 8a53c506bc3991416104e1aa6258beba695445d9
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk_master
+
+commit 3d4f8be435697d57c21854c3218a5d4f12573007
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    refactor helper_dxvk_d9vk function
+
+commit 94edaddc039c205a98c2a620399a741c7a70ce02
+Author: Alexandr Oleynikov <10602045+tannisroot@users.noreply.github.com>
+
+    Add vcrun2019 verb (#1457)
+
+commit 68bc9359ad1a0288c7e403097a8eae7bde6dea1d
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20191224-next
+
 commit dbcd548f81025a5800f2020c0d4ed2c0b0755477
 Author: Austin English <austinenglish@gmail.com>
 
