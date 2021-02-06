@@ -16,7 +16,7 @@ https://github.com/Winetricks/winetricks/releases
 # Installing
 The ```winetricks``` package should be used if it is available and up to date. The package is available in most mainstream (Unix-like) Operating Systems:
 
-* Arch: https://www.archlinux.org/packages/community/any/winetricks/
+* Arch: https://www.archlinux.org/packages/multilib/x86_64/winetricks/
 * Debian: https://packages.debian.org/sid/winetricks
 * Fedora: https://fedoraproject.org/wiki/Wine#Packages
 * FreeBSD: https://www.freebsd.org/cgi/ports.cgi?query=winetricks&stype=all
@@ -42,9 +42,10 @@ Then, for Ubuntu, use a shell script to download the current winetricks script(s
 E.g.:
 
 ```
+#!/bin/sh
 # Create and switch to a temporary directory writeable by current user. See:
 #   https://www.tldp.org/LDP/abs/html/subshells.html
-cd "$(mktemp -d)"
+cd "$(mktemp -d)" || exit 1
 
 # Use a BASH "here document" to create an updater shell script file.
 # See:
@@ -58,7 +59,7 @@ cat > update_winetricks <<_EOF_SCRIPT
 
 # Create and switch to a temporary directory writeable by current user. See:
 #   https://www.tldp.org/LDP/abs/html/subshells.html
-cd "$(mktemp -d)"
+cd "\$(mktemp -d)"
 
 # Download the latest winetricks script (master="latest version") from Github.
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
@@ -77,7 +78,7 @@ wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetric
 # Move the winetricks BASH completion script to a standard location for BASH completion modules. See:
 #   https://www.tldp.org/LDP/abs/html/tabexpansion.html
 sudo mv winetricks.bash-completion /usr/share/bash-completion/completions/winetricks
-_EOF_SCRIPT 
+_EOF_SCRIPT
 ###### create update_winetricks FINISH ########
 
 # Mark the update_winetricks script (we've just written out) as executable. See:
@@ -104,7 +105,7 @@ cd "$(mktemp -d)"
 cat > update_winetricks <<_EOF_SCRIPT
 #!/bin/sh
 
-cd "$(mktemp -d)"
+cd "\$(mktemp -d)"
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks.bash-completion
 chmod +x winetricks
@@ -147,7 +148,7 @@ Description=Run winetricks update script
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/update_winetricks
+ExecStart=/bin/sh /usr/bin/update_winetricks
 Type=oneshot
 _EOF_SERVICE_UNIT
 
