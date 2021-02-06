@@ -1,6 +1,6 @@
-version=3
+version=4
 opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/winetricks-$1\.tar\.gz/,\
 dversionmangle=s/^\d*\.\d*\+//,\
 oversionmangle=s/^/0.0+/,\
-pgpsigurlmangle=s/archive\/(\d\S*)\.tar\.gz/releases\/download\/$1\/$1\.tar\.gz\.asc/ \
+pgpsigurlmangle=s/(\d\S*)\.tar\.gz/$1\.tar\.gz\.asc/ \
   https://github.com/Winetricks/winetricks/releases .*/v?(\d\S*)\.tar\.gz
