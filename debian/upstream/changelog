@@ -1,3 +1,1339 @@
+commit 49e7f00aa889030aea7d10bd533a4b1922b466b1
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20210206
+
+commit 4572fe881ad198dfbb1d7d2f8c3d0db85971b58a
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: only remove the tempdir when actually pushing changes
+
+commit 34a26b43794c7261197ec9e37495c6dfb1495f26
+Author: Austin English <austinenglish@gmail.com>
+
+    Create FUNDING.yml
+
+commit f39e3a357ec9a661d531295b957e57c25f0edbe5
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: don't try to install XPSEP
+
+commit 4481e6c2bcdbdee9989b3550e2e5ca48b4d0429f
+Author: Luciano Barcellos <lcbarcellos@gmail.com>
+
+    Replace usetakefocus argument values
+
+commit 5992c659ff0d34eb4fdc01897bf360217a0db386
+Author: Austin English <austinenglish@gmail.com>
+
+    xna40: use archive.org
+
+commit c2772a76d2e0f832b78562f62b5079b0ee668d41
+Author: Austin English <austinenglish@gmail.com>
+
+    gfw: use archive.org
+
+commit a9e272d0753c9c294286f0d3c2579ec0f232c8eb
+Author: Austin English <austinenglish@gmail.com>
+
+    mdac28: use archive.org
+
+commit e963765c2c6d3f011c60c9f6a35184a1ec5b8752
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_winxpsp2_support_tools: use archive.org
+
+commit a28db71a7ebef1226ebc1e79a3c3938e8bd56baa
+Author: Austin English <austinenglish@gmail.com>
+
+    flash: remove, no longer supported by upstream
+
+commit 95bac19ccd0bd00ceccb0c83dccdfe9376dd61d6
+Author: Austin English <austinenglish@gmail.com>
+
+    dmusic32: use archive.org
+
+commit ed2977d9669db746d52f8a2df924cd5ff66acd45
+Author: Austin English <austinenglish@gmail.com>
+
+    speechsdk: use archive.org
+
+commit 28eed3d587395466780d6d538f737838278e5760
+Author: Austin English <austinenglish@gmail.com>
+
+    gmdls: use archive.org
+
+commit bfe1cf676674fe7cef718a088119a4a36c16d98d
+Author: Austin English <austinenglish@gmail.com>
+
+    windowscodecs: use archive.org
+
+commit 4c49fcaac65fd8ae1d188438cf07024769cdbd46
+Author: Austin English <austinenglish@gmail.com>
+
+    hhw: use archive.org
+
+commit b49d5769c446752e55ee2e5cfe754e0b33326b51
+Author: Austin English <austinenglish@gmail.com>
+
+    adobeair: remove, abandoned upstream
+
+commit 045d96e09d3d8d5e44ad57a6eefed55d35755dcc
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    ddr=*: deprecate
+
+commit 31f170fe9e614a5daac9240021309fbdf92c69f7
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    renderer=*: add verb
+
+commit 0dd0144ef16df98bec457c7ca1739d9ab26490f2
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    helper_directx_Jun2010: update link
+
+commit b176a616c98afa037ae0a61d5531dc50d88ad260
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    helper_directx_dl: update link
+
+commit e5ea04807b905d372b121f18dbc98be915b99d32
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: warn for wine < 5.0
+
+commit 47018658b41b5b27d74717ab58df5c9f33fb7be3
+Author: Austin English <austinenglish@gmail.com>
+
+    d3dcompiler_46: new verb
+
+commit 6511820e180ca0d89b24b7412d6971249035afcd
+Author: Austin English <austinenglish@gmail.com>
+
+    psdkwin7: remove, broken by Microsoft
+
+commit d7653d49599990efba0ba171ebbebd256fcf7cbd
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    steam: disable libglesv2
+
+commit 2d6edc6a8bf757a1962f444b514e90ff3911fdc4
+Author: Gregor Zatko <gregor.zatko@cognexa.com>
+
+    vcrun2015: add missing CRT API DLL overrides
+
+commit 1eceb80d6856269e114f47b26378887e3ed8b56d
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: bug 49831 is fixed, now blocked by bug 50463
+
+commit cd33b0c95291c722f35735e98f7547b7588a7c7a
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet11: set fusion to native after installing
+
+commit b3a785b0b19b8619af406705452244a29084f850
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: bug 49690 is fixed in 6.0-rc2
+
+commit d66439a11c7ef11fec14de91e2ab2ca51adca41f
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    sapi: new verb
+
+commit 6ffc1a2a37323e46bb3985be694e75ddd2f1bc82
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    directplay: also install dpnhupnp.dll
+
+commit 25fa75799286e3337de247c648c0e2814909709d
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    directplay: also install dpmodemx.dll
+
+commit b1cb7dff9fb98ad0bd0e607ccc0cba174e1bb005
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mfc70: new verb
+
+commit 3666dab60b494c614278331386f74c84864ef3e5
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    winxpsp3: fix setup filename.
+
+commit 2458e9da6d6c527c9d08e0b976e5450cdde690bd
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    art2kmin: downgrade back to older version and split newer version off
+
+commit 9e5dba2f683427543f78c2789fe535021fdae89d
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    vcrun2015/17/19: set winver to default when setup completes
+
+commit 426f8533175db27e6a8489060811652de732e2c4
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    vcrun2015/17/19: clarify workaround
+
+commit b94a7f69567ca89ea907be17671d98c9e2b70aff
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    vcrun2017/19: also override msvcp140_1/2
+
+commit 7b676d5e0afb5c8f793009b1d3d0da4c1488a593
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    vcrun2015/17/19: remove builtin ucrtbase before running installer
+
+commit dee49f724b2aca2f3261fa8ab98728e4497a5651
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    winxpsp3: update URL
+
+commit b14b5406df46a2e86125107ae28a4ccdb0db5bec
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    win2ksp4: update URL
+
+commit 6c3c779c257d3b637fc1ab8b100ea17f536661d7
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    directplay: add native override for dplaysvr.exe
+
+commit e0b5690d85f28ef06fa59b6efd49395132bffd9e
+Author: TBK <tbk@jjtc.eu>
+
+    dotnetcoredesktop3: new verb
+
+commit ffba1d622c01021fb5e9a17ca3a572989299fb02
+Author: TBK <tbk@jjtc.eu>
+
+    dotnetcore3: new verb
+
+commit f0db3ebf05bed535c02a818435e172a1c1a65da4
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20201206-next
+
+commit 5d536514e09844eb749ccd2fe872633cc78bf1ff
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20201206
+
+commit 6b21ff1d22649eeafbb665bc48c3ad1647aedb53
+Author: Austin English <austinenglish@gmail.com>
+
+    cmd: use archive.org
+
+commit d3b714def6d3aff4e89329c2c98f06782daaa24c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: blacklist dxvk_master
+
+commit ccb1f561ae814f97f873dafed8c4cdb125fc6648
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk173
+
+commit c4f029102038bbbab1e079873cdc0ec15f641a5e
+Author: Nicolas Palix <nicolas.palix@gmail.com>
+
+    Add sha256 of Adobe Digital Editions 4.5
+
+commit 5c66555bad0dc49a90f7e530c283c5a217311698
+Author: gururajrkatti <74309971+gururajrkatti@users.noreply.github.com>
+
+    Add travis job for ppc64le. Install shellcheck (#1652)
+
+commit ccdf355a1ad7920e8a7e72568798e2676da54658
+Author: BEN ENGLISCH <EMAILBEN145@gmail.com>
+
+    lavfilters702: new verb
+
+commit 8b999767e166c16692cfa10dfc7f31f5c13adab9
+Author: BEN ENGLISCH <EMAILBEN145@gmail.com>
+
+    lavfilters: new verb
+
+commit 78046c91806be6bb5f78a2fcf5e1048550023e7e
+Author: Austin English <austinenglish@gmail.com>
+
+    vstools2019: new verb
+
+commit 41dba1d102730634503aacd9b47a71748d80f83f
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: blacklist quicktime76
+
+commit 02a8f5401d34a354a85544d88b913ce39ad10b53
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: run wineserver -w after running winetricks sandbox
+
+commit 75c242d596f3053d23cd270a46d5b616510c79da
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2017: fix w_workaround_wine_bug usage
+
+commit 594a062092981218d638a89e4851404f524c4f00
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2015: fix w_workaround_wine_bug usage
+
+commit 59b1b25bfd9ae9817ac110335c41543b5f3f3477
+Author: Austin English <austinenglish@gmail.com>
+
+    fable_tlc: fix w_workaround_wine_bug usage
+
+commit 96b1fc55e9e9bc0e6aa6a65e6017a6d50131e2e5
+Author: Austin English <austinenglish@gmail.com>
+
+    dragonage_ue: fix w_workaround_wine_bug usage
+
+commit d438ba4147f48bb542ea02b9d576b65a3ef2b24f
+Author: Austin English <austinenglish@gmail.com>
+
+    d3dcompiler_43: fix w_workaround_wine_bug usage
+
+commit b4a8cb92fda8f9c201834eb6df89642d35c34102
+Author: Austin English <austinenglish@gmail.com>
+
+    aoe3_demo: fix w_workaround_wine_bug usage
+
+commit d3bdc0058740dfddd2aadf58aea0b52e2b89b3ea
+Author: MrPhantom <ertr302@gmail.com>
+
+    vcrun2019: update hashes
+
+commit 9c542b693eb2b63f34428066f54040da3a537c38
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    quartz_feb2010: Execute "w_override_dlls native,builtin quartz" before w_try_regsvr
+
+commit 1b9aa605b4d759c8a9e3bca3d49039714d717914
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    quartz_feb2010: Fix SC2250
+
+commit c726915b6a3b033951bd8084283372226e29dbf7
+Author: kakurasan <kakurasan@users.noreply.github.com>
+
+    quartz_feb2010: new verb
+
+commit b0ef3dd3d8ff99223015de0c0e56d51bb7e4adda
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    dotnet30sp1: use archive.org
+
+commit c4f49472ff6139114d3aba1fce3f4b4523755ddb
+Author: Austin English <austinenglish@gmail.com>
+
+    dxdiag: needing native dxdiagn.dll is bug 49996
+
+commit bacb102ade635de6ba8adcd9a84a3e75a4934a65
+Author: Austin English <austinenglish@gmail.com>
+
+    xna40: move bug workaround behind bug check
+
+commit cbc13b58196a507f903b6a41eab3ad70c283a3aa
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2017: bug 37781 is fixed in 4.15
+
+commit 45fd248c78ae6ea19ec982fa9a46ebe3054b5a14
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2015: bug 37781 is fixed in 4.15
+
+commit 1316b1b69d3ca6db78fb1fe87b898af3ffc3acbc
+Author: Austin English <austinenglish@gmail.com>
+
+    oblivion: bug 20074 is fixed in 4.18
+
+commit e2b51acc10379de6af965e86e81f8ff247141fd4
+Author: Austin English <austinenglish@gmail.com>
+
+    dragonage/dragonage_ue: bugs fixed in 4.15
+
+commit 30b6353df23a03236b5b06d56f2ccbe088783a98
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: bug 47436 is fixed in 4.15
+
+commit 15358724179029fb11568b12cbf313877dd9349e
+Author: Austin English <austinenglish@gmail.com>
+
+    d3dcompiler_43: bug 47436 is fixed in 5.4
+
+commit f2769b5faa050cb325d12a5231371488b794d51a
+Author: Austin English <austinenglish@gmail.com>
+
+    aoe3_demo: bug 24912 is fixed in 4.19
+
+commit 8bdc104328dbe4d761af5b281b79df70229dbf83
+Author: Austin English <austinenglish@gmail.com>
+
+    adobe_diged4: bug 46019 is fixed in 4.5
+
+commit 279bd357cf5baa780807acc436624c22218e3131
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2017: remove obsolete workaround
+
+commit f1437c91dec2fdfd4b5704cf716a83cb9ce8f756
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2015: remove obsolete workaround
+
+commit 19eb8387978386228807b6125adc26ba77f9805f
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2013: remove obsolete workaround
+
+commit 1ac3e35ca26930359c81cf8915f1cba94b9fc2f9
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2012: remove obsolete workaround
+
+commit 0768c3928f12a39b78c34b94df02f53a23ca9215
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2010: remove obsolete workaround
+
+commit b84d509802ab9a88f6d8f61122ef32c1d0cda87a
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2010express: remove obsolete workaround
+
+commit f9e19831d6af7b22983d7686260ab1bb2c6500a7
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2008: remove obsolete workaround
+
+commit 389419c954fad4cd6ffe04c529281664fbb79d72
+Author: Austin English <austinenglish@gmail.com>
+
+    stream: remove obsolete workaround
+
+commit c6b301f89561fac0e72891e9c7f1a59ab831ec53
+Author: Austin English <austinenglish@gmail.com>
+
+    qq: remove obsolete workaround
+
+commit 003546c5c84982de28d2de60142d01206f2e554e
+Author: Austin English <austinenglish@gmail.com>
+
+    psdkwin7/psdkwin71: remove obsolete workaround
+
+commit d8b41e1d593fc0cc5aec7672af805c2ef63c20d4
+Author: Austin English <austinenglish@gmail.com>
+
+    office2013pro: remove obsolete workaround
+
+commit 7dec44ad61d4f8aa1054fbd3403b1baaaab48947
+Author: Austin English <austinenglish@gmail.com>
+
+    fable_tlc: remove obsolete workarounds
+
+commit 72b7d4621cfeb8729618c7d5f1b8cdceffe6eebf
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet46: remove obsolete workarounds
+
+commit b7b653b61e650b8315d5b9d377253d0dab384275
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40: remove obsolete workaround
+
+commit c9966645558d8aa77eb3e39c927309bcac23142d
+Author: Austin English <austinenglish@gmail.com>
+
+    darknesswithin2_demo: remove obsolete workaround
+
+commit fce88222aa963b8a3cbc24c1f85a878f6ed59053
+Author: Austin English <austinenglish@gmail.com>
+
+    bfbc2: remove obsolete workaround
+
+commit 423acec2e73e1c7a8bd33c5dc17ab3c0e523f31d
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk172
+
+commit 40dd33423ac6dfa69950daee9d5b280a13e42fdb
+Author: Fureloka <fureloka+github@protonmail.com>
+
+    Update vcrun2019 hash
+
+commit 8b61d82e10af00f8cc191009d0f2186010764e4f
+Author: Austin English <austinenglish@gmail.com>
+
+    office2013pro: use archive.org
+
+commit f8f5d61247a7912ec7b16acabaa4492f2c48612d
+Author: Austin English <austinenglish@gmail.com>
+
+    .shellcheckrc: require braces around variables
+
+commit ade5c3721ac0cf38689bd0f455b85e78a59f48d8
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add braces around variable names
+
+commit 36ff0c64a2db5f30362b3f65ab7be00fe753d32d
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-dotnet-grid-test: add braces around variable names
+
+commit 3c3a1d70c1fe554eae2bcc62ecbbac1915d24f55
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: add braces around variable names
+
+commit aeb162b1ede64f90882697b6df39109f978089be
+Author: Austin English <austinenglish@gmail.com>
+
+    src/winetricks: add braces around variable names
+
+commit fbb055d16801ba6862b2bfdd0ebeba62052e389b
+Author: Austin English <austinenglish@gmail.com>
+
+    src/uniquefiles.sh: add braces around variable names
+
+commit 75d656cc611a446cec5d1b18ae7c4bc715c8db71
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: add braces around variable names
+
+commit 0e45e28ce9f84a370376899893f072a8122c4229
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: add braces around variable names
+
+commit c47019eabee7e5cf1cfbbd2e642223d052bc075d
+Author: Austin English <austinenglish@gmail.com>
+
+    misc/travis-install-bashate-deb.sh: add braces around variable names
+
+commit 5f268ba9aa84df2ea3438fc27b24b0bbb6b490cd
+Author: Austin English <austinenglish@gmail.com>
+
+    misc/convert_sha1_sha256.sh: add braces around variable names
+
+commit c824277a2b3677a8d987551549e75cfb8bd57027
+Author: Austin English <austinenglish@gmail.com>
+
+    misc/bisect-wine-winetricks.sh: add braces around variable names
+
+commit 604eccf89fdfb671393bec6ea7dab03d6c95d2b2
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    wmp10: use archive.org
+
+commit d47597f176cd43ae46f8b7b4ef108e0ad509f291
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet4*: bug 49532 was partially fixed
+
+commit 50627d4133202d5f1f17e233a0cae6127ff23f9c
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: reset windows version to default
+
+commit 9f1045af077a75e8c42cda1a9c7356a8af04d512
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: reset windows version to default
+
+commit 9c13464c4a948a2598f28d1b8c5ef9e084030cbf
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30: reset windows version to default
+
+commit f203fdd5cc3005fbf70042a853e515bbb8e43577
+Author: Austin English <austinenglish@gmail.com>
+
+    abiword: remove
+
+commit d5b3fca5fbfb9944e1925386fd64cc41bcb99b55
+Author: Austin English <austinenglish@gmail.com>
+
+    _w_get_broken_messages: mention --force can be used to ignore breakage
+
+commit 787550c6985acb91f95d6f82c557fb3992c17615
+Author: Austin English <austinenglish@gmail.com>
+
+    _w_get_broken_messages: add a workaround to fix a corner case
+
+commit e9e9f9b6f0bb4289dbf5e6c2d5642c029c547eff
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: wait for wineboot to finish before proceeding
+
+commit 8cb9c63db2988b9bdee095e3385fe0706acdde16
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: broken on wine-5.17+ (bug 49831)
+
+commit 79525f0626ddd544563e6ffe57512105313270f9
+Author: Nick Gaya <nicholasgaya+github@gmail.com>
+
+    cnc_ddraw: update to 1.3.5.0
+
+commit 84d9ddb71d82fc9aa54e5d2ce986a7776525ed42
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: avoid wineboot window popping up during tests
+
+commit a676835d66e4c573789171d5d5af27f8c9c41482
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix function name in log message
+
+commit 04afe2a9d02e4c2bd87d15102ab86d9eb33b441c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: `--verify bad` is expected to fail
+
+commit c8a249f9e29fca6483603e882250f9c051c9556f
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: test fonts/settings in test_xvfb
+
+commit ba393e0c1a952cd9b4f42bc32e3e61258b2f1a37
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: test fonts/settings in test_full
+
+commit 78782a22ebc4af4f867d2427a071002d3f264da7
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: refactor test_dlls into test_category
+
+commit 1a20f8620c5579aa1361133388bf45bd93a3395a
+Author: Austin English <austinenglish@gmail.com>
+
+    files/verbs/fonts.txt: add fonts verbs list
+
+commit 79ce84907cdcc352f32898fb9019ab30b3188149
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: generate the category list instead of harcoding it
+
+commit 32dc11eecd46c1770ca8172b9773a21e438d2a21
+Author: Austin English <austinenglish@gmail.com>
+
+    src/release.sh: GITHUB_TOKEN isn't needed if --no-push is used
+
+commit bfee443cb5af1dfc47e3fd7218878952b66702ba
+Author: Austin English <austinenglish@gmail.com>
+
+    w_warn: prefix warning with 'warning:'
+
+commit 4ecc2a32cd44dab33a6b7cbf7a814fa5772700a4
+Author: Austin English <austinenglish@gmail.com>
+
+    eufonts: update download URL
+
+commit 1af3c79a9c3141560763628c038c66ad0c597f24
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine07: new verb
+
+commit 3826a243b44603a035ed05fa76929a158005979b
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine06: new verb
+
+commit 7b2b3c1d1441aeb250ed3960e49f6279db3bb502
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine{02,03,04,05}: mark broken on wine-5.14+
+
+commit d8b0c53992d8dcdf6d1ddaad6f4f600c7349780b
+Author: Austin English <austinenglish@gmail.com>
+
+    w_package_broken: refactor
+
+commit 786056708d956c85884437ab2d472838b5264f43
+Author: Austin English <austinenglish@gmail.com>
+
+    w_compare_wine_version: fix return value
+
+commit 1d216d9c042029522bef399b8f8884458df1f5fd
+Author: Austin English <austinenglish@gmail.com>
+
+    w_package_broken_no_mingw: add missing call to w_detect_mingw()
+
+commit 7225cac328b00a66c3fd0c5d2707f8f40c978c5a
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp9codecs: can't be installed on win64
+
+commit ac736bb2f89dbccb9dceedad93ef7726336f7b75
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp9: use winxp to install
+
+commit 354dd41b2b96c85d62b4730ae4d4a8a98ce34d31
+Author: Austin English <austinenglish@gmail.com>
+
+    speechsdk: win64 is unsupported
+
+commit 3a8d68bfaa1f83b45d6fc9f05f4e1a92e39c1c7b
+Author: Austin English <austinenglish@gmail.com>
+
+    jet40: unsupported on 64-bit
+
+commit 7dbce96f9b9953cd667ea3b692ff897aa469faf7
+Author: Austin English <austinenglish@gmail.com>
+
+    mdac28: installer doesn't support 64-bit
+
+commit 6bdbb5ed2973352edfb2c619f91ad6395c6b79d3
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20: verification is broken on win64
+
+commit 6513253a7bd7bba1cb2598b138478eb14f5a42b0
+Author: Austin English <austinenglish@gmail.com>
+
+    dsound: don't run regsvr32 on the builtin dll
+
+commit 6b2ba9f69ee60a9d2a36b24a1d34c284457ea2f5
+Author: Austin English <austinenglish@gmail.com>
+
+    dinput8: don't run regsvr32 on the builtin dll
+
+commit 4d15accca1146ae57525a44a43dbdf9f06878581
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: don't set WINEARCH if there isn't a prefix
+
+commit 66f5122b39d50e0103b7a5d5852a199065e8c95d
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    win7sp1: update urls
+
+commit 9a9f5a3796c440fb4456ddff21e3be3704157c94
+Author: Austin English <austinenglish@gmail.com>
+
+    files/LATEST: restore version to 20200412
+
+commit f0d9347516582954fd11e2372fe19e21d6f8fe4d
+Author: DanielDevBR <dados.linux@gmail.com>
+
+    misc: return TRUE and FALSE instead of 0 and 1
+
+commit 94e24cd825de7231da1134fe452bdbb7b5ab89af
+Author: suiahae <pengpengg@hotmail.com>
+
+    new verb: wenquanyizenhei
+
+commit 5483dabc9b1b5f5a3e611191a77fd78d07e5b7e7
+Author: Victor Azadinho Miranda <18581436+ShironCat@users.noreply.github.com>
+
+    Fix installation script's systemd service (#1587)
+
+commit 946d0cd1aef6cdc04922f49e61009505743007a6
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk171
+
+commit 7368a55d7e434bf840210164f5164bd2a1f9b25e
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet45: use OnlyUseLatestCLR registry setting to avoid WINEPREFIX update popup
+
+commit 1131bf0b2235628fdec050983a96808108e0554b
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40: use OnlyUseLatestCLR registry setting instead of dotnet20 to avoid WINEPREFIX update popup
+
+commit c0cb32bf087a916cc3be12b62b757e9ede543093
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: mark broken on win64 in wine-5.12+
+
+commit f777773cd7e5ac09527de96adaadbeaa336074ff
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: remove outdated warnings
+
+commit d144cfef328445a3e0507f5c78ecd79e638c8c02
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: mark broken on win64 in wine-5.12+
+
+commit d697243d5a558346fc4d8a90bd359c4db8c696b4
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: remove outdated warning
+
+commit 0abf63d55a245fc09077d5c614e27407940febb7
+Author: Austin English <austinenglish@gmail.com>
+
+    w_package_broken_win64: refactor to match other w_package_broken*() functions
+
+commit 39a3dd840726b9468692ac95b55e142ce88073f8
+Author: Austin English <austinenglish@gmail.com>
+
+    galliumnine{02,03,04}: mark broken on wine-5.13+
+
+commit 4590e0da635d4c4626ce607970f396279150b36a
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: update download URL
+
+commit 4f7cba5ecd9cf2b0623eb105386282cef95a324d
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet4*: mark broken on wine-5.12+
+
+commit 938a7e37ace25de87bc693ee14798ed25a5b6856
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: print skipped tests after test failures
+
+commit 2d2e83ade191d2b7d24f75501c5f67eef2d9e772
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: print running summary with each pass/fail/skip
+
+commit 9542fab15de654d5954ac6dcff4df7b0d89316c5
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add dirac/ffdshow/python26/python27 to blacklist
+
+commit 277da116b84b1a976262038a9231fd404e4e2359
+Author: rockerbacon <vitor@librem.one>
+
+    Update vcrun2019 sha256 hash
+
+commit fdd6b466db7f4e97be6519d0392bcf9540833520
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_usage: sync German translation
+
+commit 04f116fd2f6bf80929aac2659c90404efdbf92aa
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_usage: sync Danish tranlation
+
+commit 1f42e87a68f2c4617196e7efaf1d9eb100d9ef3a
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_usage: fix indentation
+
+commit 1050a115ab18e9cde9178e00f27572a0ec05a6d2
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_usage: document '-f' in German usage message
+
+commit 2c5cc509ff8f1345941567db36893a79bb7cf0c4
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40: install dotnet20 first
+
+commit 29d4edcfaec76128a68a0506605fd84473b6e38c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: if the WINEPREFIX doesn't exist, make it with wineboot
+
+commit 62acb07aa407ac0b547f2ad0702a7ac3752779f9
+Author: Byeongsik Jeon <bsjeon@hanmail.net>
+
+    load_gdiplus_winxp: Fix a broken dll installation.
+
+commit e1531b867ee0ae9ddb67adc7ecce2dc42f477cc1
+Author: Kamil Páral <kamil.paral@gmail.com>
+
+    winetricks.1: sync manpage
+
+commit 5190be8999e7c646789ba4a150b4863efaacdda5
+Author: Kamil Páral <kamil.paral@gmail.com>
+
+    winetricks: document missing 'fonts list' option
+
+commit d53a9e4cef4ecf821c83d382320e2216eb00c2a4
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: make sure test_speed list-installed more reliable
+
+commit 07132f6970bf8b32688e4592d743f9baf7e6b586
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove prefixes if test passed
+
+commit a12cea266d631f38abe96403bb41c500d5f002da
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove unneeded shellcheck directive
+
+commit 78455404febf9a5dd43145a8de15afc0c2fb05ff
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: blacklist font metaverbs
+
+commit f3ef6c78bbe3d03fcec29466e60d4c195c6922bf
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: remove test_install_cached_or_download
+
+commit b28cdf77d701c8b2c140509a2f240f7ac8575195
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add missing passes in test_speed()
+
+commit 775c3993a307dc25457444c21e15cbd35ac519d3
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix shellcheck warning in test_speed()
+
+commit 1b6ef751e6879e220cae1be436a0f6d32d3085a1
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: improve linecount check in test_speed()
+
+commit 6771c3cf5415a02449e3774d70e91e61e0591a37
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks-test: don't use nocrashdialog in test_speed()
+
+commit 29c24fa51f039b3d348465d9f1f6d67538bd99b7
+Author: Austin English <austinenglish@gmail.com>
+
+    _w_force_continue_check: add a helper for w_package_broken*() w_package_unsupported*() to allow using --force
+
+commit 931aecdee4d05b2b1e8403c4a592eb37d7184287
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: grep out grep itself from ps output in test_command()
+
+commit b24b72b0896a10b3a90d9cf370c3827a83fc6644
+Author: Austin English <austinenglish@gmail.com>
+
+    w_set_winver: wait for wineserver for newer wine as well
+
+commit 345565fd8fb5f57deabda32651c5638a699b5bb2
+Author: Austin English <austinenglish@gmail.com>
+
+    w_info: fix zenity usage
+
+commit b7c2f239f88687396554d57e454e8d3b897904e1
+Author: Austin English <austinenglish@gmail.com>
+
+    binkw32: use archive.org
+
+commit 8418d3c32e1fad024ef463b5a930a509b0d7b07b
+Author: Austin English <austinenglish@gmail.com>
+
+    vulkan*: add stable versions (vulkanrt121412/vulkansdk121412)
+
+commit 5805fc42d059431a26d22e2a6401ecd899b7767c
+Author: Octavia Togami <octavia.togami@gmail.com>
+
+    README.md: Update link to Arch package
+
+commit f65728c3e296687bc8ee34133ba55cad3c71ad84
+Author: Mingye Wang <arthur200126@gmail.com>
+
+    Don't force a WINE64 variable when one is already set
+
+commit 599774ce84b3367c717ce638daec34fbcd67f0d2
+Author: hillwoodroc <hillwoodroc@gmail.com>
+
+    flash: Update version to 32.0.0.363
+
+commit 6161223976d16423ddc8ae0a37c0e8771c27d05f
+Author: hillwoodroc <hillwoodroc@gmail.com>
+
+    Update Chinese translations
+
+commit 670fb717e959f86ae736ffec440d2d5f7a341019
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2019: also override vcruntime140_1 on win64
+
+commit 9174b21d560f8b2a16cf8816d0daa6d9e11630bf
+Author: Austin English <austinenglish@gmail.com>
+
+    nt351: new verb
+
+commit 78cb616e774478f8351dab74db0d5e6bb800d973
+Author: Austin English <austinenglish@gmail.com>
+
+    winme: new verb
+
+commit e7d4a9bb7605792dbebd6d87636c4a597e29e753
+Author: Austin English <austinenglish@gmail.com>
+
+    win30: new verb
+
+commit c9f3e369c374b605e686d6533e1c1f0af6976e45
+Author: Austin English <austinenglish@gmail.com>
+
+    win20: new verb
+
+commit 95b7bd175a8bad9b022998a4b8991c6c453d60d7
+Author: Austin English <austinenglish@gmail.com>
+
+    nt40: unsupported on win64
+
+commit a78a6d7243b5ce18e58b1a4ba6888bc88baca938
+Author: Austin English <austinenglish@gmail.com>
+
+    win2k: unsupported on win64
+
+commit 63e5109c7af3afca0b1a0c7031928c1e1bc829b8
+Author: Austin English <austinenglish@gmail.com>
+
+    win95: unsupported on win64
+
+commit fde371b003d13f56e96e92c1316b2f8da6b94bc0
+Author: Austin English <austinenglish@gmail.com>
+
+    win98: unsupported on win64
+
+commit 2541dc69b7404cb1dd71c5717b34b4daf94660e9
+Author: Austin English <austinenglish@gmail.com>
+
+    win31: unsupported on win64
+
+commit d953037c574fa5eeec3700195a8b7c8ce9c189fd
+Author: Austin English <austinenglish@gmail.com>
+
+    w_set_winver: use winecfg to set the windows version for wine >=5.7
+
+commit 9c80ff43aa77966a17e14647c37ea8276a4d8175
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add test_windows_versions() for testing setting windows version
+
+commit ed4528e86338a843ca1a28af214cc9b167cada0f
+Author: Austin English <austinenglish@gmail.com>
+
+    w_set_winver: use variable _W_winver for windows version
+
+commit 4caa0c5b0fffa062b40bb7ad6a57f5f7f7c638f1
+Author: Austin English <austinenglish@gmail.com>
+
+    w_compare_wine_version: fix typo in comment
+
+commit e3ea8cdc610da39d166e4e61cbfed54bed3e41a9
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: use consistent casing for 'Windows version'
+
+commit 24faee0049359811c6595aa8bbe6f97228f667cb
+Author: Hillwood Yang <hillwoodroc@gmail.com>
+
+    Update QQ to 8.9.6 and fix the wrong desktop profile installation. (#1547)
+
+commit 49b22b56802da12d3fc6672a6a5cc11309b36c71
+Author: Rodrigo Bezerra <rodrigobezerra21@gmail.com>
+
+    wmp9: should be 'Quiet' not 'quiet' on win64
+
+commit 2bf3e5cbb4bfb128b873477631496e12c7a08792
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: fix shellcheck issues
+
+commit 4f690a2a3e62c59629c4c9e332ba59034fb2d1f6
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2019: update sha25sums
+
+commit f053b447761d03e9d81db2aeab131e49e86b1b01
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk170
+
+commit 77c9819426ff79514bf29003c2ce96485025538b
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    update verb: dxvk_master
+
+commit 8ccc6a5c4a2c28b07b5629ee8a57cfed97a997b8
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    update verb: dxvk
+
+commit e875d5ab8ec54284053bbbe2bb786d8d33dfc0c8
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: remove unneeded check for 'unknown' string
+
+commit ac51cdb363284bb498fdd20c7a7241df1219d72c
+Author: Austin English <austinenglish@gmail.com>
+
+    pptfonts: use a helper function
+
+commit 669e6c3121482d9475148274a493ddba45ecea5b
+Author: Adrian Pedziwiatr <pedziwiatrad@gmail.com>
+
+    readme: add missing escape backslashes in installing&updating scripts
+    Signed-off-by: Adrian Pedziwiatr <pedziwiatrad@gmail.com>
+
+commit ee3a3f0518b05e3aaf35e941565d25d3819bced6
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mfc140: new verb
+
+commit a17de5181c1a95b287afebe7794a2d48262cebe9
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mfc120: new verb
+
+commit 0143b840f1055851438ccdf93bdde62a889633b1
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mfc110: new verb
+
+commit 1c1cf7de9baa30be5a1d113a07c4c2d185c50986
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mfc100: new verb
+
+commit e6cf6422fe09e7af39865eb57d544bca6a235af3
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mfc90: new verb
+
+commit 8be87116c6ed24b77456fd3ac50385c6ed72b3a4
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mfc80: new verb
+
+commit be0b16c1743fce6b69e2ff01210c7e8cbcee11d7
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    mfc71: new verb
+
+commit 655b6568a0aaca2e810b2f0e5a5f87a7546467c0
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    vcrun2003: simplify
+
+commit 3190897f369a4ee82601b84a002594f538952c34
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    ddr: fix registry key for newer wine versions
+
+commit f8b198118b134c04c1799e66a55e15ef326af517
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    prntvpt: copy correct dll for win64
+
+commit 839b4b6a20c0f0b3369444dc1d7fce9b31fd73ab
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    msxml6: use archive.org
+
+commit 7de54656cfece7ad00a4af5e85bd3b08e054955f
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk161
+
+commit caf8b1bfc018e9b8b78a83c972b6a684b4874711
+Author: Aliervo <aliervo@wingedvengeance.net>
+
+    dotnetcore2: new verb
+
+commit 14930d38b7e6ac462b97878d77d0a354ba952109
+Author: Austin English <austinenglish@gmail.com>
+
+    qq: fix w_metadata indentation
+
+commit dc5cedeb68198a0392b05043ca87be4703ff9710
+Author: Austin English <austinenglish@gmail.com>
+
+    dsdmo: remove unneeded hack
+
+commit 2a1f870e653b5871b8499146692a19cf67cf42eb
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_unattended: cleanup
+
+commit 2a3470946809716dac13779ea557c13ae95fcfd7
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_Q
+
+commit 770717ce06ea214e0ceea5ec358e7da8089ecd3d
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_QB
+
+commit b3f81104715efe9f9da3f5ed1ec7cbfa4491db42
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_QN
+
+commit 954cd1ef1bf5e9d6c188c4cf0a1471c0bb624269
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_QNT
+
+commit 17f8c94c16d9503aedadfc3692762f447ab147e9
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_QT
+
+commit 7607b6b02f4ab83c28e615f74fd1ab4fcff8078e
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_QUIET
+
+commit ce8e335e0944b3eb41ef6822cf9882f50c182b54
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_CAP_QUIET
+
+commit 5743dec00b903ff3a2c98f7e4509dee32e81596a
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_S
+
+commit f5bb3d3dadd17e640103d3a093a688134434a5ac
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_DASH_SILENT
+
+commit 8737152793fc4b7589c6eec28e71ae6c1f271ed9
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: get rid of W_UNATTENDED_SLASH_SILENT
+
+commit 9a4574ea08ad080b6808d2b907426091cc76131f
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet48: avoid unneeded variable
+
+commit 90ac9dad8155c5eb007c1c1a6429048be696b56c
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet472: remove obsolete workaround
+
+commit 6dcf033edc5c4eada1366d889855c5a82cd6d73a
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet471: avoid unneeded variable
+
+commit 49908909e47c4e84b0d54086b7a8fc42e81a1e66
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet462: avoid an unneeded variable
+
+commit 6d5c80afa9da8a49087f456540ecd2b9fe489153
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_regedit: remove outdated comments
+
+commit 12986a5ad724050edcdf8089807535dc9c3d04f4
+Author: Austin English <austinenglish@gmail.com>
+
+    w_winepath: new helper
+
+commit 1937853444257ca004e2a419a7e2e0f2260fe5b5
+Author: Austin English <austinenglish@gmail.com>
+
+    sandbox: add missing w_try
+
+commit 2b632094f9422acad01da82d9d8841f0f8a2c46a
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8_kb2936068: cleanup
+
+commit 67cecfdc312b2a31bf95c44bb9d905f39ca45ad1
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: cleanup
+
+commit 27235847ffa56e89f39fda63974cfd7560c4b584
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: cleanup
+
+commit b670ed705223b5ce40c5a26dc035a154c507b056
+Author: Austin English <austinenglish@gmail.com>
+
+    ev3: cleanup
+
+commit 9cb2d09873dcaf1108143a27f3ff8bf6134be925
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: add more combos to dotnet test
+
+commit 05b92bd027ba2af93fc7fc1be78915be7230f88a
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_stats_report: aria2c fixes
+
+commit 6f3b2ced0d7974bc1772ebac5f75c9496850c2cc
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_url_to_stdout: avoid a shellcheck warning
+
+commit 2538009ff8e4ca8c4f182b6d9482310f97b6bf6b
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to: avoid a shellcheck warning
+
+commit f23b492bc6323bd99511a16a89218b2b93885f64
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: quote WINE (shellcheck)
+
+commit 3a70d693c9208e9142461599a2208d6a917d15dc
+Author: Austin English <austinenglish@gmail.com>
+
+    windowscodecs: W_TASKSET should not be quoted (shellcheck)
+
+commit 116fab9fc89aa49fd65aa68455031fa5e56b7eca
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_wine_setup: quote WINE (shellcheck)
+
+commit ddb9327c8fcbaa00514998826d127b4364b4f0b0
+Author: Austin English <austinenglish@gmail.com>
+
+    w_compare_wine_version: quote wine versions (shellcheck)
+
+commit ec7c4432215eb0d1060dd7975b3c7b9a7b8cee3d
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: quote W_OPT_UNATTENDED (shellcheck)
+
+commit 30c2040c7d6c34628d392bd6aa5bcffae86ae91b
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: quote W_UNATTENDED_* variables (shellcheck)
+
+commit 1cbabdb2a8f6c0a2cc2b539964118d2136bd2195
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    speechsdk: set winver to winxp instead of default
+
+commit 693903bd027bd1a5d0744e5273081bec7dd8c0da
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    speechsdk: warn when run in 64bit prefix
+
+commit 416c33b6d759fca9b97cb98ab1de24c7991cb69a
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    speechsdk: create directories if necessary
+
+commit 8a5b569ec5a3004fabf693b21cafc70b8c71fb1e
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20200412-next
+
 commit f23083c2f1c2884c939e183dcee190ec319f6f79
 Author: Austin English <austinenglish@gmail.com>
 

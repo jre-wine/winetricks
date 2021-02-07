@@ -1,3 +1,15 @@
+winetricks (0.0+20210206-1) unstable; urgency=medium
+
+  * New upstream release 20210206. (Closes: #961205, #981660)
+  * Update and fix watch file.
+  * Refresh patch.
+  * Update to debhelper compatibility level 13.
+  * Bump Standards-Version to 4.5.1, no changes needed.
+  * Update d/copyright.
+  * Remove Joseph Bisch from Uploaders, thanks.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sun, 07 Feb 2021 01:18:11 +0100
+
 winetricks (0.0+20200412-1) unstable; urgency=medium
 
   * New upstream release 20200412.
