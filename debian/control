@@ -3,7 +3,6 @@ Section: contrib/otherosfs
 Priority: optional
 Maintainer: Debian Wine Team <debian-wine@lists.debian.org>
 Uploaders:
- Joseph Bisch <joseph.bisch@gmail.com>,
  Jens Reyer <jre.winesim@gmail.com>,
 Build-Depends:
  debhelper-compat (= 13),
