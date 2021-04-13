@@ -1,2 +1,3 @@
 disable-automatic-selfupdate.patch
 vcrun2019-update-hashes.patch
+allow-using-force-to-ignore-the-sha256sum-check.patch
