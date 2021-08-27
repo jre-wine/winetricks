@@ -1,3 +1,9 @@
+winetricks (20210825-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 27 Aug 2021 21:31:07 +0200
+
 winetricks (0.0+20210206-2) unstable; urgency=medium
 
   * Add patch to update vcrun2019 hashes. (Closes: #986376)

@@ -1,5 +1,5 @@
 # Winetricks
-[![Build Status](https://travis-ci.org/Winetricks/winetricks.svg?branch=master)](https://travis-ci.org/Winetricks/winetricks) [![License](http://img.shields.io/:license-lgpl-green.svg)](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1))
+[![License](http://img.shields.io/:license-lgpl-green.svg)](https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-(lgpl-2.1))
 
 Homepage of Winetricks, previously hosted at <https://code.google.com/p/winetricks>.
 
@@ -78,6 +78,13 @@ wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetric
 # Move the winetricks BASH completion script to a standard location for BASH completion modules. See:
 #   https://www.tldp.org/LDP/abs/html/tabexpansion.html
 sudo mv winetricks.bash-completion /usr/share/bash-completion/completions/winetricks
+
+# Download the latest winetricks MAN page (master="latest version") from Github.
+wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks.1
+
+# Move the winetricks MAN page to a standard location for MAN pages. See:
+#   https://www.pathname.com/fhs/pub/fhs-2.3.html#USRSHAREMANMANUALPAGES
+sudo mv winetricks.1 /usr/share/man/man1/winetricks.1
 _EOF_SCRIPT
 ###### create update_winetricks FINISH ########
 
@@ -199,7 +206,7 @@ load_icecat()
 Note that the file prefix (icecat.verb) and command name (icecat) must match. All metadata fields are optional, only the command name and category are required.
 
 # Tests
-The tests need `bashate`, `checkbashisms`, and `shellcheck>=0.4.4` installed.
+The tests need `bashate` and `shellcheck>=0.4.4` installed.
 Makefile supports a few test targets:
 
 * `check` - runs './tests/winetricks-tests quick' (without first clearing $WINETRICKS_CACHE)

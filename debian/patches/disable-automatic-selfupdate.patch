@@ -6,7 +6,7 @@ Last-Update: 2019-12-29
 
 --- a/src/winetricks
 +++ b/src/winetricks
-@@ -1202,6 +1202,18 @@ winetricks_check_update_availability()
+@@ -1205,6 +1205,18 @@ winetricks_check_update_availability()
          w_warn "You don't have the proper permissions to run this command. Try again with sudo or as root."
          exit
      fi
@@ -25,7 +25,7 @@ Last-Update: 2019-12-29
  }
  
  winetricks_selfupdate()
-@@ -1243,6 +1255,8 @@ winetricks_selfupdate()
+@@ -1246,6 +1258,8 @@ winetricks_selfupdate()
      w_try chmod +x "$0"
  
      w_warn "Update finished! The current version is $($0 -V). Use 'winetricks --update-rollback' to return to the previous version."
@@ -34,7 +34,7 @@ Last-Update: 2019-12-29
  
      exit
  }
-@@ -3391,10 +3405,10 @@ winetricks_latest_version_check()
+@@ -3398,10 +3412,10 @@ winetricks_latest_version_check()
      if [ ! "${WINETRICKS_VERSION}" = "${latest_version}" ] && [ ! "${WINETRICKS_VERSION}" = "${latest_version}-next" ]; then
          if [ -f "${WINETRICKS_CONFIG}/enable-auto-update" ] ; then
              w_info "You are running winetricks-${WINETRICKS_VERSION}."
@@ -49,7 +49,7 @@ Last-Update: 2019-12-29
              case ${LANG} in
                  pl*)
                      w_warn "Korzystasz z winetricks-${WINETRICKS_VERSION}, a najnowszą wersją winetricks-${latest_version}!"
-@@ -3417,7 +3431,7 @@ winetricks_latest_version_check()
+@@ -3424,7 +3438,7 @@ winetricks_latest_version_check()
                      w_warn "You should update using your distribution's package manager, --self-update, or manually."
                      ;;
              esac
@@ -58,7 +58,7 @@ Last-Update: 2019-12-29
      fi
  }
  
-@@ -5416,7 +5430,8 @@ winetricks_wine_setup()
+@@ -5423,7 +5437,8 @@ winetricks_wine_setup()
          return
      fi
  
@@ -68,7 +68,7 @@ Last-Update: 2019-12-29
  
      # Overridden for windows
      W_ISO_MOUNT_ROOT=/mnt/winetricks
-@@ -5610,7 +5625,7 @@ Options:
+@@ -5617,7 +5632,7 @@ Options:
  -f, --force           Don't check whether packages were already installed
      --gui             Show gui diagnostics even when driven by commandline
      --isolate         Install each app or game in its own bottle (WINEPREFIX)
