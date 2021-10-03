@@ -1,9 +1,13 @@
 winetricks (20210825-1) UNRELEASED; urgency=medium
 
+  [ Johannes Schauer Marin Rodrigues ]
   * Team upload.
   * New upstream release.
   * add debian/salsa-ci.yml
   * drop 0.0+ version prefix
+
+  [ Jens Reyer ]
+  * Set upstream metadata fields: Repository, Repository-Browse.
 
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Sun, 03 Oct 2021 15:39:07 +0200
 
