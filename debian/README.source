@@ -22,9 +22,6 @@ $ gbp import-orig \
       --merge-mode=replace \
       --uscan
 
-This will ask you about the upstream version, give the matching answer:
-# What is the upstream version? [0.0+20170327] 20170327
-
 
 3. Make changes
 ---------------
@@ -35,7 +32,7 @@ A good way to prepare (but always verify its results!) repetitive changes is:
 
 $ while quilt push; do quilt refresh || break; done
 $ quilt pop -a
-$ lintian-brush --no-update-changelog
+$ lintian-brush
 $ wrap-and-sort --wrap-always --short-indent --trailing-comma
 
 
@@ -48,8 +45,6 @@ $ gbp dch \
       --full \
       --spawn-editor=always \
       -- debian/
-
-Caution: Make sure the "0.0+" prefix is in the version.
 
 
 5. Update and commit upstream changelog
@@ -68,4 +63,4 @@ This amends the updated upstream changelog to the debian release commit.
 $ gbp buildpackage \
       --git-tag
 
- -- Jens Reyer <jre.winesim@gmail.com>, Sun, 29 Dec 2019 17:00:29 +0100
+ -- Jens Reyer <jre.winesim@gmail.com>, Sun,  3 Oct 2021 16:17:34 +0200
