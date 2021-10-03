@@ -8,6 +8,7 @@ winetricks (20210825-1) UNRELEASED; urgency=medium
 
   [ Jens Reyer ]
   * Set upstream metadata fields: Repository, Repository-Browse.
+  * Update standards version to 4.6.0, no changes needed.
 
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Sun, 03 Oct 2021 15:39:07 +0200
 
