@@ -1,7 +1,6 @@
 winetricks (20210825-1) UNRELEASED; urgency=medium
 
   [ Johannes Schauer Marin Rodrigues ]
-  * Team upload.
   * New upstream release.
   * add debian/salsa-ci.yml
   * drop 0.0+ version prefix
