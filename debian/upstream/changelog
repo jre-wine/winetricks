@@ -1,3 +1,323 @@
+commit 5904ee355e37dff4a3ab37e1573c56cffe6ce223
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20220411
+
+commit 29dcd9d304a779134b643c1cfdf6af0b4a791191
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet4*: bug 52722 was fixed in wine-7.6
+
+commit ea67015ead6b9da944521c5a2cea32c5284f5e4c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: ignore file systems that the user doesn't have permission to see
+
+commit 094a4d8552587fca12a101b6a1104833dad4043f
+Author: Austin English <austinenglish@gmail.com>
+
+    load_native_mdac: set odbccp32 to native,builtin
+
+commit c724aee2eb345e711742ccacb73ee61d563a25b4
+Author: Austin English <austinenglish@gmail.com>
+
+    mdac: add native,builtin override for msdasql
+
+commit 13ff001cf00f43d07af88adc71c9083807ed4a65
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp9: broken in wine since wine-6.6-266-g04a8213ba9e
+
+commit 59c35f8c2a335a4a79a8e3dfa48466201eb2fcf5
+Author: Austin English <austinenglish@gmail.com>
+
+    wme9: update download URL
+
+commit b557ce1340f4b677944afd7a78fcffa76520e947
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet_verifier: use archive.org
+
+commit 3eb21b6a13c769d218f9fed08a858d98ddfa28ae
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet4*: add blockers for wine bug 52722
+
+commit bae62075d8074ad162e2462a3f87028ec2b5e63e
+Author: Austin English <austinenglish@gmail.com>
+
+    busybox: update to FRP-4621-gf3c5e8bc3
+
+commit 98041242f5e144c102f77bcdfbf6e369401d3b7e
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk1101
+
+commit 3997dacadc2938829412cd75d7395f123c36005b
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: use example.com instead of microsoft.com when launching in GUI mode
+
+commit a2e445be97002320ac1039eeae2479b1792a5a9d
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: use the full path to iexplore.exe when advising user on how to start it
+
+commit 9781704a0884ed912b70a2e1a27623b1dbb2dd65
+Author: andrew.smart <andrew.smart@aggiemail.usu.edu>
+
+    ie8: added win64 support
+
+commit 7e813223df0f15c6be9d1c319f7dc0f1e5e728f0
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    steam: update sha256sum
+
+commit 71b2fb4408f3aeaa1c4b2c8962154064c8f43d52
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: bug 49690 was fixed in 6.0-rc2
+
+commit fba1d7789a7228da984500f71b0476826671f55e
+Author: Austin English <austinenglish@gmail.com>
+
+    w_try_cp_font_files: use LANG=C when calling find to avoid locale dependent issues
+
+commit 19b1ff705be279c5da9628f8e90666a6a5ad1b29
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_shell: fix indentation
+
+commit 1013bc10f434ec254f0e2aaffa3a9a76a0104570
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: fix link to Slackware package
+
+commit 72d009dff8945ba109c54b55d03ac9c5b1ccb648
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk1100
+
+commit 1542a515994a5d0849c49742acabaeb7b174d572
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    dxvk verb update
+
+commit 7b6861ea2f6e7f76f1519624d19cf5c2d92c4100
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: use example.com instead of microsoft.com when launching in GUI mode
+
+commit 534318fe26c1a4352efc7edc947b151c6f50f9ed
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: use the full path to iexplore.exe when advising user on how to start it
+
+commit b3c9f00c0cbb906c53b5add2df9ff5208c6c2649
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: don't remove placeholder shlwapi.dll from disk
+
+commit 3c9aa35e882f7cdde5687b6800371f7fcf45013e
+Author: Austin English <austinenglish@gmail.com>
+
+    ie6: don't remove placeholder shlwapi.dll from disk
+
+commit 68f4695ba31f0d83bb22bd92943ca516a2622916
+Author: Austin English <austinenglish@gmail.com>
+
+    vkd3d: fix variable name in unset call
+
+commit 350955566f2e0bd73ee6f0e0504ed2d700911940
+Author: Austin English <austinenglish@gmail.com>
+
+    src/winetricks: restore executable permission to src/winetricks
+
+commit d431b15fa55667217571a791074dc3eb69155dfc
+Author: nfinite-recursion <97854528+nfinite-recursion@users.noreply.github.com>
+
+    winetricks: add prompt to continue even if SHA256 check fails
+
+commit 675b6061ef6cdd603191cc6153cd70601d5a209d
+Author: Ralf Habacker <ralf.habacker@freenet.de>
+
+    set_userpath: new verb to set the user PATH variable in a wine prefix
+
+commit 1f3b67a1826d583401db585f99471148551a46c2
+Author: Sveinar Søpler <cybermax@dexter.no>
+
+    Update NVIDIA PhysX version
+
+commit 86978c45c36f9cb17ba98ddb6ab4d1d4644da6a5
+Author: Matheus Scattolin Anselmo <matheus.scattolinanselmo@outlook.com>
+
+    winetricks_detect_gui: allow specifying the gui option via --gui=(kdialog|zenity)
+
+commit ee026ea6ac7d0303c21b1b699247ed5002e626f5
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk194
+
+commit 79b10213508ca74eede9d347ab056272c652b080
+Author: Anagram3k <luis.henriques@gmail.com>
+
+    Fix for test: KDE: unexpected operator
+
+commit 57959a98266f60ab2b0c48908b31d7327bc2d00b
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: fix shellcheck issue
+
+commit 0c0f8a8b2cc66895d66a63a40f00d7f069fd04e2
+Author: Nurlan Usenov <suren@etersoft.ru>
+
+    vcrun2019: update sha256sum
+
+commit 48ed598ebec5a3a89b936badb5ee6fc17a4af0be
+Author: ThisNekoGuy <nekoNexus@protonmail.ch>
+
+    Solves Issue #1654 - Use kdialog instead of zenity in KDE Plasma, When Available (#1867)
+
+commit 146d3214619ca60f6532c5074b4979bb81b11873
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk193
+
+commit b458acf76709c665edc9894d928e7f79932978f4
+Author: TotalCaesar659 <14265316+TotalCaesar659@users.noreply.github.com>
+
+    Update URLs to HTTPS
+
+commit 5028127369b7b23b03789aec083ba5b68aa1ec34
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_annihilate_wineprefix: fix shellcheck issue (SC1091)
+
+commit 961597035939a8e01439caf64cb8ad6926c44644
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_volname: fix shellcheck issue (SC2268)
+
+commit ccf2ed5250c975c305fc8f4e7fc0d94df6ed0ab8
+Author: Sameer Puri <11097096+sameer@users.noreply.github.com>
+
+    vstools2019: update hash
+
+commit d85b0c83a6075e64dfbfae53d0d26dfe051f0315
+Author: Gcenx <38226388+Gcenx@users.noreply.github.com>
+
+    dotnet*: Update urls
+
+commit 0d8acd219d911fb8f48d84530415114543a036de
+Author: Patrick Northon <northon_patrick3@yahoo.ca>
+
+    wmp11: add native mfplat/wmasf overrides and fix installation in system32.
+
+commit bb84b171ea053954438a639ebd6a55491cef430b
+Author: Patrick Northon <northon_patrick3@yahoo.ca>
+
+    Add `w_try_cp_dll` function and replace all `w_try cp` calls for `w_try_cp_dll` when they try to copy dlls into W_SYSTEM32_DLLS or W_SYSTEM64_DLLS.
+
+commit 31306b1b31b370013ab8c6a8670b78707d8a8d33
+Author: Bruno Gonçalves <bigbruno@gmail.com>
+
+    Translation to Portuguese
+
+commit 164d243e1384ba7cc6058a6524c1472100b7722c
+Author: 依云 <lilydjwg@gmail.com>
+
+    fix a wrong Chinese translation
+
+commit 4b78235011df0249999a14d95b5eb7f44902ec67
+Author: Gcenx <38226388+Gcenx@users.noreply.github.com>
+
+    dotnet472: update url & sha256 checksum
+
+commit 4340f09f0c17566205dcc74e15211ddac7780148
+Author: Alex Henrie <alexhenrie24@gmail.com>
+
+    msaa: new verb
+
+commit 93d62e194e7b4786b8889166d4627f161b26bca6
+Author: Guy Smoilovsky <611655+guysmoilov@users.noreply.github.com>
+
+    Update vcrun2019 sha256 checksums
+
+commit aa281710e896e3e0806fc1c04876140e41c74463
+Author: DragonOfWar <therealdragonofwar@gmail.com>
+
+    Add width for the w_warn and w_info dialog boxes
+
+commit b22dc4908377683d60b8bf6873a8aff06717e72e
+Author: Dean M Greer <gcenx83@gmail.com>
+
+    dotnet462: use archive.org for download
+
+commit 40bb2b0cc1791ae5294490c21e531c07a9d4f558
+Author: Gcenx <38226388+Gcenx@users.noreply.github.com>
+
+    dyld_ stripping fix comment
+
+commit 1c61c893ee26d5b1c3af7055ede0c2bd80a56be4
+Author: Gcenx <38226388+Gcenx@users.noreply.github.com>
+
+    cnc_ddraw: update to 4.4.4.0
+
+commit ba30d463b712175b52fdf9be3f70952846077186
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    d9vk: remove verb (obsolete repository, d9vk merged into dxvk)
+
+commit 90444384a3711da93e772a3604719dddc71ab372
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    d9vk???: remove verbs (obsolete repository, d9vk merged into dxvk)
+
+commit 78a23e46d3c38ae14a032c1b9d1fdf2a04cac2e0
+Author: artemyto <artemyto@yandex.ru>
+
+    Add load_vkd3d verb to install latest vkd3d-proton
+
+commit cc19e095ac81bbbb59188ff19797fbadf5e534c9
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk192
+
+commit bcc858c5deed08685a6cbe1dadd441e66b8e7a0b
+Author: a1346054 <36859588+a1346054@users.noreply.github.com>
+
+    winetricks-dotnet-grid-test: unify indentation and codestyle
+
+commit c73266a690b15982f76bc7f9f214b9e6e9de936a
+Author: a1346054 <36859588+a1346054@users.noreply.github.com>
+
+    bisect-wine-winetricks.sh: correctly test for existence of command
+
+commit 53b4a7d5e1a375ca3fd8d113522dd45524dd0ea5
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun6sp6: extract the files with cabextract instead of using installer directly
+
+commit c03988712b09fdaf8d0e5aa7914956e76f3c9e80
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun6: extract the files with cabextract instead of using installer directly
+
+commit 82e226799f1de5575be0c140e1a86575169efb90
+Author: Austin English <austinenglish@gmail.com>
+
+    vb6run: extract the files with cabextract instead of using installer directly
+
+commit 078e74b428c84baef07717acc9ecafb0a5b6aa66
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    msls31: use archive.org
+
+commit 8b0eec06fef88fb91356e886d1ad3d554b37e6c9
+Author: Vitaly Lipatov <lav@altlinux.ru>
+
+    vcrun2019: update sha256sum (fix #1801)
+
 commit fa11b11a91a984666bf83b42e09be33ec0d6b294
 Author: Sveinar Søpler <cybermax@dexter.no>
 

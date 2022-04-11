@@ -1,16 +1,18 @@
-winetricks (20210825-1) UNRELEASED; urgency=medium
+winetricks (20220411-1) unstable; urgency=medium
 
   [ Johannes Schauer Marin Rodrigues ]
-  * New upstream release.
-  * add debian/salsa-ci.yml
-  * drop 0.0+ version prefix
+  * Add debian/salsa-ci.yml.
+  * Drop 0.0+ version prefix.
 
   [ Jens Reyer ]
-  * Remove obsolete code for dropped 0.0+ version prefix.
-  * Set upstream metadata fields: Repository, Repository-Browse.
+  * New upstream release.
+  * Refresh disable-automatic-selfupdate.patch.
+  * d/watch: Update signature url mangle.
   * Update standards version to 4.6.0, no changes needed.
+  * Set upstream metadata fields: Repository, Repository-Browse.
+  * Remove obsolete code for dropped 0.0+ version prefix.
 
- -- Jens Reyer <jre.winesim@gmail.com>  Sun, 03 Oct 2021 16:20:07 +0200
+ -- Jens Reyer <jre.winesim@gmail.com>  Mon, 11 Apr 2022 18:36:51 +0200
 
 winetricks (0.0+20210206-2) unstable; urgency=medium
 
