@@ -24,7 +24,7 @@ Recommends:
  cabextract,
  fuseiso | archivemount,
  p7zip-full,
- policykit-1 | kde-cli-tools,
+ pkexec | policykit-1 | kde-cli-tools,
  sudo,
  unzip,
  xdg-utils,
