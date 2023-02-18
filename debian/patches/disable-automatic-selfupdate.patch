@@ -6,7 +6,7 @@ Last-Update: 2019-12-29
 
 --- a/src/winetricks
 +++ b/src/winetricks
-@@ -1249,6 +1249,18 @@ winetricks_check_update_availability()
+@@ -1279,6 +1279,18 @@ winetricks_check_update_availability()
          w_warn "You don't have the proper permissions to run this command. Try again with sudo or as root."
          exit
      fi
@@ -25,7 +25,7 @@ Last-Update: 2019-12-29
  }
  
  winetricks_selfupdate()
-@@ -1290,6 +1302,8 @@ winetricks_selfupdate()
+@@ -1320,6 +1332,8 @@ winetricks_selfupdate()
      w_try chmod +x "$0"
  
      w_warn "Update finished! The current version is $($0 -V). Use 'winetricks --update-rollback' to return to the previous version."
@@ -34,7 +34,7 @@ Last-Update: 2019-12-29
  
      exit
  }
-@@ -3446,10 +3460,10 @@ winetricks_latest_version_check()
+@@ -3049,10 +3063,10 @@ winetricks_latest_version_check()
      if [ ! "${WINETRICKS_VERSION}" = "${latest_version}" ] && [ ! "${WINETRICKS_VERSION}" = "${latest_version}-next" ]; then
          if [ -f "${WINETRICKS_CONFIG}/enable-auto-update" ] ; then
              w_info "You are running winetricks-${WINETRICKS_VERSION}."
@@ -49,7 +49,7 @@ Last-Update: 2019-12-29
              case ${LANG} in
                  pl*)
                      w_warn "Korzystasz z winetricks-${WINETRICKS_VERSION}, a najnowszą wersją winetricks-${latest_version}!"
-@@ -3476,7 +3490,7 @@ winetricks_latest_version_check()
+@@ -3079,7 +3093,7 @@ winetricks_latest_version_check()
                      w_warn "You should update using your distribution's package manager, --self-update, or manually."
                      ;;
              esac
@@ -58,7 +58,7 @@ Last-Update: 2019-12-29
      fi
  }
  
-@@ -5567,7 +5581,8 @@ winetricks_wine_setup()
+@@ -5222,7 +5236,8 @@ winetricks_wine_setup()
          return
      fi
  
@@ -68,7 +68,7 @@ Last-Update: 2019-12-29
  
      # Overridden for windows
      W_ISO_MOUNT_ROOT=/mnt/winetricks
-@@ -5762,7 +5777,7 @@ Options:
+@@ -5417,7 +5432,7 @@ Options:
      --gui             Show gui diagnostics even when driven by commandline
      --gui=OPT         Set OPT to kdialog or zenity to override GUI engine
      --isolate         Install each app or game in its own bottle (WINEPREFIX)
