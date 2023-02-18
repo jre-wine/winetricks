@@ -5,7 +5,12 @@ version=4
 # release file ("Winetricks-winetricks-$tag-$commit/")
 opts="searchmode=plain,\
 downloadurlmangle=s#api.github.com/repos/([^/]+)/([^/]+)/tarball/(@ANY_VERSION@)#github.com/${1}/${2}/archive/refs/tags/${3}.tar.gz#,\
-pgpsigurlmangle=s#archive/refs/tags/(@ANY_VERSION@)\.tar\.gz#releases/download/${1}/${1}.tar.gz.asc#,\
 filenamemangle=s#.+/@ANY_VERSION@#winetricks-${1}.tar.gz#" \
 https://api.github.com/repos/Winetricks/winetricks/releases \
 https://api\.github\.com/repos/[^/]+/[^/]+/tarball/@ANY_VERSION@
+
+# winetricks-20230212 failed to verify because git changed to an internal gzip
+# (which was used by upstream for a local tarball to sign), while github uses
+# the external gzip to create the tarball. Therefore disable the automatic
+# verification for now and verify the tarball manually.
+#pgpsigurlmangle=s#archive/refs/tags/(@ANY_VERSION@)\.tar\.gz#releases/download/${1}/${1}.tar.gz.asc#,\
