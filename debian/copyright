@@ -1,5 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Source: https://winetricks.org
+Upstream-Name: winetricks
+Source: https://github.com/Winetricks/winetricks
 Comment: winetricks is not part of the Debian distribution, but is in the
  contrib archive area instead, because while winetricks itself is free software,
  its main purpose is to download and install mainly non-free software.
@@ -7,7 +8,7 @@ Comment: winetricks is not part of the Debian distribution, but is in the
 Files: *
 Copyright:
  2007-2014 Dan Kegel <dank!kegel.com>
- 2008-2021 Austin English <austinenglish!gmail.com>
+ 2008-2022 Austin English <austinenglish!gmail.com>
  2010-2011 Phil Blankenship <phillip.e.blankenship!gmail.com>
  2010-2015 Shannon VanWagner <shannon.vanwagner!gmail.com>
  2010 Belhorma Bendebiche <amro256!gmail.com>
@@ -21,18 +22,19 @@ Copyright:
  2011 Trevor Johnson
  2011 Franco Junio
  2011 Craig Sanders
- 2011 Matthew Bauer <mjbauer95>
+ 2011 Matthew Bauer <mjbauer95!gmail.com>
  2011 Giuseppe Dia
  2011 Łukasz Wojniłowicz
  2011 Matthew Bozarth
  2013-2017 Andrey Gusev <andrey.goosev!gmail.com>
- 2013-2017 Hillwood Yang <hillwood!opensuse.org>
+ 2013-2020 Hillwood Yang <hillwood!opensuse.org>
  2013,2016 André Hentschel <nerv!dawncrow.de>
 License: LGPL-2.1+
 
 Files: debian/*
 Copyright:
- 2017-2021 Jens Reyer <jre.winesim@gmail.com>
+ 2022      Johannes Schauer Marin Rodrigues <josch@mister-muffin.de>
+ 2017-2023 Jens Reyer <jre.winesim@gmail.com>
  2014-2016 Joseph Bisch <joseph.bisch@gmail.com>
  2011-2013 Jari Aalto <jari.aalto@cante.net>
  2011      Tony Mancill <tmancill@debian.org>
@@ -59,6 +61,7 @@ Comment:
 Files: src/winetricks.svg
 Copyright:
  2010-2011 Joel Holdsworth <joel@airwebreathe.org.uk>
+License: LGPL-2.1+
 Comment:
  See https://bugs.debian.org/708198 for confirmation of copyright.
  .
@@ -84,7 +87,6 @@ Comment:
  .
  Thanks,
  Scott Ritchie
-License: LGPL-2.1+
 
 License: LGPL-2.1+
  See /usr/share/common-licenses/LGPL-2.1.
