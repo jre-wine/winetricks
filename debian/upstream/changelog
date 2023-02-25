@@ -1,3 +1,743 @@
+commit e9f380aab64c07126d9259e1c16598c332c2f58f
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20230212
+
+commit a49d7f8e395b09827bcf07d6ae014405754a9d1c
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: remove unused code (shellcheck)
+
+commit 8a093f6d68584db3b7e4bc34ca29fe3a04853529
+Author: Austin English <austinenglish@gmail.com>
+
+    w_override_app_dlls: avoid an usafe usage of echo (shellcheck)
+
+commit 3030232f9342a5cd477b1c8f62ca5c29d6f67af9
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: more quoting fixes (shellcheck)
+
+commit 2bb0a51be67d3d1c5421897011d90cd16975d6bc
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove unreachable code (shellcheck)
+
+commit ae90bfd86093d0f5dee1a1f6365abff507a79e5e
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_gui: improve support for quiet mode when using the GUI
+
+commit 92dffad7e8ffc0704e92f90f579dad0cf30b8bcb
+Author: SmallJoker <SmallJoker@users.noreply.github.com>
+
+    zenity: Limit description length (#2017)
+
+commit b3caa0b9fa3d562033600b2eeb54f2d6fc542f54
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    cnc_ddraw: Update to v5.0.0.0
+
+commit 61058ec669b08ef60fe2357eed55faea370f878a
+Author: SmallJoker <mk939@ymail.com>
+
+    New verb: dxvk2010
+
+commit c071f840dea1feaa7ad83f792648d89a717329f8
+Author: Austin English <austinenglish@gmail.com>
+
+    xvid: add a comment explaining its wmp warning
+
+commit e90e12f758d3529b62437064708023ad9a21177c
+Author: BowDown097 <42720004+BowDown097@users.noreply.github.com>
+
+    autohotkey: bump to 1.1.36.01 in w_ahk_do()
+
+commit 21205a75927700baafce433be9ae90d964647596
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp11: use w_store_winver/w_restore_winver
+
+commit f43b66db39e26abb1dd62e9a53e7d108ccb0599e
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp10: use w_store_winver/w_restore_winver
+
+commit 6fc4eff51bb33f488a64f8cc9c0d9b76e4066816
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp9: use w_store_winver/w_restore_winver
+
+commit 235f97e99f6bb72176ca7faad921c54b1753f1fb
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: use w_store_winver/w_restore_winver
+
+commit 7dfbb5c875f6971f78cc1bf3b19ce14787303c60
+Author: Austin English <austinenglish@gmail.com>
+
+    ie6: use w_store_winver/w_restore_winver
+
+commit 6098bd373a28143f5f5505625bfe3561bf6e5b59
+Author: Austin English <austinenglish@gmail.com>
+
+    wmi: use w_store_winver/w_restore_winver
+
+commit 68db5154b3adf95a8381879a3eac08cf85d0b2f2
+Author: Austin English <austinenglish@gmail.com>
+
+    windowscodecs: use w_store_winver/w_restore_winver
+
+commit 714f580d6c4415f24a7ea8deeada631896e19e4b
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2019: restore windows version after install
+
+commit 8d05ff8778234b2476232d73c2c9391fc363719e
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2017: use w_store_winver/w_restore_winver
+
+commit 5c7e01e12321a48a650aaca12eae4110e402305c
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2015: use w_store_winver/w_restore_winver
+
+commit 0d01126b6d2877542af342a4db4b38f85002a444
+Author: Austin English <austinenglish@gmail.com>
+
+    mdac28: use w_store_winver/w_restore_winver
+
+commit 9d5c81ad15fc467536156b5abf23436d7dced241
+Author: Austin English <austinenglish@gmail.com>
+
+    mdac27: use w_store_winver/w_restore_winver
+
+commit 4c20c6f77aa37086c07f83cad60ce0207afe6022
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8_kb2936068: use w_store_winver/w_restore_winver
+
+commit f03563757c6572def45785d4364218e5ccf3aa1d
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40_kb2468871: remove unneeded w_set_winver call
+
+commit 8b2034a92ec84716108af4c05f1836c4130eaee5
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40: use w_store_winver/w_restore_winver
+
+commit 26ed2eaa3550f2033cf5b8e431d36949c8602fab
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: use w_store_winver/w_restore_winver
+
+commit 4bf2926b1993872387f1c42c218124b163e4e4ce
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35: use w_store_winver/w_restore_winver
+
+commit 6b02399cabf01d7e8d3ae163bd46f5aec744fced
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: use w_store_winver/w_restore_winver
+
+commit c8e50198bf22af3310674c6dc93fb5cdab44ca37
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30: use w_store_winver/w_restore_winver
+
+commit 9e610e6be100613e0f0fe1e2c61c31dd0815cba2
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp2: use w_store_winver/w_restore_winver
+
+commit d8a9dcf428a728a15c8671aa90470af85eea7827
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp1: use w_store_winver/w_restore_winver
+
+commit 2171a999ea4c8a629f861c0aee8adab1b531bf2d
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20: use w_store_winver/w_restore_winver
+
+commit 53eb23e93e7d0fdb220b450e6aba9a7e8986904b
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: add w_restore_winver/w_store_winver functions
+
+commit acaa0987b8ae96ef8c3a3f8d0fe45899d8d544de
+Author: Alexander Laertes <alex@ander.la>
+
+    ie8_tls12: new verb
+
+commit 4d2619433265c4b592e3afe99879beaa7ba7be17
+Author: Austin English <austinenglish@gmail.com>
+
+    xact_x64: set xactengine dlls to native
+
+commit c7949d3b9fbd10a0e62fa50e77b1ca4fe0b6f5e5
+Author: Austin English <austinenglish@gmail.com>
+
+    xact: set xactengine dlls to native
+
+commit bb7cd0672bccf5f5be1b77474f0ae0b745c76f77
+Author: Austin English <austinenglish@gmail.com>
+
+    dxwnd: fix typo in metadata
+
+commit 3754c8458146be874f3ebca37e516aac5b9c8870
+Author: Krzysztof Bogacki <krzysztof.bogacki@leancode.pl>
+
+    vcrun2022: new verb
+
+commit 61f4de17e3848ffe29cd0936f0e546a125c5b8d5
+Author: GitHub Action <actions@github.com>
+
+    Add OpenAL support to winetricks.
+
+commit 90483821706e373d4c1cb7e93b3c0932288c816b
+Author: Austin English <austinenglish@gmail.com>
+
+    README.md: update custom .verb example
+
+commit b26dc5384e4dcfd6aa14beec8554d58696a46458
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet6/dotnetdesktop6: new verbs
+
+commit 542b198cc98564ab2075b065b54fbaecf2dccea0
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: add --retry-connrefused to curl command
+
+commit d4f4a83dabf0574dc8fbfac0ede47632a1ffd5b7
+Author: GroundFishles <122145709+GroundFishles@users.noreply.github.com>
+
+    msxml6: update to a newer version of the dll
+
+commit b59e9792e5c903632905ea0d5b4c3d08670d31bc
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: tweak retry settings a bit to see if that helps with github actions
+
+commit acef23e09d291453e740584e30d7c2b46dad8a92
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: add a w_try_mkdir function, use it
+
+commit ffd404904e23745db6771ae51c3689d088cc5da1
+Author: Austin English <austinenglish@gmail.com>
+
+    glut: update download URL
+
+commit 4eb9d5b2b42e596568b5f5db382c03e83e1042b1
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp9: add a workaround for newer wine versions
+
+commit d9864ed4089db0c2c7427d3a4c39bca33cd4b2d4
+Author: Austin English <austinenglish@gmail.com>
+
+    adobe_diged4: remove an old workaround
+
+commit b592203da422458ed1749d05cd8630786bea13ce
+Author: Austin English <austinenglish@gmail.com>
+
+    oblivion: remove an old workaround
+
+commit 2d8ed48839afc3330a9211ddcb11ea253fa8b813
+Author: Austin English <austinenglish@gmail.com>
+
+    fable_tlc: remove an old workaround
+
+commit ad34c66648b9cbd2b7a6ced77e1149c50dd4acc7
+Author: Austin English <austinenglish@gmail.com>
+
+    dragonage_ue: remove an old workaround
+
+commit eebc01e1e95c86ff8a178a4138cb504c07275614
+Author: Austin English <austinenglish@gmail.com>
+
+    dragonage: remove an old workaround
+
+commit 5e438d156f632d698993800af8b6c37819041d93
+Author: Austin English <austinenglish@gmail.com>
+
+    aoe3_demo: remove an old workaround
+
+commit 2dc995a74cd8aeaa16a294d90c379a7c4c460bf9
+Author: Austin English <austinenglish@gmail.com>
+
+    d3dcompiler_43: remove an old workaround
+
+commit e0b8c8f9bf39731ec0e679f3d4e7e5e3f0b9f548
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30sp1: remove old workarounds
+
+commit 7017baf9f80e08c20b05123d779394f4aa86eff1
+Author: Austin English <austinenglish@gmail.com>
+
+    winme: remove an old workaround
+
+commit 94b363d03858165e5a9429fd0936c84110ee3f29
+Author: Austin English <austinenglish@gmail.com>
+
+    win30: remove an old workaround
+
+commit 14847960b747daea0e9b311b4acc28d5223c7b5b
+Author: Austin English <austinenglish@gmail.com>
+
+    win20: remove an old workaround
+
+commit 6dcb9c048e60bb1919520ba57f5d6b1b82819125
+Author: Austin English <austinenglish@gmail.com>
+
+    nt351: remove an old workaround
+
+commit a6464b12ab76d8ea1af8f03131afddbb95f80ec6
+Author: Austin English <austinenglish@gmail.com>
+
+    verify_dotnet20: remove an old workaround
+
+commit 1fbf422e7386479f7d30acaf1f7a06d0fa6961b3
+Author: Austin English <austinenglish@gmail.com>
+
+    w_set_winver: remove an old workaround
+
+commit 36aa4e85cd2186a61be47daa514a65297fe78c90
+Author: Austin English <austinenglish@gmail.com>
+
+    w_detect_mingw: remove an old workaround
+
+commit 1e713f78ac4be4009859ab34f5c1a9716eea2993
+Author: Austin English <austinenglish@gmail.com>
+
+    native_mdac: remove an old workaround
+
+commit 4ce57e2ffdf844c60881742a132d25c6869894e1
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet30: remove an old workaround
+
+commit fe74482a425073ad39d36267a6a04b62975ba6f6
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp1: remove an old workaround
+
+commit 575b80dd80e8f2b61a9f36b613049a6988c89826
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet40_kb2468871: use native ngen.exe
+
+commit 108e69898b46a4cd21a41b6e5d47cfa6dd2b16a2
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet35sp1: use native ngen.exe
+
+commit 7ef70bec254bccebecc92cb22e35e02ca166992c
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sp2: use native ngen.exe
+
+commit 6654741adbb89f44ae130b49b3359d7ec56602d6
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk2000
+
+commit d6a6466493ed3f61a591266a665d3fb34baa6547
+Author: Austin English <austinenglish@gmail.com>
+
+    autohotkey: bump to version 1.1.36.01
+
+commit 9944638bad50ed30da6c1cff6bd652e35080d55e
+Author: Doc-4 <60247583+Doc-4@users.noreply.github.com>
+
+    Corrected typo for wmp11.exe in 32bit prefixes
+
+commit 04771b82784891115d6bfb03680954a80ce14613
+Author: Jimi Huotari <chiitoo@gentoo.org>
+
+    tests/shell-checks: fix a bashate indentation issue
+
+commit b73026aa5b090f98c6d5d4d064c1c4c4b62e011a
+Author: N00byKing <N00byKing@hotmail.de>
+
+    dxvk: Update minimum wine and vulkan versions
+
+commit 8c847d487572299f1e2a44ed178be51bd560c630
+Author: N00byKing <N00byKing@hotmail.de>
+
+    Fix dxvk
+
+commit 2bce61141822adb2734fc595b3ba0cd5b4f008d7
+Author: Austin English <austinenglish@gmail.com>
+
+    ucrtbase2019: fix installer executable filename
+
+commit 5e4d0bad7b94ed053c087470ac48b91081e1cc32
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    steam: add bug 49839 (macOS only)
+
+commit 18d3e32d691acbd6d7e3f08f5296655b2cf2f69a
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    steam: update bug 44985
+
+commit 5478aafee2c586a434ff63b6dea659f23d15a1a2
+Author: Austin English <austinenglish@gmail.com>
+
+    mozillabuild: don't hardcode installer name in installation step
+
+commit 3778a1bae77a1d1f38a8b3f9afdfae339034bb6b
+Author: Austin English <austinenglish@gmail.com>
+
+    mozillabuild: update download URL
+
+commit ac09d776133fc7632b5ba1323a1d82e35efa48c3
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: define/use W_WINDIR_WIN variable
+
+commit b666e05a0bf28fd940e5c258ccdfc0a2799d1948
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    w_try_regsvr64: Use full path (wow64)
+
+commit 3a74d81a5d9e2b62030a54dc7ffdf9ce719972b0
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    w_try_regsvr: Use full path (wow64)
+
+commit 6ce2e71c8b250da940a792bc416a860dfd1020dd
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    w_try_regedit64: Use full path (wow64)
+
+commit 08a31e79f1d3be8460e616cac2ada902f58c2b2f
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    w_try_regedit32: Use full path (wow64)
+
+commit b52cba2360e882023f01746d83e7e444fea11d51
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    origin: Connect overriders to Winehq bugs
+
+commit cb1e6611df1b3e4e8a025409f87b7fa5bd6b2d9e
+Author: Gcenx <38226388+Gcenx@users.noreply.github.com>
+
+    ucrtbase2019: new verb
+
+commit af14f91bb21627055a4c7dc68959eb620bdc36b9
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    dxwnd: new verb
+
+commit 0ac6e90f761acc37d756264e21d57bf06ac1183f
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    cnc_ddraw: Update to 4.6.0.0
+
+commit c92d31b253893748e4b91019687363fc9ef93e6f
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    origin: Only install d3dcompiler_47 below wine-6.3
+
+commit 0c49ebcc29aec5c73a700352e94026c511f7a497
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    cnc_ddraw: Update to v4.4.9.0
+
+commit cf4dcffa7d2106d27c37c6e31bba2e074b34faa1
+Author: Lantizia <s.maddox@lantizia.me.uk>
+
+    Update vcrun2015 to install VC++ 2015 Update 3 ?
+
+commit d5bc8a08fe6ed338e4d8d9490d425f1dbea137db
+Author: Austin English <austinenglish@gmail.com>
+
+    xvid: update download URL
+
+commit 8c32fb78686adaa64a604cd8da2ba21a1b1a8d10
+Author: Edward J. Schwartz <eschwartz@cert.org>
+
+    Attempt to fix vc2010express
+
+commit 5021d69af101e21659fa6eb4af14982fa212bbab
+Author: Gcenx <38226388+Gcenx@users.noreply.github.com>
+
+    origin|originupdater: new verbs
+
+commit 31840630aecccfe7625a19b43329727f256227bf
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    nfsshift_demo: update url
+
+commit 2bc95a12954f591acc463602bb45fcef791048c0
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/shell-checks: fix test_linkcheck for case when shasum is passed
+
+commit 1cd70c2ad492b81e9052794d94180933b20f46e9
+Author: Austin English <austinenglish@gmail.com>
+
+    myth2_demo: avoid ${file1} use with w_download
+
+commit 7b2be262f7602416046bc0c51eb9ec4d849973ac
+Author: Austin English <austinenglish@gmail.com>
+
+    firefox: avoid ${file1} use with w_download
+
+commit 682ea68df7c62f7b70907705c39b2ed96e1271b7
+Author: Dean M Greer <gcenx83@gmail.com>
+
+    _w_ms_installer: Handle status 236
+
+commit bd9e67e0a912fc0d71e90c09385387af12507294
+Author: Dean M Greer <gcenx83@gmail.com>
+
+    vcrun*: Use w_try_ms_installer
+
+commit 68ca8c31a99ce6262b57bb99f34319ea8a9df30b
+Author: Gcenx <38226388+Gcenx@users.noreply.github.com>
+
+    cnc_ddraw: update to 4.4.7.0
+
+commit 14ef7d6fcf789a0e1fa19d0b8d86b837f7344b14
+Author: kleener <kleener.grosser@gmail.com>
+
+    UPlay replaced by Ubisoft Connect
+
+commit 78d2ee2c1fe835ce51850fbd7f9dad0bcfc77c3c
+Author: Austin English <austinenglish@gmail.com>
+
+    glidewrapper: update download URL
+
+commit 311957b8871ffbcb97c2b821dbb4c7ec47268292
+Author: Dean M Greer <gcenx83@gmail.com>
+
+    d3dcompiler_43: correct bug 24013
+
+commit dd3f024f9c8673e97d7eb8e3ab963716b9287fba
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    winetricks: interpret backslash escape sequences for console messsages
+
+commit d607571eff9f88cb92267ec6f7675c1328176c10
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk1103
+
+commit 87f7cb8f69c204cc0a9191f6c0b71a67425ef65c
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: only show 64-bit prefix warning once in GUI mode
+
+commit 2576d361c50d2e0c9ca39e60984fc7e0ad9357f9
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: winrar
+
+commit 644cee0f4750963a3f98592aeb8fe03c2a26e38a
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    winecmd: new verb
+
+commit 09bb4be5d0e38c68ce70bc8201edd13c0b7962d7
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    ie8_kb2936068: add win64 support
+
+commit b7791f47689f399479b6fb570dd7eedd7789fc05
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    ie8: fix win64 support
+
+commit 7b0143df043dad56cf75fccf59214b4c122eb554
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    remove_mono: support 'internal' argument
+
+commit db1fd08852865d34eeb06f8c3213a43bb2aa7a1a
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    new verb: dxvk1102
+
+commit 4d108efd8cf6293d01d50e2c512c0357cb128d7e
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    helper_dxvk_d9vk: rename to helper_dxvk
+
+commit b66dc6b2f632df8d3927eaa6f460bebb4bc14078
+Author: Robert Walker <bob.mt.wya@gmail.com>
+
+    isolate_home: correctly handle subdirectory symlinks to $HOME
+
+commit 48ec88fd05f842513e2da8b2e3c7536fbcf7952f
+Author: Austin English <austinenglish@gmail.com>
+
+    hon: remove, no longer available
+
+commit 6c5549afe578f1cf05ae028430208babe7a11909
+Author: Austin English <austinenglish@gmail.com>
+
+    vb6run: use archive.org for download URL
+
+commit 7a3f313734fbd50ebb8c92183c54d73094cc0eb2
+Author: a1346054 <36859588+a1346054@users.noreply.github.com>
+
+    misc: fix typos
+
+commit 01b9d02321fb2c09d3fa34e1bf406fbb01a29740
+Author: a1346054 <36859588+a1346054@users.noreply.github.com>
+
+    winetricks: fix typos
+
+commit 6575c111cb59ca27af64dbb932ff0b5d3f98cc7a
+Author: a1346054 <36859588+a1346054@users.noreply.github.com>
+
+    release.sh: remove excess whitespace
+
+commit 04a96a24eb25cf93e8ebb59dc0e08e4c2dfbac71
+Author: a1346054 <36859588+a1346054@users.noreply.github.com>
+
+    release.sh: use long PGP key ID
+
+commit 5f07adfd07648cfaddd70f744582746b4b56f233
+Author: Austin English <austinenglish@gmail.com>
+
+    w_download_to: checksum ALL files
+
+commit 3351af82bfdf68e8ff9929751d24ff8c1f9311b6
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: ensure services are registered before starting iexplore.exe
+
+commit a482ad8372bab7a62d1079db65b86cc09d51fa83
+Author: Vitaly Lipatov <lav@etersoft.ru>
+
+    winetricks_detect_gui: fix detection for --gui without args
+
+commit 85550721f9ea40c493d4e028f40fcb049bf8b5e6
+Author: Alexander88207 <104524136+Alexander88207@users.noreply.github.com>
+
+    tar -I zstd --> tar --use-compress-program=unzstd
+
+commit 0c4127cd65f37f31e7d0db9dd0a774230e82155a
+Author: Austin English <austinenglish@gmail.com>
+
+    digitanks_demo: remove
+
+commit be6d44613eed10e8f6757b8df9fc5af80103f5c1
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: warn for wine < 6.0
+
+commit 057282c2a736d22f3006d86a8f017d816e40a9eb
+Author: Austin English <austinenglish@gmail.com>
+
+    .github/workflows: add linkcheck action
+
+commit 7f88f9e07929d3424d86e28284666a00a3eade7b
+Author: Austin English <austinenglish@gmail.com>
+
+    vc2005expresssp1: use archive.org
+
+commit d2404e9ee1fe750804bda36918afaa6ebc2a250d
+Author: Austin English <austinenglish@gmail.com>
+
+    dxsdk_aug2006: misc updates
+
+commit cdc53a079e54bc3bddd057219e56ee1e9f22e349
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20sdk: use archive.org
+
+commit 0748c6b158de388a428a467c088c3ef857d88812
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet20: use archive.org for 64-bit exe
+
+commit b2540b5ec98e6d1f8bfa4d20fb66da2f7ab37f81
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet11sp1: update download URL
+
+commit 2b69bacdfaa3ddde31607dad87d4b71340baf80a
+Author: Austin English <austinenglish@gmail.com>
+
+    vulkanrt/vulkansdk: remove
+
+commit f7f702f270728dce780773445f0e189645f8a836
+Author: Austin English <austinenglish@gmail.com>
+
+    w_verify_cabextract_available: fix warning in CLI mode
+
+commit f32798688ba2ab30575f8f1eaff2d73702b01f9d
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp10: use w_try_cabextract wrapper
+
+commit df5b61dd6a8b8eb92502d095358cc955d9d5d37c
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp9: use w_try_cabextract wrapper
+
+commit 9c97d44b9b68a1b09e244e46f9ae0831ab35c315
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2019: update native overrides list
+
+commit bfaf5921c68dcd92b9310cb5372a7cd08c35e4f2
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2017: update native overrides list
+
+commit 56000b2963f5da9b9164a9f71e82333ffc537baa
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2015: update native overrides list
+
+commit 9f605b01b287fe08b0f621535eb213037e89bc58
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: make sure folder containing WINEPREFIXes exists
+
+commit 376351b965e14b231f3b75f86e9ed014698c56d3
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet4*: add a warning for zh_CN locales about upstream bug 47277
+
+commit ebc5dd568d8e395140006154cade1da2426745bd
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: get rid of steam games
+
+commit 0401536c68d94883ff778c78405743a86fb1d0be
+Author: Austin English <austinenglish@gmail.com>
+
+    src/winetricks: indentation fixes
+
+commit eb7902e7a62b2e4da0648f101fcd75eb09c6da35
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: remove unneeded workaround
+
+commit 7c120ee4ac05b8bc4ccc8bd79b01da8e07b9b254
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: update copyright year
+
+commit b6b6319cc6de0dca808f123ad0c65b1f5aa79f4f
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20220411-next
+
 commit 5904ee355e37dff4a3ab37e1573c56cffe6ce223
 Author: Austin English <austinenglish@gmail.com>
 
@@ -2975,7 +3715,7 @@ Author: Austin English <austinenglish@gmail.com>
     prntvpt: add new dll
 
 commit b9bba298717a8da61d56338e62d91bdfb9a548f6
-Merge: 93696c8 c03c13a
+Merge: 93696c8a c03c13a3
 Author: Austin English <austinenglish@gmail.com>
 
     Merge branch 'noexec'
@@ -3011,7 +3751,7 @@ Author: Austin English <austinenglish@gmail.com>
     dotnet30: update download URL
 
 commit cf9ffc3a24e681b8d290349642f9dbb09915b39e
-Merge: 47fdad1 36041f2
+Merge: 47fdad1e 36041f2d
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #1279 from bobwya/d9vk
@@ -3042,7 +3782,7 @@ Author: Austin English <austinenglish@gmail.com>
     vcrun2017: update sha256sums
 
 commit 7b9cc06214c7f6d2bc35eaa5ddfbae1fe875276b
-Merge: 3d8f11c 4348961
+Merge: 3d8f11c6 43489611
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #1278 from bobwya/dxvk
@@ -3423,7 +4163,7 @@ Author: Austin English <austinenglish@gmail.com>
     vcrun2017: don't conflict with vcrun2015, as 2017 is an update to 2015
 
 commit 36721330da38de68c2ab29f3025f200f38c92c2b
-Merge: 51a845b 92a906d
+Merge: 51a845bf 92a906d8
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #1238 from bobwya/dxvk
@@ -3474,7 +4214,7 @@ Author: Austin English <austinenglish@gmail.com>
     dotnet20: if running in GUI mode, installer may exit 194/195
 
 commit 2e572003791b08205330857ffbd64fb144b07942
-Merge: 2d2afad 8a3f258
+Merge: 2d2afad2 8a3f258b
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #1237 from zfigura/master
@@ -3485,7 +4225,7 @@ Author: Zebediah Figura <z.figura12@gmail.com>
     wsh56js: Fix a typo.
 
 commit 2d2afad2763c6adba9a16c09672fc5c011a080eb
-Merge: 2d72e02 89b6e4b
+Merge: 2d72e026 89b6e4ba
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #1224 from bobwya/dxvk
@@ -8656,13 +9396,13 @@ Author: Austin English <austinenglish@gmail.com>
     dotnet_verifier: update download URL
 
 commit 00c3fb7a6b4db381aae5bdbba397890f6724269e
-Merge: 22cf856 7bd3425
+Merge: 22cf856e 7bd34252
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #667 from boltronics/api-ms-win-crt-math-l1-1-0_override_fix
 
 commit 22cf856e059391070814ccb31b1b23761e44bbd3
-Merge: cb6f280 33fd31f
+Merge: cb6f280f 33fd31f6
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #670 from vanillajonathan/patch-1
@@ -8683,19 +9423,19 @@ Author: Austin English <austinenglish@gmail.com>
     winetricks: avoid use of unitialized variable $DRIVE_C
 
 commit f30c62845ed5b02095deb42344da684f3e6ad06b
-Merge: 1575a83 1e81511
+Merge: 1575a83b 1e815115
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #665 from vitlav/master
 
 commit 1575a83beb516ad45f0931ce649ecee3815a413b
-Merge: 29aad8a c950c60
+Merge: 29aad8a0 c950c601
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #657 from vanillajonathan/patch-1
 
 commit 29aad8a0e88deb8c267d7bc9a32a0bd9bba0ef4c
-Merge: ad6bbc6 09d349a
+Merge: ad6bbc66 09d349a9
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #664 from Narthorn/master
@@ -8846,7 +9586,7 @@ Author: Andrey Gusev <andrey.goosev@gmail.com>
     winetricks: Add separate override just for d3dx10_43
 
 commit 87e17d1754eb4318e62611108d7299bfbde8b223
-Merge: 97a23b0 a0b02d2
+Merge: 97a23b03 a0b02d24
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #656 from eli-schwartz/master
@@ -8892,13 +9632,13 @@ Author: Austin English <austinenglish@gmail.com>
     winetricks: add a w_try_ar() function, give better warning if ar is missing
 
 commit 9376044a41e79b0e6365beecc87f09574ee6ad8b
-Merge: 0748ac1 79dddc4
+Merge: 0748ac19 79dddc48
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #636 from vanillajonathan/patch-1
 
 commit 0748ac19387236febaa27cbf44064575fbabbc91
-Merge: 22a90d7 37230c5
+Merge: 22a90d77 37230c5f
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #651 from jschueller/patch-1
@@ -8914,7 +9654,7 @@ Author: Austin English <austinenglish@gmail.com>
     w_wine_version: support wine-1.9.x
 
 commit 267afa826b4b1c7e97d05aed9a4a3743818e23db
-Merge: e669394 844f46e
+Merge: e669394f 844f46e1
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #647 from qwertychouskie/patch-2
@@ -9010,7 +9750,7 @@ Author: Austin English <austinenglish@gmail.com>
     xna40: add Louis' workaround from bug 30718
 
 commit df1c9165aac415cea97568cbaeac70c469bf948c
-Merge: 818d69d cd24274
+Merge: 818d69d5 cd24274b
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #602 from saulotoledo/master
@@ -9154,7 +9894,7 @@ Author: Austin English <austinenglish@gmail.com>
     ie8_kb2936068: exit code 194 is not an error
 
 commit ac1f6e9a82dab06c3762a5cfe1ebe8f3ff177578
-Merge: 38e1a5f 30209b5
+Merge: 38e1a5fc 30209b53
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #620 from birdie-github/master
@@ -9165,13 +9905,13 @@ Author: Artem S. Tashkinov <birdie-github@users.noreply.github.com>
     Typos
 
 commit 38e1a5fc791ff4f056af05e25aea50554d244d5d
-Merge: 233009a 654454a
+Merge: 233009a9 654454a4
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #618 from birdie-github/patch-2
 
 commit 233009a9c4447d358c0e159f41a0922db6924579
-Merge: e789535 01c9767
+Merge: e7895350 01c9767f
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #619 from birdie-github/master
@@ -9187,7 +9927,7 @@ Author: Artem S. Tashkinov <birdie-github@users.noreply.github.com>
     A real albeit untidy help page
 
 commit e78953505a4675ebfab4899693882c2fe75d849d
-Merge: 11fe80c 2d946a4
+Merge: 11fe80ce 2d946a4b
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #614 from eli-schwartz/master
@@ -9243,7 +9983,7 @@ Author: Austin English <austinenglish@gmail.com>
     cmd: update download URL
 
 commit 4af3a5f61ed286c9bb860d370744294f5eb74d89
-Merge: 4981610 613fff6
+Merge: 49816105 613fff6a
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #598 from eli-schwartz/master
@@ -9359,7 +10099,7 @@ Author: Austin English <austinenglish@gmail.com>
     cleanup whitespace/quoting from previous commit
 
 commit 7e31a2c7693294937faceee77671c8175f81824a
-Merge: 07ba4a0 9277044
+Merge: 07ba4a06 9277044a
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #595 from hillwoodroc/master
@@ -9375,7 +10115,7 @@ Author: Austin English <austinenglish@gmail.com>
     kindle: install native vcrun2008
 
 commit 0c327c429fc39530ace839dca49f6a37cb8919e1
-Merge: f438ace 3cf3d9a
+Merge: f438aced 3cf3d9a3
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #593 from jre-wine/jre/debian_wineserver
@@ -9386,7 +10126,7 @@ Author: Jens Reyer <jre.winesim@gmail.com>
     Adapt to new Debian /usr/bin/wineserver[-development].
 
 commit f438acede276b32c2e563b1507b2a146d4b67147
-Merge: ac4c2ad 24a8226
+Merge: ac4c2ade 24a82262
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #592 from AndreRH/master
@@ -9437,7 +10177,7 @@ Author: Austin English <austinenglish@gmail.com>
     comctl32: update URL
 
 commit e8411b2cffd948f716b5e392683a1549fbdf7bf2
-Merge: f2c7a05 3115128
+Merge: f2c7a053 31151285
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #586 from chongli/master
@@ -9484,7 +10224,7 @@ Author: Austin English <austinenglish@gmail.com>
     winetricks-test: add steam to quickcheck apps
 
 commit 9194487b9579ddde28ef55e5787e0343af094d7f
-Merge: cd82d09 ff22cbe
+Merge: cd82d093 ff22cbe4
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #584 from ANeilan/master
@@ -9495,7 +10235,7 @@ Author: Alan Neilan <aneilan@student.bridgew.edu>
     updated sha1sum of steamsetup.exe
 
 commit cd82d093e13cbd6e166e769e5cee5dfdf0eed676
-Merge: d76882e 395e8eb
+Merge: d76882ea 395e8eb3
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #583 from incyclum/master
@@ -9546,7 +10286,7 @@ Author: Austin English <austinenglish@gmail.com>
     xmllite requires winxp to install
 
 commit 96307f7b702e01844771d5cb9887d64c852b1b65
-Merge: d78fc2f 18fa1d7
+Merge: d78fc2f7 18fa1d72
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #577 from kakurasan/newverb
@@ -9582,7 +10322,7 @@ Author: Austin English <austinenglish@gmail.com>
     README.md: add note about make check / make test to the README
 
 commit ebee065bd314ef6f935b8c845bbbf2c508c08641
-Merge: 4f50c6d 1532ba1
+Merge: 4f50c6de 1532ba16
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #574 from kmiksi/patch-2
@@ -9593,7 +10333,7 @@ Author: Carlos Eduardo Alves <kmiksi@users.noreply.github.com>
     Correct carriage return conversion on w_ahk_do()
 
 commit 4f50c6de502fd68cb491b624aeae7369a6b2acd6
-Merge: 610f1c1 1015f46
+Merge: 610f1c15 1015f464
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #573 from lucianposton/hidewineexports
@@ -9604,7 +10344,7 @@ Author: Lucian Poston <lucian.poston@gmail.com>
     Add hidewineexports setting
 
 commit 610f1c159fc424ce5c83a7f110b559514ebf8abc
-Merge: b1b49b3 2b81e79
+Merge: b1b49b35 2b81e79a
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #571 from kakurasan/newverb
@@ -9665,7 +10405,7 @@ Author: Austin English <austinenglish@gmail.com>
     adobeair: update adobeair to 19.x
 
 commit 422013f26cbfe6844bc08f0d5f839855182fb369
-Merge: 6d2b32c 0a72ef5
+Merge: 6d2b32cd 0a72ef59
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #569 from eli-schwartz/master
@@ -9676,7 +10416,7 @@ Author: Eli Schwartz <eschwartz93@gmail.com>
     Argh! Stupid typo.
 
 commit 6d2b32cdfe19eb44ab6c1869f05dacabaa2dea53
-Merge: 7d76cb4 6af66eb
+Merge: 7d76cb44 6af66ebf
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #568 from eli-schwartz/master
@@ -9692,7 +10432,7 @@ Author: Eli Schwartz <eschwartz93@gmail.com>
     adobe_diged: keep both old and new versions available
 
 commit 7d76cb4424cedf9fce37c475ff67d8488103d029
-Merge: b395dd8 d2ed67c
+Merge: b395dd86 d2ed67c4
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #567 from eli-schwartz/master
@@ -9713,7 +10453,7 @@ Author: Austin English <austinenglish@gmail.com>
     puzzleagent_demo: remove, url is 404
 
 commit 3c819ed898a007a0d6b412adb5084d37b04315f8
-Merge: 5806225 245a726
+Merge: 58062251 245a726d
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #566 from hexchain/patch-1
@@ -9724,7 +10464,7 @@ Author: Hexchain Tong <hexchain@users.noreply.github.com>
     fontfix: match both "samyak" and "oriya" in font names
 
 commit 58062251fc0c6655b485452e44b8a45fb4560259
-Merge: d324f63 abf06b5
+Merge: d324f63c abf06b53
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #562 from kakurasan/fix
@@ -9735,7 +10475,7 @@ Author: kakurasan <kakurasan@users.noreply.github.com>
     vcrun2015: Avoid permission error
 
 commit d324f63ce158c738b44b5e2017561af33694c075
-Merge: d2e059d bd5bb52
+Merge: d2e059d4 bd5bb52e
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #560 from kakurasan/x64
@@ -9766,7 +10506,7 @@ Author: Austin English <austinenglish@gmail.com>
     winetricks: update builtin DLL list
 
 commit 05dea6f02fd693e5dc8fa11181dba62c6c868bd8
-Merge: ca38ead b6dfe49
+Merge: ca38eada b6dfe498
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #552 from hillwoodroc/master
@@ -9777,7 +10517,7 @@ Author: hillwoodroc <hillwoodroc@gmail.com>
     Update QQ, update Chinese translation.
 
 commit ca38eada6854521168760d8cfb5d1bb3e2d097db
-Merge: cd6ddd9 9e66aea
+Merge: cd6ddd9a 9e66aea6
 Author: Austin English <austinenglish@gmail.com>
 
     Merge branch 'ShannonVanWagner-patch-5'
@@ -9788,7 +10528,7 @@ Author: Shannon VanWagner <shannon.vanwagner@gmail.com>
     Update sha1sum for picasa39 for #543
 
 commit cd6ddd9a2140542c60f91e35d78b4c8e9f8518d7
-Merge: 513f02a 1aded66
+Merge: 513f02a1 1aded661
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #542 from kakurasan/x64
@@ -9814,13 +10554,13 @@ Author: kakurasan <kakurasan@users.noreply.github.com>
     d3dx9*: Add x64 support
 
 commit 513f02a1a75f5c172a66606090854b152fa02be0
-Merge: 7eaf31e 59900be
+Merge: 7eaf31e2 59900be1
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #539 from kakurasan/fix
 
 commit 7eaf31e23f08632a93dacd235b5ccb61c360808d
-Merge: 6cf7d4b 4960cf8
+Merge: 6cf7d4b1 4960cf8d
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #541 from eli-schwartz/master
@@ -9861,7 +10601,7 @@ Author: Austin English <austinenglish@gmail.com>
     esent: add new verb, closes issue #538
 
 commit e2765ed584afa7c1750cb539b8a0ab1d77c42f60
-Merge: 277484d 0d3ef78
+Merge: 277484d2 0d3ef781
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #536 from kakurasan/newverb
@@ -9917,7 +10657,7 @@ Author: Dāvis <davispuh@gmail.com>
     Don't delete CACHE and reuse same folder as winetricks
 
 commit fc51a76936b4fc2e34cbc0860470ae2b774e206d
-Merge: 08d208a ef04fd2
+Merge: 08d208a2 ef04fd25
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #532 from kakurasan/workaround
@@ -9928,19 +10668,19 @@ Author: kakurasan <kakurasan@users.noreply.github.com>
     dxdiag: Use native DirectMusic DLLs and gm.dls
 
 commit 08d208a2030e5a6b9b5bd634b15b431a0f5ddb59
-Merge: 34e7e1f 892feb1
+Merge: 34e7e1f8 892feb10
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #530 from davispuh/dotnet
 
 commit 34e7e1f8a1c16abcadad2abfd2be01708d9fdc68
-Merge: 3623c0c f1d1fda
+Merge: 3623c0c4 f1d1fda1
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #531 from davispuh/shockwave
 
 commit 3623c0c4c5733f00ec8173966d90ba521a9dd367
-Merge: a04a6d5 d3b3c30
+Merge: a04a6d5f d3b3c30d
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #529 from davispuh/which
@@ -9956,7 +10696,7 @@ Author: Dāvis <davispuh@gmail.com>
     Update hash for updated dotnet_verifier
 
 commit a04a6d5f57a920771210cd8e0f48d1320bf11132
-Merge: c8c524d f31d14f
+Merge: c8c524d0 f31d14ff
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #527 from kakurasan/workaround
@@ -9972,13 +10712,13 @@ Author: kakurasan <kakurasan@users.noreply.github.com>
     dxdiag: Add versions to w_workaround_wine_bug
 
 commit c8c524d0ad50ddae9db93f2774b35d7a1b5a1830
-Merge: b6b77aa bf03442
+Merge: b6b77aad bf034426
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #523 from kakurasan/newverb
 
 commit b6b77aada4e6bcf93109906cd49a27483efbeaa2
-Merge: 4ea5d13 f44c9f8
+Merge: 4ea5d133 f44c9f8b
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #526 from zorbfish/fakejapanese-newalias
@@ -9989,7 +10729,7 @@ Author: Adam Lindquist <zorbfish@gmail.com>
     Add "MS UI Gothic" alias
 
 commit 4ea5d13370e3c43cae989798d7b96c40f02ecece
-Merge: 580efc3 2b4ccf0
+Merge: 580efc30 2b4ccf05
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #525 from ShannonVanWagner/patch-4
@@ -10030,13 +10770,13 @@ Author: Austin English <austinenglish@gmail.com>
     corefonts: update comment
 
 commit 5ee53ac738dcfdbc365779a4317c217330fdee35
-Merge: 64ed0aa 8cda152
+Merge: 64ed0aa5 8cda1528
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #516 from ShannonVanWagner/patch-2
 
 commit 64ed0aa5855e302466f97954c7a22583482b18a7
-Merge: dae31e4 e15a08e
+Merge: dae31e40 e15a08eb
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #503 from adrianbroher/master
@@ -10047,7 +10787,7 @@ Author: Austin English <austinenglish@gmail.com>
     corefonts: avoid using sourceforge for downloads
 
 commit e1aa2b7cb73516d16e2f6492a624ba81f1eddf72
-Merge: def6fcf 4312df7
+Merge: def6fcfd 4312df76
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #522 from kakurasan/japanese
@@ -10073,7 +10813,7 @@ Author: Austin English <austinenglish@gmail.com>
     mdac27: Download from web.archive.org
 
 commit 57277bb18e15dfa37b20a968d556c2b8d9f0359a
-Merge: 54b0f5e 263b797
+Merge: 54b0f5ec 263b7978
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #520 from kakurasan/webarchive
@@ -10089,13 +10829,13 @@ Author: kakurasan <kakurasan@users.noreply.github.com>
     cabinet: Download from web.archive.org
 
 commit 54b0f5ec89cf9af24389ab2c751ea62d242bca07
-Merge: 61a6f2b 5f9f024
+Merge: 61a6f2ba 5f9f024f
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #517 from ShannonVanWagner/patch-3
 
 commit 61a6f2bad436ef3d20ca6106a0889bf1a3ee233e
-Merge: c6a6ad9 2af0dc6
+Merge: c6a6ad9c 2af0dc6b
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #518 from kakurasan/webarchive
@@ -10111,7 +10851,7 @@ Author: Shannon VanWagner <shannon.vanwagner@gmail.com>
     w_get_sha1sum unquoted argument causes failure
 
 commit c6a6ad9cfc275081bb02e3371fe06febedcdf12b
-Merge: aae7757 3fe042b
+Merge: aae7757a 3fe042b7
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #515 from ShannonVanWagner/patch-1
@@ -10177,7 +10917,7 @@ Author: Austin English <austinenglish@gmail.com>
     tests: improve dotnet testing
 
 commit 74f72ac6a42ffa1792b32e7d39662ee3ae9b3eb0
-Merge: 670fd41 62dfb3d
+Merge: 670fd41d 62dfb3d0
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #513 from ShannonVanWagner/master
@@ -10188,7 +10928,7 @@ Author: Shannon VanWagner <shannon.vanwagner@gmail.com>
     7zip updated to newer beta version 15.05.
 
 commit add5ad935dd74e3f08d17be06bd18dcfc8961430
-Merge: 26c659e 670fd41
+Merge: 26c659e7 670fd41d
 Author: Shannon VanWagner <shannon.vanwagner@gmail.com>
 
     Merge pull request #2 from Winetricks/master
@@ -10224,7 +10964,7 @@ Author: Austin English <austinenglish@gmail.com>
     kde: update kde to 1.0.0
 
 commit 4eac8b29f040385aeb4566845fe174c468350a1b
-Merge: 5f45441 4848552
+Merge: 5f454418 4848552f
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #498 from ScoreUnder/fix-grep-test
@@ -10240,7 +10980,7 @@ Author: Marcel Metz <mmetz@adrian-broher.net>
     Remove old wine workaround from psdkwin71 verb
 
 commit 5f454418a30fb74f1f00e65d97fbd5bc5b24af29
-Merge: fb44775 caf3189
+Merge: fb44775f caf31894
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #504 from tomasstorck/master
@@ -10251,13 +10991,13 @@ Author: Austin English <austinenglish@gmail.com>
     steam: update sha1sum
 
 commit b2af5e15cd6578873b0d1ea70b482282b947f4ec
-Merge: ab5f5a5 c683054
+Merge: ab5f5a51 c6830549
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #510 from ShannonVanWagner/ShannonVanWagner-patch-1
 
 commit 26c659e730f2820a8082c890272ae392c659eaa0
-Merge: 568fed6 c683054
+Merge: 568fed69 c6830549
 Author: Shannon VanWagner <shannon.vanwagner@gmail.com>
 
     Merge pull request #1 from ShannonVanWagner/ShannonVanWagner-patch-1
@@ -10268,13 +11008,13 @@ Author: Austin English <austinenglish@gmail.com>
     fix typo in polish translation
 
 commit e8075df918f18b0bd733001e084ad049756fba8c
-Merge: 3353b92 82b8418
+Merge: 3353b921 82b84180
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #506 from ruseman/rename-readme
 
 commit 3353b92180eebce6185fb6042d250adbb39a6a79
-Merge: 568fed6 a806f63
+Merge: 568fed69 a806f637
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #509 from eli-schwartz/master
@@ -10370,7 +11110,7 @@ Author: Austin English <austinenglish@gmail.com>
     winetricks/w_try_7z: fallback to windows 7-zip if 7z is not available
 
 commit ef0e4364ec72a71033cc703f60e35cc26916da2a
-Merge: 7651cc3 22acb29
+Merge: 7651cc3b 22acb294
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #488 from slackner/pull-2
@@ -10411,7 +11151,7 @@ Author: Austin English <austinenglish@gmail.com>
     tests: copy $WINESERVER handling from winetricks
 
 commit b48a07085fc383b070f7a98f6f9a80bb8258f478
-Merge: 738a271 a36403c
+Merge: 738a271a a36403c0
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #496 from DarkPlayer/master
@@ -10422,7 +11162,7 @@ Author: Michael Müller <michael@fds-team.de>
     debian: Make wine an optional dependency
 
 commit 738a271ae6977ed5e1740ceafad5cfd99beee79e
-Merge: 499a111 6875bb2
+Merge: 499a1112 6875bb22
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #495 from DarkPlayer/master
@@ -10448,7 +11188,7 @@ Author: Austin English <austinenglish@gmail.com>
     tests: re-enable xna31, upstream bug 38317 is fixed
 
 commit 07006e05f5fee38dfbc766c195376400c559fb68
-Merge: 7b00bdf d3445ba
+Merge: 7b00bdf7 d3445baf
 Author: Austin English <austinenglish@gmail.com>
 
     Merge pull request #493 from slackner/pull-3
@@ -10534,7 +11274,7 @@ Author: Austin English <austinenglish@gmail.com>
     irfanview: update URL to a working one
 
 commit 83f8dcfe95d97b3ab32591f7e083afa71218a861
-Merge: d8e09fb 7a28448
+Merge: d8e09fb3 7a28448d
 Author: austin987 <austinenglish@gmail.com>
 
     Merge pull request #490 from reedy/patch-1
@@ -10550,13 +11290,13 @@ Author: Sebastian Lackner <sebastian@fds-team.de>
     winetricks: add binkw32 verb
 
 commit d8e09fb3a49de9aa798c6e86f99e823a02cf6c74
-Merge: 7db3798 a3756d5
+Merge: 7db3798c a3756d55
 Author: austin987 <austinenglish@gmail.com>
 
     Merge pull request #486 from DarkPlayer/d3drm
 
 commit 7db3798cef0f3ba33b178d71209264fc16e15093
-Merge: 30f723c d9ad219
+Merge: 30f723c4 d9ad2191
 Author: austin987 <austinenglish@gmail.com>
 
     Merge pull request #485 from slackner/pull-1
@@ -10572,7 +11312,7 @@ Author: Sebastian Lackner <sebastian@fds-team.de>
     Add helper function w_try_msiexec64 for executing the 64-bit version of msiexec.
 
 commit 30f723c433af0109e09e815db8360a091622660f
-Merge: 3c1dc80 84906b0
+Merge: 3c1dc804 84906b01
 Author: austin987 <austinenglish@gmail.com>
 
     Merge pull request #484 from abzalov/patch-1

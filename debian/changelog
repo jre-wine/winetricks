@@ -1,3 +1,19 @@
+winetricks (20230212-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Add alternative dependency on pkexec next to policykit-1.
+    policykit-1 is a transitional package depending on a new pkexec package
+    since Debian 12 (bookworm)/Ubuntu 22.04 (jammy).  Keep the former
+    dependency for trivial backportability for now. (Closes: #1025590)
+  * Update d/watch for github release changes.
+  * Disable uscan tarball verification.
+  * Refresh disable-automatic-selfupdate.patch.
+  * Add wine64.patch to workaround missing /usr/bin/wine64.
+  * Update standards version to 4.6.2, no changes needed.
+  * Update d/copyright.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sat, 25 Feb 2023 15:16:49 +0100
+
 winetricks (20220411-1) unstable; urgency=medium
 
   [ Johannes Schauer Marin Rodrigues ]
