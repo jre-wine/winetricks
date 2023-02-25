@@ -123,7 +123,7 @@ chmod +x update_winetricks
 su root sh -c 'mv update_winetricks /usr/bin/'
 ```
 
-To use ```curl``` instead of ```wget```: subsitute all ```wget``` calls with ```curl -O```, in the winetricks update script.
+To use ```curl``` instead of ```wget```: substitute all ```wget``` calls with ```curl -O```, in the winetricks update script.
 
 
 # Updating
@@ -199,7 +199,7 @@ w_metadata icecat apps \
 load_icecat()
 {
     w_download https://ftp.gnu.org/gnu/gnuzilla/38.8.0/${file1} e5f9481e78710c25eb3a271d81aceb19ef44ff6e8599da7d5f7a2da584c01213
-    w_try_unzip "${W_PROGRAMS_X86_UNIX}" "${W_CACHE}/${W_PACKAGE}/${file1}"
+    w_try_unzip "${W_PROGRAMS_X86_UNIX}" "${W_CACHE}/${W_PACKAGE}/icecat-38.8.0.en-us.win32.zip"
 }
 ```
 
