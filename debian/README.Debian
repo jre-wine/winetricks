@@ -57,18 +57,17 @@ for more information:
   https://bugs.launchpad.net/ubuntu/+source/winetricks/+bug/1006909
 
 
-Winetricks' selfupdate
+Winetricks' self-update
 ======================
 
 Winetricks' automatic online version check and selfupdate is disabled in
-Debian.  Although you may still run a manual "winetricks --selfupdate",
+Debian.  Although you may still run a manual "winetricks --self-update",
 be aware that this will install /usr/bin/winetricks directly from its
 developers, without any lookover from Debian.  What happens then, is out
 of Debian's control.
-Assuming the selfupdate only changed /usr/bin/winetricks, but nothing
+Assuming the self-update only changed /usr/bin/winetricks, but nothing
 else was changed by this subsequently, then a future update of the
 winetricks package will bring back the regular Winetricks by Debian.
 But again: Debian cannot guarantee this.
 
-
- -- Jens Reyer <jre.winesim@gmail.com>, Sat, 15 Jun 2019 17:48:05 +0200
+ -- Jens Reyer <jre.winesim@gmail.com>, Sat, 25 Feb 2023 16:21:11 +0100

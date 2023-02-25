@@ -1,8 +1,8 @@
-Description: Disable automatic version check and selfupdate.
-  Warn and ask on manual selfupdate.
+Description: Disable automatic version check and self-update.
+  Warn and ask on manual self-update.
 Author: Jens Reyer <jre.winesim@gmail.com>
 Forwarded: not-needed
-Last-Update: 2019-12-29
+Last-Update: 2023-02-26
 
 --- a/src/winetricks
 +++ b/src/winetricks
@@ -42,7 +42,7 @@ Last-Update: 2019-12-29
 -            w_info "auto-update enabled: running winetricks_selfupdate"
 -            winetricks_selfupdate
 -        else
-+            w_info "The automatic selfupdate is disabled in the Debian packages."
++            w_info "The automatic self-update is disabled in the Debian packages."
 +            #winetricks_selfupdate
 +        fi
 +        #else
@@ -73,7 +73,7 @@ Last-Update: 2019-12-29
      --gui=OPT         Set OPT to kdialog or zenity to override GUI engine
      --isolate         Install each app or game in its own bottle (WINEPREFIX)
 -    --self-update     Update this application to the last version
-+    --self-update     Update this application to the latest version (non-Debian)
++    --self-update     Update this application to the last version (non-Debian)
      --update-rollback Rollback the last self update
  -k, --keep_isos       Cache isos (allows later installation without disc)
      --no-clean        Don't delete temp directories (useful during debugging)
