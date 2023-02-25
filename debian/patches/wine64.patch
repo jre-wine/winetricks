@@ -1,0 +1,19 @@
+Description: Workaround case where wine and related binaries are in /usr/bin, but wine64 is only
+  in Wine's bindir.
+Author: Jens Reyer <jre.winesim@gmail.com>
+Forwarded: no
+Last-Update: 2023-02-25
+
+--- a/src/winetricks
++++ b/src/winetricks
+@@ -4921,6 +4921,10 @@ winetricks_set_wineprefix()
+             WINE64="${WINE}"
+         elif command -v "${WINE}64" >/dev/null 2>&1; then
+             WINE64="${WINE}64"
++        elif [ -x $(dirname $(readlink -f /usr/bin/wineboot))/wine64 >/dev/null 2>&1 ]; then
++            # Workaround case where wine and related binaries are in /usr/bin, but wine64 is only
++            # in Wine's bindir.
++            WINE64="$(dirname $(readlink -f /usr/bin/wineboot))/wine64"
+         else
+             # Handle case where wine binaries (or binary wrappers) have a suffix
+             WINE64="$(dirname "${WINE}")/"
