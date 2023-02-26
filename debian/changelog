@@ -1,3 +1,10 @@
+winetricks (20230212-2) unstable; urgency=medium
+
+  * Fix typo "self-update".
+  * Fix wine64.patch.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sun, 26 Feb 2023 22:05:29 +0100
+
 winetricks (20230212-1) unstable; urgency=medium
 
   * New upstream release.
