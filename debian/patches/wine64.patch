@@ -6,7 +6,7 @@ Last-Update: 2023-02-26
 
 --- a/src/winetricks
 +++ b/src/winetricks
-@@ -4922,10 +4922,17 @@ winetricks_set_wineprefix()
+@@ -5103,10 +5103,17 @@ winetricks_set_wineprefix()
          elif command -v "${WINE}64" >/dev/null 2>&1; then
              WINE64="${WINE}64"
          else
