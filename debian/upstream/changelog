@@ -1,3 +1,423 @@
+commit bc91718a5cad45e9f33de9b351a5960d5395bed5
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20240105
+
+commit a0e5811dc4cf8fc62474d85330169e08f2667b22
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_wine_setup: warn for Wine versions < 8.0
+
+commit 7c5b8dcd6bde6f6e8ddb0de45f6d023611a5dcf7
+Author: Austin English <austinenglish@gmail.com>
+
+    peverify: update URL
+
+commit 8b5602f28439263e711378ffc49495c16f509aeb
+Author: Austin English <austinenglish@gmail.com>
+
+    corefonts: update URLs
+
+commit f145f3714fd294da64cefe1ef09509337d80ac9e
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: update Copyright for 2024
+
+commit 031ed23c6dfe63718d3d82ce148e7e86675f03c1
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: avoid a warning on 32-bit prefixes
+
+commit f01baf12d37f76c2fdbb1fba220d16f5449c7e97
+Author: Austin English <austinenglish@gmail.com>
+
+    remove_mono: refactor to work on wine-8.22+
+
+commit f3531c54e363ad7750ac171f1dc6345221bc6b83
+Author: Austin English <austinenglish@gmail.com>
+
+    icodecs: update download URL
+
+commit ac14c2f82ef24633af39e2d5ab13bc3f097286d6
+Author: gnab-gib-se <129473234+gnab-gib-se@users.noreply.github.com>
+
+    #2121: Fix W_OPT_NOCLEAN usage (#2125)
+
+commit 6aa1f2505b3a11e049cb86546624162f9750a8ea
+Author: kekkoudesu <88186997+kekkoudesu@users.noreply.github.com>
+
+    Explain how to use Makefile to install stable release (#2098)
+
+commit df2a2570e08cf580539d52ee2d6c415e31cb0c87
+Author: Georgi <68707872+RacerBG@users.noreply.github.com>
+
+    Updated Bulgarian Translation (#2123)
+
+commit 592d2157775d6f7e32789bd55a1eeb1b70654eb5
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2022: update shasums
+
+commit ced8dfabf7da9308e74d066af8848a85dca346a2
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2019: update shasums
+
+commit 8f8ea24576c8f81481a9b57a93ce57a8acbbecb0
+Author: Austin English <austinenglish@gmail.com>
+
+    opensymbol: update download URL
+
+commit ca9e2b78d60b652954e2297d59140bf5682a4f4f
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: use w_try_regsvr32/64 wrappers instead of calling directly
+
+commit 587a58c0c3cfa3d1103168f75aef0c4528bc3168
+Author: Austin English <austinenglish@gmail.com>
+
+    ie7: use w_try_regsvr32 wrapper instead of calling directly
+
+commit f7722eacb3cf9d414e6b3c20a27e65aeb621f6d0
+Author: Austin English <austinenglish@gmail.com>
+
+    ie6: use w_try_regsvr32 wrapper instead of calling directly
+
+commit edbdabf3fb4182614ae53543d336bbf4482dd4d4
+Author: Austin English <austinenglish@gmail.com>
+
+    xvid: update to 1.3.7
+
+commit 18e2e187eea7c10a18fde90349b9466af57383ea
+Author: Austin English <austinenglish@gmail.com>
+
+    crypt32_winxp: fix incorrection function name
+
+commit 2264259cec08cd63fe1e69bb21213cbacf84e67d
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    Fix dotnet7 (#2164)
+
+commit 88643d0577a1fc4ea484e84f2f5a141686f146eb
+Author: fk <2378306+fkrull@users.noreply.github.com>
+
+    Make curl not swallow errors
+
+commit 744303f880f43f3be74d8ecf029656b1a0cc301a
+Author: fk <2378306+fkrull@users.noreply.github.com>
+
+    Improve compatibility with wget2
+
+commit 1f7d8b7e965c7cbc1a988e27c5eb780a1fd29f4d
+Author: Ryan Egesdahl <1391566+deriamis@users.noreply.github.com>
+
+    remove_mono: breaks dotnet40 on subsequent dotnet* installs (#2101)
+
+commit b6083c1e058b26a373fe40c2d79c34867e6e9aae
+Author: QwertyChouskie <qwertychouskie@users.noreply.github.com>
+
+    crypt32: Install both 32 and 64 bit DLLs (#2153)
+
+commit d52625e4af4f6827e9a4ccad86569279ef7bfb78
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: fix shellcheck quoting issues
+
+commit fe404b20fc68559aa3cfc96587c34ea947b155ab
+Author: Fabian Maurer <dark.shadow4@web.de>
+
+    uiribbon: new verb
+
+commit bbe761e92ac68a026260e6f28bd94f360e09e44e
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    steam: Update workarounds
+
+commit d83f42dda2b1493d606494a0d221525665c7bca8
+Author: Maksim Paimushkin <bmx666@users.noreply.github.com>
+
+    vlgothic: update url mirror
+
+commit 90d1c6915cec6b2c6113d6187fda60d43c443b7b
+Author: Julian Xhokaxhiu <julianxhokaxhiu@users.noreply.github.com>
+
+    dotnet7+dotnetdesktop7: Bump to 7.0.14 (#2149)
+
+commit 027bdae39bba21948cb893a05b2794490cd21c85
+Author: Maxim Paymushkin <bmx666@users.noreply.github.com>
+
+    New verb: dxvk2030
+
+commit de34828e715f89cd07a17ae7ecdc174d04d7ef72
+Author: Maxim Paymushkin <bmx666@users.noreply.github.com>
+
+    New verb: dxvk2020
+
+commit 8e2cc52e5a54dbab19b8ab2e2aca1e0959517419
+Author: Randall Pittman <randallpittman@outlook.com>
+
+    Fix #2143. Make sure the paths to the wineserver and wine binaries are used with winetricks_get_file_arch
+
+commit 07c6d38913433c6318c4d5358ea75987b9a419f1
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    d3dcompiler_47: Download from mozila github repo
+
+commit afd1782abe2f2ac7c480292d73049667faebb77f
+Author: Caleb Hebert <caleb@linux.com>
+
+    Update corefont urls to new locations on mirror.
+
+commit 9899670f459425eade737a249b775f966ac63647
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_misc_exe: add an option in the GUI to run an arbitrary executable
+
+commit 9ca7a68ba5551a2a7ae0564f8fd9db7addf8cd5e
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix/winetricks_wine_setup: detect a wow setup
+
+commit 29e1006d437be3c223238b79308c122ee0ab77b5
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    icodevs: override ir50_32 as native,builtin before trying to regsvr it
+
+commit 9ad2f41f64c6a873baf60b40ce8f1367b31b8036
+Author: Janne Pulkkinen <janne.pulkkinen@protonmail.com>
+
+    Fix `winecmd` when Wine path contains spaces
+
+commit 8d54be5284ae3c7cf7f335d3a0153977656a76a3
+Author: Nurlan Usenov <suren@etersoft.ru>
+
+    Update mfc140 to load the same version of VC2015 as vcrun2015
+
+commit 37aeb0bf34f0d6d2318276a6b4d96340d14621c3
+Author: James North <software@vncompat.org>
+
+    Update manpage and help with latest options
+
+commit 556ad353e3ed95fc2546233043afa2c7239b2508
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    origin: Add workaround
+
+commit 7934caf40e5c8b253f5f83cb07bc3baee0cd7afa
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    vcrun2022: update checksum
+
+commit 44314660325017d109b422ef5a8d5e4778cb7fef
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    Add name to workflows and update checkout version
+
+commit 9aeab4fe2396c826a4a67e88b520eab64c8cf32f
+Author: dginovker <danielginovker@gmail.com>
+
+    Update dotnet6 and dotnetdesktop6 to 6.0.19
+
+commit f6136298e521218568601fb1cd8d204a8fb2bebe
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_wine_setup: add another possible WINESERVER path
+
+commit a6db60b9d50aae75c7f07d869fd7be5bdb4cfd90
+Author: Alexander88207 <104524136+Alexander88207@users.noreply.github.com>
+
+    vkd3d: Add d3d12core
+
+commit 55afe36d25e3e8870d2d89869bf0a9155eed6fd9
+Author: Austin English <austinenglish@gmail.com>
+
+    opensymbol: update download URL
+
+commit ce7564cd6d0af7e5a7713540e5685126a90aac8e
+Author: dginovker <danielginovker@gmail.com>
+
+    Update dotnet6 and dotnetdesktop6 to 6.0.16
+
+commit e9454179686b3659ad3f47a5d49e6e4e82862cd5
+Author: yyny <6576327+yyny@users.noreply.github.com>
+
+    Add missing filename to `dotnet6` verb (#2073)
+
+commit 0d0ea0f0b9324b7127828fbe47903439247df2ff
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnetdesktop7: fix download URL for 32-bit version
+
+commit ba76beb78a9d547529b5de5db7525c5584f3647e
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: fix unattended check for macOS/arm64
+
+commit 84fe491b2d17e991efc9aa2c602813ce865030d5
+Author: Austin English <austinenglish@gmail.com>
+
+    opensymbol: bump version
+
+commit 30917c49f7c0bb0c4d8e2675ec37126d7ad64920
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2022: update checksum
+
+commit b46dd63e024a166aa38ed8c45d04730eb3276bc1
+Author: Austin English <austinenglish@gmail.com>
+
+    dotnet70: new verb
+
+commit 708624f72c7e9f271e1c91b7e1827c1efcae20b8
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_winxpsp3: remove an old workaround
+
+commit 73102b80c79d2190fcf1ac1dfc8d25bf8abf4d84
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_set_wineprefix: warn user if running on OSX m1/m2 and Rosetta2 is not installed
+
+commit 038af83a014de2ae8e72670db22f11aaffac5c6d
+Author: Melroy van den Berg <melroy@melroy.org>
+
+    Add win11 support (#2058)
+
+commit 2d8b9c62a58ff8dca889c6316f53a348b8cdc5c8
+Author: Austin English <austinenglish@gmail.com>
+
+    dxvk_nvapi0061: use helper_dxvk_nvapi instead of helper_dxvk
+
+commit 349407fc3bad1333118f84290489e47ae7669acc
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_dxvk_nvapi: don't attempt to move all overridden dlls
+
+commit 9795438597778927132233aaeeb02ef3b4da2dfe
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_dxvk: fix package_versioning
+
+commit 340d84eec3c9ce84e082c6b56e01def4a5a9afce
+Author: Austin English <austinenglish@gmail.com>
+
+    helper_dxvk: use tar -C instead of changing directories
+
+commit 8fa9b44c6bddc99d9b0ad8322cea0e1584cec6d9
+Author: Austin English <austinenglish@gmail.com>
+
+    vd: run wineserver -w after changing virtual desktop settings
+
+commit 8b3cf90cba4550bfd25a08be0fbe86a1ce524f6c
+Author: ThisNekoGuy <28468662+ThisNekoGuy@users.noreply.github.com>
+
+    Removed Trailing Spaces Triggering Shellcheck
+
+commit a9e7b150945d975c05320d4eb1a63d77f24e6dc9
+Author: ThisNekoGuy <28468662+ThisNekoGuy@users.noreply.github.com>
+
+    Added requested PR Spacing and Naming Consistency
+
+commit 32d408b8f4da24e951e5be9683912716ba3a002d
+Author: ThisNekoGuy <28468662+ThisNekoGuy@users.noreply.github.com>
+
+    Replaced hyphens causing SC3033 with underscores
+
+commit 6c7240c647cb1ac4b62a3243b69bc91285f55f61
+Author: ThisNekoGuy <28468662+ThisNekoGuy@users.noreply.github.com>
+
+    Attempt At Solving Issue #1983 (DXVK-NVAPI verb)
+
+commit 3b8dc4ab67fec72c53a30c032830ed5bfaacdfb1
+Author: ThisNekoGuy <28468662+ThisNekoGuy@users.noreply.github.com>
+
+    Line 6913: Corrected Incorrect Tag URL for DXVK
+
+commit d017f5475f22e31121edc1f19ee98c7327be4b2e
+Author: Georgi <68707872+RacerBG@users.noreply.github.com>
+
+    Adding Bulgarian Translation (#2049)
+
+commit a1d5f91585ca06250307a5abc3fedaec68a5f5b6
+Author: R1kaB3rN <100738684+R1kaB3rN@users.noreply.github.com>
+
+    Rename faudio latest to 20.07 (#2048)
+
+commit 4f6664af6405e6322d5db0684c33e99007633c4f
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine: use galliumnine08 on wine < v5.7
+
+commit bfd69111534a6572f88c79dd56e0aba039737c11
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine09: new verb
+
+commit bce8863cf883ef36761293b5095c52577c0fdaf1
+Author: Andre Heider <a.heider@gmail.com>
+
+    galliumnine*: mark broken on >= wine-8.3
+
+commit fc0e6b832f2510411100aed492bb17b52d830e2c
+Author: Austin English <austinenglish@gmail.com>
+
+    src/linkcheck.sh: restore needed code
+
+commit e8955d7693d948ff9f81acdd93228e5dc2d0e34d
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: remove old reference to $ftp_microsoft_com
+
+commit 9fdf3e2072cbe07628366e765d7fb6b8411fc840
+Author: Austin English <austinenglish@gmail.com>
+
+    .github/workflows: remove linkcheck action
+
+commit 50bf014e12fd97cefc29e36441aa7bbe4b6f83fa
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks_init: warn for wine < 7.0
+
+commit 66af4adb7c22955277aec34e89f12825b6ca75b7
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove games
+
+commit 5cd44ea185620acec5e8aadad8bce2e8d69d2c24
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    src/release.sh: Use external gzip to create local tarball
+
+commit d8f76860164dceaab61970e72fff4001c3c1be4a
+Author: Janne Pulkkinen <janne.pulkkinen@protonmail.com>
+
+    winecmd: Fix launch
+
+commit 092796ff5e25b102724351ae8771e5e5d13c1e4d
+Author: Janne Pulkkinen <janne.pulkkinen@protonmail.com>
+
+    shell: Fix terminal emulator crash
+
+commit a7e8a7308b09c0ff64920de5b51306b71cb27c45
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    debian/control: add alternative dependency on pkexec next to policykit-1
+
+commit bfe1523257d3dd4998b39881cc125a6268fcef85
+Author: SmallJoker <mk939@ymail.com>
+
+    Fix w_store_winver when  contains spaces
+
+commit 67545cd69cdaa62d2235fa0bccd95fa68bdbfe01
+Author: Vitaly Lipatov <lav@etersoft.ru>
+
+    Improved Russian translations
+
+commit 7f9e8ccdbe371035ba22eac4174c6c4b6216900c
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20230212-next
+
 commit e9f380aab64c07126d9259e1c16598c332c2f58f
 Author: Austin English <austinenglish@gmail.com>
 
