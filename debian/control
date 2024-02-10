@@ -21,9 +21,9 @@ Depends:
  wine,
  ${misc:Depends},
 Recommends:
+ 7zip | p7zip-full,
  cabextract,
  fuseiso | archivemount,
- p7zip-full,
  pkexec | policykit-1 | kde-cli-tools,
  sudo,
  unzip,
