@@ -1,3 +1,12 @@
+winetricks (20240105-2) unstable; urgency=medium
+
+  * Recommend 7zip, keep p7zip-full as alternative. (Closes: #1063623)
+  * Replace wine64.patch with new patch series to handle missing
+    /usr/bin/wine64.
+  * Add patch series to handle wrapper scripts. (Closes: #1063466)
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Fri, 23 Feb 2024 17:59:55 +0100
+
 winetricks (20240105-1) unstable; urgency=medium
 
   * New upstream release.
