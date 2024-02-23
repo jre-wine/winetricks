@@ -1,2 +1,3 @@
 disable-automatic-selfupdate.patch
-wine64.patch
+10_winetricks_set_wineprefix__provide_basics_to_determine_Wine_s_bindir.patch
+11_winetricks_set_wineprefix__workaround_if_wine64_is_only_in_Wine_s_bindir.patch
