@@ -1,3 +1,9 @@
+winetricks (20240105-3) unstable; urgency=medium
+
+  * Update wrapper script patches to only warn once about unknown WoW64 style.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Sun, 24 Mar 2024 13:26:20 +0100
+
 winetricks (20240105-2) unstable; urgency=medium
 
   * Recommend 7zip, keep p7zip-full as alternative. (Closes: #1063623)
