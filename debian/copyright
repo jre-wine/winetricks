@@ -8,7 +8,7 @@ Comment: winetricks is not part of the Debian distribution, but is in the
 Files: *
 Copyright:
  2007-2014 Dan Kegel <dank!kegel.com>
- 2008-2024 Austin English <austinenglish!gmail.com>
+ 2008-2025 Austin English <austinenglish!gmail.com>
  2010-2011 Phil Blankenship <phillip.e.blankenship!gmail.com>
  2010-2015 Shannon VanWagner <shannon.vanwagner!gmail.com>
  2010 Belhorma Bendebiche <amro256!gmail.com>
@@ -37,13 +37,13 @@ Copyright:
  2011-2013 Jari Aalto <jari.aalto@cante.net>
  2011      Tony Mancill <tmancill@debian.org>
  2014-2016 Joseph Bisch <joseph.bisch@gmail.com>
- 2017-2024 Jens Reyer <jre.winesim@gmail.com>
+ 2017-2025 Jens Reyer <jre.winesim@gmail.com>
  2022      Johannes Schauer Marin Rodrigues <josch@mister-muffin.de>
 License: LGPL-2.1+
 
-Files: src/winetricks.appdata.xml
+Files: src/io.github.winetricks.Winetricks.metainfo.xml
 Copyright:
- 2017 Daniel Rusek <mail@asciiwolf.com>
+ 2017-2024 Daniel Rusek <mail@asciiwolf.com>
 License: CC0-1.0
 
 Files: src/winetricks.bash-completion
