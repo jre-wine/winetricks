@@ -5,7 +5,7 @@ Homepage of Winetricks, previously hosted at <https://code.google.com/p/winetric
 
 Winetricks is an easy way to work around problems in Wine.
 
-It has a menu of supported games/apps for which it can do all the workarounds automatically. It also allows the installation of missing DLLs and tweaking of various Wine settings.
+It has a menu of supported applications for which it can do all the workarounds automatically. It also allows the installation of missing DLLs and tweaking of various Wine settings.
 
 The latest version can be downloaded here:
 https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
@@ -17,7 +17,7 @@ https://github.com/Winetricks/winetricks/releases
 The ```winetricks``` package should be used if it is available and up to date. The package is available in most mainstream (Unix-like) Operating Systems:
 
 * Arch: https://www.archlinux.org/packages/multilib/x86_64/winetricks/
-* Debian: https://packages.debian.org/sid/winetricks
+* Debian: https://packages.debian.org/search?searchon=names&keywords=winetricks
 * Fedora: https://fedoraproject.org/wiki/Wine#Packages
 * FreeBSD: https://www.freebsd.org/cgi/ports.cgi?query=winetricks&stype=all
 * Gentoo: https://packages.gentoo.org/packages/app-emulation/winetricks
