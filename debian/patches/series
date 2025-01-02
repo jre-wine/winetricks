@@ -1,1 +1,3 @@
-disable-automatic-selfupdate.patch
+01_disable-automatic-version-check.patch
+02_disable-automatic-selfupdate.patch
+03_ask-and-warn-selfupdate.patch

@@ -1,0 +1,31 @@
+Description: Disable automatic self-update, but add hint about running it manually.
+Author: Jens Reyer <jre.winesim@gmail.com>
+Forwarded: not-needed
+Last-Update: 2025-01-02
+
+--- a/src/winetricks
++++ b/src/winetricks
+@@ -3024,10 +3024,10 @@ winetricks_latest_version_check()
+     if [ ! "${WINETRICKS_VERSION}" = "${latest_version}" ] && [ ! "${WINETRICKS_VERSION}" = "${latest_version}-next" ]; then
+         if [ -f "${WINETRICKS_CONFIG}/enable-auto-update" ] ; then
+             w_info "You are running winetricks-${WINETRICKS_VERSION}."
+-            w_info "New upstream release winetricks-${latest_version} is available."
+-            w_info "auto-update enabled: running winetricks_selfupdate"
+-            winetricks_selfupdate
+-        else
++            w_info "The automatic self-update is removed in the Debian package, but you still can do a winetricks --self-update."
++            #winetricks_selfupdate
++        fi
++        #else
+             case ${LANG} in
+                 bg*)
+                     w_warn "Използвате winetricks-${WINETRICKS_VERSION}, последната версия е winetricks-${latest_version}!"
+@@ -3058,7 +3058,7 @@ winetricks_latest_version_check()
+                     w_warn "You should update using your distribution's package manager, --self-update, or manually."
+                     ;;
+             esac
+-        fi
++        #fi
+     fi
+ }
+ 

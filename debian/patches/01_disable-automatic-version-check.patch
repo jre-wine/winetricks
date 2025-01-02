@@ -1,0 +1,22 @@
+Description: Disable automatic version check, but add custom option for enabling it.
+Author: Jens Reyer <jre.winesim@gmail.com>
+Forwarded: not-needed
+Last-Update: 2025-02-01
+
+--- a/src/winetricks
++++ b/src/winetricks
+@@ -2990,8 +2990,13 @@ winetricks_get_platform()
+ 
+ winetricks_latest_version_check()
+ {
++    if [ -z "${WINETRICKS_LATEST_VERSION_CHECK}" ] && [ ! -f "${WINETRICKS_CONFIG}/enable-latest-version-check" ]; then
++        export WINETRICKS_LATEST_VERSION_CHECK="disabled"
++    fi
++
+     if [ "${WINETRICKS_LATEST_VERSION_CHECK}" = 'disabled' ] || [ -f "${WINETRICKS_CONFIG}/disable-latest-version-check" ] ; then
+-        w_info "winetricks latest version check update disabled"
++        echo "winetricks latest version check update disabled in the Debian package for privacy reasons."
++        echo "You may enable it by setting WINETRICKS_LATEST_VERSION_CHECK=enabled or creating ${WINETRICKS_CONFIG}/enable-latest-version-check"
+         return
+     # Used by ./src/release.sh, not for end users. Silently disables update check, without using $WINETRICKS_SUPER_QUIET
+     elif [ "${WINETRICKS_LATEST_VERSION_CHECK}" = 'development' ] ; then

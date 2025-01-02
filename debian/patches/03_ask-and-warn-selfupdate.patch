@@ -1,0 +1,71 @@
+Description: Ask and warn on manual self-update.
+Author: Jens Reyer <jre.winesim@gmail.com>
+Forwarded: not-needed
+Last-Update: 2025-01-02
+
+--- a/src/winetricks
++++ b/src/winetricks
+@@ -1339,6 +1339,18 @@ winetricks_check_update_availability()
+         w_warn "You don't have the proper permissions to run this command. Try again with sudo or as root."
+         exit
+     fi
++
++    w_warn "This will install Winetricks directly from its developers.  Debian has no control over that version."
++    printf %s "To continue press Y, to abort N, then Enter: "
++    read -r debresponse
++    if test "$debresponse" = Y || test "$debresponse" = y; then
++        true
++    elif test "$debresponse" = N || test "$debresponse" = n; then
++        exit
++    else
++        w_warn "Please press Y or N.  Aborting"
++        exit
++    fi
+ }
+ 
+ winetricks_selfupdate()
+@@ -1380,6 +1392,8 @@ winetricks_selfupdate()
+     w_try chmod +x "$0"
+ 
+     w_warn "Update finished! The current version is $($0 -V). Use 'winetricks --update-rollback' to return to the previous version."
++    w_warn "Winetricks is no more controlled by Debian but by the Winetricks project now."
++    w_warn "The next update of the winetricks Debian package may or may not revert this change."
+ 
+     exit
+ }
+@@ -4916,7 +4930,7 @@ winetricks_usage()
+     --gui             Показва графична диагностика
+     --gui=OPT         Избира kdialog или zenity (OPT)
+     --isolate         Инсталира всяко приложение или игра в отделна бутилка (ПАПКА)
+-    --self-update     Обновява това приложение
++    --self-update     Обновява това приложение (non-Debian)
+     --update-rollback Отменя последното обновяване на това приложение
+     --no-clean        Не изтрива временните директории (полезно е за отстраняване на неизправности)
+     --optin           Включва докладването за използваните глаголи към разработчиците на Winetricks
+@@ -4956,7 +4970,7 @@ Tilvalg:
+ -f, --force           Don't check whether packages were already installed
+     --gui             Show gui diagnostics even when driven by commandline
+     --isolate         Install each app or game in its own bottle (WINEPREFIX)
+-    --self-update     Update this application to the last version
++    --self-update     Update this application to the last version (non-Debian)
+     --update-rollback Rollback the last self update
+     --no-clean        Don't delete temp directories (useful during debugging)
+ -q, --unattended      stil ingen spørgsmål, installér bare automatisk
+@@ -4996,7 +5010,7 @@ Optionen:
+ -f, --force           Nicht prüfen ob Pakete bereits installiert wurden
+     --gui             GUI Diagnosen anzeigen, auch wenn von der Kommandozeile gestartet
+     --isolate         Jedes Programm oder Spiel in eigener Bottle (WINEPREFIX) installieren
+-    --self-update     Dieses Programm auf die neueste Version aktualisieren
++    --self-update     Dieses Programm auf die neueste Version aktualisieren (nicht von Debian)
+     --update-rollback Rollback des letzten Self Update
+     --no-clean        Temp Verzeichnisse nicht löschen (nützlich beim debuggen)
+ -q, --unattended      Keine Fragen stellen, alles automatisch installieren
+@@ -5036,7 +5050,7 @@ Options:
+     --gui             Show gui diagnostics even when driven by commandline
+     --gui=OPT         Set OPT to kdialog or zenity to override GUI engine
+     --isolate         Install each app or game in its own bottle (WINEPREFIX)
+-    --self-update     Update this application to the last version
++    --self-update     Update this application to the last version (non-Debian)
+     --update-rollback Rollback the last self update
+     --no-clean        Don't delete temp directories (useful during debugging)
+     --optin           Opt in to reporting which verbs you use to the Winetricks maintainers
