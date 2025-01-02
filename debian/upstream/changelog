@@ -1,3 +1,468 @@
+commit e20b2f6f80d175f96208f51800130db7459dd28c
+Author: Austin English <austinenglish@gmail.com>
+
+    version bump - 20250102
+
+commit 41e142e7012d24b8b9c4d2e162e34405d5591624
+Author: Austin English <austinenglish@gmail.com>
+
+    vb5run: mark as broken on wine-8.10+
+
+commit 9ff7f2fa049832169b74dc93d724a04e40139463
+Author: Austin English <austinenglish@gmail.com>
+
+    chcp: don't check return value
+
+commit 98078f5d2e5901d2524e6b16930451c42aff8c18
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    vcrun2015/17/19/22: manually install msvcp140.dll
+
+commit e1ce0883a348fee6e8ae7d87b52d15acf216aabb
+Author: Echo J <tcg96nougat@gmail.com>
+
+    dxvk2052: New verb
+
+commit 7223e6db298bace732a892a00e4c9746ff12ffd2
+Author: Blisto91 <Blisto@protonmail.com>
+
+    dxvk: Don't automatically install d3dcompiler or d3dx9
+
+commit 3e290e2cd05173c381874b9a7b19e48f44906174
+Author: Blisto91 <Blisto@protonmail.com>
+
+    dxvk: Don't install d3d10.dll or d3d10_1.dll
+
+commit 0d6c87165cfad2dd95c3d55200b332947b5af39b
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: set iertutil to native before running installer
+
+commit f10b7656f3b53f9a029ce4003cde63969ecc0711
+Author: Austin English <austinenglish@gmail.com>
+
+    src/io.github.winetricks.Winetricks.metainfo.xml: update maintainer info
+
+commit d7bc604468677a1fbbe7d7ac475ef52613e383cc
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove references to games
+
+commit f188520260d29d05985509cff8e5273c1d62df24
+Author: Austin English <austinenglish@gmail.com>
+
+    misc: remove iso/sudo support
+
+commit 21813d2e2a30bb121d59c4c3e09ace2213127a57
+Author: Austin English <austinenglish@gmail.com>
+
+    office2003/2007/2013: remove
+
+commit 7935a317a0af2aa45f29d6e5261bc34cb525350b
+Author: Blisto91 <Blisto@protonmail.com>
+
+    dxvk: Remove pre 1.0 versions
+
+commit bfb1282e0066be9c1049128f27e400f72cbc840b
+Author: Dāvis <davispuh@gmail.com>
+
+    Fix Unicode $USER (#2278)
+
+commit cede5047101299802a9756f0885e24a5b6f2fbb5
+Author: Root-Core <fabian.arndt@root-core.net>
+
+    Update and fix cnc-ddraw
+
+commit 6ab0bc785a3cde9d778cda6e5d61ab650f5aa15d
+Author: Root-Core <fabian.arndt@root-core.net>
+
+    Refactored link checks (#2204)
+
+commit 418f2803b0f6b1ca106290cca262ac7166b5774b
+Author: ThisNekoGuy <28468662+ThisNekoGuy@users.noreply.github.com>
+
+    7zip: update to 24.09 and added 64-bit support
+
+commit df750bc8b0b7ac77a39c50e852da6f18cfc9402e
+Author: Jack Greiner <jack@emoss.org>
+
+    powershell: Switch to w_get_github_latest_release
+
+commit 6d524869e7391db53a15bfbf50c9eb27061a54fa
+Author: Echo J <tcg96nougat@gmail.com>
+
+    dxvk2051: New verb
+
+commit 33d0df15dd8c8c3265e8b5daa15324adff5ce692
+Author: Echo J <tcg96nougat@gmail.com>
+
+    dxvk2050: New verb
+
+commit 801cc33f08d46bd8f8b9394c59ae6ba6ece8c808
+Author: Echo J <tcg96nougat@gmail.com>
+
+    dxvk2041: New verb
+
+commit ce4ee533ba9c649f699a70bd1c781a9f98ac57fb
+Author: Echo J <tcg96nougat@gmail.com>
+
+    dxvk2040: New verb
+
+commit 0aed83d6a3c9d45bf6546813c76e45577c93acdc
+Author: Echo J <tcg96nougat@gmail.com>
+
+    Add D3D8 support to DXVK
+
+commit f6e77e1dd3b271a336b0f98c5f616ad187221312
+Author: Lars Loe <madbyte@tuta.io>
+
+    Update URL for ucrtbase2019 to remove hardcoded archive.org prefix (#2280)
+
+commit fe276592e43b207fd491014b4570976c717fa12f
+Author: Austin English <austinenglish@gmail.com>
+
+    qq/qqintl: remove
+
+commit f93cd67a1b9ecaa0a20d9649a382b6e7dea345cf
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    vcrun2022: update sha256sum
+
+commit 66ce56314317bf23af5b5e3f0b05793cbb6ae48e
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    7zip: update to 24.09
+
+commit 007f67170cd058dc013be837190249c65e89470e
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    dotnet8: update to 8.0.11
+
+commit 8621b8732011d4e9b526daa8bf9de6bf8d533a57
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    dotnet6: update to 6.0.36
+
+commit 2fe6dce9ec8d207bf41705fe38dd937686baaa5c
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    dotnet9: new verb
+
+commit a06ea8795482d2f49a5461ab5f23e0036e38d12b
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun2017/2019/2022: update shasum
+
+commit bda76d06666a13f702c14cc7249b803c28d5346c
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: art2kmin is now fixed
+
+commit 84215ecb3a771a564575edced8497f81a52a3770
+Author: Ivan Ivlev <iviv@etersoft.ru>
+
+    redo opensymbol download, remove w_try_ar
+
+commit 98639860ff3bab69a58011ae185c4f8a28e9f461
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: blacklist art2kmin
+
+commit 136f4102bcd6885823426ea69a9068619a02e949
+Author: Austin English <austinenglish@gmail.com>
+
+    controlpad: fix typo in error message
+
+commit 80136a8d80e8124896cdfb97badcc85e8ef2facd
+Author: Austin English <austinenglish@gmail.com>
+
+    wmp9codecs: update URL
+
+commit 08ba97a89963d0672cf68f5d5c1e55322ff48448
+Author: Austin English <austinenglish@gmail.com>
+
+    winetricks: add WINETRICKS_NO_ARCHIVE_ORG variable for disabling archive.org fallback
+
+commit 4ce3c3e2789e0c31e07d145e0566775e1eea3f3a
+Author: Austin English <austinenglish@gmail.com>
+
+    vc2010express: update URL
+
+commit 6724c6d70292130e9e9c2fd150f246f117c44dd2
+Author: Austin English <austinenglish@gmail.com>
+
+    xaudio29: update URL
+
+commit 53361a06d88387408dd03f1151cc9eda60f03fdc
+Author: Arne de Bruijn <mail@arnedebruijn.nl>
+
+    Fix multiple verbs getting latest github release
+
+commit 9f0d52971ff05c2db89b7d563ea56fc96d2359af
+Author: Tibor Dancs <TheScrewCollab@gmail.com>
+
+    Fixing missing space in dotnetdesktop8
+
+commit b8d145a95171e3d9a58ed0bd37bf2bae64d8230f
+Author: Maotong Zhang <zmtong1988@gmail.com>
+
+    dotnet:Fix 64 bit rundll32.exe pop-up window
+
+commit 02a025da00af50c4954ef75515ef5ba52d3bdb76
+Author: QuintenQVD0 <josdekurk@gmail.com>
+
+    Update dotnet 6 version
+
+commit db56f9d8e5a91d212cbad4e3ca81928d0e34df6b
+Author: QuintenQVD0 <josdekurk@gmail.com>
+
+    Update dotnet 7 version
+
+commit 0b1491d0e2997de9403640d2f488361b0b867d3d
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    Update dotnet 8 version
+
+commit c62bfd6b160d98f6f9545872a7e3c634dbd3f378
+Author: Jack Greiner <jack@emoss.org>
+
+    powershell: Bump version of powershell wrapper to 2.1.3.
+
+commit 72b934e1e10c041ec6986f5f2fb4f143d8f6b941
+Author: Jack Greiner <jack@emoss.org>
+
+    powershell: Bump version of powershell wrapper.
+
+commit eeaed1f4651a4b19d56891e588a881936ea7a159
+Author: Jack Greiner <jack@emoss.org>
+
+    powershell and powershell_core: Fix shellcheck complaints.
+
+commit d486bc92147b769afa5693890f6031c61eae054f
+Author: Jack Greiner <jack@emoss.org>
+
+    powershell: new verb
+
+commit 07fa5dc819cbab3f4ec43d76767775cc63b61da8
+Author: Jack Greiner <jack@emoss.org>
+
+    powershell_core: new verb
+
+commit 4fe62c76b805074124d19c822a49bfb6bd0cae07
+Author: Jack Greiner <jack@emoss.org>
+
+    tests/shell-checks: Fix detection of bashate and shellcheck
+
+commit b66eb9f53943f7d7582b7f3ba7969ce6e5182a32
+Author: AsciiWolf <mail@asciiwolf.com>
+
+    Modernize the AppStream metadata
+
+commit a41ce69ee7b77e717c296e079f53cc2a19035fc7
+Author: Alex Henrie <alexhenrie24@gmail.com>
+
+    opensymbol: download from archive.debian.org
+
+commit 9a0c389ee2ae8a87dbc4e0a9448b5711e60ad1be
+Author: Alex Henrie <alexhenrie24@gmail.com>
+
+    vcrun2022: update hashes
+
+commit 241e505c9b2a6ccce6e683b4720683b0694840ef
+Author: Alex Henrie <alexhenrie24@gmail.com>
+
+    micross: new verb
+
+commit 8ffdb53f5aebfe51502ecceb0d5e7994ad814424
+Author: Captain-Barge <83183390+Captain-Barge@users.noreply.github.com>
+
+    Update README's Debian install instructions
+
+commit e4dcd5fe2895ea823ec59e0f8224c1701576fdd8
+Author: Mohamad Al-Jaf <mohamadaljaf@gmail.com>
+
+    winetricks: Update msvcrt40 description.
+
+commit 383292899865c41d7f9e5e77c3f09b73e72a0fde
+Author: Austin English <austinenglish@gmail.com>
+
+    .shellcheckrc: add deprecate-which
+
+commit 63fabed3fe08c53e41d54921d9b7519fbbf98459
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks_set_wineprefix: replace which with command -v
+
+commit 98e5c33b201fb951ac4eac53ab0b49d3d56781aa
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks_set_wineprefix w_warn: fix typo apppear
+
+commit 14156c0080484423594f3a3b4a0baa52e6b8d171
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks_set_wineprefix: warn once if wow64 unknown
+
+commit 6f91bcec85eb4286a74d378b1473804b5d8e6447
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks_get_file_arch: try workaround for scripts if arch is unknown
+
+commit 0dc7677a84112132bb5250c7632d39bcf7b4ca63
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks_set_wineprefix: workaround if wine64 is only in Wine's bindir
+
+commit c41fed43d8723fa027cf8116b823b55183f3801c
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks_set_wineprefix: provide basics to determine Wine's bindir
+
+commit be81938a10af4e55cdf2ada1167dd24157aa0e36
+Author: Ralf Habacker <ralf.habacker@freenet.de>
+
+    dbgview: new verb
+
+commit 2f4fc268c49746d8d16e21aa5e84db679eab540b
+Author: Ralf Habacker <ralf.habacker@freenet.de>
+
+    procexp: new verb
+
+commit 391fe74da88d1593ba68f534df59f22ddc5c569a
+Author: Georgi <68707872+RacerBG@users.noreply.github.com>
+
+    updated bulgarian translation
+
+commit bc2ff55a63ccbf62be8bb163d57e12b7955a2842
+Author: Austin English <austinenglish@gmail.com>
+
+    physx: broken in wine-9.5
+
+commit 2361b71ae4034add7119efc32a6b60d6738d84e4
+Author: gardenapple <mailbox@appl.garden>
+
+    graphics: New verb, for enabling Wayland
+
+commit 16ab1eab22c3fa9f92f6a008dea8094d6eafa416
+Author: zpangwin <zpangwin@users.noreply.github.com>
+
+    minor update to win64 warning messages to support toggling via exported env var in addition to current approach (per proposal in issue #1730 comments)
+
+commit 06cb73fd3a22f24cfcf594ff332f8eedb6af3fe6
+Author: Austin English <austinenglish@gmail.com>
+
+    icodecs: broken on wow64
+
+commit 4413dcca315ef615a78954a42d75466ae03e6e4b
+Author: Austin English <austinenglish@gmail.com>
+
+    +w_package_broken_wow64: new function
+
+commit cab3af381a8d1a33abdf859f4db8374fcf54e21f
+Author: Ralf Habacker <ralf.habacker@freenet.de>
+
+    depends: new verb
+
+commit 13becaf04fd630cc386c43e9eb943f16b2f2c035
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks: display messages for users to stderr
+
+commit 8a4221661800feabca576b444a0c83820bba2936
+Author: Austin English <austinenglish@gmail.com>
+
+    tests/winetricks-test: vb5run is broken upstream
+
+commit 44fcb61f7d0fda7467215b2d92262a57cc296ad1
+Author: Austin English <austinenglish@gmail.com>
+
+    opensymbol: update download URL
+
+commit 23de3a8dcdc98bc3a3d41995ad2d6b46eb3eba55
+Author: Gijs Vermeulen <gijsvrm@gmail.com>
+
+    alldlls=builtin: remove openal32
+
+commit f87bf9e6a7c67a06487a1ef710c0d9c548ae6f01
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    cnc_ddraw: Update to v6.2.0.0
+
+commit 8d7bc91caca476b2dad9ddb3589f217901c59aaa
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    dotnet8|dotnetdesktop8: new verbs
+
+commit 99b9f0113838b89df35a226ee41ced295d50bbaa
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    d2gl: new verb
+
+commit 02a555d6b17b80f5fadbaef9a29902661fd5a77d
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    debian: recommend 7zip, keep p7zip-full as alternative
+
+commit 4302a8d2d8c76de1134b5462bcdc5492dfd65450
+Author: Jens Reyer <jre.winesim@gmail.com>
+
+    winetricks: update Debian package recommendations
+
+commit ba57f2dcdcb8253298c90da5c27354cabad75ede
+Author: Dean M Greer <38226388+Gcenx@users.noreply.github.com>
+
+    origin: Updated workaround to v3
+
+commit a9a556719e4fd28fc5984a963e2d666ec809f554
+Author: Quinten <67589015+QuintenQVD0@users.noreply.github.com>
+
+    Update vcrun2022 sha256 sum
+
+commit 6f40a932b7a13e3cf427ec31be47daee88bd3182
+Author: Fabian Maurer <dark.shadow4@web.de>
+
+    Add otvdm verb
+
+commit 3fb6bcff2a80391d10d6860e871371ac53095c36
+Author: QwertyChouskie <qwertychouskie@users.noreply.github.com>
+
+    msxml3: fixup
+
+commit b52d4d5ed0d488d319089d5432d9f61100bff1de
+Author: QwertyChouskie <qwertychouskie@users.noreply.github.com>
+
+    msxml3: Use even newer version from win7sp1
+
+commit a8894cffc1cd6678278b82c2de556b875b750dc1
+Author: QwertyChouskie <qwertychouskie@users.noreply.github.com>
+
+    msxml3: Update to newer version; add 64-bit support
+
+commit 3b166b42fcc635c78f79340b5820d27c19158ae8
+Author: GloriousEggroll <gloriouseggroll@gmail.com>
+
+    7zip in w_try_unzip needs -y flag to autoconfirm
+
+commit 6e1aa1e5917944422082f28d410f270986792489
+Author: Alexander Olofsson <ace@haxalot.com>
+
+    xaudio29: new verb
+
+commit 46dfa8f5161c10829104fd8d8655db9adf745c73
+Author: Austin English <austinenglish@gmail.com>
+
+    vcrun6sp6: reorder cabextract options
+
+commit 5c7e19ecd37fb12d82d70b7cbe7c86b859edf6f8
+Author: Austin English <austinenglish@gmail.com>
+
+    ie8: fix install on win64 prefixes
+
+commit 8602e693fad10c99abc6749c5a352765b838bc00
+Author: Austin English <austinenglish@gmail.com>
+
+    development version bump - 20240105-next
+
 commit bc91718a5cad45e9f33de9b351a5960d5395bed5
 Author: Austin English <austinenglish@gmail.com>
 

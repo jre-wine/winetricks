@@ -1,3 +1,19 @@
+winetricks (20250102-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop patches for handling wrapper scripts and missing /usr/bin/wine64.
+    Applied upstream.
+  * Update and split disable-automatic-selfupdate.patch
+    - 01_disable-automatic-version-check.patch
+      New: Add custom option for enabling it.
+    - 02_disable-automatic-selfupdate.patch
+      New: Add hint about running it manually.
+    - 03_ask-and-warn-selfupdate.patch
+  * Update standards version to 4.7.0, no changes needed.
+  * Update debian/copyright.
+
+ -- Jens Reyer <jre.winesim@gmail.com>  Thu, 02 Jan 2025 20:40:51 +0100
+
 winetricks (20240105-3) unstable; urgency=medium
 
   * Update wrapper script patches to only warn once about unknown WoW64 style.
