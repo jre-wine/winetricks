@@ -1,5 +1,5 @@
 .\" -*- nroff -*-
-.TH WINETRICKS 1 "January 2024" "Winetricks 20240105" "Wine Package Manager"
+.TH WINETRICKS 1 "January 2025" "Winetricks 20250102" "Wine Package Manager"
 .SH NAME
 winetricks \- manage virtual Windows environments using Wine
 .SH SYNOPSIS
@@ -12,7 +12,7 @@ is an easy way to work around common problems in Wine.
 It provides simple commands to
 tweak Wine settings,
 download and install missing Windows DLLs and fonts,
-or install various games or apps with appropriate workarounds for the current version of Wine.
+or install various applications with appropriate workarounds for the current version of Wine.
 .PP
 It can be used via GUI or command line.  The command-line mode is intended both for interactive use and as a building block in fancier Wine frontends and in automated regression testing.
 
@@ -51,10 +51,6 @@ Update this application to the last version
 Rollback the last self update
 .TP
 .B
-\-k, \-\-keep_isos
-Cache ISOs (allows later installation without disc)
-.TP
-.B
 \-\-no\-isolate
 Don't install each app or game in its own bottle (default)
 .TP
@@ -73,10 +69,6 @@ Opt out of reporting which verbs you use to the Winetricks maintainers
 .B
 \-q, \-\-unattended
 Don't ask any questions, just install automatically
-.TP
-.B
-\-r, \-\-ddrescue
-Retry hard when caching scratched discs
 .TP
 .B
 \-t, \-\-torify
