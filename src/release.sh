@@ -21,6 +21,10 @@ if [ "$1" = "--no-push" ] ; then
     nopush=1
     shift
 # If we _are_ pushing, we'll need a github token:
+# This may be created here: https://github.com/settings/personal-access-tokens/new
+# There, choose only the winetricks repository with following read/write permissions:
+# - Contents
+# - ...
 elif [ -z "${GITHUB_TOKEN}" ] ; then
     echo "--no-push wasn't given, GITHUB_TOKEN must be set in the environment!"
     exit 1
