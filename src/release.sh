@@ -88,8 +88,8 @@ git commit src/winetricks -m "development version bump - ${version}-next"
 if [ ${nopush} = 1 ] ; then
     echo "--no-push used, not pushing commits / tags"
 else
-    git push
-    git push --tags
+    git push github_jre-wine
+    git push --tags github_jre-wine
 fi
 
 # create local tarball, identical to github's generated one
@@ -98,13 +98,13 @@ git -c tar.tar.gz.command='gzip -cn' \
     -o "${tmpdir}/${version}.tar.gz" "${version}"
 
 # create a detached signature of the tarball
-gpg --armor --default-key 0x267BCC1F053F0749 --detach-sign "${tmpdir}/${version}.tar.gz"
+gpg --armor --default-key 0x79C43E620B039B35 --detach-sign "${tmpdir}/${version}.tar.gz"
 
 # upload the detached signature to github:
 if [ ${nopush} = 1 ] ; then
     echo "--no-push used, not uploading signature file"
 else
-    python3 src/github-api-releases.py "${tmpdir}/${version}.tar.gz.asc" Winetricks winetricks "${version}"
+    python3 src/github-api-releases.py "${tmpdir}/${version}.tar.gz.asc" jre-wine winetricks "${version}"
     rm -rf "${tmpdir}"
 fi
 
